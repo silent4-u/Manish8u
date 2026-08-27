@@ -1,0 +1,18 @@
+{
+  "name": "Lok Sewa Sathi — लोक सेवा साथी",
+  "short_name": "Lok Sewa Sathi",
+  "description": "Nepal civil service preparation for Section Officer, Nayab Subba and Kharidar, in Nepali and English.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f5f2",
+  "theme_color": "#c8102e",
+  "lang": "ne",
+  "categories": ["education"],
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
