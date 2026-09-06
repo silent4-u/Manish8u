@@ -245,6 +245,16 @@ html[data-lang='ne'] .eyebrow { text-transform: none; letter-spacing: 0.02em; }
 .pill-accent { background: var(--crimson-soft); border-color: color-mix(in srgb, var(--crimson) 30%, transparent); color: var(--crimson); }
 .pill-ok { background: var(--ok-soft); border-color: color-mix(in srgb, var(--ok) 35%, transparent); color: var(--ok); }
 .pill-err { background: var(--err-soft); border-color: color-mix(in srgb, var(--err) 35%, transparent); color: var(--err); }
+.pill-warn { background: color-mix(in srgb, var(--amber) 14%, var(--surface)); border-color: color-mix(in srgb, var(--amber) 40%, transparent); color: var(--amber); }
+
+/* Month bands in the contemporary-issues list. */
+.month-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  padding-bottom: 6px; margin-bottom: 10px; border-bottom: 2px solid var(--border-strong);
+}
+.month-head h2 { margin: 0; font-size: 1.15rem; }
+/* An unchecked entry is visibly provisional, never mistakable for settled fact. */
+.card.unverified { border-left: 3px solid var(--amber); }
 
 .notice {
   display: flex; gap: 10px;

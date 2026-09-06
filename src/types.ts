@@ -97,14 +97,29 @@ export interface Question {
   explanation: Bilingual;
 }
 
+/**
+ * How far a current-affairs entry has been checked. Entries gathered from
+ * news search are `unverified` until someone confirms them against an
+ * official source, and the app marks them as such so a candidate is never
+ * shown an unchecked claim as settled fact.
+ */
+export type AffairStatus = 'verified' | 'unverified';
+
 export interface CurrentAffair {
   id: string;
   /** ISO date of the event or of the note. */
   date: string;
+  /** Calendar month the entry files under, as YYYY-MM. */
+  month: string;
   category: Bilingual;
   title: Bilingual;
   detail: Bilingual;
   levels: LevelId[];
+  status: AffairStatus;
+  /** Where the claim came from. Required for anything not yet verified. */
+  sources?: string[];
+  /** What specifically still needs confirming, when status is unverified. */
+  checkNote?: Bilingual;
 }
 
 /** One finished quiz or mock test, kept in local storage. */

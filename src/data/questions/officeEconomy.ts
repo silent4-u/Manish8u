@@ -174,10 +174,10 @@ const specs: QSpec[] = [
   },
   {
     id: 'eco-q12', s: 'dev-economy', lv: 'an', d: 'medium',
-    q: ['Nepal is scheduled to graduate from Least Developed Country status in which year?', 'नेपाल कुन सालमा अतिकम विकसित मुलुकको सूचीबाट स्तरोन्नति हुने तय भएको छ?'],
-    o: [['2024', 'सन् २०२४'], ['2026', 'सन् २०२६'], ['2030', 'सन् २०३०'], ['2035', 'सन् २०३५']],
-    a: 1,
-    e: ['The UN General Assembly approved Nepal’s graduation with effect from November 2026.', 'संयुक्त राष्ट्र संघीय महासभाले नोभेम्बर २०२६ देखि लागू हुने गरी नेपालको स्तरोन्नति स्वीकृत गरेको हो।'],
+    q: ['Which United Nations body reviews whether a country meets the criteria to graduate from Least Developed Country status?', 'कुनै मुलुकले अतिकम विकसित मुलुकबाट स्तरोन्नति हुने मापदण्ड पूरा गरे नगरेको समीक्षा संयुक्त राष्ट्र संघको कुन निकायले गर्छ?'],
+    o: [['Committee for Development Policy', 'विकास नीति समिति'], ['Security Council', 'सुरक्षा परिषद्'], ['International Court of Justice', 'अन्तर्राष्ट्रिय न्यायालय'], ['Trusteeship Council', 'संरक्षण परिषद्']],
+    a: 0,
+    e: ['The Committee for Development Policy carries out the triennial review and recommends graduation; the Economic and Social Council and the General Assembly then endorse it.', 'विकास नीति समितिले हरेक तीन वर्षमा समीक्षा गरी स्तरोन्नतिको सिफारिस गर्छ; त्यसपछि आर्थिक तथा सामाजिक परिषद् र महासभाले अनुमोदन गर्छन्।'],
   },
 ];
 

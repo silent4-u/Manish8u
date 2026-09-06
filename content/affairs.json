@@ -1,33 +1,106 @@
 {
   "note": {
-    "en": "This is a revision list of standing contemporary topics, not a daily news feed. Update src/data/currentAffairs.ts with fresh entries and always cross-check figures against the latest official publication.",
-    "ne": "यो दैनिक समाचार होइन, बारम्बार सोधिने समसामयिक विषयको दोहोर्‍याउने सूची हो। नयाँ घटना थप्न src/data/currentAffairs.ts सम्पादन गर्नुहोस् र अंक सधैँ पछिल्लो आधिकारिक प्रकाशनसँग भिडाउनुहोस्।"
+    "en": "Filed by month. Entries marked \"needs checking\" came from news search and have not been confirmed against an official source — read them as leads, not as settled answers.",
+    "ne": "महिना अनुसार राखिएको। \"जाँच बाँकी\" भनी चिन्ह लगाइएका सामग्री समाचार खोजबाट लिइएका हुन् र आधिकारिक स्रोतबाट पुष्टि भइसकेका छैनन् — तिनलाई निश्चित उत्तर होइन, सुराकका रूपमा पढ्नुहोस्।"
   },
   "affairs": [
     {
-      "id": "ca-01",
-      "date": "2026-11-24",
+      "id": "ca-2608-01",
+      "date": "2026-08-01",
+      "month": "2026-08",
+      "status": "unverified",
       "category": {
-        "en": "Economy",
-        "ne": "अर्थतन्त्र"
+        "en": "Federalism",
+        "ne": "संघीयता"
       },
       "title": {
-        "en": "Nepal’s graduation from Least Developed Country status",
-        "ne": "अतिकम विकसित मुलुकबाट नेपालको स्तरोन्नति"
+        "en": "Ruling coalition collapses in Sudurpashchim Province",
+        "ne": "सुदूरपश्चिम प्रदेशमा सत्ता गठबन्धन विघटन"
       },
       "detail": {
-        "en": "The UN General Assembly approved Nepal’s graduation from the LDC category with effect from November 2026. Expect questions on the three graduation criteria — income per capita, human assets index and economic and environmental vulnerability index — and on the loss of LDC-specific trade preferences.",
-        "ne": "संयुक्त राष्ट्र संघीय महासभाले नोभेम्बर २०२६ देखि लागू हुने गरी नेपाललाई अतिकम विकसित मुलुकको सूचीबाट स्तरोन्नति गर्न स्वीकृत गरेको छ। स्तरोन्नतिका तीन मापदण्ड — प्रतिव्यक्ति आय, मानव सम्पत्ति सूचकांक र आर्थिक तथा वातावरणीय जोखिम सूचकांक — र अतिकम विकसित मुलुकलाई मिल्ने व्यापारिक सुविधा गुम्ने विषयमा प्रश्न आउन सक्छ।"
+        "en": "Reported that the Sudurpashchim provincial coalition broke down over budget disputes, with the Chief Minister dismissing ministers who refused to withdraw expenditure-cut proposals and a coalition partner withdrawing support, leaving a minority government. Useful as a live illustration of provincial government formation, confidence and Article 168 of the constitution.",
+        "ne": "बजेट विवादका कारण सुदूरपश्चिम प्रदेशको सत्ता गठबन्धन टुटेको, खर्च कटौती प्रस्ताव फिर्ता लिन नमान्ने मन्त्रीहरूलाई मुख्यमन्त्रीले बर्खास्त गरेको र गठबन्धन साझेदारले समर्थन फिर्ता लिँदा अल्पमतको सरकार बनेको समाचार। प्रदेश सरकार गठन, विश्वासको मत र संविधानको धारा १६८ बुझ्न जीवन्त उदाहरण।"
       },
       "levels": [
         "adhikrit",
         "nayabsubba",
         "kharidar"
-      ]
+      ],
+      "sources": [
+        "https://english.nepalnews.com/"
+      ],
+      "checkNote": {
+        "en": "Confirm the province, the parties involved and the dates before treating any of this as exam-ready.",
+        "ne": "परीक्षाका लागि प्रयोग गर्नुअघि प्रदेश, सम्बद्ध दल र मितिहरू पुष्टि गर्नुहोस्।"
+      }
+    },
+    {
+      "id": "ca-2606-01",
+      "date": "2026-06-01",
+      "month": "2026-06",
+      "status": "unverified",
+      "category": {
+        "en": "Budget",
+        "ne": "बजेट"
+      },
+      "title": {
+        "en": "Federal budget for fiscal year 2026/27",
+        "ne": "आर्थिक वर्ष २०८३/८४ को संघीय बजेट"
+      },
+      "detail": {
+        "en": "Reported as the largest budget presented to date, at around Rs 2,124 billion, with stated targets of about 7 per cent growth and inflation held near 6 per cent. Know the constitutional mechanics regardless of the figures: Article 119 requires the budget on 15 Jestha, and the Appropriation Bill follows.",
+        "ne": "अहिलेसम्मकै ठूलो, करिब २१ खर्ब २४ अर्ब रुपैयाँको बजेट प्रस्तुत भएको र करिब ७ प्रतिशत आर्थिक वृद्धि तथा ६ प्रतिशत हाराहारीमा मुद्रास्फीति कायम गर्ने लक्ष्य राखिएको समाचार। अंक जेसुकै भए पनि संवैधानिक प्रक्रिया जान्नुहोस्: धारा ११९ अनुसार जेठ १५ मा बजेट पेस हुन्छ र त्यसपछि विनियोजन विधेयक आउँछ।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "sources": [
+        "https://english.nepalnews.com/",
+        "https://english.onlinekhabar.com/"
+      ],
+      "checkNote": {
+        "en": "Confirm the total outlay, the growth and inflation targets and the finance minister’s name against the published budget speech.",
+        "ne": "कुल विनियोजन, वृद्धि तथा मुद्रास्फीति लक्ष्य र अर्थमन्त्रीको नाम प्रकाशित बजेट वक्तव्यसँग भिडाउनुहोस्।"
+      }
+    },
+    {
+      "id": "ca-2605-01",
+      "date": "2026-05-13",
+      "month": "2026-05",
+      "status": "unverified",
+      "category": {
+        "en": "Economy",
+        "ne": "अर्थतन्त्र"
+      },
+      "title": {
+        "en": "Nepal asks the UN to defer LDC graduation",
+        "ne": "अतिकम विकसित मुलुकबाट स्तरोन्नति स्थगनका लागि नेपालको अनुरोध"
+      },
+      "detail": {
+        "en": "Nepal was scheduled to leave the Least Developed Country category on 24 November 2026. It is reported that the government wrote to the UN Committee for Development Policy in May 2026 asking to postpone that, citing weak recovery and risks to exports and jobs — Nepal having previously deferred after the 2015 earthquake and again during Covid-19. The three graduation criteria themselves do not change: income per capita, the human assets index, and the economic and environmental vulnerability index.",
+        "ne": "नेपाल २०२६ नोभेम्बर २४ मा अतिकम विकसित मुलुकको सूचीबाट बाहिरिने तय थियो। कमजोर आर्थिक पुनरुत्थान तथा निर्यात र रोजगारीमा पर्ने जोखिम देखाउँदै सरकारले सन् २०२६ मे मा संयुक्त राष्ट्र संघीय विकास नीति समितिलाई स्थगनका लागि पत्राचार गरेको समाचार छ — यसअघि सन् २०१५ को भूकम्प र कोभिड–१९ का बेला पनि स्थगन भएको थियो। स्तरोन्नतिका तीन मापदण्ड भने उही रहन्छन्: प्रतिव्यक्ति आय, मानव सम्पत्ति सूचकांक र आर्थिक तथा वातावरणीय जोखिम सूचकांक।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "sources": [
+        "https://kathmandupost.com/money/2026/05/22/nepal-moves-to-defer-ldc-graduation-until-2029",
+        "https://myrepublica.nagariknetwork.com/",
+        "https://www.atlanticcouncil.org/"
+      ],
+      "checkNote": {
+        "en": "The new target year is reported inconsistently — 2028, 2029 and 2030 all appear in coverage — and a request is not the same as UN approval. Do not state a new graduation date until you have confirmed it and the decision status.",
+        "ne": "नयाँ लक्ष्य वर्ष फरक-फरक आएको छ — समाचारमा सन् २०२८, २०२९ र २०३० तीनै देखिन्छन् — र अनुरोध भनेको संयुक्त राष्ट्र संघको स्वीकृति होइन। पुष्टि नभएसम्म नयाँ मिति उल्लेख नगर्नुहोस्।"
+      }
     },
     {
       "id": "ca-02",
       "date": "2024-07-16",
+      "month": "2024-07",
+      "status": "verified",
       "category": {
         "en": "Planning",
         "ne": "योजना"
@@ -48,6 +121,8 @@
     {
       "id": "ca-03",
       "date": "2023-01-25",
+      "month": "2023-01",
+      "status": "verified",
       "category": {
         "en": "Population",
         "ne": "जनसंख्या"
@@ -69,6 +144,8 @@
     {
       "id": "ca-04",
       "date": "2023-09-15",
+      "month": "2023-09",
+      "status": "verified",
       "category": {
         "en": "Governance",
         "ne": "शासन व्यवस्था"
@@ -87,29 +164,10 @@
       ]
     },
     {
-      "id": "ca-05",
-      "date": "2019-09-01",
-      "category": {
-        "en": "Digital governance",
-        "ne": "डिजिटल सुशासन"
-      },
-      "title": {
-        "en": "Digital Nepal Framework",
-        "ne": "डिजिटल नेपाल फ्रेमवर्क"
-      },
-      "detail": {
-        "en": "The Digital Nepal Framework sets out sectors for digital transformation including digital foundation, agriculture, health, education, energy, tourism, finance and urban infrastructure. Pair it with the Electronic Transaction Act 2063 and the Nagarik App when answering e-governance questions.",
-        "ne": "डिजिटल नेपाल फ्रेमवर्कले डिजिटल आधार, कृषि, स्वास्थ्य, शिक्षा, ऊर्जा, पर्यटन, वित्त र सहरी पूर्वाधार लगायतका डिजिटल रूपान्तरणका क्षेत्र तोकेको छ। विद्युतीय सुशासनसम्बन्धी उत्तरमा यसलाई विद्युतीय कारोबार ऐन २०६३ र नागरिक एपसँग जोडेर लेख्नुहोस्।"
-      },
-      "levels": [
-        "adhikrit",
-        "nayabsubba",
-        "kharidar"
-      ]
-    },
-    {
       "id": "ca-06",
       "date": "2020-12-08",
+      "month": "2020-12",
+      "status": "verified",
       "category": {
         "en": "Geography",
         "ne": "भूगोल"
@@ -129,8 +187,33 @@
       ]
     },
     {
+      "id": "ca-05",
+      "date": "2019-09-01",
+      "month": "2019-09",
+      "status": "verified",
+      "category": {
+        "en": "Digital governance",
+        "ne": "डिजिटल सुशासन"
+      },
+      "title": {
+        "en": "Digital Nepal Framework",
+        "ne": "डिजिटल नेपाल फ्रेमवर्क"
+      },
+      "detail": {
+        "en": "The Digital Nepal Framework sets out sectors for digital transformation including digital foundation, agriculture, health, education, energy, tourism, finance and urban infrastructure. Pair it with the Electronic Transaction Act 2063 and the Nagarik App when answering e-governance questions.",
+        "ne": "डिजिटल नेपाल फ्रेमवर्कले डिजिटल आधार, कृषि, स्वास्थ्य, शिक्षा, ऊर्जा, पर्यटन, वित्त र सहरी पूर्वाधार लगायतका डिजिटल रूपान्तरणका क्षेत्र तोकेको छ। विद्युतीय सुशासनसम्बन्धी उत्तरमा यसलाई विद्युतीय कारोबार ऐन २०६३ र नागरिक एपसँग जोडेर लेख्नुहोस्।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
       "id": "ca-07",
       "date": "2015-09-25",
+      "month": "2015-09",
+      "status": "verified",
       "category": {
         "en": "International",
         "ne": "अन्तर्राष्ट्रिय"

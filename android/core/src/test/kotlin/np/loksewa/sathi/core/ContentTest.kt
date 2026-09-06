@@ -19,7 +19,7 @@ class ContentTest {
         assertEquals(11, repo.subjects.size, "subjects")
         assertEquals(22, repo.lessons.size, "lessons")
         assertEquals(184, repo.questions.size, "questions")
-        assertEquals(7, repo.affairs.size, "current affairs")
+        assertEquals(9, repo.affairs.size, "current affairs")
     }
 
     @Test
@@ -114,6 +114,35 @@ class ContentTest {
                     }
                 }
             }
+        }
+    }
+
+    @Test
+    fun `current affairs are filed by month, newest first`() {
+        val grouped = repo.affairsByMonth("adhikrit")
+        assertTrue(grouped.isNotEmpty(), "no months")
+        val months = grouped.map { it.first }
+        assertEquals(months.sortedDescending(), months, "months must run newest first")
+        months.forEach { assertTrue(Regex("^\\d{4}-\\d{2}$").matches(it), "bad month key: $it") }
+        grouped.forEach { (month, items) ->
+            items.forEach { assertEquals(month, it.month, "${it.id} filed under the wrong month") }
+        }
+    }
+
+    @Test
+    fun `an unverified entry carries its sources and what to check`() {
+        val unverified = repo.affairs.filter { !it.isVerified }
+        unverified.forEach {
+            assertTrue(it.sources.isNotEmpty(), "${it.id}: unverified with no source")
+            assertNotNull(it.checkNote, "${it.id}: unverified with nothing to check")
+            assertTrue(
+                it.checkNote!!.en.isNotBlank() && it.checkNote!!.ne.isNotBlank(),
+                "${it.id}: check note must be bilingual",
+            )
+        }
+        // Status is a closed set; a typo would silently render as unverified.
+        repo.affairs.forEach {
+            assertTrue(it.status in setOf("verified", "unverified"), "${it.id}: status ${it.status}")
         }
     }
 }

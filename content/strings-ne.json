@@ -100,5 +100,10 @@
   "savedItems": "सामग्री सुरक्षित",
   "nothingSaved": "अहिलेसम्म केही सुरक्षित छैन। पाठ वा प्रश्नमा रहेको बुकमार्क बटन प्रयोग गर्नुहोस्।",
   "syllabusNotice": "यो पाठ्यक्रमबारे",
+  "needsChecking": "जाँच बाँकी",
+  "beforeYouTrustThis": "भर पर्नुअघि:",
+  "reportedBy": "स्रोत",
+  "oneEntry": "सामग्री",
+  "manyEntries": "सामग्री",
   "offlineReady": "एकपटक खुलेपछि अफलाइन चल्छ"
 }

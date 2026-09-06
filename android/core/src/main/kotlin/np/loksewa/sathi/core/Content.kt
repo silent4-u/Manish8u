@@ -49,6 +49,14 @@ class ContentRepository private constructor(
     fun affairsFor(levelId: String): List<CurrentAffair> =
         affairs.filter { levelId in it.levels }.sortedByDescending { it.date }
 
+    /** Entries grouped newest month first, for the monthly view. */
+    fun affairsByMonth(levelId: String): List<Pair<String, List<CurrentAffair>>> =
+        affairsFor(levelId)
+            .groupBy { it.month }
+            .toList()
+            .sortedByDescending { it.first }
+            .map { (month, items) -> month to items.sortedByDescending { it.date } }
+
     /** A freshly shuffled paper of at most [count] questions. */
     fun paperFor(levelId: String, subjectId: String? = null, count: Int): List<Question> =
         questionsFor(levelId, subjectId).shuffled().take(count)

@@ -102,5 +102,10 @@
     <string name="saved_items">सामग्री सुरक्षित</string>
     <string name="nothing_saved">अहिलेसम्म केही सुरक्षित छैन। पाठ वा प्रश्नमा रहेको बुकमार्क बटन प्रयोग गर्नुहोस्।</string>
     <string name="syllabus_notice">यो पाठ्यक्रमबारे</string>
+    <string name="needs_checking">जाँच बाँकी</string>
+    <string name="before_you_trust_this">भर पर्नुअघि:</string>
+    <string name="reported_by">स्रोत</string>
+    <string name="one_entry">सामग्री</string>
+    <string name="many_entries">सामग्री</string>
     <string name="offline_ready">एकपटक खुलेपछि अफलाइन चल्छ</string>
 </resources>

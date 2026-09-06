@@ -157,15 +157,28 @@ data class QuestionsFile(val questions: List<Question>)
 
 // ---------------------------------------------------------------- affairs
 
+/**
+ * A contemporary-issues entry. `status` is "verified" for standing topics
+ * written from settled reference material, and "unverified" for anything
+ * gathered from news search — the interface must mark the latter, so a
+ * candidate is never shown an unchecked claim as a settled answer.
+ */
 @Serializable
 data class CurrentAffair(
     val id: String,
     val date: String,
+    /** Calendar month this files under, as YYYY-MM. */
+    val month: String,
     val category: Bilingual,
     val title: Bilingual,
     val detail: Bilingual,
     val levels: List<String> = emptyList(),
-)
+    val status: String = "verified",
+    val sources: List<String> = emptyList(),
+    val checkNote: Bilingual? = null,
+) {
+    val isVerified: Boolean get() = status == "verified"
+}
 
 @Serializable
 data class AffairsFile(val note: Bilingual, val affairs: List<CurrentAffair>)

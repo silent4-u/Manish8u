@@ -102,5 +102,10 @@
     <string name="saved_items">items saved</string>
     <string name="nothing_saved">Nothing saved yet. Use the bookmark button on a note or a question.</string>
     <string name="syllabus_notice">About this syllabus</string>
+    <string name="needs_checking">needs checking</string>
+    <string name="before_you_trust_this">Before you rely on this:</string>
+    <string name="reported_by">Reported by</string>
+    <string name="one_entry">entry</string>
+    <string name="many_entries">entries</string>
     <string name="offline_ready">Works offline once loaded</string>
 </resources>

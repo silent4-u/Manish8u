@@ -3850,31 +3850,31 @@
       ],
       "difficulty": "medium",
       "prompt": {
-        "en": "Nepal is scheduled to graduate from Least Developed Country status in which year?",
-        "ne": "नेपाल कुन सालमा अतिकम विकसित मुलुकको सूचीबाट स्तरोन्नति हुने तय भएको छ?"
+        "en": "Which United Nations body reviews whether a country meets the criteria to graduate from Least Developed Country status?",
+        "ne": "कुनै मुलुकले अतिकम विकसित मुलुकबाट स्तरोन्नति हुने मापदण्ड पूरा गरे नगरेको समीक्षा संयुक्त राष्ट्र संघको कुन निकायले गर्छ?"
       },
       "options": [
         {
-          "en": "2024",
-          "ne": "सन् २०२४"
+          "en": "Committee for Development Policy",
+          "ne": "विकास नीति समिति"
         },
         {
-          "en": "2026",
-          "ne": "सन् २०२६"
+          "en": "Security Council",
+          "ne": "सुरक्षा परिषद्"
         },
         {
-          "en": "2030",
-          "ne": "सन् २०३०"
+          "en": "International Court of Justice",
+          "ne": "अन्तर्राष्ट्रिय न्यायालय"
         },
         {
-          "en": "2035",
-          "ne": "सन् २०३५"
+          "en": "Trusteeship Council",
+          "ne": "संरक्षण परिषद्"
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": {
-        "en": "The UN General Assembly approved Nepal’s graduation with effect from November 2026.",
-        "ne": "संयुक्त राष्ट्र संघीय महासभाले नोभेम्बर २०२६ देखि लागू हुने गरी नेपालको स्तरोन्नति स्वीकृत गरेको हो।"
+        "en": "The Committee for Development Policy carries out the triennial review and recommends graduation; the Economic and Social Council and the General Assembly then endorse it.",
+        "ne": "विकास नीति समितिले हरेक तीन वर्षमा समीक्षा गरी स्तरोन्नतिको सिफारिस गर्छ; त्यसपछि आर्थिक तथा सामाजिक परिषद् र महासभाले अनुमोदन गर्छन्।"
       }
     },
     {

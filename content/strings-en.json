@@ -100,5 +100,10 @@
   "savedItems": "items saved",
   "nothingSaved": "Nothing saved yet. Use the bookmark button on a note or a question.",
   "syllabusNotice": "About this syllabus",
+  "needsChecking": "needs checking",
+  "beforeYouTrustThis": "Before you rely on this:",
+  "reportedBy": "Reported by",
+  "oneEntry": "entry",
+  "manyEntries": "entries",
   "offlineReady": "Works offline once loaded"
 }

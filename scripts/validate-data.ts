@@ -106,6 +106,31 @@ for (const question of QUESTIONS) {
   }
 }
 
+// --- current affairs ---
+for (const affair of CURRENT_AFFAIRS) {
+  checkBilingual(`affair ${affair.id}.title`, affair.title);
+  checkBilingual(`affair ${affair.id}.detail`, affair.detail);
+  if (!/^\d{4}-\d{2}$/.test(affair.month)) {
+    fail(`affair ${affair.id}: month "${affair.month}" is not YYYY-MM`);
+  }
+  if (!affair.date.startsWith(affair.month)) {
+    fail(`affair ${affair.id}: date ${affair.date} does not fall in month ${affair.month}`);
+  }
+  if (affair.status !== 'verified' && affair.status !== 'unverified') {
+    fail(`affair ${affair.id}: unknown status "${affair.status}"`);
+  }
+  // An unverified claim without a source or a stated doubt is indistinguishable
+  // from a verified one to the reader, which is the failure worth preventing.
+  if (affair.status === 'unverified') {
+    if (!affair.sources?.length) fail(`affair ${affair.id}: unverified with no sources`);
+    if (!affair.checkNote) fail(`affair ${affair.id}: unverified with no checkNote`);
+    else checkBilingual(`affair ${affair.id}.checkNote`, affair.checkNote);
+  }
+  for (const src of affair.sources ?? []) {
+    if (!/^https?:\/\//.test(src)) fail(`affair ${affair.id}: source "${src}" is not a URL`);
+  }
+}
+
 // --- every level must have enough questions for its mock test ---
 for (const level of LEVELS) {
   const pool = QUESTIONS.filter((q) => q.levels.includes(level.id));

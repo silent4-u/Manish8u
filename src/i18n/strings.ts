@@ -116,6 +116,11 @@ export const UI = {
   nothingSaved: { en: 'Nothing saved yet. Use the bookmark button on a note or a question.', ne: 'अहिलेसम्म केही सुरक्षित छैन। पाठ वा प्रश्नमा रहेको बुकमार्क बटन प्रयोग गर्नुहोस्।' },
   // Notices
   syllabusNotice: { en: 'About this syllabus', ne: 'यो पाठ्यक्रमबारे' },
+  needsChecking: { en: 'needs checking', ne: 'जाँच बाँकी' },
+  beforeYouTrustThis: { en: 'Before you rely on this:', ne: 'भर पर्नुअघि:' },
+  reportedBy: { en: 'Reported by', ne: 'स्रोत' },
+  oneEntry: { en: 'entry', ne: 'सामग्री' },
+  manyEntries: { en: 'entries', ne: 'सामग्री' },
   offlineReady: { en: 'Works offline once loaded', ne: 'एकपटक खुलेपछि अफलाइन चल्छ' },
 } satisfies Record<string, Bilingual>;
 
