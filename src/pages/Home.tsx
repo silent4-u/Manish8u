@@ -105,6 +105,13 @@ export function Home() {
               <div className="small muted">{n(CURRENT_AFFAIRS.filter((c) => c.levels.includes(level.id)).length)} {t('topicsCovered')}</div>
             </span>
           </Link>
+          <Link to="/about" className="subject-tile">
+            <span className="subject-icon" aria-hidden="true">ℹ️</span>
+            <span>
+              <strong>{t('aboutTitle')}</strong>
+              <div className="small muted">{t('aboutPrivacyTitle')}</div>
+            </span>
+          </Link>
           <Link to="/saved" className="subject-tile">
             <span className="subject-icon" aria-hidden="true">⭐</span>
             <span>

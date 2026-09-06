@@ -17,3 +17,8 @@ android/captures/
 *.apk
 *.aab
 .kotlin/
+
+# Signing — never commit
+android/keystore.properties
+*.jks
+*.keystore
