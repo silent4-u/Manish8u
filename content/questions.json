@@ -1,0 +1,6724 @@
+{
+  "questions": [
+    {
+      "id": "con-q01",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "On which date was the Constitution of Nepal promulgated?",
+        "ne": "नेपालको संविधान कुन मितिमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "3 Ashoj 2072 BS",
+          "ne": "२०७२ असोज ३"
+        },
+        {
+          "en": "1 Baishakh 2072 BS",
+          "ne": "२०७२ वैशाख १"
+        },
+        {
+          "en": "15 Jestha 2065 BS",
+          "ne": "२०६५ जेठ १५"
+        },
+        {
+          "en": "5 Mangsir 2063 BS",
+          "ne": "२०६३ मंसिर ५"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The second Constituent Assembly promulgated the constitution on 3 Ashoj 2072 BS, which is 20 September 2015.",
+        "ne": "दोस्रो संविधान सभाले २०७२ असोज ३ गते, अर्थात् २० सेप्टेम्बर २०१५ मा संविधान जारी गरेको हो।"
+      }
+    },
+    {
+      "id": "con-q02",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many parts does the Constitution of Nepal contain?",
+        "ne": "नेपालको संविधानमा कति भाग छन्?"
+      },
+      "options": [
+        {
+          "en": "31",
+          "ne": "३१"
+        },
+        {
+          "en": "33",
+          "ne": "३३"
+        },
+        {
+          "en": "35",
+          "ne": "३५"
+        },
+        {
+          "en": "37",
+          "ne": "३७"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The constitution has 35 parts, 308 articles and 9 schedules.",
+        "ne": "संविधानमा ३५ भाग, ३०८ धारा र ९ अनुसूची छन्।"
+      }
+    },
+    {
+      "id": "con-q03",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many articles are there in the Constitution of Nepal?",
+        "ne": "नेपालको संविधानमा कति धारा छन्?"
+      },
+      "options": [
+        {
+          "en": "295",
+          "ne": "२९५"
+        },
+        {
+          "en": "308",
+          "ne": "३०८"
+        },
+        {
+          "en": "312",
+          "ne": "३१२"
+        },
+        {
+          "en": "320",
+          "ne": "३२०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "There are 308 articles. The Interim Constitution 2063 had 167 articles.",
+        "ne": "३०८ धारा छन्। अन्तरिम संविधान २०६३ मा १६७ धारा थिए।"
+      }
+    },
+    {
+      "id": "con-q04",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "The Constitution of Nepal 2072 is which constitution of Nepal in order?",
+        "ne": "नेपालको संविधान २०७२ नेपालको कतिऔं संविधान हो?"
+      },
+      "options": [
+        {
+          "en": "Fifth",
+          "ne": "पाँचौं"
+        },
+        {
+          "en": "Sixth",
+          "ne": "छैटौं"
+        },
+        {
+          "en": "Seventh",
+          "ne": "सातौं"
+        },
+        {
+          "en": "Eighth",
+          "ne": "आठौं"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "It is the seventh constitution, counting from the Government of Nepal Act 2004 BS.",
+        "ne": "नेपाल सरकार वैधानिक कानून २००४ देखि गन्दा यो सातौं संविधान हो।"
+      }
+    },
+    {
+      "id": "con-q05",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which article of the Constitution of Nepal defines the character of the state?",
+        "ne": "नेपालको संविधानको कुन धाराले राज्यको स्वरूप परिभाषित गर्छ?"
+      },
+      "options": [
+        {
+          "en": "Article 3",
+          "ne": "धारा ३"
+        },
+        {
+          "en": "Article 4",
+          "ne": "धारा ४"
+        },
+        {
+          "en": "Article 5",
+          "ne": "धारा ५"
+        },
+        {
+          "en": "Article 6",
+          "ne": "धारा ६"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 4 declares Nepal an independent, indivisible, sovereign, secular, inclusive, democracy-loving, socialism-oriented, federal democratic republican state.",
+        "ne": "धारा ४ ले नेपाललाई स्वतन्त्र, अविभाज्य, सार्वभौमसत्तासम्पन्न, धर्मनिरपेक्ष, समावेशी, लोकतन्त्रमा आधारित, समाजवाद उन्मुख, संघीय लोकतान्त्रिक गणतन्त्रात्मक राज्य घोषणा गर्छ।"
+      }
+    },
+    {
+      "id": "con-q06",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Fundamental rights are provided in which part of the constitution?",
+        "ne": "मौलिक हक संविधानको कुन भागमा छन्?"
+      },
+      "options": [
+        {
+          "en": "Part 2",
+          "ne": "भाग २"
+        },
+        {
+          "en": "Part 3",
+          "ne": "भाग ३"
+        },
+        {
+          "en": "Part 4",
+          "ne": "भाग ४"
+        },
+        {
+          "en": "Part 5",
+          "ne": "भाग ५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Part 3 (Articles 16 to 46) guarantees fundamental rights and duties. Part 4 contains directive principles.",
+        "ne": "भाग ३ (धारा १६ देखि ४६) ले मौलिक हक तथा कर्तव्यको प्रत्याभूति गर्छ। भाग ४ मा निर्देशक सिद्धान्त छन्।"
+      }
+    },
+    {
+      "id": "con-q07",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many fundamental rights does the Constitution of Nepal guarantee?",
+        "ne": "नेपालको संविधानले कति मौलिक हकको प्रत्याभूति गरेको छ?"
+      },
+      "options": [
+        {
+          "en": "21",
+          "ne": "२१"
+        },
+        {
+          "en": "27",
+          "ne": "२७"
+        },
+        {
+          "en": "31",
+          "ne": "३१"
+        },
+        {
+          "en": "35",
+          "ne": "३५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "31 fundamental rights are listed in Articles 16 to 46.",
+        "ne": "धारा १६ देखि ४६ सम्ममा ३१ वटा मौलिक हक उल्लेख छन्।"
+      }
+    },
+    {
+      "id": "con-q08",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The right to constitutional remedy is guaranteed by which article?",
+        "ne": "संवैधानिक उपचारको हक कुन धाराले प्रत्याभूत गरेको छ?"
+      },
+      "options": [
+        {
+          "en": "Article 40",
+          "ne": "धारा ४०"
+        },
+        {
+          "en": "Article 44",
+          "ne": "धारा ४४"
+        },
+        {
+          "en": "Article 46",
+          "ne": "धारा ४६"
+        },
+        {
+          "en": "Article 48",
+          "ne": "धारा ४८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Article 46 gives the right to constitutional remedy, exercised through Article 133 in the Supreme Court or Article 144 in a High Court.",
+        "ne": "धारा ४६ ले संवैधानिक उपचारको हक दिन्छ, जुन सर्वोच्च अदालतमा धारा १३३ र उच्च अदालतमा धारा १४४ मार्फत प्रयोग हुन्छ।"
+      }
+    },
+    {
+      "id": "con-q09",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Duties of citizens are mentioned in which article?",
+        "ne": "नागरिकका कर्तव्य कुन धारामा उल्लेख छन्?"
+      },
+      "options": [
+        {
+          "en": "Article 46",
+          "ne": "धारा ४६"
+        },
+        {
+          "en": "Article 47",
+          "ne": "धारा ४७"
+        },
+        {
+          "en": "Article 48",
+          "ne": "धारा ४८"
+        },
+        {
+          "en": "Article 49",
+          "ne": "धारा ४९"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Article 48 lists the duties of citizens, such as loyalty to the nation and protection of public property.",
+        "ne": "धारा ४८ ले राष्ट्रप्रति निष्ठा र सार्वजनिक सम्पत्तिको संरक्षण जस्ता नागरिक कर्तव्य उल्लेख गर्छ।"
+      }
+    },
+    {
+      "id": "con-q10",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Exclusive powers of the local level are listed in which schedule?",
+        "ne": "स्थानीय तहको एकल अधिकार कुन अनुसूचीमा छ?"
+      },
+      "options": [
+        {
+          "en": "Schedule 5",
+          "ne": "अनुसूची ५"
+        },
+        {
+          "en": "Schedule 6",
+          "ne": "अनुसूची ६"
+        },
+        {
+          "en": "Schedule 7",
+          "ne": "अनुसूची ७"
+        },
+        {
+          "en": "Schedule 8",
+          "ne": "अनुसूची ८"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Schedule 8 lists the exclusive powers of the local level. Schedule 5 is federal, 6 is provincial, 7 is federal-provincial concurrent and 9 is three-tier concurrent.",
+        "ne": "अनुसूची ८ मा स्थानीय तहको एकल अधिकार छ। अनुसूची ५ संघको, ६ प्रदेशको, ७ संघ–प्रदेश साझा र ९ तीनै तहको साझा अधिकार हो।"
+      }
+    },
+    {
+      "id": "con-q11",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Residual powers, that is powers not listed in any schedule, belong to which tier?",
+        "ne": "कुनै पनि अनुसूचीमा नपरेका अवशिष्ट अधिकार कुन तहमा रहन्छ?"
+      },
+      "options": [
+        {
+          "en": "Local level",
+          "ne": "स्थानीय तह"
+        },
+        {
+          "en": "Province",
+          "ne": "प्रदेश"
+        },
+        {
+          "en": "Federation",
+          "ne": "संघ"
+        },
+        {
+          "en": "Shared by all three equally",
+          "ne": "तीनै तहमा बराबर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Under Article 58 residual powers rest with the federation.",
+        "ne": "धारा ५८ अनुसार अवशिष्ट अधिकार संघमा निहित रहन्छ।"
+      }
+    },
+    {
+      "id": "con-q12",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many members are there in the House of Representatives?",
+        "ne": "प्रतिनिधि सभामा कति सदस्य हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "240",
+          "ne": "२४०"
+        },
+        {
+          "en": "265",
+          "ne": "२६५"
+        },
+        {
+          "en": "275",
+          "ne": "२७५"
+        },
+        {
+          "en": "295",
+          "ne": "२९५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "275 members: 165 elected by first-past-the-post and 110 by proportional representation.",
+        "ne": "२७५ सदस्य: १६५ पहिलो हुने निर्वाचित हुने प्रणाली र ११० समानुपातिक प्रतिनिधित्वबाट।"
+      }
+    },
+    {
+      "id": "con-q13",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many members does the National Assembly have?",
+        "ne": "राष्ट्रिय सभामा कति सदस्य हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "55",
+          "ne": "५५"
+        },
+        {
+          "en": "59",
+          "ne": "५९"
+        },
+        {
+          "en": "60",
+          "ne": "६०"
+        },
+        {
+          "en": "64",
+          "ne": "६४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "59 members: 56 elected by an electoral college (8 from each province) and 3 nominated by the President.",
+        "ne": "५९ सदस्य: ५६ निर्वाचक मण्डलबाट (प्रत्येक प्रदेशबाट ८) र ३ जना राष्ट्रपतिबाट मनोनीत।"
+      }
+    },
+    {
+      "id": "con-q14",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What is the term of a member of the National Assembly?",
+        "ne": "राष्ट्रिय सभा सदस्यको कार्यकाल कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "4 years",
+          "ne": "४ वर्ष"
+        },
+        {
+          "en": "5 years",
+          "ne": "५ वर्ष"
+        },
+        {
+          "en": "6 years",
+          "ne": "६ वर्ष"
+        },
+        {
+          "en": "7 years",
+          "ne": "७ वर्ष"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Six years. The National Assembly is a permanent house and one third of its members retire every two years.",
+        "ne": "छ वर्ष। राष्ट्रिय सभा स्थायी सदन हो र हरेक दुई वर्षमा एक तिहाइ सदस्यको पदावधि सकिन्छ।"
+      }
+    },
+    {
+      "id": "con-q15",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What is the maximum size of the federal Council of Ministers?",
+        "ne": "संघीय मन्त्रिपरिषद्मा बढीमा कति मन्त्री रहन सक्छन्?"
+      },
+      "options": [
+        {
+          "en": "21",
+          "ne": "२१"
+        },
+        {
+          "en": "25",
+          "ne": "२५"
+        },
+        {
+          "en": "27",
+          "ne": "२७"
+        },
+        {
+          "en": "31",
+          "ne": "३१"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 76(9) caps the Council of Ministers at 25 members including the Prime Minister.",
+        "ne": "धारा ७६(९) अनुसार प्रधानमन्त्रीसहित मन्त्रिपरिषद्मा बढीमा २५ जना रहन्छन्।"
+      }
+    },
+    {
+      "id": "con-q16",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Who chairs the Constitutional Council?",
+        "ne": "संवैधानिक परिषद्को अध्यक्ष को हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "President",
+          "ne": "राष्ट्रपति"
+        },
+        {
+          "en": "Chief Justice",
+          "ne": "प्रधान न्यायाधीश"
+        },
+        {
+          "en": "Prime Minister",
+          "ne": "प्रधानमन्त्री"
+        },
+        {
+          "en": "Speaker",
+          "ne": "सभामुख"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Under Article 284 the Prime Minister chairs the Constitutional Council, which recommends appointments to constitutional bodies.",
+        "ne": "धारा २८४ अनुसार संवैधानिक निकायमा नियुक्ति सिफारिस गर्ने संवैधानिक परिषद्को अध्यक्ष प्रधानमन्त्री हुन्छन्।"
+      }
+    },
+    {
+      "id": "con-q17",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many constitutional bodies are created by the Constitution of Nepal?",
+        "ne": "नेपालको संविधानले कति संवैधानिक निकाय स्थापना गरेको छ?"
+      },
+      "options": [
+        {
+          "en": "11",
+          "ne": "११"
+        },
+        {
+          "en": "12",
+          "ne": "१२"
+        },
+        {
+          "en": "13",
+          "ne": "१३"
+        },
+        {
+          "en": "15",
+          "ne": "१५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Thirteen, from the CIAA under Article 238 to the Muslim Commission under Article 264.",
+        "ne": "तेह्र, धारा २३८ को अख्तियार दुरुपयोग अनुसन्धान आयोगदेखि धारा २६४ को मुस्लिम आयोगसम्म।"
+      }
+    },
+    {
+      "id": "con-q18",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "The Commission for the Investigation of Abuse of Authority is established by which article?",
+        "ne": "अख्तियार दुरुपयोग अनुसन्धान आयोग कुन धाराद्वारा स्थापित छ?"
+      },
+      "options": [
+        {
+          "en": "Article 236",
+          "ne": "धारा २३६"
+        },
+        {
+          "en": "Article 238",
+          "ne": "धारा २३८"
+        },
+        {
+          "en": "Article 241",
+          "ne": "धारा २४१"
+        },
+        {
+          "en": "Article 245",
+          "ne": "धारा २४५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 238 creates the CIAA; Article 241 the Auditor General; Article 242 the Public Service Commission; Article 245 the Election Commission.",
+        "ne": "धारा २३८ ले अख्तियार, २४१ ले महालेखा परीक्षक, २४२ ले लोक सेवा आयोग र २४५ ले निर्वाचन आयोग स्थापना गर्छ।"
+      }
+    },
+    {
+      "id": "con-q19",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Public Service Commission is provided for in which article?",
+        "ne": "लोक सेवा आयोगको व्यवस्था कुन धारामा छ?"
+      },
+      "options": [
+        {
+          "en": "Article 238",
+          "ne": "धारा २३८"
+        },
+        {
+          "en": "Article 241",
+          "ne": "धारा २४१"
+        },
+        {
+          "en": "Article 242",
+          "ne": "धारा २४२"
+        },
+        {
+          "en": "Article 248",
+          "ne": "धारा २४८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Article 242 establishes the Public Service Commission with a chairperson and other members.",
+        "ne": "धारा २४२ ले अध्यक्ष र अन्य सदस्य रहने गरी लोक सेवा आयोगको व्यवस्था गरेको छ।"
+      }
+    },
+    {
+      "id": "con-q20",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many High Courts are there in Nepal?",
+        "ne": "नेपालमा कति उच्च अदालत छन्?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "7",
+          "ne": "७"
+        },
+        {
+          "en": "11",
+          "ne": "११"
+        },
+        {
+          "en": "16",
+          "ne": "१६"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Seven High Courts, one for each province, sitting above the 77 district courts.",
+        "ne": "सात उच्च अदालत, प्रत्येक प्रदेशमा एक, ७७ जिल्ला अदालतमाथि रहन्छन्।"
+      }
+    },
+    {
+      "id": "con-q21",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "The Constitutional Bench of the Supreme Court consists of how many judges?",
+        "ne": "सर्वोच्च अदालतको संवैधानिक इजलासमा कति न्यायाधीश हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "3 including the Chief Justice",
+          "ne": "प्रधान न्यायाधीशसहित ३"
+        },
+        {
+          "en": "5 including the Chief Justice",
+          "ne": "प्रधान न्यायाधीशसहित ५"
+        },
+        {
+          "en": "7 including the Chief Justice",
+          "ne": "प्रधान न्यायाधीशसहित ७"
+        },
+        {
+          "en": "9 including the Chief Justice",
+          "ne": "प्रधान न्यायाधीशसहित ९"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Chief Justice and four other justices designated by the Chief Justice on the recommendation of the Judicial Council.",
+        "ne": "न्याय परिषद्को सिफारिसमा प्रधान न्यायाधीशले तोकेका चार न्यायाधीश र प्रधान न्यायाधीश स्वयं।"
+      }
+    },
+    {
+      "id": "con-q22",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What is the maximum number of judges in the Supreme Court besides the Chief Justice?",
+        "ne": "प्रधान न्यायाधीशबाहेक सर्वोच्च अदालतमा बढीमा कति न्यायाधीश रहन्छन्?"
+      },
+      "options": [
+        {
+          "en": "15",
+          "ne": "१५"
+        },
+        {
+          "en": "18",
+          "ne": "१८"
+        },
+        {
+          "en": "20",
+          "ne": "२०"
+        },
+        {
+          "en": "25",
+          "ne": "२५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Up to 20 other justices serve alongside the Chief Justice.",
+        "ne": "प्रधान न्यायाधीशसँगै बढीमा २० जना अन्य न्यायाधीश रहन्छन्।"
+      }
+    },
+    {
+      "id": "con-q23",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which article says that relations between the federation, provinces and local levels are based on cooperation, coexistence and coordination?",
+        "ne": "संघ, प्रदेश र स्थानीय तहबीचको सम्बन्ध सहकारिता, सहअस्तित्व र समन्वयमा आधारित हुने कुन धारामा छ?"
+      },
+      "options": [
+        {
+          "en": "Article 226",
+          "ne": "धारा २२६"
+        },
+        {
+          "en": "Article 232",
+          "ne": "धारा २३२"
+        },
+        {
+          "en": "Article 235",
+          "ne": "धारा २३५"
+        },
+        {
+          "en": "Article 251",
+          "ne": "धारा २५१"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 232(1) sets out this cooperative federalism principle.",
+        "ne": "धारा २३२(१) ले यही सहकारितामूलक संघीयताको सिद्धान्त तय गर्छ।"
+      }
+    },
+    {
+      "id": "con-q24",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Amendment of the constitution is governed by which article?",
+        "ne": "संविधान संशोधनसम्बन्धी व्यवस्था कुन धारामा छ?"
+      },
+      "options": [
+        {
+          "en": "Article 270",
+          "ne": "धारा २७०"
+        },
+        {
+          "en": "Article 273",
+          "ne": "धारा २७३"
+        },
+        {
+          "en": "Article 274",
+          "ne": "धारा २७४"
+        },
+        {
+          "en": "Article 276",
+          "ne": "धारा २७६"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Article 274 governs amendment and bars any amendment contrary to the self-rule of Nepal, its sovereignty, territorial integrity and sovereignty vested in the people.",
+        "ne": "धारा २७४ ले संशोधनको व्यवस्था गर्छ र नेपालको स्वाधीनता, सार्वभौमसत्ता, भौगोलिक अखण्डता तथा जनतामा निहित सार्वभौमसत्ता प्रतिकूल हुने संशोधन गर्न रोक लगाउँछ।"
+      }
+    },
+    {
+      "id": "con-q25",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A state of emergency is declared under which article?",
+        "ne": "संकटकालीन अवस्थाको घोषणा कुन धारा अन्तर्गत हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Article 271",
+          "ne": "धारा २७१"
+        },
+        {
+          "en": "Article 273",
+          "ne": "धारा २७३"
+        },
+        {
+          "en": "Article 274",
+          "ne": "धारा २७४"
+        },
+        {
+          "en": "Article 275",
+          "ne": "धारा २७५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 273 empowers the President, on the recommendation of the Council of Ministers, to declare a state of emergency.",
+        "ne": "धारा २७३ ले मन्त्रिपरिषद्को सिफारिसमा राष्ट्रपतिलाई संकटकाल घोषणा गर्ने अधिकार दिन्छ।"
+      }
+    },
+    {
+      "id": "con-q26",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which language is the official language of business of the Government of Nepal?",
+        "ne": "नेपाल सरकारको सरकारी कामकाजको भाषा कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Nepali in Devanagari script",
+          "ne": "देवनागरी लिपिमा लेखिने नेपाली"
+        },
+        {
+          "en": "Nepali and English equally",
+          "ne": "नेपाली र अंग्रेजी बराबर"
+        },
+        {
+          "en": "Any mother tongue",
+          "ne": "जुनसुकै मातृभाषा"
+        },
+        {
+          "en": "Sanskrit",
+          "ne": "संस्कृत"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Article 7 makes Nepali in the Devanagari script the official language of business, while all mother tongues are national languages.",
+        "ne": "धारा ७ ले देवनागरी लिपिमा लेखिने नेपाली भाषालाई सरकारी कामकाजको भाषा बनाएको छ, जबकि सबै मातृभाषा राष्ट्रभाषा हुन्।"
+      }
+    },
+    {
+      "id": "con-q27",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Who elects the President of Nepal?",
+        "ne": "नेपालको राष्ट्रपति कसले निर्वाचित गर्छ?"
+      },
+      "options": [
+        {
+          "en": "Direct vote of the people",
+          "ne": "जनताको प्रत्यक्ष मतदान"
+        },
+        {
+          "en": "House of Representatives only",
+          "ne": "प्रतिनिधि सभाले मात्र"
+        },
+        {
+          "en": "An electoral college of federal parliament and provincial assembly members",
+          "ne": "संघीय संसद् र प्रदेश सभा सदस्यहरूको निर्वाचक मण्डल"
+        },
+        {
+          "en": "The Council of Ministers",
+          "ne": "मन्त्रिपरिषद्"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Article 62 provides for an electoral college of members of the Federal Parliament and of the provincial assemblies, with weighted votes.",
+        "ne": "धारा ६२ अनुसार संघीय संसद् र प्रदेश सभाका सदस्य रहेको निर्वाचक मण्डलले भारित मतबाट निर्वाचन गर्छ।"
+      }
+    },
+    {
+      "id": "con-q28",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many local levels are there in Nepal?",
+        "ne": "नेपालमा कति स्थानीय तह छन्?"
+      },
+      "options": [
+        {
+          "en": "744",
+          "ne": "७४४"
+        },
+        {
+          "en": "753",
+          "ne": "७५३"
+        },
+        {
+          "en": "761",
+          "ne": "७६१"
+        },
+        {
+          "en": "771",
+          "ne": "७७१"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "753 local levels: 6 metropolitan cities, 11 sub-metropolitan cities, 276 municipalities and 460 rural municipalities.",
+        "ne": "७५३ स्थानीय तह: ६ महानगरपालिका, ११ उपमहानगरपालिका, २७६ नगरपालिका र ४६० गाउँपालिका।"
+      }
+    },
+    {
+      "id": "gkn-q01",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the total area of Nepal?",
+        "ne": "नेपालको कुल क्षेत्रफल कति हो?"
+      },
+      "options": [
+        {
+          "en": "147,516 sq km",
+          "ne": "१,४७,५१६ वर्ग कि.मि."
+        },
+        {
+          "en": "141,181 sq km",
+          "ne": "१,४१,१८१ वर्ग कि.मि."
+        },
+        {
+          "en": "150,000 sq km",
+          "ne": "१,५०,००० वर्ग कि.मि."
+        },
+        {
+          "en": "137,481 sq km",
+          "ne": "१,३७,४८१ वर्ग कि.मि."
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Nepal covers 147,516 square kilometres, about 0.03 per cent of the earth’s land area.",
+        "ne": "नेपालको क्षेत्रफल १,४७,५१६ वर्ग किलोमिटर छ, जुन पृथ्वीको भूभागको करिब ०.०३ प्रतिशत हो।"
+      }
+    },
+    {
+      "id": "gkn-q02",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the officially announced height of Mount Everest?",
+        "ne": "सगरमाथाको आधिकारिक रूपमा घोषित उचाइ कति हो?"
+      },
+      "options": [
+        {
+          "en": "8,848 m",
+          "ne": "८,८४८ मि."
+        },
+        {
+          "en": "8,848.86 m",
+          "ne": "८,८४८.८६ मि."
+        },
+        {
+          "en": "8,850 m",
+          "ne": "८,८५० मि."
+        },
+        {
+          "en": "8,844.43 m",
+          "ne": "८,८४४.४३ मि."
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal and China jointly announced 8,848.86 metres in December 2020.",
+        "ne": "नेपाल र चीनले संयुक्त रूपमा डिसेम्बर २०२० मा ८,८४८.८६ मिटर घोषणा गरे।"
+      }
+    },
+    {
+      "id": "gkn-q03",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which is the longest river of Nepal?",
+        "ne": "नेपालको सबैभन्दा लामो नदी कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Koshi",
+          "ne": "कोशी"
+        },
+        {
+          "en": "Gandaki",
+          "ne": "गण्डकी"
+        },
+        {
+          "en": "Karnali",
+          "ne": "कर्णाली"
+        },
+        {
+          "en": "Bagmati",
+          "ne": "बागमती"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The Karnali flows about 507 km inside Nepal, making it the longest river of the country.",
+        "ne": "कर्णाली नेपालभित्र करिब ५०७ कि.मि. बग्छ, जसले यसलाई देशकै सबैभन्दा लामो नदी बनाउँछ।"
+      }
+    },
+    {
+      "id": "gkn-q04",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which is the largest lake of Nepal by surface area?",
+        "ne": "क्षेत्रफलका आधारमा नेपालको सबैभन्दा ठूलो ताल कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Phewa",
+          "ne": "फेवा"
+        },
+        {
+          "en": "Rara",
+          "ne": "रारा"
+        },
+        {
+          "en": "Tilicho",
+          "ne": "तिलिचो"
+        },
+        {
+          "en": "Shey Phoksundo",
+          "ne": "शे-फोक्सुन्डो"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Rara Lake in Mugu district is the largest lake of Nepal and lies inside Rara National Park.",
+        "ne": "मुगु जिल्लाको रारा ताल नेपालको सबैभन्दा ठूलो ताल हो र रारा राष्ट्रिय निकुञ्जभित्र पर्छ।"
+      }
+    },
+    {
+      "id": "gkn-q05",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which is the deepest lake of Nepal?",
+        "ne": "नेपालको सबैभन्दा गहिरो ताल कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Rara",
+          "ne": "रारा"
+        },
+        {
+          "en": "Shey Phoksundo",
+          "ne": "शे-फोक्सुन्डो"
+        },
+        {
+          "en": "Begnas",
+          "ne": "बेगनास"
+        },
+        {
+          "en": "Rupa",
+          "ne": "रुपा"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Shey Phoksundo Lake in Dolpa is the deepest lake in Nepal.",
+        "ne": "डोल्पाको शे-फोक्सुन्डो ताल नेपालको सबैभन्दा गहिरो ताल हो।"
+      }
+    },
+    {
+      "id": "gkn-q06",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which is the first national park of Nepal?",
+        "ne": "नेपालको पहिलो राष्ट्रिय निकुञ्ज कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Sagarmatha National Park",
+          "ne": "सगरमाथा राष्ट्रिय निकुञ्ज"
+        },
+        {
+          "en": "Langtang National Park",
+          "ne": "लाङटाङ राष्ट्रिय निकुञ्ज"
+        },
+        {
+          "en": "Chitwan National Park",
+          "ne": "चितवन राष्ट्रिय निकुञ्ज"
+        },
+        {
+          "en": "Bardiya National Park",
+          "ne": "बर्दिया राष्ट्रिय निकुञ्ज"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Chitwan National Park was established in 2030 BS (1973) as Nepal’s first national park.",
+        "ne": "चितवन राष्ट्रिय निकुञ्ज २०३० सालमा नेपालको पहिलो राष्ट्रिय निकुञ्जका रूपमा स्थापना भयो।"
+      }
+    },
+    {
+      "id": "gkn-q07",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which is the largest district of Nepal by area?",
+        "ne": "क्षेत्रफलका आधारमा नेपालको सबैभन्दा ठूलो जिल्ला कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Humla",
+          "ne": "हुम्ला"
+        },
+        {
+          "en": "Dolpa",
+          "ne": "डोल्पा"
+        },
+        {
+          "en": "Mustang",
+          "ne": "मुस्ताङ"
+        },
+        {
+          "en": "Kailali",
+          "ne": "कैलाली"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Dolpa is the largest district by area; Bhaktapur is the smallest.",
+        "ne": "क्षेत्रफलमा डोल्पा सबैभन्दा ठूलो जिल्ला हो; भक्तपुर सबैभन्दा सानो हो।"
+      }
+    },
+    {
+      "id": "gkn-q08",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which is the smallest district of Nepal by area?",
+        "ne": "क्षेत्रफलका आधारमा नेपालको सबैभन्दा सानो जिल्ला कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Bhaktapur",
+          "ne": "भक्तपुर"
+        },
+        {
+          "en": "Lalitpur",
+          "ne": "ललितपुर"
+        },
+        {
+          "en": "Manang",
+          "ne": "मनाङ"
+        },
+        {
+          "en": "Parsa",
+          "ne": "पर्सा"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Bhaktapur, at about 119 square kilometres, is the smallest district of Nepal.",
+        "ne": "करिब ११९ वर्ग किलोमिटरको भक्तपुर नेपालको सबैभन्दा सानो जिल्ला हो।"
+      }
+    },
+    {
+      "id": "gkn-q09",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Nepali standard time is based on the meridian passing through which place?",
+        "ne": "नेपाली मानक समय कुन स्थानबाट जाने देशान्तर रेखाका आधारमा निर्धारण गरिएको हो?"
+      },
+      "options": [
+        {
+          "en": "Kathmandu",
+          "ne": "काठमाडौं"
+        },
+        {
+          "en": "Gaurishankar",
+          "ne": "गौरीशंकर"
+        },
+        {
+          "en": "Everest",
+          "ne": "सगरमाथा"
+        },
+        {
+          "en": "Janakpur",
+          "ne": "जनकपुर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal Standard Time is GMT + 5:45, based on the 86°15′E meridian near Mt. Gaurishankar.",
+        "ne": "नेपाली मानक समय जि.एम.टी. + ५:४५ हो, जुन गौरीशंकर हिमाल नजिकको ८६°१५′ पूर्वी देशान्तरमा आधारित छ।"
+      }
+    },
+    {
+      "id": "gkn-q10",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the capital of Gandaki Province?",
+        "ne": "गण्डकी प्रदेशको राजधानी कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Butwal",
+          "ne": "बुटवल"
+        },
+        {
+          "en": "Pokhara",
+          "ne": "पोखरा"
+        },
+        {
+          "en": "Hetauda",
+          "ne": "हेटौंडा"
+        },
+        {
+          "en": "Damauli",
+          "ne": "दमौली"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Pokhara is the capital of Gandaki Province.",
+        "ne": "पोखरा गण्डकी प्रदेशको राजधानी हो।"
+      }
+    },
+    {
+      "id": "gkn-q11",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What is the capital of Karnali Province?",
+        "ne": "कर्णाली प्रदेशको राजधानी कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Jumla",
+          "ne": "जुम्ला"
+        },
+        {
+          "en": "Birendranagar",
+          "ne": "वीरेन्द्रनगर"
+        },
+        {
+          "en": "Dailekh",
+          "ne": "दैलेख"
+        },
+        {
+          "en": "Dunai",
+          "ne": "दुनै"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Birendranagar in Surkhet district is the capital of Karnali Province.",
+        "ne": "सुर्खेत जिल्लाको वीरेन्द्रनगर कर्णाली प्रदेशको राजधानी हो।"
+      }
+    },
+    {
+      "id": "gkn-q12",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many metropolitan cities are there in Nepal?",
+        "ne": "नेपालमा कति महानगरपालिका छन्?"
+      },
+      "options": [
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "11",
+          "ne": "११"
+        },
+        {
+          "en": "13",
+          "ne": "१३"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Six metropolitan cities: Kathmandu, Lalitpur, Bharatpur, Pokhara, Biratnagar and Birgunj.",
+        "ne": "छ महानगरपालिका: काठमाडौं, ललितपुर, भरतपुर, पोखरा, विराटनगर र वीरगन्ज।"
+      }
+    },
+    {
+      "id": "gkn-q13",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "In which year did Prithvi Narayan Shah capture Kantipur?",
+        "ne": "पृथ्वीनारायण शाहले कान्तिपुर कुन सालमा विजय गरे?"
+      },
+      "options": [
+        {
+          "en": "1815 BS",
+          "ne": "१८१५"
+        },
+        {
+          "en": "1825 BS",
+          "ne": "१८२५"
+        },
+        {
+          "en": "1831 BS",
+          "ne": "१८३१"
+        },
+        {
+          "en": "1846 BS",
+          "ne": "१८४६"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Kantipur was captured in 1825 BS (1768 AD) on the day of Indra Jatra.",
+        "ne": "इन्द्रजात्राको दिन १८२५ साल (सन् १७६८) मा कान्तिपुर विजय भयो।"
+      }
+    },
+    {
+      "id": "gkn-q14",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Treaty of Sugauli was signed in which year?",
+        "ne": "सुगौली सन्धि कुन सालमा भएको हो?"
+      },
+      "options": [
+        {
+          "en": "1814 AD",
+          "ne": "सन् १८१४"
+        },
+        {
+          "en": "1816 AD",
+          "ne": "सन् १८१६"
+        },
+        {
+          "en": "1846 AD",
+          "ne": "सन् १८४६"
+        },
+        {
+          "en": "1860 AD",
+          "ne": "सन् १८६०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The treaty of 1816 AD (1872 BS) ended the Anglo-Nepal War and fixed the Mechi and Mahakali as boundaries.",
+        "ne": "सन् १८१६ (१८७२ वि.सं.) को सन्धिले नेपाल–अंग्रेज युद्धको अन्त्य गर्दै मेची र महाकालीलाई सिमाना तोक्यो।"
+      }
+    },
+    {
+      "id": "gkn-q15",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Kot Massacre, which brought Jung Bahadur to power, took place in which year?",
+        "ne": "जंगबहादुरलाई सत्तामा पुर्‍याउने कोत पर्व कुन सालमा भयो?"
+      },
+      "options": [
+        {
+          "en": "1903 BS",
+          "ne": "१९०३"
+        },
+        {
+          "en": "1911 BS",
+          "ne": "१९११"
+        },
+        {
+          "en": "1934 BS",
+          "ne": "१९३४"
+        },
+        {
+          "en": "2007 BS",
+          "ne": "२००७"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The Kot Massacre of 1903 BS (1846 AD) began 104 years of Rana rule.",
+        "ne": "१९०३ साल (सन् १८४६) को कोत पर्वबाट १०४ वर्षे राणा शासन सुरु भयो।"
+      }
+    },
+    {
+      "id": "gkn-q16",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How long did Rana rule last in Nepal?",
+        "ne": "नेपालमा राणा शासन कति वर्ष रह्यो?"
+      },
+      "options": [
+        {
+          "en": "86 years",
+          "ne": "८६ वर्ष"
+        },
+        {
+          "en": "104 years",
+          "ne": "१०४ वर्ष"
+        },
+        {
+          "en": "110 years",
+          "ne": "११० वर्ष"
+        },
+        {
+          "en": "120 years",
+          "ne": "१२० वर्ष"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "From 1903 BS to 2007 BS — 104 years.",
+        "ne": "१९०३ सालदेखि २००७ सालसम्म — १०४ वर्ष।"
+      }
+    },
+    {
+      "id": "gkn-q17",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "On which date was Nepal declared a republic?",
+        "ne": "नेपाललाई कुन मितिमा गणतन्त्र घोषणा गरिएको हो?"
+      },
+      "options": [
+        {
+          "en": "15 Jestha 2065 BS",
+          "ne": "२०६५ जेठ १५"
+        },
+        {
+          "en": "3 Ashoj 2072 BS",
+          "ne": "२०७२ असोज ३"
+        },
+        {
+          "en": "5 Mangsir 2063 BS",
+          "ne": "२०६३ मंसिर ५"
+        },
+        {
+          "en": "11 Chaitra 2062 BS",
+          "ne": "२०६२ चैत ११"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The first Constituent Assembly declared Nepal a federal democratic republic on 15 Jestha 2065 BS (28 May 2008).",
+        "ne": "पहिलो संविधान सभाले २०६५ जेठ १५ गते (२८ मे २००८) नेपाललाई संघीय लोकतान्त्रिक गणतन्त्र घोषणा गर्‍यो।"
+      }
+    },
+    {
+      "id": "gkn-q18",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "On which date was the Comprehensive Peace Accord signed?",
+        "ne": "विस्तृत शान्ति सम्झौता कुन मितिमा भएको हो?"
+      },
+      "options": [
+        {
+          "en": "5 Mangsir 2063 BS",
+          "ne": "२०६३ मंसिर ५"
+        },
+        {
+          "en": "11 Chaitra 2062 BS",
+          "ne": "२०६२ चैत ११"
+        },
+        {
+          "en": "15 Jestha 2065 BS",
+          "ne": "२०६५ जेठ १५"
+        },
+        {
+          "en": "1 Baishakh 2064 BS",
+          "ne": "२०६४ वैशाख १"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The accord was signed on 5 Mangsir 2063 BS (21 November 2006), formally ending the armed conflict.",
+        "ne": "सम्झौता २०६३ मंसिर ५ गते (२१ नोभेम्बर २००६) भयो, जसले सशस्त्र द्वन्द्वको औपचारिक अन्त्य गर्‍यो।"
+      }
+    },
+    {
+      "id": "gkn-q19",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was the first elected Prime Minister of Nepal?",
+        "ne": "नेपालको पहिलो निर्वाचित प्रधानमन्त्री को हुन्?"
+      },
+      "options": [
+        {
+          "en": "Matrika Prasad Koirala",
+          "ne": "मातृका प्रसाद कोइराला"
+        },
+        {
+          "en": "B. P. Koirala",
+          "ne": "बी.पी. कोइराला"
+        },
+        {
+          "en": "Tanka Prasad Acharya",
+          "ne": "टंकप्रसाद आचार्य"
+        },
+        {
+          "en": "Subarna Shamsher",
+          "ne": "सुवर्ण शमशेर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "B. P. Koirala became Prime Minister after the first general election of 2015 BS (1959).",
+        "ne": "बी.पी. कोइराला २०१५ सालको पहिलो आम निर्वाचनपछि प्रधानमन्त्री बने।"
+      }
+    },
+    {
+      "id": "gkn-q20",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the national flower of Nepal?",
+        "ne": "नेपालको राष्ट्रिय फूल के हो?"
+      },
+      "options": [
+        {
+          "en": "Lotus",
+          "ne": "कमल"
+        },
+        {
+          "en": "Rhododendron",
+          "ne": "लालीगुराँस"
+        },
+        {
+          "en": "Marigold",
+          "ne": "सयपत्री"
+        },
+        {
+          "en": "Orchid",
+          "ne": "सुनाखरी"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Lali Gurans, the rhododendron, is the national flower; the Danphe is the national bird.",
+        "ne": "लालीगुराँस राष्ट्रिय फूल हो; डाँफे राष्ट्रिय पन्छी हो।"
+      }
+    },
+    {
+      "id": "gkn-q21",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many World Heritage Sites does Nepal have?",
+        "ne": "नेपालमा कति विश्व सम्पदा स्थल छन्?"
+      },
+      "options": [
+        {
+          "en": "2",
+          "ne": "२"
+        },
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Four: Kathmandu Valley, Lumbini (cultural), Sagarmatha National Park and Chitwan National Park (natural).",
+        "ne": "चार: काठमाडौं उपत्यका, लुम्बिनी (सांस्कृतिक), सगरमाथा राष्ट्रिय निकुञ्ज र चितवन राष्ट्रिय निकुञ्ज (प्राकृतिक)।"
+      }
+    },
+    {
+      "id": "gkn-q22",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "In which year was Lumbini inscribed on the World Heritage List?",
+        "ne": "लुम्बिनी कुन सालमा विश्व सम्पदा सूचीमा सूचीकृत भयो?"
+      },
+      "options": [
+        {
+          "en": "1979",
+          "ne": "सन् १९७९"
+        },
+        {
+          "en": "1984",
+          "ne": "सन् १९८४"
+        },
+        {
+          "en": "1997",
+          "ne": "सन् १९९७"
+        },
+        {
+          "en": "2003",
+          "ne": "सन् २००३"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Lumbini was inscribed in 1997. Kathmandu Valley and Sagarmatha were inscribed in 1979, Chitwan in 1984.",
+        "ne": "लुम्बिनी सन् १९९७ मा सूचीकृत भयो। काठमाडौं उपत्यका र सगरमाथा सन् १९७९ मा, चितवन सन् १९८४ मा।"
+      }
+    },
+    {
+      "id": "gkn-q23",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "According to the 2078 BS census, which district has the largest population?",
+        "ne": "जनगणना २०७८ अनुसार सबैभन्दा बढी जनसंख्या भएको जिल्ला कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Morang",
+          "ne": "मोरङ"
+        },
+        {
+          "en": "Kathmandu",
+          "ne": "काठमाडौं"
+        },
+        {
+          "en": "Rupandehi",
+          "ne": "रुपन्देही"
+        },
+        {
+          "en": "Jhapa",
+          "ne": "झापा"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Kathmandu has the largest population and Manang the smallest.",
+        "ne": "काठमाडौंमा सबैभन्दा बढी र मनाङमा सबैभन्दा कम जनसंख्या छ।"
+      }
+    },
+    {
+      "id": "gkn-q24",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "According to the 2078 BS census, which district has the smallest population?",
+        "ne": "जनगणना २०७८ अनुसार सबैभन्दा कम जनसंख्या भएको जिल्ला कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Manang",
+          "ne": "मनाङ"
+        },
+        {
+          "en": "Mustang",
+          "ne": "मुस्ताङ"
+        },
+        {
+          "en": "Dolpa",
+          "ne": "डोल्पा"
+        },
+        {
+          "en": "Rasuwa",
+          "ne": "रसुवा"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Manang has the smallest population of all 77 districts.",
+        "ne": "७७ जिल्लामध्ये मनाङको जनसंख्या सबैभन्दा कम छ।"
+      }
+    },
+    {
+      "id": "gkn-q25",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What is the approximate length of the Nepal–China border?",
+        "ne": "नेपाल–चीन सिमानाको अनुमानित लम्बाइ कति हो?"
+      },
+      "options": [
+        {
+          "en": "1,236 km",
+          "ne": "१,२३६ कि.मि."
+        },
+        {
+          "en": "1,439 km",
+          "ne": "१,४३९ कि.मि."
+        },
+        {
+          "en": "1,690 km",
+          "ne": "१,६९० कि.मि."
+        },
+        {
+          "en": "1,880 km",
+          "ne": "१,८८० कि.मि."
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The border with China is about 1,439 km; the border with India is about 1,880 km.",
+        "ne": "चीनसँगको सिमाना करिब १,४३९ कि.मि. र भारतसँगको करिब १,८८० कि.मि. छ।"
+      }
+    },
+    {
+      "id": "gkn-q26",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which province has the highest number of districts?",
+        "ne": "सबैभन्दा बढी जिल्ला भएको प्रदेश कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Bagmati",
+          "ne": "बागमती"
+        },
+        {
+          "en": "Koshi",
+          "ne": "कोशी"
+        },
+        {
+          "en": "Lumbini",
+          "ne": "लुम्बिनी"
+        },
+        {
+          "en": "Karnali",
+          "ne": "कर्णाली"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Koshi Province has 14 districts, the most of any province; Bagmati has 13.",
+        "ne": "कोशी प्रदेशमा १४ जिल्ला छन्, जुन सबैभन्दा बढी हो; बागमतीमा १३ छन्।"
+      }
+    },
+    {
+      "id": "gkn-q27",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "How many Ramsar sites does Nepal have?",
+        "ne": "नेपालमा कति रामसार क्षेत्र छन्?"
+      },
+      "options": [
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        },
+        {
+          "en": "12",
+          "ne": "१२"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Nepal has ten Ramsar sites; Koshi Tappu, listed in 1987, was the first.",
+        "ne": "नेपालमा दश रामसार क्षेत्र छन्; सन् १९८७ मा सूचीकृत कोशी टप्पु पहिलो हो।"
+      }
+    },
+    {
+      "id": "gkn-q28",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which lake of Nepal is among the highest altitude lakes in the world?",
+        "ne": "नेपालको कुन ताल विश्वकै अग्ला तालमध्ये पर्छ?"
+      },
+      "options": [
+        {
+          "en": "Tilicho",
+          "ne": "तिलिचो"
+        },
+        {
+          "en": "Phewa",
+          "ne": "फेवा"
+        },
+        {
+          "en": "Rara",
+          "ne": "रारा"
+        },
+        {
+          "en": "Begnas",
+          "ne": "बेगनास"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Tilicho Lake in Manang district lies at about 4,900 metres.",
+        "ne": "मनाङ जिल्लाको तिलिचो ताल करिब ४,९०० मिटर उचाइमा छ।"
+      }
+    },
+    {
+      "id": "gkn-q29",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Who wrote the lyrics of Nepal’s national anthem?",
+        "ne": "नेपालको राष्ट्रिय गानका शब्द कसले लेखेका हुन्?"
+      },
+      "options": [
+        {
+          "en": "Amber Gurung",
+          "ne": "अम्बर गुरुङ"
+        },
+        {
+          "en": "Byakul Maila",
+          "ne": "व्याकुल माइला"
+        },
+        {
+          "en": "Madhav Prasad Ghimire",
+          "ne": "माधवप्रसाद घिमिरे"
+        },
+        {
+          "en": "Laxmi Prasad Devkota",
+          "ne": "लक्ष्मीप्रसाद देवकोटा"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Byakul Maila wrote the lyrics of \"Sayaun Thunga Phulka\"; Amber Gurung composed the music.",
+        "ne": "\"सयौं थुँगा फूलका\" का शब्द व्याकुल माइलाले लेखेका हुन्; संगीत अम्बर गुरुङले दिएका हुन्।"
+      }
+    },
+    {
+      "id": "gkn-q30",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "In which year was the first modern census of Nepal conducted?",
+        "ne": "नेपालको पहिलो आधुनिक जनगणना कुन सालमा भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2007 BS",
+          "ne": "२००७"
+        },
+        {
+          "en": "2011 BS",
+          "ne": "२०११"
+        },
+        {
+          "en": "2018 BS",
+          "ne": "२०१८"
+        },
+        {
+          "en": "2028 BS",
+          "ne": "२०२८"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The census of 2011 BS is regarded as Nepal’s first modern, scientific census.",
+        "ne": "२०११ सालको जनगणनालाई नेपालको पहिलो आधुनिक तथा वैज्ञानिक जनगणना मानिन्छ।"
+      }
+    },
+    {
+      "id": "gkn-q31",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which physiographic region of Nepal covers the largest share of its area?",
+        "ne": "नेपालको कुन भौगोलिक क्षेत्रले सबैभन्दा बढी क्षेत्रफल ओगटेको छ?"
+      },
+      "options": [
+        {
+          "en": "Himalayan region",
+          "ne": "हिमाली क्षेत्र"
+        },
+        {
+          "en": "Hill region",
+          "ne": "पहाडी क्षेत्र"
+        },
+        {
+          "en": "Terai region",
+          "ne": "तराई क्षेत्र"
+        },
+        {
+          "en": "Chure region only",
+          "ne": "चुरे क्षेत्र मात्र"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The hill region covers about 68 per cent of Nepal, the Himalaya about 15 per cent and the Terai about 17 per cent.",
+        "ne": "पहाडी क्षेत्रले करिब ६८ प्रतिशत, हिमालले करिब १५ प्रतिशत र तराईले करिब १७ प्रतिशत ओगटेको छ।"
+      }
+    },
+    {
+      "id": "gkn-q32",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many peaks above 8,000 metres lie in Nepal?",
+        "ne": "नेपालमा ८,००० मिटरभन्दा अग्ला कति हिमाल छन्?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Eight: Everest, Kanchenjunga, Lhotse, Makalu, Cho Oyu, Dhaulagiri, Manaslu and Annapurna I.",
+        "ne": "आठ: सगरमाथा, कञ्चनजंघा, ल्होत्से, मकालु, चोयु, धौलागिरी, मनास्लु र अन्नपूर्ण प्रथम।"
+      }
+    },
+    {
+      "id": "gov-q01",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "In which year was the Good Governance (Management and Operation) Act enacted?",
+        "ne": "सुशासन (व्यवस्थापन तथा सञ्चालन) ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2059 BS",
+          "ne": "२०५९"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        },
+        {
+          "en": "2064 BS",
+          "ne": "२०६४"
+        },
+        {
+          "en": "2074 BS",
+          "ne": "२०७४"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The Good Governance Act, 2064 BS, with its Rules of 2065, is the main good governance law of Nepal.",
+        "ne": "सुशासन ऐन, २०६४ र नियमावली, २०६५ नेपालको प्रमुख सुशासनसम्बन्धी कानून हो।"
+      }
+    },
+    {
+      "id": "gov-q02",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which document lists the services, fees and time limits of a government office for citizens?",
+        "ne": "सेवाग्राहीका लागि सरकारी कार्यालयका सेवा, दस्तुर र समयसीमा उल्लेख गर्ने कागजात कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Citizen charter",
+          "ne": "नागरिक बडापत्र"
+        },
+        {
+          "en": "Annual report",
+          "ne": "वार्षिक प्रतिवेदन"
+        },
+        {
+          "en": "Audit report",
+          "ne": "लेखापरीक्षण प्रतिवेदन"
+        },
+        {
+          "en": "Office order",
+          "ne": "कार्यालय आदेश"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The Good Governance Act 2064 requires every office to display a citizen charter.",
+        "ne": "सुशासन ऐन २०६४ ले प्रत्येक कार्यालयलाई नागरिक बडापत्र राख्न अनिवार्य गरेको छ।"
+      }
+    },
+    {
+      "id": "gov-q03",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Right to Information Act of Nepal was enacted in which year?",
+        "ne": "नेपालको सूचनाको हकसम्बन्धी ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2059 BS",
+          "ne": "२०५९"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        },
+        {
+          "en": "2064 BS",
+          "ne": "२०६४"
+        },
+        {
+          "en": "2065 BS",
+          "ne": "२०६५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The Right to Information Act, 2064 BS gives effect to the fundamental right under Article 27.",
+        "ne": "सूचनाको हकसम्बन्धी ऐन, २०६४ ले धारा २७ को मौलिक हकलाई कार्यान्वयन गर्छ।"
+      }
+    },
+    {
+      "id": "gov-q04",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Prevention of Corruption Act of Nepal was enacted in which year?",
+        "ne": "भ्रष्टाचार निवारण ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2059 BS",
+          "ne": "२०५९"
+        },
+        {
+          "en": "2061 BS",
+          "ne": "२०६१"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        },
+        {
+          "en": "2064 BS",
+          "ne": "२०६४"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The Prevention of Corruption Act, 2059 BS is the main anti-corruption law, enforced through the CIAA and the Special Court.",
+        "ne": "भ्रष्टाचार निवारण ऐन, २०५९ प्रमुख भ्रष्टाचारविरोधी कानून हो, जुन अख्तियार र विशेष अदालतमार्फत कार्यान्वयन हुन्छ।"
+      }
+    },
+    {
+      "id": "gov-q05",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "The Civil Service Act currently referred to in most exam syllabi was enacted in which year?",
+        "ne": "अधिकांश पाठ्यक्रममा उल्लेख हुने निजामती सेवा ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2043 BS",
+          "ne": "२०४३"
+        },
+        {
+          "en": "2049 BS",
+          "ne": "२०४९"
+        },
+        {
+          "en": "2053 BS",
+          "ne": "२०५३"
+        },
+        {
+          "en": "2064 BS",
+          "ne": "२०६४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Civil Service Act, 2049 BS with the Civil Service Rules, 2050 governs civil service conditions.",
+        "ne": "निजामती सेवा ऐन, २०४९ र निजामती सेवा नियमावली, २०५० ले निजामती सेवाका सर्त निर्धारण गर्छन्।"
+      }
+    },
+    {
+      "id": "gov-q06",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "When was the Public Service Commission of Nepal established?",
+        "ne": "नेपालको लोक सेवा आयोग कहिले स्थापना भएको हो?"
+      },
+      "options": [
+        {
+          "en": "1 Ashad 2008 BS",
+          "ne": "२००८ असार १"
+        },
+        {
+          "en": "1 Baishakh 2013 BS",
+          "ne": "२०१३ वैशाख १"
+        },
+        {
+          "en": "15 Jestha 2015 BS",
+          "ne": "२०१५ जेठ १५"
+        },
+        {
+          "en": "22 Bhadra 2007 BS",
+          "ne": "२००७ भदौ २२"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The commission was established on 1 Ashad 2008 BS (15 June 1951).",
+        "ne": "आयोग २००८ असार १ गते (१५ जुन १९५१) स्थापना भएको हो।"
+      }
+    },
+    {
+      "id": "gov-q07",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A Nayab Subba belongs to which class of the civil service?",
+        "ne": "नायब सुब्बा निजामती सेवाको कुन श्रेणीमा पर्छ?"
+      },
+      "options": [
+        {
+          "en": "Gazetted third class",
+          "ne": "राजपत्रांकित तृतीय श्रेणी"
+        },
+        {
+          "en": "Non-gazetted first class",
+          "ne": "राजपत्र अनंकित प्रथम श्रेणी"
+        },
+        {
+          "en": "Non-gazetted second class",
+          "ne": "राजपत्र अनंकित द्वितीय श्रेणी"
+        },
+        {
+          "en": "Gazetted second class",
+          "ne": "राजपत्रांकित द्वितीय श्रेणी"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nayab Subba is non-gazetted first class; Kharidar is non-gazetted second class; Section Officer is gazetted third class.",
+        "ne": "नायब सुब्बा राजपत्र अनंकित प्रथम श्रेणी हो; खरिदार राजपत्र अनंकित द्वितीय श्रेणी; शाखा अधिकृत राजपत्रांकित तृतीय श्रेणी।"
+      }
+    },
+    {
+      "id": "gov-q08",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A Section Officer (Shakha Adhikrit) belongs to which class?",
+        "ne": "शाखा अधिकृत कुन श्रेणीमा पर्छ?"
+      },
+      "options": [
+        {
+          "en": "Gazetted first class",
+          "ne": "राजपत्रांकित प्रथम श्रेणी"
+        },
+        {
+          "en": "Gazetted second class",
+          "ne": "राजपत्रांकित द्वितीय श्रेणी"
+        },
+        {
+          "en": "Gazetted third class",
+          "ne": "राजपत्रांकित तृतीय श्रेणी"
+        },
+        {
+          "en": "Non-gazetted first class",
+          "ne": "राजपत्र अनंकित प्रथम श्रेणी"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Section Officer is the entry officer level: gazetted third class.",
+        "ne": "शाखा अधिकृत अधिकृतस्तरको प्रवेश तह हो: राजपत्रांकित तृतीय श्रेणी।"
+      }
+    },
+    {
+      "id": "gov-q09",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "On which date is Civil Service Day celebrated in Nepal?",
+        "ne": "नेपालमा निजामती सेवा दिवस कुन मितिमा मनाइन्छ?"
+      },
+      "options": [
+        {
+          "en": "1 Ashad",
+          "ne": "असार १"
+        },
+        {
+          "en": "22 Bhadra",
+          "ne": "भदौ २२"
+        },
+        {
+          "en": "15 Jestha",
+          "ne": "जेठ १५"
+        },
+        {
+          "en": "3 Ashoj",
+          "ne": "असोज ३"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal marks Civil Service Day on 22 Bhadra every year.",
+        "ne": "नेपालमा प्रत्येक वर्ष भदौ २२ गते निजामती सेवा दिवस मनाइन्छ।"
+      }
+    },
+    {
+      "id": "gov-q10",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What percentage of posts filled through open competition is reserved for inclusive groups?",
+        "ne": "खुला प्रतिस्पर्धाबाट पूर्ति हुने पदमध्ये समावेशी समूहका लागि कति प्रतिशत छुट्याइएको छ?"
+      },
+      "options": [
+        {
+          "en": "33 per cent",
+          "ne": "३३ प्रतिशत"
+        },
+        {
+          "en": "40 per cent",
+          "ne": "४० प्रतिशत"
+        },
+        {
+          "en": "45 per cent",
+          "ne": "४५ प्रतिशत"
+        },
+        {
+          "en": "55 per cent",
+          "ne": "५५ प्रतिशत"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "45 per cent is set aside and distributed among women, indigenous nationalities, Madhesi, Dalit, persons with disability and backward areas.",
+        "ne": "४५ प्रतिशत छुट्याइएको छ र महिला, आदिवासी जनजाति, मधेशी, दलित, अपांगता भएका व्यक्ति र पिछडिएको क्षेत्रबीच बाँडिन्छ।"
+      }
+    },
+    {
+      "id": "gov-q11",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Who chairs the Inter-Province Council?",
+        "ne": "अन्तर प्रदेश परिषद्को अध्यक्ष को हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "President",
+          "ne": "राष्ट्रपति"
+        },
+        {
+          "en": "Prime Minister",
+          "ne": "प्रधानमन्त्री"
+        },
+        {
+          "en": "Speaker",
+          "ne": "सभामुख"
+        },
+        {
+          "en": "Chief Justice",
+          "ne": "प्रधान न्यायाधीश"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 234 places the Prime Minister at the head of the Inter-Province Council, which settles political disputes between tiers.",
+        "ne": "धारा २३४ अनुसार तहबीचको राजनीतिक विवाद समाधान गर्ने अन्तर प्रदेश परिषद्को अध्यक्ष प्रधानमन्त्री हुन्छन्।"
+      }
+    },
+    {
+      "id": "gov-q12",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "How many types of fiscal transfer does Nepal make to provinces and local levels?",
+        "ne": "नेपालले प्रदेश र स्थानीय तहमा कति प्रकारको वित्तीय हस्तान्तरण गर्छ?"
+      },
+      "options": [
+        {
+          "en": "2",
+          "ne": "२"
+        },
+        {
+          "en": "3",
+          "ne": "३"
+        },
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "5",
+          "ne": "५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Four: fiscal equalisation, conditional, complementary and special grants.",
+        "ne": "चार: वित्तीय समानीकरण, सशर्त, समपूरक र विशेष अनुदान।"
+      }
+    },
+    {
+      "id": "gov-q13",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which body recommends the formula for sharing revenue between the three tiers of government?",
+        "ne": "सरकारका तीन तहबीच राजस्व बाँडफाँटको सूत्र कुन निकायले सिफारिस गर्छ?"
+      },
+      "options": [
+        {
+          "en": "National Planning Commission",
+          "ne": "राष्ट्रिय योजना आयोग"
+        },
+        {
+          "en": "National Natural Resources and Fiscal Commission",
+          "ne": "राष्ट्रिय प्राकृतिक स्रोत तथा वित्त आयोग"
+        },
+        {
+          "en": "Auditor General",
+          "ne": "महालेखा परीक्षक"
+        },
+        {
+          "en": "Ministry of Finance",
+          "ne": "अर्थ मन्त्रालय"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The National Natural Resources and Fiscal Commission is created by Article 250 for exactly this purpose.",
+        "ne": "धारा २५० ले यही प्रयोजनका लागि राष्ट्रिय प्राकृतिक स्रोत तथा वित्त आयोग स्थापना गरेको छ।"
+      }
+    },
+    {
+      "id": "gov-q14",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Public Procurement Act of Nepal was enacted in which year?",
+        "ne": "सार्वजनिक खरिद ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2059 BS",
+          "ne": "२०५९"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        },
+        {
+          "en": "2064 BS",
+          "ne": "२०६४"
+        },
+        {
+          "en": "2074 BS",
+          "ne": "२०७४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Public Procurement Act, 2063 BS with the Rules of 2064 governs government purchasing and e-bidding.",
+        "ne": "सार्वजनिक खरिद ऐन, २०६३ र नियमावली, २०६४ ले सरकारी खरिद र विद्युतीय बोलपत्रलाई नियमन गर्छ।"
+      }
+    },
+    {
+      "id": "gov-q15",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Local Government Operation Act was enacted in which year?",
+        "ne": "स्थानीय सरकार सञ्चालन ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2072 BS",
+          "ne": "२०७२"
+        },
+        {
+          "en": "2073 BS",
+          "ne": "२०७३"
+        },
+        {
+          "en": "2074 BS",
+          "ne": "२०७४"
+        },
+        {
+          "en": "2075 BS",
+          "ne": "२०७५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The Local Government Operation Act, 2074 BS gives detail to the powers listed in Schedule 8 of the constitution.",
+        "ne": "स्थानीय सरकार सञ्चालन ऐन, २०७४ ले संविधानको अनुसूची ८ का अधिकारलाई विस्तृत रूप दिन्छ।"
+      }
+    },
+    {
+      "id": "gov-q16",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many characteristics of good governance are commonly listed by UNESCAP?",
+        "ne": "युनेस्क्यापले सामान्यतया सुशासनका कति विशेषता उल्लेख गरेको छ?"
+      },
+      "options": [
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Eight: rule of law, transparency, accountability, participation, responsiveness, consensus orientation, equity and inclusiveness, and effectiveness and efficiency.",
+        "ne": "आठ: विधिको शासन, पारदर्शिता, जवाफदेहिता, सहभागिता, उत्तरदायित्व, सहमति उन्मुखता, समता र समावेशीकरण, तथा प्रभावकारिता र दक्षता।"
+      }
+    },
+    {
+      "id": "gov-q17",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which body carries out the final audit of federal, provincial and local government accounts?",
+        "ne": "संघ, प्रदेश र स्थानीय सरकारको लेखाको अन्तिम लेखापरीक्षण कुन निकायले गर्छ?"
+      },
+      "options": [
+        {
+          "en": "CIAA",
+          "ne": "अख्तियार दुरुपयोग अनुसन्धान आयोग"
+        },
+        {
+          "en": "Auditor General",
+          "ne": "महालेखा परीक्षक"
+        },
+        {
+          "en": "Financial Comptroller General Office",
+          "ne": "महालेखा नियन्त्रक कार्यालय"
+        },
+        {
+          "en": "Public Accounts Committee",
+          "ne": "सार्वजनिक लेखा समिति"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 241 gives the final audit function to the Auditor General.",
+        "ne": "धारा २४१ ले अन्तिम लेखापरीक्षणको जिम्मेवारी महालेखा परीक्षकलाई दिएको छ।"
+      }
+    },
+    {
+      "id": "gov-q18",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which constitutional body investigates corruption by public office holders?",
+        "ne": "सार्वजनिक पद धारण गरेकाले गरेको भ्रष्टाचारको अनुसन्धान कुन संवैधानिक निकायले गर्छ?"
+      },
+      "options": [
+        {
+          "en": "Election Commission",
+          "ne": "निर्वाचन आयोग"
+        },
+        {
+          "en": "National Vigilance Centre",
+          "ne": "राष्ट्रिय सतर्कता केन्द्र"
+        },
+        {
+          "en": "CIAA",
+          "ne": "अख्तियार दुरुपयोग अनुसन्धान आयोग"
+        },
+        {
+          "en": "National Human Rights Commission",
+          "ne": "राष्ट्रिय मानव अधिकार आयोग"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The CIAA investigates and prosecutes; the case is tried by the Special Court.",
+        "ne": "अख्तियारले अनुसन्धान र अभियोजन गर्छ; मुद्दाको सुनुवाइ विशेष अदालतले गर्छ।"
+      }
+    },
+    {
+      "id": "gov-q19",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What is the tenure of the Chairperson of the Public Service Commission?",
+        "ne": "लोक सेवा आयोगका अध्यक्षको कार्यकाल कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "4 years or until the age of 60",
+          "ne": "४ वर्ष वा ६० वर्ष उमेरसम्म"
+        },
+        {
+          "en": "5 years or until the age of 63",
+          "ne": "५ वर्ष वा ६३ वर्ष उमेरसम्म"
+        },
+        {
+          "en": "6 years or until the age of 65",
+          "ne": "६ वर्ष वा ६५ वर्ष उमेरसम्म"
+        },
+        {
+          "en": "6 years only",
+          "ne": "६ वर्ष मात्र"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Six years from appointment, or until the age of 65, whichever is earlier.",
+        "ne": "नियुक्ति भएको मितिले छ वर्ष वा ६५ वर्ष उमेर पुगेसम्म, जुन पहिले हुन्छ।"
+      }
+    },
+    {
+      "id": "gov-q20",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who heads the government of a province in Nepal?",
+        "ne": "नेपालमा प्रदेश सरकारको नेतृत्व कसले गर्छ?"
+      },
+      "options": [
+        {
+          "en": "Provincial Head (Pradesh Pramukh)",
+          "ne": "प्रदेश प्रमुख"
+        },
+        {
+          "en": "Chief Minister",
+          "ne": "मुख्यमन्त्री"
+        },
+        {
+          "en": "Chief Secretary",
+          "ne": "मुख्य सचिव"
+        },
+        {
+          "en": "Speaker of the Provincial Assembly",
+          "ne": "प्रदेश सभाका सभामुख"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Chief Minister heads the provincial council of ministers; the Provincial Head is the representative of the federation in the province.",
+        "ne": "मुख्यमन्त्रीले प्रदेश मन्त्रिपरिषद्को नेतृत्व गर्छन्; प्रदेश प्रमुख प्रदेशमा संघको प्रतिनिधि हुन्।"
+      }
+    },
+    {
+      "id": "gov-q21",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which of the following is NOT a characteristic of the traditional bureaucratic model described by Max Weber?",
+        "ne": "म्याक्स वेबरले वर्णन गरेको परम्परागत नोकरशाही नमुनाको विशेषता निम्नमध्ये कुन होइन?"
+      },
+      "options": [
+        {
+          "en": "Hierarchy of authority",
+          "ne": "अधिकारको पदसोपान"
+        },
+        {
+          "en": "Recruitment based on merit",
+          "ne": "योग्यताका आधारमा पदपूर्ति"
+        },
+        {
+          "en": "Written rules and records",
+          "ne": "लिखित नियम र अभिलेख"
+        },
+        {
+          "en": "Decision by personal preference of the officer",
+          "ne": "कर्मचारीको व्यक्तिगत रुचिबाट निर्णय"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Weber’s ideal bureaucracy is impersonal: decisions follow rules, not personal preference.",
+        "ne": "वेबरको आदर्श नोकरशाही अवैयक्तिक हुन्छ: निर्णय व्यक्तिगत रुचिले होइन, नियमले निर्देशित हुन्छ।"
+      }
+    },
+    {
+      "id": "off-q01",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "In which register is an incoming letter recorded in a government office?",
+        "ne": "सरकारी कार्यालयमा प्राप्त पत्र कुन किताबमा अभिलेख गरिन्छ?"
+      },
+      "options": [
+        {
+          "en": "Chalani register",
+          "ne": "चलानी किताब"
+        },
+        {
+          "en": "Darta register",
+          "ne": "दर्ता किताब"
+        },
+        {
+          "en": "Jinsi register",
+          "ne": "जिन्सी किताब"
+        },
+        {
+          "en": "Goswara voucher",
+          "ne": "गोश्वारा भौचर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Incoming mail is registered in the darta register; outgoing mail is entered in the chalani register.",
+        "ne": "प्राप्त पत्र दर्ता किताबमा दर्ता हुन्छ; पठाइने पत्र चलानी किताबमा चढाइन्छ।"
+      }
+    },
+    {
+      "id": "off-q02",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the record of letters sent out from an office called?",
+        "ne": "कार्यालयबाट बाहिर पठाइने पत्रको अभिलेखलाई के भनिन्छ?"
+      },
+      "options": [
+        {
+          "en": "Darta",
+          "ne": "दर्ता"
+        },
+        {
+          "en": "Chalani",
+          "ne": "चलानी"
+        },
+        {
+          "en": "Bodhartha",
+          "ne": "बोधार्थ"
+        },
+        {
+          "en": "Tippani",
+          "ne": "टिप्पणी"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Chalani is the dispatch record; each outgoing letter receives a chalani number.",
+        "ne": "चलानी प्रेषणको अभिलेख हो; प्रत्येक पठाइने पत्रले चलानी नम्बर पाउँछ।"
+      }
+    },
+    {
+      "id": "off-q03",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many main parts does a tippani (note) normally have?",
+        "ne": "टिप्पणीका सामान्यतया कति मुख्य भाग हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "2",
+          "ne": "२"
+        },
+        {
+          "en": "3",
+          "ne": "३"
+        },
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "5",
+          "ne": "५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Subject and background, analysis of law and options, and opinion with a proposal for decision.",
+        "ne": "विषय र पृष्ठभूमि, कानून तथा विकल्पको विश्लेषण, र निर्णयका लागि प्रस्तावसहितको राय।"
+      }
+    },
+    {
+      "id": "off-q04",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "An office is often described as the ______ of an organisation.",
+        "ne": "कार्यालयलाई प्रायः संगठनको ______ भनिन्छ।"
+      },
+      "options": [
+        {
+          "en": "Brain and nerve centre",
+          "ne": "मस्तिष्क तथा स्नायु केन्द्र"
+        },
+        {
+          "en": "Storeroom",
+          "ne": "भण्डार कक्ष"
+        },
+        {
+          "en": "Boundary",
+          "ne": "सिमाना"
+        },
+        {
+          "en": "Budget line",
+          "ne": "बजेट शीर्षक"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Information is received, processed, stored and issued from the office, so it is called the brain and nerve centre.",
+        "ne": "सूचना कार्यालयमै प्राप्त, प्रशोधन, संरक्षण र जारी हुने भएकाले यसलाई मस्तिष्क तथा स्नायु केन्द्र भनिन्छ।"
+      }
+    },
+    {
+      "id": "off-q05",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Filing records district by district is an example of which filing system?",
+        "ne": "जिल्ला अनुसार अभिलेख फाइल गर्नु कुन फाइलिङ प्रणालीको उदाहरण हो?"
+      },
+      "options": [
+        {
+          "en": "Alphabetical",
+          "ne": "वर्णानुक्रम"
+        },
+        {
+          "en": "Numerical",
+          "ne": "अंक क्रम"
+        },
+        {
+          "en": "Geographical",
+          "ne": "भौगोलिक"
+        },
+        {
+          "en": "Chronological",
+          "ne": "मिति क्रम"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Arranging files by place — district, province or region — is the geographical system.",
+        "ne": "स्थान — जिल्ला, प्रदेश वा क्षेत्र — अनुसार फाइल मिलाउनु भौगोलिक प्रणाली हो।"
+      }
+    },
+    {
+      "id": "off-q06",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A single instruction issued to many offices at once is called:",
+        "ne": "एकैपटक धेरै कार्यालयलाई जारी गरिने एउटै निर्देशनलाई भनिन्छ:"
+      },
+      "options": [
+        {
+          "en": "Tippani",
+          "ne": "टिप्पणी"
+        },
+        {
+          "en": "Paripatra (circular)",
+          "ne": "परिपत्र"
+        },
+        {
+          "en": "Manutting (minute)",
+          "ne": "माइन्युट"
+        },
+        {
+          "en": "Nirnaya",
+          "ne": "निर्णय"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "A paripatra or circular carries one instruction to many recipients.",
+        "ne": "परिपत्रले एउटै निर्देशन धेरै पक्षसम्म पुर्‍याउँछ।"
+      }
+    },
+    {
+      "id": "off-q07",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "The written record of a meeting and its decisions is called:",
+        "ne": "बैठक र त्यसका निर्णयको लिखित अभिलेखलाई भनिन्छ:"
+      },
+      "options": [
+        {
+          "en": "Minute",
+          "ne": "माइन्युट"
+        },
+        {
+          "en": "Circular",
+          "ne": "परिपत्र"
+        },
+        {
+          "en": "Notice",
+          "ne": "सूचना"
+        },
+        {
+          "en": "Report",
+          "ne": "प्रतिवेदन"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "A minute records who attended, what was discussed and what was decided.",
+        "ne": "माइन्युटले को उपस्थित थिए, के छलफल भयो र के निर्णय भयो भन्ने अभिलेख गर्छ।"
+      }
+    },
+    {
+      "id": "off-q08",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "In a government letter, \"bodhartha\" means:",
+        "ne": "सरकारी पत्रमा \"बोधार्थ\" भनेको हो:"
+      },
+      "options": [
+        {
+          "en": "The subject line",
+          "ne": "विषय पंक्ति"
+        },
+        {
+          "en": "Copy sent for information",
+          "ne": "जानकारीका लागि पठाइएको प्रतिलिपि"
+        },
+        {
+          "en": "The enclosure list",
+          "ne": "संलग्न कागजातको सूची"
+        },
+        {
+          "en": "The signature block",
+          "ne": "हस्ताक्षर खण्ड"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Bodhartha lists the offices that receive a copy for information, not for action.",
+        "ne": "बोधार्थमा कारबाहीका लागि होइन, जानकारीका लागि प्रतिलिपि पाउने कार्यालय उल्लेख हुन्छन्।"
+      }
+    },
+    {
+      "id": "off-q09",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Management of goods and materials in a government office is known as:",
+        "ne": "सरकारी कार्यालयमा सामान तथा सामग्रीको व्यवस्थापनलाई भनिन्छ:"
+      },
+      "options": [
+        {
+          "en": "Jinsi (store) management",
+          "ne": "जिन्सी व्यवस्थापन"
+        },
+        {
+          "en": "Darta management",
+          "ne": "दर्ता व्यवस्थापन"
+        },
+        {
+          "en": "Bhuktani management",
+          "ne": "भुक्तानी व्यवस्थापन"
+        },
+        {
+          "en": "Abhilekh management",
+          "ne": "अभिलेख व्यवस्थापन"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Jinsi management covers purchase, records, handover, use and auction of office goods.",
+        "ne": "जिन्सी व्यवस्थापनमा कार्यालयका सामानको खरिद, अभिलेख, हस्तान्तरण, प्रयोग र लिलाम पर्छन्।"
+      }
+    },
+    {
+      "id": "off-q10",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which of these is NOT a test of a good filing system?",
+        "ne": "निम्नमध्ये कुन राम्रो फाइलिङ प्रणालीको कसी होइन?"
+      },
+      "options": [
+        {
+          "en": "Simplicity",
+          "ne": "सरलता"
+        },
+        {
+          "en": "Quick retrieval",
+          "ne": "छिटो खोज्न सकिने"
+        },
+        {
+          "en": "Secrecy from the office head",
+          "ne": "कार्यालय प्रमुखबाट गोपनीयता"
+        },
+        {
+          "en": "Safety of documents",
+          "ne": "कागजातको सुरक्षा"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "A filing system must be simple, economical, flexible, safe and quick to search. Hiding files from the office head is not a virtue.",
+        "ne": "फाइलिङ प्रणाली सरल, मितव्ययी, लचिलो, सुरक्षित र छिटो खोज्न सकिने हुनुपर्छ। कार्यालय प्रमुखबाट फाइल लुकाउनु गुण होइन।"
+      }
+    },
+    {
+      "id": "off-q11",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Under the Good Governance Act, every decision affecting a person must be:",
+        "ne": "सुशासन ऐन अनुसार कुनै व्यक्तिलाई असर पर्ने प्रत्येक निर्णय हुनुपर्छ:"
+      },
+      "options": [
+        {
+          "en": "Oral only",
+          "ne": "मौखिक मात्र"
+        },
+        {
+          "en": "Reasoned and in writing",
+          "ne": "कारणसहित र लिखित"
+        },
+        {
+          "en": "Approved by the ministry",
+          "ne": "मन्त्रालयबाट स्वीकृत"
+        },
+        {
+          "en": "Published in a newspaper",
+          "ne": "पत्रिकामा प्रकाशित"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Act requires reasoned decisions so that the record can be reviewed, audited or investigated later.",
+        "ne": "ऐनले कारणसहितको निर्णय अनिवार्य गर्छ, ताकि अभिलेख पछि पुनरावलोकन, लेखापरीक्षण वा अनुसन्धान गर्न सकियोस्।"
+      }
+    },
+    {
+      "id": "off-q12",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which of the following is a resource of an office in the classic \"five Ms\"?",
+        "ne": "कार्यालयका परम्परागत \"पाँच M\" मध्ये निम्नमध्ये कुन एक साधन हो?"
+      },
+      "options": [
+        {
+          "en": "Money",
+          "ne": "रकम"
+        },
+        {
+          "en": "Monsoon",
+          "ne": "मनसुन"
+        },
+        {
+          "en": "Monument",
+          "ne": "स्मारक"
+        },
+        {
+          "en": "Monopoly",
+          "ne": "एकाधिकार"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The five Ms are Men, Money, Materials, Machines and Methods.",
+        "ne": "पाँच M हुन्: Men (जनशक्ति), Money (रकम), Materials (सामग्री), Machines (मेसिन) र Methods (विधि)।"
+      }
+    },
+    {
+      "id": "off-q13",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which of the following is the correct order of steps for an incoming letter?",
+        "ne": "प्राप्त पत्रका लागि निम्नमध्ये कुन क्रम सही हो?"
+      },
+      "options": [
+        {
+          "en": "Darta → section → tippani → decision → chalani",
+          "ne": "दर्ता → शाखा → टिप्पणी → निर्णय → चलानी"
+        },
+        {
+          "en": "Chalani → darta → tippani → decision",
+          "ne": "चलानी → दर्ता → टिप्पणी → निर्णय"
+        },
+        {
+          "en": "Tippani → darta → chalani → decision",
+          "ne": "टिप्पणी → दर्ता → चलानी → निर्णय"
+        },
+        {
+          "en": "Decision → darta → tippani → chalani",
+          "ne": "निर्णय → दर्ता → टिप्पणी → चलानी"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "A letter is registered, routed to the section, processed through a note, decided by the authority, and the reply is dispatched.",
+        "ne": "पत्र दर्ता हुन्छ, शाखामा जान्छ, टिप्पणीमार्फत प्रशोधन हुन्छ, अधिकारीले निर्णय गर्छन् र जवाफ चलानी हुन्छ।"
+      }
+    },
+    {
+      "id": "eco-q01",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the fiscal year of the Government of Nepal?",
+        "ne": "नेपाल सरकारको आर्थिक वर्ष कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Baishakh 1 to Chaitra end",
+          "ne": "वैशाख १ देखि चैत मसान्त"
+        },
+        {
+          "en": "Shrawan 1 to Ashad end",
+          "ne": "साउन १ देखि असार मसान्त"
+        },
+        {
+          "en": "January 1 to December 31",
+          "ne": "जनवरी १ देखि डिसेम्बर ३१"
+        },
+        {
+          "en": "Kartik 1 to Ashoj end",
+          "ne": "कात्तिक १ देखि असोज मसान्त"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal’s fiscal year runs from 1 Shrawan to the last day of Ashad.",
+        "ne": "नेपालको आर्थिक वर्ष साउन १ गतेदेखि असार मसान्तसम्म हुन्छ।"
+      }
+    },
+    {
+      "id": "eco-q02",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "On which date is the federal budget presented under the constitution?",
+        "ne": "संविधान अनुसार संघीय बजेट कुन मितिमा प्रस्तुत गरिन्छ?"
+      },
+      "options": [
+        {
+          "en": "1 Shrawan",
+          "ne": "साउन १"
+        },
+        {
+          "en": "15 Jestha",
+          "ne": "जेठ १५"
+        },
+        {
+          "en": "1 Baishakh",
+          "ne": "वैशाख १"
+        },
+        {
+          "en": "15 Chaitra",
+          "ne": "चैत १५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 119 requires the annual budget to be presented in the Federal Parliament on 15 Jestha each year.",
+        "ne": "धारा ११९ अनुसार प्रत्येक वर्ष जेठ १५ गते संघीय संसद्मा वार्षिक बजेट प्रस्तुत गर्नुपर्छ।"
+      }
+    },
+    {
+      "id": "eco-q03",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Nepal Rastra Bank was established in which year?",
+        "ne": "नेपाल राष्ट्र बैंक कुन सालमा स्थापना भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2007 BS",
+          "ne": "२००७"
+        },
+        {
+          "en": "2013 BS",
+          "ne": "२०१३"
+        },
+        {
+          "en": "2019 BS",
+          "ne": "२०१९"
+        },
+        {
+          "en": "2022 BS",
+          "ne": "२०२२"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal Rastra Bank, the central bank, was established in 2013 BS (1956).",
+        "ne": "केन्द्रीय बैंक नेपाल राष्ट्र बैंक २०१३ साल (सन् १९५६) मा स्थापना भएको हो।"
+      }
+    },
+    {
+      "id": "eco-q04",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Nepal’s first periodic plan began in which year?",
+        "ne": "नेपालको पहिलो आवधिक योजना कुन सालमा सुरु भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2007 BS",
+          "ne": "२००७"
+        },
+        {
+          "en": "2011 BS",
+          "ne": "२०११"
+        },
+        {
+          "en": "2013 BS",
+          "ne": "२०१३"
+        },
+        {
+          "en": "2018 BS",
+          "ne": "२०१८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The First Five Year Plan started in 2013 BS (1956).",
+        "ne": "पहिलो पञ्चवर्षीय योजना २०१३ साल (सन् १९५६) मा सुरु भयो।"
+      }
+    },
+    {
+      "id": "eco-q05",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who chairs the National Planning Commission of Nepal?",
+        "ne": "नेपालको राष्ट्रिय योजना आयोगको अध्यक्ष को हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Finance Minister",
+          "ne": "अर्थमन्त्री"
+        },
+        {
+          "en": "Prime Minister",
+          "ne": "प्रधानमन्त्री"
+        },
+        {
+          "en": "Vice Chairperson only",
+          "ne": "उपाध्यक्ष मात्र"
+        },
+        {
+          "en": "President",
+          "ne": "राष्ट्रपति"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Prime Minister is the chairperson; day-to-day work is led by the vice-chairperson.",
+        "ne": "प्रधानमन्त्री अध्यक्ष हुन्छन्; दैनिक कामको नेतृत्व उपाध्यक्षले गर्छन्।"
+      }
+    },
+    {
+      "id": "eco-q06",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Value Added Tax was introduced in Nepal in which year?",
+        "ne": "नेपालमा मूल्य अभिवृद्धि कर कुन सालदेखि लागू भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2049 BS",
+          "ne": "२०४९"
+        },
+        {
+          "en": "2054 BS",
+          "ne": "२०५४"
+        },
+        {
+          "en": "2058 BS",
+          "ne": "२०५८"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "VAT replaced sales tax, hotel tax, contract tax and entertainment tax from 2054 BS (1997).",
+        "ne": "मूल्य अभिवृद्धि करले २०५४ साल (सन् १९९७) देखि बिक्री कर, होटल कर, ठेक्का कर र मनोरञ्जन कर प्रतिस्थापन गर्‍यो।"
+      }
+    },
+    {
+      "id": "eco-q07",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which of the following is a direct tax?",
+        "ne": "निम्नमध्ये कुन प्रत्यक्ष कर हो?"
+      },
+      "options": [
+        {
+          "en": "Value Added Tax",
+          "ne": "मूल्य अभिवृद्धि कर"
+        },
+        {
+          "en": "Customs duty",
+          "ne": "भन्सार महसुल"
+        },
+        {
+          "en": "Income tax",
+          "ne": "आयकर"
+        },
+        {
+          "en": "Excise duty",
+          "ne": "अन्तःशुल्क"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Income tax is paid directly by the person whose income is taxed; VAT, customs and excise are indirect taxes.",
+        "ne": "आयकर आय हुने व्यक्तिले प्रत्यक्ष तिर्छ; मूल्य अभिवृद्धि कर, भन्सार र अन्तःशुल्क अप्रत्यक्ष कर हुन्।"
+      }
+    },
+    {
+      "id": "eco-q08",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many Sustainable Development Goals are there?",
+        "ne": "दिगो विकास लक्ष्य कति छन्?"
+      },
+      "options": [
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "15",
+          "ne": "१५"
+        },
+        {
+          "en": "17",
+          "ne": "१७"
+        },
+        {
+          "en": "21",
+          "ne": "२१"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "17 goals and 169 targets, running from 2016 to 2030.",
+        "ne": "१७ लक्ष्य र १६९ गन्तव्य, सन् २०१६ देखि २०३० सम्म।"
+      }
+    },
+    {
+      "id": "eco-q09",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Millennium Development Goals had how many goals?",
+        "ne": "सहस्राब्दी विकास लक्ष्यमा कति लक्ष्य थिए?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "12",
+          "ne": "१२"
+        },
+        {
+          "en": "17",
+          "ne": "१७"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The MDGs had 8 goals and ran from 2000 to 2015, before the SDGs took over.",
+        "ne": "सहस्राब्दी विकास लक्ष्यमा ८ लक्ष्य थिए र सन् २००० देखि २०१५ सम्म चले, त्यसपछि दिगो विकास लक्ष्य आयो।"
+      }
+    },
+    {
+      "id": "eco-q10",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What was the vision statement of Nepal’s Fifteenth Plan?",
+        "ne": "नेपालको पन्ध्रौं योजनाको सोच के थियो?"
+      },
+      "options": [
+        {
+          "en": "Prosperous Nepal, Happy Nepali",
+          "ne": "समृद्ध नेपाल, सुखी नेपाली"
+        },
+        {
+          "en": "Poverty Free Nepal",
+          "ne": "गरिबी मुक्त नेपाल"
+        },
+        {
+          "en": "Digital Nepal",
+          "ne": "डिजिटल नेपाल"
+        },
+        {
+          "en": "Self-reliant Nepal",
+          "ne": "आत्मनिर्भर नेपाल"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "\"Prosperous Nepal, Happy Nepali\" is the long-term vision carried by the Fifteenth Plan.",
+        "ne": "\"समृद्ध नेपाल, सुखी नेपाली\" पन्ध्रौं योजनाले बोकेको दीर्घकालीन सोच हो।"
+      }
+    },
+    {
+      "id": "eco-q11",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "The Federal Consolidated Fund is established by which article of the constitution?",
+        "ne": "संघीय सञ्चित कोष संविधानको कुन धाराद्वारा स्थापित छ?"
+      },
+      "options": [
+        {
+          "en": "Article 115",
+          "ne": "धारा ११५"
+        },
+        {
+          "en": "Article 116",
+          "ne": "धारा ११६"
+        },
+        {
+          "en": "Article 119",
+          "ne": "धारा ११९"
+        },
+        {
+          "en": "Article 124",
+          "ne": "धारा १२४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Article 116 creates the Federal Consolidated Fund; Article 124 creates the Contingency Fund.",
+        "ne": "धारा ११६ ले संघीय सञ्चित कोष र धारा १२४ ले आकस्मिक कोष स्थापना गर्छ।"
+      }
+    },
+    {
+      "id": "eco-q12",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Nepal is scheduled to graduate from Least Developed Country status in which year?",
+        "ne": "नेपाल कुन सालमा अतिकम विकसित मुलुकको सूचीबाट स्तरोन्नति हुने तय भएको छ?"
+      },
+      "options": [
+        {
+          "en": "2024",
+          "ne": "सन् २०२४"
+        },
+        {
+          "en": "2026",
+          "ne": "सन् २०२६"
+        },
+        {
+          "en": "2030",
+          "ne": "सन् २०३०"
+        },
+        {
+          "en": "2035",
+          "ne": "सन् २०३५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The UN General Assembly approved Nepal’s graduation with effect from November 2026.",
+        "ne": "संयुक्त राष्ट्र संघीय महासभाले नोभेम्बर २०२६ देखि लागू हुने गरी नेपालको स्तरोन्नति स्वीकृत गरेको हो।"
+      }
+    },
+    {
+      "id": "wor-q01",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "When did Nepal become a member of the United Nations?",
+        "ne": "नेपाल संयुक्त राष्ट्र संघको सदस्य कहिले भएको हो?"
+      },
+      "options": [
+        {
+          "en": "24 October 1945",
+          "ne": "२४ अक्टोबर १९४५"
+        },
+        {
+          "en": "14 December 1955",
+          "ne": "१४ डिसेम्बर १९५५"
+        },
+        {
+          "en": "8 December 1985",
+          "ne": "८ डिसेम्बर १९८५"
+        },
+        {
+          "en": "23 April 2004",
+          "ne": "२३ अप्रिल २००४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Nepal joined the UN on 14 December 1955.",
+        "ne": "नेपाल १४ डिसेम्बर १९५५ मा संयुक्त राष्ट्र संघको सदस्य भयो।"
+      }
+    },
+    {
+      "id": "wor-q02",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "The United Nations was founded on which date?",
+        "ne": "संयुक्त राष्ट्र संघ कुन मितिमा स्थापना भएको हो?"
+      },
+      "options": [
+        {
+          "en": "24 October 1945",
+          "ne": "२४ अक्टोबर १९४५"
+        },
+        {
+          "en": "26 June 1945",
+          "ne": "२६ जुन १९४५"
+        },
+        {
+          "en": "1 January 1942",
+          "ne": "१ जनवरी १९४२"
+        },
+        {
+          "en": "10 December 1948",
+          "ne": "१० डिसेम्बर १९४८"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The UN Charter came into force on 24 October 1945, marked as United Nations Day.",
+        "ne": "संयुक्त राष्ट्र संघको बडापत्र २४ अक्टोबर १९४५ मा लागू भयो, जुन संयुक्त राष्ट्र दिवसका रूपमा मनाइन्छ।"
+      }
+    },
+    {
+      "id": "wor-q03",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Where is the SAARC Secretariat located?",
+        "ne": "सार्क सचिवालय कहाँ छ?"
+      },
+      "options": [
+        {
+          "en": "Dhaka",
+          "ne": "ढाका"
+        },
+        {
+          "en": "New Delhi",
+          "ne": "नयाँ दिल्ली"
+        },
+        {
+          "en": "Kathmandu",
+          "ne": "काठमाडौं"
+        },
+        {
+          "en": "Colombo",
+          "ne": "कोलम्बो"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The SAARC Secretariat was established in Kathmandu on 16 January 1987.",
+        "ne": "सार्क सचिवालय १६ जनवरी १९८७ मा काठमाडौंमा स्थापना भएको हो।"
+      }
+    },
+    {
+      "id": "wor-q04",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many member countries does SAARC have?",
+        "ne": "सार्कका कति सदस्य राष्ट्र छन्?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "7",
+          "ne": "७"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Eight — the seven founding members plus Afghanistan, which joined in 2007.",
+        "ne": "आठ — सात संस्थापक सदस्य र सन् २००७ मा सामेल भएको अफगानिस्तान।"
+      }
+    },
+    {
+      "id": "wor-q05",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "When did Nepal join the World Trade Organization?",
+        "ne": "नेपाल विश्व व्यापार संगठनको सदस्य कहिले भयो?"
+      },
+      "options": [
+        {
+          "en": "1995",
+          "ne": "सन् १९९५"
+        },
+        {
+          "en": "2001",
+          "ne": "सन् २००१"
+        },
+        {
+          "en": "2004",
+          "ne": "सन् २००४"
+        },
+        {
+          "en": "2007",
+          "ne": "सन् २००७"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Nepal became a WTO member on 23 April 2004, the first LDC to join through full accession negotiation.",
+        "ne": "नेपाल २३ अप्रिल २००४ मा विश्व व्यापार संगठनको सदस्य भयो, पूर्ण प्रवेश वार्ताबाट सदस्य बन्ने पहिलो अतिकम विकसित मुलुक।"
+      }
+    },
+    {
+      "id": "wor-q06",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Where is the International Court of Justice located?",
+        "ne": "अन्तर्राष्ट्रिय न्यायालय कहाँ छ?"
+      },
+      "options": [
+        {
+          "en": "Geneva",
+          "ne": "जेनेभा"
+        },
+        {
+          "en": "The Hague",
+          "ne": "हेग"
+        },
+        {
+          "en": "New York",
+          "ne": "न्युयोर्क"
+        },
+        {
+          "en": "Vienna",
+          "ne": "भियना"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The ICJ sits at the Peace Palace in The Hague, Netherlands.",
+        "ne": "अन्तर्राष्ट्रिय न्यायालय नेदरल्यान्ड्सको हेगस्थित पिस प्यालेसमा रहेको छ।"
+      }
+    },
+    {
+      "id": "wor-q07",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many members does the UN Security Council have?",
+        "ne": "संयुक्त राष्ट्र सुरक्षा परिषद्मा कति सदस्य हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "10",
+          "ne": "१०"
+        },
+        {
+          "en": "15",
+          "ne": "१५"
+        },
+        {
+          "en": "20",
+          "ne": "२०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "15 members: 5 permanent members with veto power and 10 non-permanent members elected for two years.",
+        "ne": "१५ सदस्य: भिटो अधिकार भएका ५ स्थायी सदस्य र दुई वर्षका लागि निर्वाचित १० अस्थायी सदस्य।"
+      }
+    },
+    {
+      "id": "wor-q08",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Where is the headquarters of the Asian Development Bank?",
+        "ne": "एसियाली विकास बैंकको मुख्यालय कहाँ छ?"
+      },
+      "options": [
+        {
+          "en": "Tokyo",
+          "ne": "टोकियो"
+        },
+        {
+          "en": "Manila",
+          "ne": "मनिला"
+        },
+        {
+          "en": "Beijing",
+          "ne": "बेइजिङ"
+        },
+        {
+          "en": "Singapore",
+          "ne": "सिंगापुर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The ADB is headquartered in Manila, Philippines; Nepal is a founding member from 1966.",
+        "ne": "एसियाली विकास बैंकको मुख्यालय फिलिपिन्सको मनिलामा छ; नेपाल सन् १९६६ देखि संस्थापक सदस्य हो।"
+      }
+    },
+    {
+      "id": "wor-q09",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which is the largest continent in the world by area?",
+        "ne": "क्षेत्रफलका आधारमा विश्वको सबैभन्दा ठूलो महादेश कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Africa",
+          "ne": "अफ्रिका"
+        },
+        {
+          "en": "Asia",
+          "ne": "एसिया"
+        },
+        {
+          "en": "North America",
+          "ne": "उत्तर अमेरिका"
+        },
+        {
+          "en": "Europe",
+          "ne": "युरोप"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Asia is the largest continent by both area and population.",
+        "ne": "एसिया क्षेत्रफल र जनसंख्या दुवैमा सबैभन्दा ठूलो महादेश हो।"
+      }
+    },
+    {
+      "id": "wor-q10",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which gas do green plants absorb from the air for photosynthesis?",
+        "ne": "हरिया बिरुवाले प्रकाश संश्लेषणका लागि हावाबाट कुन ग्यास लिन्छन्?"
+      },
+      "options": [
+        {
+          "en": "Oxygen",
+          "ne": "अक्सिजन"
+        },
+        {
+          "en": "Nitrogen",
+          "ne": "नाइट्रोजन"
+        },
+        {
+          "en": "Carbon dioxide",
+          "ne": "कार्बन डाइअक्साइड"
+        },
+        {
+          "en": "Hydrogen",
+          "ne": "हाइड्रोजन"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Plants take in carbon dioxide and release oxygen during photosynthesis.",
+        "ne": "प्रकाश संश्लेषणका क्रममा बिरुवाले कार्बन डाइअक्साइड लिन्छन् र अक्सिजन छाड्छन्।"
+      }
+    },
+    {
+      "id": "wor-q11",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which vitamin does the human body make with the help of sunlight?",
+        "ne": "सूर्यको प्रकाशको सहायताले मानव शरीरले कुन भिटामिन बनाउँछ?"
+      },
+      "options": [
+        {
+          "en": "Vitamin A",
+          "ne": "भिटामिन ए"
+        },
+        {
+          "en": "Vitamin C",
+          "ne": "भिटामिन सी"
+        },
+        {
+          "en": "Vitamin D",
+          "ne": "भिटामिन डी"
+        },
+        {
+          "en": "Vitamin K",
+          "ne": "भिटामिन के"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Sunlight helps the skin synthesise vitamin D, which is needed for bone health.",
+        "ne": "सूर्यको प्रकाशले छालामा भिटामिन डी बनाउन मद्दत गर्छ, जुन हड्डीको स्वास्थ्यका लागि आवश्यक हुन्छ।"
+      }
+    },
+    {
+      "id": "wor-q12",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the SI unit of force?",
+        "ne": "बलको एस.आई. एकाइ के हो?"
+      },
+      "options": [
+        {
+          "en": "Joule",
+          "ne": "जुल"
+        },
+        {
+          "en": "Watt",
+          "ne": "वाट"
+        },
+        {
+          "en": "Newton",
+          "ne": "न्युटन"
+        },
+        {
+          "en": "Pascal",
+          "ne": "पास्कल"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Force is measured in newtons; joule is energy, watt is power and pascal is pressure.",
+        "ne": "बल न्युटनमा मापन गरिन्छ; जुल ऊर्जा, वाट शक्ति र पास्कल चापको एकाइ हो।"
+      }
+    },
+    {
+      "id": "wor-q13",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which blood group is called the universal donor?",
+        "ne": "कुन रक्त समूहलाई विश्वव्यापी दाता भनिन्छ?"
+      },
+      "options": [
+        {
+          "en": "A positive",
+          "ne": "ए पोजिटिभ"
+        },
+        {
+          "en": "AB positive",
+          "ne": "एबी पोजिटिभ"
+        },
+        {
+          "en": "O negative",
+          "ne": "ओ नेगेटिभ"
+        },
+        {
+          "en": "B negative",
+          "ne": "बी नेगेटिभ"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "O negative red cells can be given to almost any recipient; AB positive is the universal recipient.",
+        "ne": "ओ नेगेटिभ रक्तकोष लगभग सबैलाई दिन सकिन्छ; एबी पोजिटिभ विश्वव्यापी ग्रहणकर्ता हो।"
+      }
+    },
+    {
+      "id": "wor-q14",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Where is the headquarters of the World Health Organization?",
+        "ne": "विश्व स्वास्थ्य संगठनको मुख्यालय कहाँ छ?"
+      },
+      "options": [
+        {
+          "en": "New York",
+          "ne": "न्युयोर्क"
+        },
+        {
+          "en": "Geneva",
+          "ne": "जेनेभा"
+        },
+        {
+          "en": "Paris",
+          "ne": "पेरिस"
+        },
+        {
+          "en": "Rome",
+          "ne": "रोम"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "WHO is headquartered in Geneva, Switzerland, as is the WTO.",
+        "ne": "विश्व स्वास्थ्य संगठनको मुख्यालय स्विट्जरल्यान्डको जेनेभामा छ, विश्व व्यापार संगठनको पनि त्यहीँ छ।"
+      }
+    },
+    {
+      "id": "wor-q15",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which international agreement on climate change was adopted in 2015?",
+        "ne": "जलवायु परिवर्तनसम्बन्धी कुन अन्तर्राष्ट्रिय सम्झौता सन् २०१५ मा पारित भएको हो?"
+      },
+      "options": [
+        {
+          "en": "Kyoto Protocol",
+          "ne": "क्योटो प्रोटोकल"
+        },
+        {
+          "en": "Paris Agreement",
+          "ne": "पेरिस सम्झौता"
+        },
+        {
+          "en": "Montreal Protocol",
+          "ne": "मन्ट्रियल प्रोटोकल"
+        },
+        {
+          "en": "Rio Declaration",
+          "ne": "रियो घोषणापत्र"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Paris Agreement was adopted in December 2015 and Nepal ratified it in 2016.",
+        "ne": "पेरिस सम्झौता डिसेम्बर २०१५ मा पारित भयो र नेपालले सन् २०१६ मा अनुमोदन गर्‍यो।"
+      }
+    },
+    {
+      "id": "ict-q01",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many bits make one byte?",
+        "ne": "एक बाइट बराबर कति बिट हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "4",
+          "ne": "४"
+        },
+        {
+          "en": "8",
+          "ne": "८"
+        },
+        {
+          "en": "16",
+          "ne": "१६"
+        },
+        {
+          "en": "1024",
+          "ne": "१०२४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "One byte equals 8 bits. Each higher unit (KB, MB, GB) is 1024 of the previous one.",
+        "ne": "एक बाइट बराबर ८ बिट हुन्छ। माथिल्लो प्रत्येक एकाइ (केबी, एमबी, जीबी) अघिल्लोको १०२४ गुणा हुन्छ।"
+      }
+    },
+    {
+      "id": "ict-q02",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which memory loses its contents when the computer is switched off?",
+        "ne": "कम्प्युटर बन्द गर्दा कुन स्मृतिको सामग्री हराउँछ?"
+      },
+      "options": [
+        {
+          "en": "ROM",
+          "ne": "रोम"
+        },
+        {
+          "en": "RAM",
+          "ne": "र्‍याम"
+        },
+        {
+          "en": "Hard disk",
+          "ne": "हार्ड डिस्क"
+        },
+        {
+          "en": "Pen drive",
+          "ne": "पेन ड्राइभ"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "RAM is volatile working memory; ROM and storage devices keep their contents.",
+        "ne": "र्‍याम अस्थायी कार्य स्मृति हो; रोम र भण्डारण उपकरणले सामग्री कायम राख्छन्।"
+      }
+    },
+    {
+      "id": "ict-q03",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which of the following is system software?",
+        "ne": "निम्नमध्ये कुन सिस्टम सफ्टवेयर हो?"
+      },
+      "options": [
+        {
+          "en": "MS Word",
+          "ne": "एमएस वर्ड"
+        },
+        {
+          "en": "MS Excel",
+          "ne": "एमएस एक्सेल"
+        },
+        {
+          "en": "Windows operating system",
+          "ne": "विन्डोज अपरेटिङ सिस्टम"
+        },
+        {
+          "en": "Photoshop",
+          "ne": "फोटोसप"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "An operating system is system software; Word, Excel and Photoshop are application software.",
+        "ne": "अपरेटिङ सिस्टम सिस्टम सफ्टवेयर हो; वर्ड, एक्सेल र फोटोसप एप्लिकेसन सफ्टवेयर हुन्।"
+      }
+    },
+    {
+      "id": "ict-q04",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which software is best suited for preparing a table of monthly office expenses with automatic totals?",
+        "ne": "स्वतः जोड हुने गरी मासिक कार्यालय खर्चको तालिका बनाउन कुन सफ्टवेयर उपयुक्त हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Word processor",
+          "ne": "वर्ड प्रोसेसर"
+        },
+        {
+          "en": "Spreadsheet",
+          "ne": "स्प्रेडसिट"
+        },
+        {
+          "en": "Presentation software",
+          "ne": "प्रस्तुतीकरण सफ्टवेयर"
+        },
+        {
+          "en": "Web browser",
+          "ne": "वेब ब्राउजर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "A spreadsheet such as MS Excel handles formulas and automatic calculation.",
+        "ne": "एमएस एक्सेल जस्ता स्प्रेडसिटले सूत्र र स्वतः गणना गर्न सक्छ।"
+      }
+    },
+    {
+      "id": "ict-q05",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Electronic Transaction Act of Nepal was enacted in which year?",
+        "ne": "नेपालको विद्युतीय कारोबार ऐन कुन सालमा जारी भएको हो?"
+      },
+      "options": [
+        {
+          "en": "2059 BS",
+          "ne": "२०५९"
+        },
+        {
+          "en": "2061 BS",
+          "ne": "२०६१"
+        },
+        {
+          "en": "2063 BS",
+          "ne": "२०६३"
+        },
+        {
+          "en": "2068 BS",
+          "ne": "२०६८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The Electronic Transaction Act, 2063 BS gives legal recognition to electronic records and digital signatures.",
+        "ne": "विद्युतीय कारोबार ऐन, २०६३ ले विद्युतीय अभिलेख र डिजिटल हस्ताक्षरलाई कानूनी मान्यता दिन्छ।"
+      }
+    },
+    {
+      "id": "ict-q06",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "In e-governance, delivering services from government to citizens is called:",
+        "ne": "विद्युतीय सुशासनमा सरकारबाट नागरिकसम्म सेवा प्रवाह गर्ने मोडललाई भनिन्छ:"
+      },
+      "options": [
+        {
+          "en": "G2B",
+          "ne": "जी२बी"
+        },
+        {
+          "en": "G2C",
+          "ne": "जी२सी"
+        },
+        {
+          "en": "G2G",
+          "ne": "जी२जी"
+        },
+        {
+          "en": "G2E",
+          "ne": "जी२ई"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "G2C is government to citizen; G2B business, G2G government to government, G2E employees.",
+        "ne": "जी२सी भनेको सरकारबाट नागरिक; जी२बी व्यवसाय, जी२जी सरकारबाट सरकार, जी२ई कर्मचारी।"
+      }
+    },
+    {
+      "id": "ict-q07",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which encoding should be used for Nepali text so that it displays correctly in email and on government portals?",
+        "ne": "इमेल र सरकारी पोर्टलमा सही देखियोस् भनेर नेपाली पाठका लागि कुन एन्कोडिङ प्रयोग गर्नुपर्छ?"
+      },
+      "options": [
+        {
+          "en": "Preeti",
+          "ne": "प्रीति"
+        },
+        {
+          "en": "Kantipur",
+          "ne": "कान्तिपुर"
+        },
+        {
+          "en": "Unicode",
+          "ne": "युनिकोड"
+        },
+        {
+          "en": "ASCII only",
+          "ne": "एस्की मात्र"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Unicode is the standard encoding; Preeti and Kantipur are legacy font-based systems that break outside the font.",
+        "ne": "युनिकोड मानक एन्कोडिङ हो; प्रीति र कान्तिपुर फन्टमा आधारित पुराना प्रणाली हुन्, जुन फन्टबाहिर बिग्रन्छन्।"
+      }
+    },
+    {
+      "id": "ict-q08",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which practice best protects an official email account?",
+        "ne": "सरकारी इमेल खाता सुरक्षित राख्न कुन अभ्यास उत्तम हो?"
+      },
+      "options": [
+        {
+          "en": "Sharing the password with a colleague for convenience",
+          "ne": "सजिलोका लागि सहकर्मीलाई पासवर्ड दिने"
+        },
+        {
+          "en": "Using a strong unique password with two-factor authentication",
+          "ne": "बलियो अनौठो पासवर्ड र दुई चरणको प्रमाणीकरण प्रयोग गर्ने"
+        },
+        {
+          "en": "Writing the password on a note under the keyboard",
+          "ne": "किबोर्डमुनि कागजमा पासवर्ड लेख्ने"
+        },
+        {
+          "en": "Using the same password everywhere",
+          "ne": "सबैतिर एउटै पासवर्ड प्रयोग गर्ने"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Unique strong passwords plus two-factor authentication are the baseline of account security.",
+        "ne": "अनौठो बलियो पासवर्ड र दुई चरणको प्रमाणीकरण खाता सुरक्षाको आधार हुन्।"
+      }
+    },
+    {
+      "id": "ict-q09",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What does the CPU of a computer consist of?",
+        "ne": "कम्प्युटरको सीपीयूमा के के हुन्छन्?"
+      },
+      "options": [
+        {
+          "en": "Monitor and keyboard",
+          "ne": "मोनिटर र किबोर्ड"
+        },
+        {
+          "en": "Control unit and arithmetic logic unit",
+          "ne": "नियन्त्रण एकाइ र अंकगणितीय तार्किक एकाइ"
+        },
+        {
+          "en": "Printer and scanner",
+          "ne": "प्रिन्टर र स्क्यानर"
+        },
+        {
+          "en": "Hard disk and pen drive",
+          "ne": "हार्ड डिस्क र पेन ड्राइभ"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The CPU has a control unit, an arithmetic logic unit and registers.",
+        "ne": "सीपीयूमा नियन्त्रण एकाइ, अंकगणितीय तार्किक एकाइ र रजिस्टर हुन्छन्।"
+      }
+    },
+    {
+      "id": "iq-q01",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Find the next number: 2, 6, 12, 20, 30, ?",
+        "ne": "अर्को संख्या पत्ता लगाउनुहोस्: २, ६, १२, २०, ३०, ?"
+      },
+      "options": [
+        {
+          "en": "40",
+          "ne": "४०"
+        },
+        {
+          "en": "42",
+          "ne": "४२"
+        },
+        {
+          "en": "44",
+          "ne": "४४"
+        },
+        {
+          "en": "46",
+          "ne": "४६"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The differences are 4, 6, 8, 10, so the next difference is 12 and 30 + 12 = 42.",
+        "ne": "अन्तर ४, ६, ८, १० छन्, त्यसैले अर्को अन्तर १२ हुन्छ र ३० + १२ = ४२।"
+      }
+    },
+    {
+      "id": "iq-q02",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Find the next number: 3, 7, 15, 31, ?",
+        "ne": "अर्को संख्या पत्ता लगाउनुहोस्: ३, ७, १५, ३१, ?"
+      },
+      "options": [
+        {
+          "en": "47",
+          "ne": "४७"
+        },
+        {
+          "en": "55",
+          "ne": "५५"
+        },
+        {
+          "en": "63",
+          "ne": "६३"
+        },
+        {
+          "en": "65",
+          "ne": "६५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Each term is the previous term multiplied by 2 plus 1: 31 × 2 + 1 = 63.",
+        "ne": "प्रत्येक पद अघिल्लो पदलाई २ ले गुणन गरी १ जोडेको हो: ३१ × २ + १ = ६३।"
+      }
+    },
+    {
+      "id": "iq-q03",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Find the next number: 1, 4, 9, 16, 25, ?",
+        "ne": "अर्को संख्या पत्ता लगाउनुहोस्: १, ४, ९, १६, २५, ?"
+      },
+      "options": [
+        {
+          "en": "30",
+          "ne": "३०"
+        },
+        {
+          "en": "35",
+          "ne": "३५"
+        },
+        {
+          "en": "36",
+          "ne": "३६"
+        },
+        {
+          "en": "49",
+          "ne": "४९"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "These are perfect squares: 1², 2², 3², 4², 5², so the next is 6² = 36.",
+        "ne": "यी पूर्ण वर्ग हुन्: १², २², ३², ४², ५², त्यसैले अर्को ६² = ३६।"
+      }
+    },
+    {
+      "id": "iq-q04",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Find the next number: 100, 96, 88, 76, ?",
+        "ne": "अर्को संख्या पत्ता लगाउनुहोस्: १००, ९६, ८८, ७६, ?"
+      },
+      "options": [
+        {
+          "en": "64",
+          "ne": "६४"
+        },
+        {
+          "en": "62",
+          "ne": "६२"
+        },
+        {
+          "en": "60",
+          "ne": "६०"
+        },
+        {
+          "en": "58",
+          "ne": "५८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The subtractions are 4, 8, 12, so the next is 16 and 76 − 16 = 60.",
+        "ne": "घटाइएका संख्या ४, ८, १२ छन्, त्यसैले अर्को १६ हुन्छ र ७६ − १६ = ६०।"
+      }
+    },
+    {
+      "id": "iq-q05",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which one does not belong to the group: 3, 5, 7, 9, 11?",
+        "ne": "समूहमा नमिल्ने कुन हो: ३, ५, ७, ९, ११?"
+      },
+      "options": [
+        {
+          "en": "3",
+          "ne": "३"
+        },
+        {
+          "en": "7",
+          "ne": "७"
+        },
+        {
+          "en": "9",
+          "ne": "९"
+        },
+        {
+          "en": "11",
+          "ne": "११"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "All are prime numbers except 9, which is 3 × 3.",
+        "ne": "९ बाहेक सबै अभाज्य संख्या हुन्; ९ = ३ × ३ हो।"
+      }
+    },
+    {
+      "id": "iq-q06",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which one does not belong: Koshi, Gandaki, Karnali, Rara?",
+        "ne": "नमिल्ने कुन हो: कोशी, गण्डकी, कर्णाली, रारा?"
+      },
+      "options": [
+        {
+          "en": "Koshi",
+          "ne": "कोशी"
+        },
+        {
+          "en": "Gandaki",
+          "ne": "गण्डकी"
+        },
+        {
+          "en": "Karnali",
+          "ne": "कर्णाली"
+        },
+        {
+          "en": "Rara",
+          "ne": "रारा"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Koshi, Gandaki and Karnali are river systems; Rara is a lake.",
+        "ne": "कोशी, गण्डकी र कर्णाली नदी प्रणाली हुन्; रारा ताल हो।"
+      }
+    },
+    {
+      "id": "iq-q07",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "If COLD is written as DPME, how is WARM written in the same code?",
+        "ne": "COLD लाई DPME लेखिन्छ भने उही सांकेतिक भाषामा WARM कसरी लेखिन्छ?"
+      },
+      "options": [
+        {
+          "en": "XBSN",
+          "ne": "XBSN"
+        },
+        {
+          "en": "XBTN",
+          "ne": "XBTN"
+        },
+        {
+          "en": "VZQL",
+          "ne": "VZQL"
+        },
+        {
+          "en": "XCSN",
+          "ne": "XCSN"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Each letter moves one place forward: W→X, A→B, R→S, M→N.",
+        "ne": "प्रत्येक अक्षर एक स्थान अगाडि सर्छ: W→X, A→B, R→S, M→N।"
+      }
+    },
+    {
+      "id": "iq-q08",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "If TEACHER is coded as SDZBGDQ, how is DOCTOR coded?",
+        "ne": "TEACHER लाई SDZBGDQ कोड गरिन्छ भने DOCTOR को कोड के हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "CNBSNQ",
+          "ne": "CNBSNQ"
+        },
+        {
+          "en": "EPDUPS",
+          "ne": "EPDUPS"
+        },
+        {
+          "en": "CNBTOQ",
+          "ne": "CNBTOQ"
+        },
+        {
+          "en": "CMBSNP",
+          "ne": "CMBSNP"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Each letter moves one place backward: D→C, O→N, C→B, T→S, O→N, R→Q.",
+        "ne": "प्रत्येक अक्षर एक स्थान पछाडि सर्छ: D→C, O→N, C→B, T→S, O→N, R→Q।"
+      }
+    },
+    {
+      "id": "iq-q09",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Complete the series: AZ, BY, CX, ?",
+        "ne": "शृंखला पूरा गर्नुहोस्: AZ, BY, CX, ?"
+      },
+      "options": [
+        {
+          "en": "DV",
+          "ne": "DV"
+        },
+        {
+          "en": "DW",
+          "ne": "DW"
+        },
+        {
+          "en": "EW",
+          "ne": "EW"
+        },
+        {
+          "en": "DX",
+          "ne": "DX"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The first letter moves forward (A, B, C, D) and the second moves backward (Z, Y, X, W).",
+        "ne": "पहिलो अक्षर अगाडि (A, B, C, D) र दोस्रो पछाडि (Z, Y, X, W) सर्छ।"
+      }
+    },
+    {
+      "id": "iq-q10",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Pointing to a photograph, a man said, \"She is the daughter of my grandfather’s only son.\" How is she related to him?",
+        "ne": "एउटा तस्बिरतर्फ देखाउँदै एक पुरुषले भने, \"उनी मेरा हजुरबुबाका एक मात्र छोराकी छोरी हुन्।\" उनी ती पुरुषकी को हुन्?"
+      },
+      "options": [
+        {
+          "en": "Daughter",
+          "ne": "छोरी"
+        },
+        {
+          "en": "Sister",
+          "ne": "बहिनी/दिदी"
+        },
+        {
+          "en": "Niece",
+          "ne": "भतिजी"
+        },
+        {
+          "en": "Aunt",
+          "ne": "फुपू"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "His grandfather’s only son is his own father, so the girl is his sister.",
+        "ne": "उनका हजुरबुबाका एक मात्र छोरा उनका आफ्नै बुबा हुन्, त्यसैले ती केटी उनकी बहिनी/दिदी हुन्।"
+      }
+    },
+    {
+      "id": "iq-q11",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A is B’s brother, C is A’s mother, D is C’s father. How is A related to D?",
+        "ne": "A, B को दाजु हो, C, A की आमा हुन्, D, C का बुबा हुन्। A, D को को हुन्?"
+      },
+      "options": [
+        {
+          "en": "Son",
+          "ne": "छोरा"
+        },
+        {
+          "en": "Grandson",
+          "ne": "नाति"
+        },
+        {
+          "en": "Brother",
+          "ne": "भाइ"
+        },
+        {
+          "en": "Father",
+          "ne": "बुबा"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "D is A’s mother’s father, that is A’s maternal grandfather, so A is D’s grandson.",
+        "ne": "D, A की आमाका बुबा अर्थात् A का मामा-हजुरबुबा हुन्, त्यसैले A, D का नाति हुन्।"
+      }
+    },
+    {
+      "id": "iq-q12",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A man walks 5 km north, turns right and walks 3 km, then turns right and walks 5 km. How far is he from the starting point?",
+        "ne": "एक व्यक्ति ५ कि.मि. उत्तर हिँड्छ, दायाँ मोडिएर ३ कि.मि. हिँड्छ, फेरि दायाँ मोडिएर ५ कि.मि. हिँड्छ। ऊ सुरुको बिन्दुबाट कति टाढा छ?"
+      },
+      "options": [
+        {
+          "en": "3 km",
+          "ne": "३ कि.मि."
+        },
+        {
+          "en": "5 km",
+          "ne": "५ कि.मि."
+        },
+        {
+          "en": "8 km",
+          "ne": "८ कि.मि."
+        },
+        {
+          "en": "13 km",
+          "ne": "१३ कि.मि."
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "He goes 5 km north, 3 km east, then 5 km south — cancelling the north and south legs and leaving him 3 km east of the start.",
+        "ne": "ऊ ५ कि.मि. उत्तर, ३ कि.मि. पूर्व, अनि ५ कि.मि. दक्षिण जान्छ — उत्तर र दक्षिण एकअर्कालाई काट्छन् र ऊ सुरुको बिन्दुबाट ३ कि.मि. पूर्वमा रहन्छ।"
+      }
+    },
+    {
+      "id": "iq-q13",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Ram walks 10 m south, turns left and walks 5 m, then turns left and walks 10 m. Which direction is he facing now?",
+        "ne": "राम १० मिटर दक्षिण हिँड्छ, बायाँ मोडिएर ५ मिटर हिँड्छ, फेरि बायाँ मोडिएर १० मिटर हिँड्छ। अहिले ऊ कुन दिशातर्फ फर्किएको छ?"
+      },
+      "options": [
+        {
+          "en": "South",
+          "ne": "दक्षिण"
+        },
+        {
+          "en": "East",
+          "ne": "पूर्व"
+        },
+        {
+          "en": "North",
+          "ne": "उत्तर"
+        },
+        {
+          "en": "West",
+          "ne": "पश्चिम"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Facing south, a left turn points east; a second left turn points north.",
+        "ne": "दक्षिणतर्फ फर्किएको अवस्थामा बायाँ मोड्दा पूर्व हुन्छ; फेरि बायाँ मोड्दा उत्तर हुन्छ।"
+      }
+    },
+    {
+      "id": "iq-q14",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "If the price of rice rises from Rs 60 to Rs 75 per kg, what is the percentage increase?",
+        "ne": "चामलको मूल्य प्रतिकिलो रु ६० बाट रु ७५ पुग्दा कति प्रतिशत वृद्धि भयो?"
+      },
+      "options": [
+        {
+          "en": "15%",
+          "ne": "१५%"
+        },
+        {
+          "en": "20%",
+          "ne": "२०%"
+        },
+        {
+          "en": "25%",
+          "ne": "२५%"
+        },
+        {
+          "en": "30%",
+          "ne": "३०%"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Increase is 15; 15 ÷ 60 × 100 = 25 per cent.",
+        "ne": "वृद्धि १५ हो; १५ ÷ ६० × १०० = २५ प्रतिशत।"
+      }
+    },
+    {
+      "id": "iq-q15",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The average of 5 numbers is 20. If the number 30 is removed, what is the average of the remaining 4?",
+        "ne": "५ संख्याको औसत २० छ। ३० संख्या हटाएमा बाँकी ४ को औसत कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "15",
+          "ne": "१५"
+        },
+        {
+          "en": "17.5",
+          "ne": "१७.५"
+        },
+        {
+          "en": "18",
+          "ne": "१८"
+        },
+        {
+          "en": "20",
+          "ne": "२०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Total is 5 × 20 = 100; after removing 30 the total is 70 and 70 ÷ 4 = 17.5.",
+        "ne": "जम्मा ५ × २० = १००; ३० हटाएपछि जम्मा ७० हुन्छ र ७० ÷ ४ = १७.५।"
+      }
+    },
+    {
+      "id": "iq-q16",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Rs 6,000 is divided in the ratio 2 : 3. What is the larger share?",
+        "ne": "रु ६,००० लाई २ : ३ को अनुपातमा बाँड्दा ठूलो भाग कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Rs 2,400",
+          "ne": "रु २,४००"
+        },
+        {
+          "en": "Rs 3,000",
+          "ne": "रु ३,०००"
+        },
+        {
+          "en": "Rs 3,600",
+          "ne": "रु ३,६००"
+        },
+        {
+          "en": "Rs 4,000",
+          "ne": "रु ४,०००"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Total parts are 5, so the larger share is 6000 × 3 ÷ 5 = Rs 3,600.",
+        "ne": "जम्मा भाग ५ हुन्, त्यसैले ठूलो भाग ६००० × ३ ÷ ५ = रु ३,६००।"
+      }
+    },
+    {
+      "id": "iq-q17",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A can finish a job in 10 days and B in 15 days. Working together, how many days will they take?",
+        "ne": "A ले एउटा काम १० दिनमा र B ले १५ दिनमा सक्छ। सँगै काम गर्दा कति दिन लाग्छ?"
+      },
+      "options": [
+        {
+          "en": "5 days",
+          "ne": "५ दिन"
+        },
+        {
+          "en": "6 days",
+          "ne": "६ दिन"
+        },
+        {
+          "en": "7 days",
+          "ne": "७ दिन"
+        },
+        {
+          "en": "12 days",
+          "ne": "१२ दिन"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "One day’s work is 1/10 + 1/15 = 1/6, so together they finish in 6 days.",
+        "ne": "एक दिनको काम १/१० + १/१५ = १/६ हुन्छ, त्यसैले सँगै ६ दिनमा सकिन्छ।"
+      }
+    },
+    {
+      "id": "iq-q18",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "An item bought for Rs 800 is sold for Rs 920. What is the profit percentage?",
+        "ne": "रु ८०० मा किनेको वस्तु रु ९२० मा बेच्दा नाफा प्रतिशत कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "12%",
+          "ne": "१२%"
+        },
+        {
+          "en": "15%",
+          "ne": "१५%"
+        },
+        {
+          "en": "18%",
+          "ne": "१८%"
+        },
+        {
+          "en": "20%",
+          "ne": "२०%"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Profit is 120; 120 ÷ 800 × 100 = 15 per cent.",
+        "ne": "नाफा १२० हो; १२० ÷ ८०० × १०० = १५ प्रतिशत।"
+      }
+    },
+    {
+      "id": "iq-q19",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What is the simple interest on Rs 5,000 at 8 per cent per year for 3 years?",
+        "ne": "रु ५,००० मा वार्षिक ८ प्रतिशतका दरले ३ वर्षको साधारण ब्याज कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Rs 1,000",
+          "ne": "रु १,०००"
+        },
+        {
+          "en": "Rs 1,200",
+          "ne": "रु १,२००"
+        },
+        {
+          "en": "Rs 1,400",
+          "ne": "रु १,४००"
+        },
+        {
+          "en": "Rs 1,600",
+          "ne": "रु १,६००"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "SI = P × T × R ÷ 100 = 5000 × 3 × 8 ÷ 100 = Rs 1,200.",
+        "ne": "साधारण ब्याज = साँवा × समय × दर ÷ १०० = ५००० × ३ × ८ ÷ १०० = रु १,२००।"
+      }
+    },
+    {
+      "id": "iq-q20",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A vehicle covers 216 km in 3 hours. What is its speed in metres per second?",
+        "ne": "एउटा सवारीले ३ घण्टामा २१६ कि.मि. दूरी तय गर्छ। यसको गति प्रतिसेकेन्ड कति मिटर हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "18 m/s",
+          "ne": "१८ मि./से."
+        },
+        {
+          "en": "20 m/s",
+          "ne": "२० मि./से."
+        },
+        {
+          "en": "24 m/s",
+          "ne": "२४ मि./से."
+        },
+        {
+          "en": "72 m/s",
+          "ne": "७२ मि./से."
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Speed is 216 ÷ 3 = 72 km/h; multiply by 5/18 to get 20 m/s.",
+        "ne": "गति २१६ ÷ ३ = ७२ कि.मि./घण्टा; ५/१८ ले गुणन गर्दा २० मि./से. हुन्छ।"
+      }
+    },
+    {
+      "id": "iq-q21",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A father is three times as old as his son. After 5 years he will be two and a half times as old. What is the son’s present age?",
+        "ne": "बुबाको उमेर छोराको तीन गुणा छ। ५ वर्षपछि बुबाको उमेर छोराको अढाई गुणा हुनेछ। छोराको हालको उमेर कति हो?"
+      },
+      "options": [
+        {
+          "en": "10 years",
+          "ne": "१० वर्ष"
+        },
+        {
+          "en": "12 years",
+          "ne": "१२ वर्ष"
+        },
+        {
+          "en": "15 years",
+          "ne": "१५ वर्ष"
+        },
+        {
+          "en": "18 years",
+          "ne": "१८ वर्ष"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "If the son is x, then 3x + 5 = 2.5(x + 5), giving 0.5x = 7.5 and x = 15.",
+        "ne": "छोराको उमेर x भए ३x + ५ = २.५(x + ५), जसबाट ०.५x = ७.५ र x = १५ हुन्छ।"
+      }
+    },
+    {
+      "id": "iq-q22",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Doctor is to Hospital as Teacher is to:",
+        "ne": "डाक्टरको अस्पतालसँगको सम्बन्ध जस्तै शिक्षकको सम्बन्ध कोसँग हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Book",
+          "ne": "किताब"
+        },
+        {
+          "en": "School",
+          "ne": "विद्यालय"
+        },
+        {
+          "en": "Student",
+          "ne": "विद्यार्थी"
+        },
+        {
+          "en": "Chalk",
+          "ne": "चक"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "A doctor works in a hospital as a teacher works in a school — the relation is workplace.",
+        "ne": "डाक्टर अस्पतालमा काम गर्छन् जसरी शिक्षक विद्यालयमा — सम्बन्ध कार्यस्थलको हो।"
+      }
+    },
+    {
+      "id": "iq-q23",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Kathmandu is to Nepal as Thimphu is to:",
+        "ne": "काठमाडौंको नेपालसँगको सम्बन्ध जस्तै थिम्पूको सम्बन्ध कोसँग हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "Bhutan",
+          "ne": "भुटान"
+        },
+        {
+          "en": "Bangladesh",
+          "ne": "बंगलादेश"
+        },
+        {
+          "en": "Sri Lanka",
+          "ne": "श्रीलंका"
+        },
+        {
+          "en": "Maldives",
+          "ne": "माल्दिभ्स"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Thimphu is the capital of Bhutan.",
+        "ne": "थिम्पू भुटानको राजधानी हो।"
+      }
+    },
+    {
+      "id": "iq-q24",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "If 20 per cent of a number is 45, what is the number?",
+        "ne": "कुनै संख्याको २० प्रतिशत ४५ भए त्यो संख्या कति हो?"
+      },
+      "options": [
+        {
+          "en": "180",
+          "ne": "१८०"
+        },
+        {
+          "en": "200",
+          "ne": "२००"
+        },
+        {
+          "en": "225",
+          "ne": "२२५"
+        },
+        {
+          "en": "250",
+          "ne": "२५०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "If 0.2x = 45 then x = 45 ÷ 0.2 = 225.",
+        "ne": "०.२x = ४५ भए x = ४५ ÷ ०.२ = २२५।"
+      }
+    },
+    {
+      "id": "nep-q01",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "\"विद्या + आलय\" को सन्धि गर्दा के हुन्छ?",
+        "ne": "\"विद्या + आलय\" को सन्धि गर्दा के हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "विद्यालय",
+          "ne": "विद्यालय"
+        },
+        {
+          "en": "विद्यालाय",
+          "ne": "विद्यालाय"
+        },
+        {
+          "en": "विद्याअलय",
+          "ne": "विद्याअलय"
+        },
+        {
+          "en": "विद्यालया",
+          "ne": "विद्यालया"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "यो स्वर सन्धि हो: आ + आ = आ, त्यसैले विद्या + आलय = विद्यालय।",
+        "ne": "यो स्वर सन्धि हो: आ + आ = आ, त्यसैले विद्या + आलय = विद्यालय।"
+      }
+    },
+    {
+      "id": "nep-q02",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "\"सत् + जन\" को सन्धि रूप कुन हो?",
+        "ne": "\"सत् + जन\" को सन्धि रूप कुन हो?"
+      },
+      "options": [
+        {
+          "en": "सतजन",
+          "ne": "सतजन"
+        },
+        {
+          "en": "सज्जन",
+          "ne": "सज्जन"
+        },
+        {
+          "en": "सद्जन",
+          "ne": "सद्जन"
+        },
+        {
+          "en": "सत्जन",
+          "ne": "सत्जन"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "यो व्यञ्जन सन्धि हो; त् पछि ज आउँदा त् → ज् हुन्छ, त्यसैले सज्जन बन्छ।",
+        "ne": "यो व्यञ्जन सन्धि हो; त् पछि ज आउँदा त् → ज् हुन्छ, त्यसैले सज्जन बन्छ।"
+      }
+    },
+    {
+      "id": "nep-q03",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "\"निः + चय\" को सन्धि रूप कुन हो?",
+        "ne": "\"निः + चय\" को सन्धि रूप कुन हो?"
+      },
+      "options": [
+        {
+          "en": "निचय",
+          "ne": "निचय"
+        },
+        {
+          "en": "निश्चय",
+          "ne": "निश्चय"
+        },
+        {
+          "en": "निष्चय",
+          "ne": "निष्चय"
+        },
+        {
+          "en": "निःचय",
+          "ne": "निःचय"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "यो विसर्ग सन्धि हो; विसर्गपछि च आउँदा विसर्ग श् मा बदलिन्छ।",
+        "ne": "यो विसर्ग सन्धि हो; विसर्गपछि च आउँदा विसर्ग श् मा बदलिन्छ।"
+      }
+    },
+    {
+      "id": "nep-q04",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "शुद्ध हिज्जे कुन हो?",
+        "ne": "शुद्ध हिज्जे कुन हो?"
+      },
+      "options": [
+        {
+          "en": "अन्तराष्ट्रिय",
+          "ne": "अन्तराष्ट्रिय"
+        },
+        {
+          "en": "अन्तर्राष्ट्रिय",
+          "ne": "अन्तर्राष्ट्रिय"
+        },
+        {
+          "en": "अन्तर्राष्टिय",
+          "ne": "अन्तर्राष्टिय"
+        },
+        {
+          "en": "अन्तराष्ट्रीय",
+          "ne": "अन्तराष्ट्रीय"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"अन्तर्\" उपसर्गमा र् रहन्छ र \"राष्ट्रिय\" मा ह्रस्व इ हुन्छ: अन्तर्राष्ट्रिय।",
+        "ne": "\"अन्तर्\" उपसर्गमा र् रहन्छ र \"राष्ट्रिय\" मा ह्रस्व इ हुन्छ: अन्तर्राष्ट्रिय।"
+      }
+    },
+    {
+      "id": "nep-q05",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "शुद्ध हिज्जे कुन हो?",
+        "ne": "शुद्ध हिज्जे कुन हो?"
+      },
+      "options": [
+        {
+          "en": "प्रग्या",
+          "ne": "प्रग्या"
+        },
+        {
+          "en": "प्रज्ञा",
+          "ne": "प्रज्ञा"
+        },
+        {
+          "en": "प्रज्ञां",
+          "ne": "प्रज्ञां"
+        },
+        {
+          "en": "प्रगया",
+          "ne": "प्रगया"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "ज् + ञ = ज्ञ हुने भएकाले शुद्ध रूप \"प्रज्ञा\" हो।",
+        "ne": "ज् + ञ = ज्ञ हुने भएकाले शुद्ध रूप \"प्रज्ञा\" हो।"
+      }
+    },
+    {
+      "id": "nep-q06",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "\"नाक काट्नु\" भन्नाले के बुझिन्छ?",
+        "ne": "\"नाक काट्नु\" भन्नाले के बुझिन्छ?"
+      },
+      "options": [
+        {
+          "en": "घाइते हुनु",
+          "ne": "घाइते हुनु"
+        },
+        {
+          "en": "इज्जत गुमाउनु",
+          "ne": "इज्जत गुमाउनु"
+        },
+        {
+          "en": "रिसाउनु",
+          "ne": "रिसाउनु"
+        },
+        {
+          "en": "धेरै हाँस्नु",
+          "ne": "धेरै हाँस्नु"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"नाक काट्नु\" टुक्काको अर्थ इज्जत वा प्रतिष्ठा गुमाउनु हो।",
+        "ne": "\"नाक काट्नु\" टुक्काको अर्थ इज्जत वा प्रतिष्ठा गुमाउनु हो।"
+      }
+    },
+    {
+      "id": "nep-q07",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "\"हात धुनु\" टुक्काको अर्थ के हो?",
+        "ne": "\"हात धुनु\" टुक्काको अर्थ के हो?"
+      },
+      "options": [
+        {
+          "en": "सफा हुनु",
+          "ne": "सफा हुनु"
+        },
+        {
+          "en": "गुमाउनु वा त्याग्नु",
+          "ne": "गुमाउनु वा त्याग्नु"
+        },
+        {
+          "en": "सहयोग गर्नु",
+          "ne": "सहयोग गर्नु"
+        },
+        {
+          "en": "खाना खानु",
+          "ne": "खाना खानु"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"हात धुनु\" को अर्थ कुनै वस्तु वा अवसर गुमाउनु वा त्याग्नु हो।",
+        "ne": "\"हात धुनु\" को अर्थ कुनै वस्तु वा अवसर गुमाउनु वा त्याग्नु हो।"
+      }
+    },
+    {
+      "id": "nep-q08",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "\"रामले किताब पढ्यो\" वाक्यमा \"ले\" कुन कारकको विभक्ति हो?",
+        "ne": "\"रामले किताब पढ्यो\" वाक्यमा \"ले\" कुन कारकको विभक्ति हो?"
+      },
+      "options": [
+        {
+          "en": "कर्ता कारक",
+          "ne": "कर्ता कारक"
+        },
+        {
+          "en": "कर्म कारक",
+          "ne": "कर्म कारक"
+        },
+        {
+          "en": "करण कारक",
+          "ne": "करण कारक"
+        },
+        {
+          "en": "अपादान कारक",
+          "ne": "अपादान कारक"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "यहाँ \"ले\" ले काम गर्नेलाई जनाउँछ, त्यसैले यो कर्ता कारकको विभक्ति हो।",
+        "ne": "यहाँ \"ले\" ले काम गर्नेलाई जनाउँछ, त्यसैले यो कर्ता कारकको विभक्ति हो।"
+      }
+    },
+    {
+      "id": "nep-q09",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "\"पानी\" को पर्यायवाची शब्द कुन हो?",
+        "ne": "\"पानी\" को पर्यायवाची शब्द कुन हो?"
+      },
+      "options": [
+        {
+          "en": "जल",
+          "ne": "जल"
+        },
+        {
+          "en": "थल",
+          "ne": "थल"
+        },
+        {
+          "en": "अनल",
+          "ne": "अनल"
+        },
+        {
+          "en": "पवन",
+          "ne": "पवन"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "जल, नीर, वारि आदि पानीका पर्यायवाची हुन्; अनल आगो र पवन हावा हो।",
+        "ne": "जल, नीर, वारि आदि पानीका पर्यायवाची हुन्; अनल आगो र पवन हावा हो।"
+      }
+    },
+    {
+      "id": "nep-q10",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "\"उन्नति\" को विपरीतार्थी शब्द कुन हो?",
+        "ne": "\"उन्नति\" को विपरीतार्थी शब्द कुन हो?"
+      },
+      "options": [
+        {
+          "en": "प्रगति",
+          "ne": "प्रगति"
+        },
+        {
+          "en": "अवनति",
+          "ne": "अवनति"
+        },
+        {
+          "en": "समुन्नति",
+          "ne": "समुन्नति"
+        },
+        {
+          "en": "विकास",
+          "ne": "विकास"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "उन्नतिको विपरीत अवनति हो; प्रगति र विकास त्यसका पर्यायवाची हुन्।",
+        "ne": "उन्नतिको विपरीत अवनति हो; प्रगति र विकास त्यसका पर्यायवाची हुन्।"
+      }
+    },
+    {
+      "id": "nep-q11",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "\"राजपुत्र\" कुन समासको उदाहरण हो?",
+        "ne": "\"राजपुत्र\" कुन समासको उदाहरण हो?"
+      },
+      "options": [
+        {
+          "en": "द्वन्द्व समास",
+          "ne": "द्वन्द्व समास"
+        },
+        {
+          "en": "तत्पुरुष समास",
+          "ne": "तत्पुरुष समास"
+        },
+        {
+          "en": "बहुव्रीहि समास",
+          "ne": "बहुव्रीहि समास"
+        },
+        {
+          "en": "अव्ययीभाव समास",
+          "ne": "अव्ययीभाव समास"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"राजाको पुत्र\" भन्ने अर्थ दिने भएकाले यो तत्पुरुष समास हो।",
+        "ne": "\"राजाको पुत्र\" भन्ने अर्थ दिने भएकाले यो तत्पुरुष समास हो।"
+      }
+    },
+    {
+      "id": "nep-q12",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "कार्यालयमा निर्णयका लागि पेस गरिने आन्तरिक लेखोटलाई के भनिन्छ?",
+        "ne": "कार्यालयमा निर्णयका लागि पेस गरिने आन्तरिक लेखोटलाई के भनिन्छ?"
+      },
+      "options": [
+        {
+          "en": "परिपत्र",
+          "ne": "परिपत्र"
+        },
+        {
+          "en": "टिप्पणी",
+          "ne": "टिप्पणी"
+        },
+        {
+          "en": "सूचना",
+          "ne": "सूचना"
+        },
+        {
+          "en": "भरपाई",
+          "ne": "भरपाई"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "टिप्पणीले विषय, विश्लेषण र राय सहित निर्णयका लागि प्रस्ताव पेस गर्छ।",
+        "ne": "टिप्पणीले विषय, विश्लेषण र राय सहित निर्णयका लागि प्रस्ताव पेस गर्छ।"
+      }
+    },
+    {
+      "id": "eng-q01",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Choose the correct form: \"Each of the officers ______ signed the file.\"",
+        "ne": "सही रूप छान्नुहोस्: \"Each of the officers ______ signed the file.\""
+      },
+      "options": [
+        {
+          "en": "have",
+          "ne": "have"
+        },
+        {
+          "en": "has",
+          "ne": "has"
+        },
+        {
+          "en": "are",
+          "ne": "are"
+        },
+        {
+          "en": "were",
+          "ne": "were"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"Each\" is singular, so it takes a singular verb: \"Each of the officers has signed.\"",
+        "ne": "\"Each\" एकवचन भएकाले एकवचन क्रिया आउँछ: \"Each of the officers has signed.\""
+      }
+    },
+    {
+      "id": "eng-q02",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Choose the correct form: \"The Secretary, along with the staff, ______ present at the meeting.\"",
+        "ne": "सही रूप छान्नुहोस्: \"The Secretary, along with the staff, ______ present at the meeting.\""
+      },
+      "options": [
+        {
+          "en": "were",
+          "ne": "were"
+        },
+        {
+          "en": "was",
+          "ne": "was"
+        },
+        {
+          "en": "have",
+          "ne": "have"
+        },
+        {
+          "en": "are",
+          "ne": "are"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Phrases with \"along with\" do not change the number of the subject; \"the Secretary\" is singular.",
+        "ne": "\"along with\" ले जोडिएको वाक्यांशले कर्ताको वचन बदल्दैन; \"the Secretary\" एकवचन हो।"
+      }
+    },
+    {
+      "id": "eng-q03",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Change into passive voice: \"The office issues the licence.\"",
+        "ne": "कर्मवाच्यमा परिवर्तन गर्नुहोस्: \"The office issues the licence.\""
+      },
+      "options": [
+        {
+          "en": "The licence is issued by the office.",
+          "ne": "The licence is issued by the office."
+        },
+        {
+          "en": "The licence was issued by the office.",
+          "ne": "The licence was issued by the office."
+        },
+        {
+          "en": "The licence has issued by the office.",
+          "ne": "The licence has issued by the office."
+        },
+        {
+          "en": "The office is issued the licence.",
+          "ne": "The office is issued the licence."
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Simple present passive is \"is/are + past participle\", so it becomes \"is issued\".",
+        "ne": "साधारण वर्तमानको कर्मवाच्य \"is/are + past participle\" हुन्छ, त्यसैले \"is issued\" बन्छ।"
+      }
+    },
+    {
+      "id": "eng-q04",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Fill in the blank: \"He is good ______ mathematics.\"",
+        "ne": "खाली ठाउँ भर्नुहोस्: \"He is good ______ mathematics.\""
+      },
+      "options": [
+        {
+          "en": "in",
+          "ne": "in"
+        },
+        {
+          "en": "at",
+          "ne": "at"
+        },
+        {
+          "en": "on",
+          "ne": "on"
+        },
+        {
+          "en": "with",
+          "ne": "with"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"Good at\" is the standard collocation for skill in a subject.",
+        "ne": "कुनै विषयमा दक्षता जनाउन \"good at\" प्रयोग गरिन्छ।"
+      }
+    },
+    {
+      "id": "eng-q05",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Choose the correct article: \"______ honest officer was rewarded.\"",
+        "ne": "सही आर्टिकल छान्नुहोस्: \"______ honest officer was rewarded.\""
+      },
+      "options": [
+        {
+          "en": "A",
+          "ne": "A"
+        },
+        {
+          "en": "An",
+          "ne": "An"
+        },
+        {
+          "en": "The",
+          "ne": "The"
+        },
+        {
+          "en": "No article",
+          "ne": "आर्टिकल नचाहिने"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"Honest\" begins with a vowel sound because the h is silent, so \"an\" is used.",
+        "ne": "\"Honest\" मा h मौन भएर स्वर ध्वनिबाट सुरु हुने भएकाले \"an\" प्रयोग हुन्छ।"
+      }
+    },
+    {
+      "id": "eng-q06",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "One word for \"government by officials\":",
+        "ne": "\"कर्मचारीतन्त्रद्वारा शासन\" लाई जनाउने एक शब्द:"
+      },
+      "options": [
+        {
+          "en": "Democracy",
+          "ne": "Democracy"
+        },
+        {
+          "en": "Bureaucracy",
+          "ne": "Bureaucracy"
+        },
+        {
+          "en": "Aristocracy",
+          "ne": "Aristocracy"
+        },
+        {
+          "en": "Autocracy",
+          "ne": "Autocracy"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Bureaucracy is rule by officials; democracy is rule by the people.",
+        "ne": "Bureaucracy भनेको कर्मचारीद्वारा शासन हो; democracy जनताद्वारा शासन हो।"
+      }
+    },
+    {
+      "id": "eng-q07",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "One word for \"fear of foreigners\":",
+        "ne": "\"विदेशीप्रतिको डर\" लाई जनाउने एक शब्द:"
+      },
+      "options": [
+        {
+          "en": "Claustrophobia",
+          "ne": "Claustrophobia"
+        },
+        {
+          "en": "Xenophobia",
+          "ne": "Xenophobia"
+        },
+        {
+          "en": "Hydrophobia",
+          "ne": "Hydrophobia"
+        },
+        {
+          "en": "Acrophobia",
+          "ne": "Acrophobia"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Xenophobia is fear of foreigners; claustrophobia is fear of closed spaces and acrophobia of heights.",
+        "ne": "Xenophobia विदेशीप्रतिको डर हो; claustrophobia साँघुरो ठाउँको र acrophobia उचाइको डर हो।"
+      }
+    },
+    {
+      "id": "eng-q08",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Choose the word closest in meaning to \"abolish\":",
+        "ne": "\"abolish\" सँग निकटतम अर्थ दिने शब्द छान्नुहोस्:"
+      },
+      "options": [
+        {
+          "en": "Establish",
+          "ne": "Establish"
+        },
+        {
+          "en": "Cancel",
+          "ne": "Cancel"
+        },
+        {
+          "en": "Promote",
+          "ne": "Promote"
+        },
+        {
+          "en": "Extend",
+          "ne": "Extend"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "To abolish is to do away with or cancel something formally.",
+        "ne": "Abolish भनेको औपचारिक रूपमा हटाउनु वा रद्द गर्नु हो।"
+      }
+    },
+    {
+      "id": "eng-q09",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Choose the antonym of \"transparent\":",
+        "ne": "\"transparent\" को विपरीतार्थी शब्द छान्नुहोस्:"
+      },
+      "options": [
+        {
+          "en": "Clear",
+          "ne": "Clear"
+        },
+        {
+          "en": "Opaque",
+          "ne": "Opaque"
+        },
+        {
+          "en": "Open",
+          "ne": "Open"
+        },
+        {
+          "en": "Visible",
+          "ne": "Visible"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Opaque means not able to be seen through, the opposite of transparent.",
+        "ne": "Opaque को अर्थ आरपार देख्न नसकिने हो, जुन transparent को विपरीत हो।"
+      }
+    },
+    {
+      "id": "eng-q10",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Choose the correct sentence:",
+        "ne": "सही वाक्य छान्नुहोस्:"
+      },
+      "options": [
+        {
+          "en": "He is working in this office since 2015.",
+          "ne": "He is working in this office since 2015."
+        },
+        {
+          "en": "He has been working in this office since 2015.",
+          "ne": "He has been working in this office since 2015."
+        },
+        {
+          "en": "He works in this office since 2015.",
+          "ne": "He works in this office since 2015."
+        },
+        {
+          "en": "He worked in this office since 2015.",
+          "ne": "He worked in this office since 2015."
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "An action that started in the past and continues now takes the present perfect continuous with \"since\".",
+        "ne": "विगतमा सुरु भई अहिलेसम्म चलिरहेको कार्यमा \"since\" सँग present perfect continuous प्रयोग हुन्छ।"
+      }
+    },
+    {
+      "id": "eng-q11",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "The idiom \"to turn a blind eye\" means:",
+        "ne": "\"to turn a blind eye\" वाक्पद्धतिको अर्थ हो:"
+      },
+      "options": [
+        {
+          "en": "To lose one’s sight",
+          "ne": "दृष्टि गुमाउनु"
+        },
+        {
+          "en": "To ignore something deliberately",
+          "ne": "जानीजानी बेवास्ता गर्नु"
+        },
+        {
+          "en": "To look carefully",
+          "ne": "ध्यान दिएर हेर्नु"
+        },
+        {
+          "en": "To be surprised",
+          "ne": "छक्क पर्नु"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Turning a blind eye means pretending not to notice something wrong.",
+        "ne": "गलत कुरा देखेर पनि नदेखेझैँ गर्नुलाई यो वाक्पद्धतिले जनाउँछ।"
+      }
+    },
+    {
+      "id": "eng-q12",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Change into indirect speech: He said, \"I am busy today.\"",
+        "ne": "अप्रत्यक्ष कथनमा बदल्नुहोस्: He said, \"I am busy today.\""
+      },
+      "options": [
+        {
+          "en": "He said that he is busy today.",
+          "ne": "He said that he is busy today."
+        },
+        {
+          "en": "He said that he was busy that day.",
+          "ne": "He said that he was busy that day."
+        },
+        {
+          "en": "He says that he was busy today.",
+          "ne": "He says that he was busy today."
+        },
+        {
+          "en": "He said that I was busy that day.",
+          "ne": "He said that I was busy that day."
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "In indirect speech the present tense shifts back and \"today\" becomes \"that day\".",
+        "ne": "अप्रत्यक्ष कथनमा वर्तमान काल पछाडि सर्छ र \"today\" \"that day\" बन्छ।"
+      }
+    },
+    {
+      "id": "ca-q01",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which body is the focal agency for monitoring the Sustainable Development Goals in Nepal?",
+        "ne": "नेपालमा दिगो विकास लक्ष्यको अनुगमन गर्ने केन्द्रबिन्दु निकाय कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Ministry of Finance",
+          "ne": "अर्थ मन्त्रालय"
+        },
+        {
+          "en": "National Planning Commission",
+          "ne": "राष्ट्रिय योजना आयोग"
+        },
+        {
+          "en": "Nepal Rastra Bank",
+          "ne": "नेपाल राष्ट्र बैंक"
+        },
+        {
+          "en": "Office of the Prime Minister",
+          "ne": "प्रधानमन्त्री कार्यालय"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The National Planning Commission coordinates SDG mainstreaming, coding and progress reporting.",
+        "ne": "राष्ट्रिय योजना आयोगले दिगो विकास लक्ष्यको मूलप्रवाहीकरण, कोडिङ र प्रगति प्रतिवेदनको समन्वय गर्छ।"
+      }
+    },
+    {
+      "id": "ca-q02",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "According to the 2078 BS census, the annual population growth rate of Nepal was approximately:",
+        "ne": "जनगणना २०७८ अनुसार नेपालको वार्षिक जनसंख्या वृद्धिदर करिब कति थियो?"
+      },
+      "options": [
+        {
+          "en": "0.92 per cent",
+          "ne": "०.९२ प्रतिशत"
+        },
+        {
+          "en": "1.35 per cent",
+          "ne": "१.३५ प्रतिशत"
+        },
+        {
+          "en": "1.85 per cent",
+          "ne": "१.८५ प्रतिशत"
+        },
+        {
+          "en": "2.25 per cent",
+          "ne": "२.२५ प्रतिशत"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "About 0.92 per cent — the lowest growth rate recorded in Nepal’s census history.",
+        "ne": "करिब ०.९२ प्रतिशत — नेपालको जनगणना इतिहासमै अभिलेख भएको सबैभन्दा कम वृद्धिदर।"
+      }
+    },
+    {
+      "id": "ca-q03",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which framework sets out Nepal’s sectors for digital transformation?",
+        "ne": "नेपालको डिजिटल रूपान्तरणका क्षेत्र तोक्ने रूपरेखा कुन हो?"
+      },
+      "options": [
+        {
+          "en": "Digital Nepal Framework",
+          "ne": "डिजिटल नेपाल फ्रेमवर्क"
+        },
+        {
+          "en": "E-Governance Master Plan only",
+          "ne": "विद्युतीय सुशासन गुरुयोजना मात्र"
+        },
+        {
+          "en": "Nepal Vision 2100",
+          "ne": "नेपाल सोच २१००"
+        },
+        {
+          "en": "ICT Policy 2059",
+          "ne": "सूचना प्रविधि नीति २०५९"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The Digital Nepal Framework covers the digital foundation plus sectors such as agriculture, health, education, energy, tourism, finance and urban infrastructure.",
+        "ne": "डिजिटल नेपाल फ्रेमवर्कले डिजिटल आधारसहित कृषि, स्वास्थ्य, शिक्षा, ऊर्जा, पर्यटन, वित्त र सहरी पूर्वाधार जस्ता क्षेत्र समेट्छ।"
+      }
+    },
+    {
+      "id": "ca-q04",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which of the following is NOT one of the three criteria used for graduation from Least Developed Country status?",
+        "ne": "अतिकम विकसित मुलुकबाट स्तरोन्नतिका लागि प्रयोग हुने तीन मापदण्डमध्ये निम्नमध्ये कुन होइन?"
+      },
+      "options": [
+        {
+          "en": "Gross national income per capita",
+          "ne": "प्रतिव्यक्ति कुल राष्ट्रिय आय"
+        },
+        {
+          "en": "Human assets index",
+          "ne": "मानव सम्पत्ति सूचकांक"
+        },
+        {
+          "en": "Economic and environmental vulnerability index",
+          "ne": "आर्थिक तथा वातावरणीय जोखिम सूचकांक"
+        },
+        {
+          "en": "Total foreign exchange reserve",
+          "ne": "कुल विदेशी विनिमय सञ्चिति"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "The three criteria are income per capita, the human assets index and the economic and environmental vulnerability index.",
+        "ne": "तीन मापदण्ड हुन्: प्रतिव्यक्ति आय, मानव सम्पत्ति सूचकांक र आर्थिक तथा वातावरणीय जोखिम सूचकांक।"
+      }
+    },
+    {
+      "id": "ca-q05",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The Sixteenth Periodic Plan of Nepal covers which period?",
+        "ne": "नेपालको सोह्रौं आवधिक योजनाले कुन अवधि समेट्छ?"
+      },
+      "options": [
+        {
+          "en": "2076/77–2080/81",
+          "ne": "२०७६/७७–२०८०/८१"
+        },
+        {
+          "en": "2081/82–2085/86",
+          "ne": "२०८१/८२–२०८५/८६"
+        },
+        {
+          "en": "2079/80–2083/84",
+          "ne": "२०७९/८०–२०८३/८४"
+        },
+        {
+          "en": "2080/81–2084/85",
+          "ne": "२०८०/८१–२०८४/८५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The Sixteenth Plan runs from 2081/82 to 2085/86; the Fifteenth ran from 2076/77 to 2080/81.",
+        "ne": "सोह्रौं योजना २०८१/८२ देखि २०८५/८६ सम्म चल्छ; पन्ध्रौं योजना २०७६/७७ देखि २०८०/८१ सम्म थियो।"
+      }
+    },
+    {
+      "id": "ca-q06",
+      "subjectId": "current-affairs",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "In which year did Nepal and China jointly announce the revised height of Mount Everest?",
+        "ne": "नेपाल र चीनले सगरमाथाको संशोधित उचाइ संयुक्त रूपमा कुन सालमा घोषणा गरे?"
+      },
+      "options": [
+        {
+          "en": "2018",
+          "ne": "सन् २०१८"
+        },
+        {
+          "en": "2019",
+          "ne": "सन् २०१९"
+        },
+        {
+          "en": "2020",
+          "ne": "सन् २०२०"
+        },
+        {
+          "en": "2021",
+          "ne": "सन् २०२१"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The joint announcement of 8,848.86 metres was made in December 2020.",
+        "ne": "८,८४८.८६ मिटरको संयुक्त घोषणा डिसेम्बर २०२० मा भएको हो।"
+      }
+    }
+  ]
+}

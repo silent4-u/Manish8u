@@ -1,0 +1,153 @@
+{
+  "note": {
+    "en": "This is a revision list of standing contemporary topics, not a daily news feed. Update src/data/currentAffairs.ts with fresh entries and always cross-check figures against the latest official publication.",
+    "ne": "यो दैनिक समाचार होइन, बारम्बार सोधिने समसामयिक विषयको दोहोर्‍याउने सूची हो। नयाँ घटना थप्न src/data/currentAffairs.ts सम्पादन गर्नुहोस् र अंक सधैँ पछिल्लो आधिकारिक प्रकाशनसँग भिडाउनुहोस्।"
+  },
+  "affairs": [
+    {
+      "id": "ca-01",
+      "date": "2026-11-24",
+      "category": {
+        "en": "Economy",
+        "ne": "अर्थतन्त्र"
+      },
+      "title": {
+        "en": "Nepal’s graduation from Least Developed Country status",
+        "ne": "अतिकम विकसित मुलुकबाट नेपालको स्तरोन्नति"
+      },
+      "detail": {
+        "en": "The UN General Assembly approved Nepal’s graduation from the LDC category with effect from November 2026. Expect questions on the three graduation criteria — income per capita, human assets index and economic and environmental vulnerability index — and on the loss of LDC-specific trade preferences.",
+        "ne": "संयुक्त राष्ट्र संघीय महासभाले नोभेम्बर २०२६ देखि लागू हुने गरी नेपाललाई अतिकम विकसित मुलुकको सूचीबाट स्तरोन्नति गर्न स्वीकृत गरेको छ। स्तरोन्नतिका तीन मापदण्ड — प्रतिव्यक्ति आय, मानव सम्पत्ति सूचकांक र आर्थिक तथा वातावरणीय जोखिम सूचकांक — र अतिकम विकसित मुलुकलाई मिल्ने व्यापारिक सुविधा गुम्ने विषयमा प्रश्न आउन सक्छ।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
+      "id": "ca-02",
+      "date": "2024-07-16",
+      "category": {
+        "en": "Planning",
+        "ne": "योजना"
+      },
+      "title": {
+        "en": "The Sixteenth Periodic Plan",
+        "ne": "सोह्रौं आवधिक योजना"
+      },
+      "detail": {
+        "en": "The Sixteenth Plan covers 2081/82 to 2085/86 and carries forward the long-term vision of \"Prosperous Nepal, Happy Nepali\", with a focus on economic transformation, social development and good governance. Know its period, its pillars and how it differs from the Fifteenth Plan.",
+        "ne": "सोह्रौं योजनाले २०८१/८२ देखि २०८५/८६ सम्मको अवधि समेट्छ र \"समृद्ध नेपाल, सुखी नेपाली\" को दीर्घकालीन सोचलाई निरन्तरता दिँदै आर्थिक रूपान्तरण, सामाजिक विकास र सुशासनमा जोड दिन्छ। यसको अवधि, आधारस्तम्भ र पन्ध्रौं योजनासँगको भिन्नता जान्नुहोस्।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ]
+    },
+    {
+      "id": "ca-03",
+      "date": "2023-01-25",
+      "category": {
+        "en": "Population",
+        "ne": "जनसंख्या"
+      },
+      "title": {
+        "en": "National Census 2078 results",
+        "ne": "राष्ट्रिय जनगणना २०७८ का नतिजा"
+      },
+      "detail": {
+        "en": "The census reported a population of about 29.16 million with an annual growth rate of about 0.92 per cent — the lowest recorded growth rate in Nepal’s census history. Kathmandu is the most populous district and Manang the least.",
+        "ne": "जनगणनाले करिब २ करोड ९१ लाख जनसंख्या र करिब ०.९२ प्रतिशत वार्षिक वृद्धिदर देखायो — जुन नेपालको जनगणना इतिहासकै सबैभन्दा कम वृद्धिदर हो। काठमाडौंमा सबैभन्दा बढी र मनाङमा सबैभन्दा कम जनसंख्या छ।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
+      "id": "ca-04",
+      "date": "2023-09-15",
+      "category": {
+        "en": "Governance",
+        "ne": "शासन व्यवस्था"
+      },
+      "title": {
+        "en": "Federal civil service law",
+        "ne": "संघीय निजामती सेवासम्बन्धी कानून"
+      },
+      "detail": {
+        "en": "Nepal has been working to replace the Civil Service Act, 2049 with a federal civil service law that fits the three-tier structure. The recurring debate points — adjustment of staff across tiers, the \"cooling off\" period before political appointment, and the balance between merit and inclusion — are frequent essay topics.",
+        "ne": "नेपालले तीन तहको संरचनासँग मेल खाने संघीय निजामती सेवासम्बन्धी कानूनबाट निजामती सेवा ऐन, २०४९ लाई प्रतिस्थापन गर्ने प्रयास गर्दै आएको छ। तहगत कर्मचारी समायोजन, राजनीतिक नियुक्तिअघिको \"कुलिङ अफ\" अवधि र योग्यता तथा समावेशीकरणबीचको सन्तुलन जस्ता बहस निबन्धका बारम्बारका विषय हुन्।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ]
+    },
+    {
+      "id": "ca-05",
+      "date": "2019-09-01",
+      "category": {
+        "en": "Digital governance",
+        "ne": "डिजिटल सुशासन"
+      },
+      "title": {
+        "en": "Digital Nepal Framework",
+        "ne": "डिजिटल नेपाल फ्रेमवर्क"
+      },
+      "detail": {
+        "en": "The Digital Nepal Framework sets out sectors for digital transformation including digital foundation, agriculture, health, education, energy, tourism, finance and urban infrastructure. Pair it with the Electronic Transaction Act 2063 and the Nagarik App when answering e-governance questions.",
+        "ne": "डिजिटल नेपाल फ्रेमवर्कले डिजिटल आधार, कृषि, स्वास्थ्य, शिक्षा, ऊर्जा, पर्यटन, वित्त र सहरी पूर्वाधार लगायतका डिजिटल रूपान्तरणका क्षेत्र तोकेको छ। विद्युतीय सुशासनसम्बन्धी उत्तरमा यसलाई विद्युतीय कारोबार ऐन २०६३ र नागरिक एपसँग जोडेर लेख्नुहोस्।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
+      "id": "ca-06",
+      "date": "2020-12-08",
+      "category": {
+        "en": "Geography",
+        "ne": "भूगोल"
+      },
+      "title": {
+        "en": "Revised height of Mount Everest",
+        "ne": "सगरमाथाको संशोधित उचाइ"
+      },
+      "detail": {
+        "en": "Nepal and China jointly announced the height of Mount Everest as 8,848.86 metres in December 2020. This replaced the earlier figure of 8,848 metres and is the number to use in the exam.",
+        "ne": "नेपाल र चीनले डिसेम्बर २०२० मा संयुक्त रूपमा सगरमाथाको उचाइ ८,८४८.८६ मिटर घोषणा गरे। यसले पहिलेको ८,८४८ मिटरलाई प्रतिस्थापन गरेको छ र परीक्षामा यही अंक प्रयोग गर्नुपर्छ।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
+      "id": "ca-07",
+      "date": "2015-09-25",
+      "category": {
+        "en": "International",
+        "ne": "अन्तर्राष्ट्रिय"
+      },
+      "title": {
+        "en": "Sustainable Development Goals in Nepal",
+        "ne": "नेपालमा दिगो विकास लक्ष्य"
+      },
+      "detail": {
+        "en": "Nepal has mainstreamed the 17 SDGs into its periodic plans and codes budget lines against them. The National Planning Commission is the focal agency and publishes progress reports; goal 16 on peace, justice and strong institutions maps directly onto governance answers.",
+        "ne": "नेपालले १७ दिगो विकास लक्ष्यलाई आवधिक योजनामा मूलप्रवाहीकरण गर्दै बजेट शीर्षकमा कोडिङ गरेको छ। राष्ट्रिय योजना आयोग केन्द्रबिन्दु निकाय हो र प्रगति प्रतिवेदन प्रकाशित गर्छ; शान्ति, न्याय र सबल संस्थासम्बन्धी लक्ष्य १६ शासनसम्बन्धी उत्तरसँग सीधै जोडिन्छ।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    }
+  ]
+}

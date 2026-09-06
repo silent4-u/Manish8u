@@ -44,6 +44,7 @@ npm run dev        # development server
 npm run build      # production build into dist/
 npm run preview    # serve the production build
 npm test           # content integrity + scoring rules
+npm run export:content   # write content/ as portable JSON
 ```
 
 The build in `dist/` is a set of static files with relative paths and hash-based
@@ -102,6 +103,18 @@ Run `npm run test:data` for a live count. At the time of writing:
 - 11 subjects, 22 study lessons
 - 184 questions with bilingual explanations
 - 7 contemporary-issue entries
+
+## Portable content export
+
+`npm run export:content` writes the whole corpus to `content/` as plain JSON —
+levels, subjects, lessons, questions, contemporary issues and both interface
+string sets. This is how other clients consume the content without importing
+TypeScript. The files are generated; edit the sources under `src/data/` and
+re-export rather than editing `content/` by hand.
+
+A native Android port is planned and consumes that export. See
+[ANDROID_PORT.md](ANDROID_PORT.md) for the handoff, including the network
+requirement that has to be met before the Android toolchain can be installed.
 
 ## Project layout
 

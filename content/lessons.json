@@ -1,0 +1,4086 @@
+{
+  "lessons": [
+    {
+      "id": "con-01",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Constitution of Nepal 2072 — At a Glance",
+        "ne": "नेपालको संविधान २०७२ — एक नजरमा"
+      },
+      "summary": {
+        "en": "Promulgation, structure, guiding character of the state and the numbers you must be able to recall instantly.",
+        "ne": "जारी मिति, संरचना, राज्यको मार्गनिर्देशक चरित्र र तुरुन्तै सम्झनुपर्ने अंकहरू।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "The Constitution of Nepal was promulgated by the second Constituent Assembly on 3 Ashoj 2072 BS (20 September 2015). It replaced the Interim Constitution of Nepal 2063 and made Nepal a federal democratic republic in constitutional text as well as in practice.",
+            "ne": "नेपालको संविधान दोस्रो संविधान सभाबाट २०७२ साल असोज ३ गते (२० सेप्टेम्बर २०१५) जारी भएको हो। यसले नेपालको अन्तरिम संविधान २०६३ लाई प्रतिस्थापन गर्दै नेपाललाई संवैधानिक पाठमा र व्यवहारमा समेत संघीय लोकतान्त्रिक गणतन्त्र बनायो।"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Promulgated on",
+                "ne": "जारी मिति"
+              },
+              "value": {
+                "en": "3 Ashoj 2072 BS (20 Sept 2015)",
+                "ne": "२०७२ असोज ३ गते"
+              }
+            },
+            {
+              "label": {
+                "en": "Made by",
+                "ne": "निर्माणकर्ता"
+              },
+              "value": {
+                "en": "Second Constituent Assembly",
+                "ne": "दोस्रो संविधान सभा"
+              }
+            },
+            {
+              "label": {
+                "en": "Parts",
+                "ne": "भाग"
+              },
+              "value": {
+                "en": "35",
+                "ne": "३५"
+              }
+            },
+            {
+              "label": {
+                "en": "Articles",
+                "ne": "धारा"
+              },
+              "value": {
+                "en": "308",
+                "ne": "३०८"
+              }
+            },
+            {
+              "label": {
+                "en": "Schedules",
+                "ne": "अनुसूची"
+              },
+              "value": {
+                "en": "9",
+                "ne": "९"
+              }
+            },
+            {
+              "label": {
+                "en": "Constitution number for Nepal",
+                "ne": "नेपालको कैौं संविधान"
+              },
+              "value": {
+                "en": "Seventh",
+                "ne": "सातौं"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Character of the State (Article 4)",
+            "ne": "राज्यको स्वरूप (धारा ४)"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "Nepal is an independent, indivisible, sovereign, secular, inclusive, democracy-loving, socialism-oriented, federal democratic republican state. \"Secular\" is explained in the constitution as religious and cultural freedom, including protection of religion and culture handed down from ancient times.",
+            "ne": "नेपाल स्वतन्त्र, अविभाज्य, सार्वभौमसत्तासम्पन्न, धर्मनिरपेक्ष, समावेशी, लोकतन्त्रमा आधारित, समाजवाद उन्मुख, संघीय लोकतान्त्रिक गणतन्त्रात्मक राज्य हो। \"धर्मनिरपेक्ष\" भन्नाले सनातनदेखि चलिआएको धर्म–संस्कृतिको संरक्षण लगायत धार्मिक तथा सांस्कृतिक स्वतन्त्रता सम्झनुपर्छ भनी संविधानमै स्पष्ट पारिएको छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "The seven constitutions of Nepal",
+            "ne": "नेपालका सात संविधान"
+          }
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            {
+              "en": "Government of Nepal Act, 2004 BS — first written constitution",
+              "ne": "नेपाल सरकार वैधानिक कानून, २००४ — पहिलो लिखित संविधान"
+            },
+            {
+              "en": "Interim Government of Nepal Act, 2007 BS",
+              "ne": "नेपाल अन्तरिम शासन विधान, २००७"
+            },
+            {
+              "en": "Constitution of the Kingdom of Nepal, 2015 BS",
+              "ne": "नेपाल अधिराज्यको संविधान, २०१५"
+            },
+            {
+              "en": "Constitution of Nepal, 2019 BS — Panchayat system",
+              "ne": "नेपालको संविधान, २०१९ — पञ्चायती व्यवस्था"
+            },
+            {
+              "en": "Constitution of the Kingdom of Nepal, 2047 BS — constitutional monarchy",
+              "ne": "नेपाल अधिराज्यको संविधान, २०४७ — संवैधानिक राजतन्त्र"
+            },
+            {
+              "en": "Interim Constitution of Nepal, 2063 BS",
+              "ne": "नेपालको अन्तरिम संविधान, २०६३"
+            },
+            {
+              "en": "Constitution of Nepal, 2072 BS — in force today",
+              "ne": "नेपालको संविधान, २०७२ — हाल कार्यान्वयनमा"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Examiners love the counting facts: 35 parts, 308 articles, 9 schedules, 31 fundamental rights, 7 provinces, 753 local levels, 13 constitutional bodies.",
+            "ne": "परीक्षामा गणनासम्बन्धी तथ्य बारम्बार सोधिन्छ: ३५ भाग, ३०८ धारा, ९ अनुसूची, ३१ मौलिक हक, ७ प्रदेश, ७५३ स्थानीय तह, १३ संवैधानिक निकाय।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "con-02",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Fundamental Rights and Duties",
+        "ne": "मौलिक हक तथा कर्तव्य"
+      },
+      "summary": {
+        "en": "The 31 fundamental rights of Part 3, the duties of citizens, and how rights are enforced.",
+        "ne": "भाग ३ का ३१ मौलिक हक, नागरिकका कर्तव्य र हक कार्यान्वयनको बाटो।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Part 3 of the constitution (Articles 16 to 46) guarantees 31 fundamental rights. Article 46 gives the right to constitutional remedy: any citizen may petition the Supreme Court under Article 133 or a High Court under Article 144 when a fundamental right is violated.",
+            "ne": "संविधानको भाग ३ (धारा १६ देखि ४६) ले ३१ वटा मौलिक हकको प्रत्याभूति गरेको छ। धारा ४६ ले संवैधानिक उपचारको हक दिन्छ — मौलिक हक हनन भएमा नागरिकले धारा १३३ अन्तर्गत सर्वोच्च अदालत वा धारा १४४ अन्तर्गत उच्च अदालतमा निवेदन दिन सक्छन्।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Rights you should be able to name",
+            "ne": "नाम लिनसक्नुपर्ने प्रमुख हकहरू"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Article",
+              "ne": "धारा"
+            },
+            {
+              "en": "Right",
+              "ne": "हक"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "16",
+                "ne": "१६"
+              },
+              {
+                "en": "Right to live with dignity",
+                "ne": "सम्मानपूर्वक बाँच्न पाउने हक"
+              }
+            ],
+            [
+              {
+                "en": "17",
+                "ne": "१७"
+              },
+              {
+                "en": "Right to freedom",
+                "ne": "स्वतन्त्रताको हक"
+              }
+            ],
+            [
+              {
+                "en": "18",
+                "ne": "१८"
+              },
+              {
+                "en": "Right to equality",
+                "ne": "समानताको हक"
+              }
+            ],
+            [
+              {
+                "en": "19",
+                "ne": "१९"
+              },
+              {
+                "en": "Right to communication",
+                "ne": "सञ्चारको हक"
+              }
+            ],
+            [
+              {
+                "en": "20",
+                "ne": "२०"
+              },
+              {
+                "en": "Rights relating to justice",
+                "ne": "न्याय सम्बन्धी हक"
+              }
+            ],
+            [
+              {
+                "en": "25",
+                "ne": "२५"
+              },
+              {
+                "en": "Right to property",
+                "ne": "सम्पत्तिको हक"
+              }
+            ],
+            [
+              {
+                "en": "27",
+                "ne": "२७"
+              },
+              {
+                "en": "Right to information",
+                "ne": "सूचनाको हक"
+              }
+            ],
+            [
+              {
+                "en": "31",
+                "ne": "३१"
+              },
+              {
+                "en": "Right relating to education",
+                "ne": "शिक्षा सम्बन्धी हक"
+              }
+            ],
+            [
+              {
+                "en": "35",
+                "ne": "३५"
+              },
+              {
+                "en": "Right relating to health care",
+                "ne": "स्वास्थ्य सम्बन्धी हक"
+              }
+            ],
+            [
+              {
+                "en": "36",
+                "ne": "३६"
+              },
+              {
+                "en": "Right relating to food",
+                "ne": "खाद्य सम्बन्धी हक"
+              }
+            ],
+            [
+              {
+                "en": "38",
+                "ne": "३८"
+              },
+              {
+                "en": "Right of women",
+                "ne": "महिलाको हक"
+              }
+            ],
+            [
+              {
+                "en": "40",
+                "ne": "४०"
+              },
+              {
+                "en": "Right of Dalit",
+                "ne": "दलितको हक"
+              }
+            ],
+            [
+              {
+                "en": "46",
+                "ne": "४६"
+              },
+              {
+                "en": "Right to constitutional remedy",
+                "ne": "संवैधानिक उपचारको हक"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Duties of citizens (Article 48)",
+            "ne": "नागरिकका कर्तव्य (धारा ४८)"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Safeguard the nationality, sovereignty and integrity of Nepal while being loyal to the nation",
+              "ne": "राष्ट्रप्रति निष्ठावान् रही नेपालको राष्ट्रियता, सार्वभौमसत्ता र अखण्डताको रक्षा गर्ने"
+            },
+            {
+              "en": "Abide by the constitution and law",
+              "ne": "संविधान र कानूनको पालना गर्ने"
+            },
+            {
+              "en": "Render compulsory service when the state so requires",
+              "ne": "राज्यले चाहेको बखत अनिवार्य सेवा गर्ने"
+            },
+            {
+              "en": "Protect public property",
+              "ne": "सार्वजनिक सम्पत्तिको संरक्षण गर्ने"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Part 4 (Articles 49–55) contains directive principles, policies and obligations of the state. These are not enforceable in court, unlike fundamental rights — a very common one-mark trap.",
+            "ne": "भाग ४ (धारा ४९–५५) मा राज्यका निर्देशक सिद्धान्त, नीति तथा दायित्व छन्। मौलिक हक जस्तो यी अदालतबाट कार्यान्वयन गराउन सकिँदैन — यो एक अंकको प्रश्नमा बारम्बार आउने पासो हो।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "con-03",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Federal Structure and Distribution of Powers",
+        "ne": "संघीय संरचना र अधिकारको बाँडफाँट"
+      },
+      "summary": {
+        "en": "Three tiers of government, the seven provinces, 753 local levels and what the nine schedules assign to whom.",
+        "ne": "सरकारका तीन तह, सात प्रदेश, ७५३ स्थानीय तह र नौ अनुसूचीले कसलाई के अधिकार दिएका छन्।"
+      },
+      "readMinutes": 9,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Article 56 establishes three levels of state structure: federation, province and local level. Article 57 distributes powers through the schedules. Article 232 states that the relation between the three tiers is based on cooperation, coexistence and coordination.",
+            "ne": "धारा ५६ ले संघ, प्रदेश र स्थानीय तह गरी तीन तहको राज्य संरचना स्थापित गर्छ। धारा ५७ ले अनुसूचीमार्फत अधिकार बाँडफाँट गर्छ। धारा २३२ अनुसार तीन तहबीचको सम्बन्ध सहकारिता, सहअस्तित्व र समन्वयको सिद्धान्तमा आधारित हुन्छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "What each schedule contains",
+            "ne": "कुन अनुसूचीमा के छ"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Schedule",
+              "ne": "अनुसूची"
+            },
+            {
+              "en": "Powers of",
+              "ne": "कसको अधिकार"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Schedule 5",
+                "ne": "अनुसूची ५"
+              },
+              {
+                "en": "Federation (exclusive)",
+                "ne": "संघको एकल अधिकार"
+              }
+            ],
+            [
+              {
+                "en": "Schedule 6",
+                "ne": "अनुसूची ६"
+              },
+              {
+                "en": "Province (exclusive)",
+                "ne": "प्रदेशको एकल अधिकार"
+              }
+            ],
+            [
+              {
+                "en": "Schedule 7",
+                "ne": "अनुसूची ७"
+              },
+              {
+                "en": "Concurrent — federation and province",
+                "ne": "संघ र प्रदेशको साझा अधिकार"
+              }
+            ],
+            [
+              {
+                "en": "Schedule 8",
+                "ne": "अनुसूची ८"
+              },
+              {
+                "en": "Local level (exclusive)",
+                "ne": "स्थानीय तहको एकल अधिकार"
+              }
+            ],
+            [
+              {
+                "en": "Schedule 9",
+                "ne": "अनुसूची ९"
+              },
+              {
+                "en": "Concurrent — federation, province and local level",
+                "ne": "संघ, प्रदेश र स्थानीय तहको साझा अधिकार"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "The seven provinces and their capitals",
+            "ne": "सात प्रदेश र तिनका राजधानी"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Province",
+              "ne": "प्रदेश"
+            },
+            {
+              "en": "Capital",
+              "ne": "राजधानी"
+            },
+            {
+              "en": "Districts",
+              "ne": "जिल्ला"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Koshi",
+                "ne": "कोशी"
+              },
+              {
+                "en": "Biratnagar",
+                "ne": "विराटनगर"
+              },
+              {
+                "en": "14",
+                "ne": "१४"
+              }
+            ],
+            [
+              {
+                "en": "Madhesh",
+                "ne": "मधेश"
+              },
+              {
+                "en": "Janakpur",
+                "ne": "जनकपुर"
+              },
+              {
+                "en": "8",
+                "ne": "८"
+              }
+            ],
+            [
+              {
+                "en": "Bagmati",
+                "ne": "बागमती"
+              },
+              {
+                "en": "Hetauda",
+                "ne": "हेटौंडा"
+              },
+              {
+                "en": "13",
+                "ne": "१३"
+              }
+            ],
+            [
+              {
+                "en": "Gandaki",
+                "ne": "गण्डकी"
+              },
+              {
+                "en": "Pokhara",
+                "ne": "पोखरा"
+              },
+              {
+                "en": "11",
+                "ne": "११"
+              }
+            ],
+            [
+              {
+                "en": "Lumbini",
+                "ne": "लुम्बिनी"
+              },
+              {
+                "en": "Deukhuri (Dang)",
+                "ne": "देउखुरी (दाङ)"
+              },
+              {
+                "en": "12",
+                "ne": "१२"
+              }
+            ],
+            [
+              {
+                "en": "Karnali",
+                "ne": "कर्णाली"
+              },
+              {
+                "en": "Birendranagar (Surkhet)",
+                "ne": "वीरेन्द्रनगर (सुर्खेत)"
+              },
+              {
+                "en": "10",
+                "ne": "१०"
+              }
+            ],
+            [
+              {
+                "en": "Sudurpashchim",
+                "ne": "सुदूरपश्चिम"
+              },
+              {
+                "en": "Godawari (Kailali)",
+                "ne": "गोदावरी (कैलाली)"
+              },
+              {
+                "en": "9",
+                "ne": "९"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "The 753 local levels",
+            "ne": "७५३ स्थानीय तह"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Metropolitan cities",
+                "ne": "महानगरपालिका"
+              },
+              "value": {
+                "en": "6",
+                "ne": "६"
+              }
+            },
+            {
+              "label": {
+                "en": "Sub-metropolitan cities",
+                "ne": "उपमहानगरपालिका"
+              },
+              "value": {
+                "en": "11",
+                "ne": "११"
+              }
+            },
+            {
+              "label": {
+                "en": "Municipalities",
+                "ne": "नगरपालिका"
+              },
+              "value": {
+                "en": "276",
+                "ne": "२७६"
+              }
+            },
+            {
+              "label": {
+                "en": "Rural municipalities",
+                "ne": "गाउँपालिका"
+              },
+              "value": {
+                "en": "460",
+                "ne": "४६०"
+              }
+            },
+            {
+              "label": {
+                "en": "Total",
+                "ne": "जम्मा"
+              },
+              "value": {
+                "en": "753",
+                "ne": "७५३"
+              }
+            },
+            {
+              "label": {
+                "en": "District coordination committees",
+                "ne": "जिल्ला समन्वय समिति"
+              },
+              "value": {
+                "en": "77",
+                "ne": "७७"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Residual powers — anything not listed in any schedule — rest with the federation (Article 58).",
+            "ne": "अवशिष्ट अधिकार — कुनै पनि अनुसूचीमा उल्लेख नभएका विषय — संघमा रहन्छ (धारा ५८)।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "con-04",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "title": {
+        "en": "Organs of the State: Legislature, Executive and Judiciary",
+        "ne": "राज्यका अंग: व्यवस्थापिका, कार्यपालिका र न्यायपालिका"
+      },
+      "summary": {
+        "en": "Composition of the Federal Parliament, the executive under the President and Prime Minister, and the court hierarchy.",
+        "ne": "संघीय संसद्को गठन, राष्ट्रपति र प्रधानमन्त्री अन्तर्गतको कार्यपालिका र अदालतको संरचना।"
+      },
+      "readMinutes": 9,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "Federal Parliament (Article 83)",
+            "ne": "संघीय संसद् (धारा ८३)"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "The Federal Parliament is bicameral: the House of Representatives and the National Assembly.",
+            "ne": "संघीय संसद् द्विसदनात्मक छ: प्रतिनिधि सभा र राष्ट्रिय सभा।"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Feature",
+              "ne": "विशेषता"
+            },
+            {
+              "en": "House of Representatives",
+              "ne": "प्रतिनिधि सभा"
+            },
+            {
+              "en": "National Assembly",
+              "ne": "राष्ट्रिय सभा"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Members",
+                "ne": "सदस्य"
+              },
+              {
+                "en": "275 (165 first-past-the-post + 110 proportional)",
+                "ne": "२७५ (१६५ प्रत्यक्ष + ११० समानुपातिक)"
+              },
+              {
+                "en": "59 (56 elected by electoral college, 3 nominated by President)",
+                "ne": "५९ (५६ निर्वाचक मण्डलबाट निर्वाचित, ३ राष्ट्रपतिबाट मनोनीत)"
+              }
+            ],
+            [
+              {
+                "en": "Term",
+                "ne": "कार्यकाल"
+              },
+              {
+                "en": "5 years",
+                "ne": "५ वर्ष"
+              },
+              {
+                "en": "Permanent house; 6-year term, one third retire every 2 years",
+                "ne": "स्थायी सदन; ६ वर्षे कार्यकाल, हरेक २ वर्षमा एक तिहाइ अवकाश"
+              }
+            ],
+            [
+              {
+                "en": "Presiding officer",
+                "ne": "सभाध्यक्ष"
+              },
+              {
+                "en": "Speaker and Deputy Speaker",
+                "ne": "सभामुख र उपसभामुख"
+              },
+              {
+                "en": "Chairperson and Vice-Chairperson",
+                "ne": "अध्यक्ष र उपाध्यक्ष"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Executive",
+            "ne": "कार्यपालिका"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "The President is the head of state and symbol of national unity; elected by an electoral college of federal parliament members and provincial assembly members, for a five-year term, maximum two terms.",
+              "ne": "राष्ट्रपति राष्ट्राध्यक्ष एवं राष्ट्रिय एकताको प्रतीक हो; संघीय संसद् र प्रदेश सभा सदस्यहरूको निर्वाचक मण्डलबाट पाँच वर्षका लागि निर्वाचित, बढीमा दुई कार्यकाल।"
+            },
+            {
+              "en": "Executive power of Nepal is vested in the Council of Ministers (Article 75), headed by the Prime Minister, with a maximum of 25 ministers.",
+              "ne": "नेपालको कार्यकारिणी अधिकार मन्त्रिपरिषद्मा निहित छ (धारा ७५), प्रधानमन्त्री अध्यक्ष हुने र बढीमा २५ जना मन्त्री रहने।"
+            },
+            {
+              "en": "The Council of Ministers is collectively responsible to the House of Representatives; ministers are individually responsible for their ministry.",
+              "ne": "मन्त्रिपरिषद् सामूहिक रूपमा प्रतिनिधि सभाप्रति उत्तरदायी हुन्छ; मन्त्री आफ्नो मन्त्रालयका लागि व्यक्तिगत रूपमा उत्तरदायी हुन्छन्।"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Judiciary (Part 11)",
+            "ne": "न्यायपालिका (भाग ११)"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Supreme Court",
+                "ne": "सर्वोच्च अदालत"
+              },
+              "value": {
+                "en": "Chief Justice + up to 20 justices",
+                "ne": "प्रधान न्यायाधीश + बढीमा २० न्यायाधीश"
+              }
+            },
+            {
+              "label": {
+                "en": "High Courts",
+                "ne": "उच्च अदालत"
+              },
+              "value": {
+                "en": "7 — one per province",
+                "ne": "७ — प्रत्येक प्रदेशमा एक"
+              }
+            },
+            {
+              "label": {
+                "en": "District Courts",
+                "ne": "जिल्ला अदालत"
+              },
+              "value": {
+                "en": "77 — one per district",
+                "ne": "७७ — प्रत्येक जिल्लामा एक"
+              }
+            },
+            {
+              "label": {
+                "en": "Constitutional Bench",
+                "ne": "संवैधानिक इजलास"
+              },
+              "value": {
+                "en": "Chief Justice + 4 justices",
+                "ne": "प्रधान न्यायाधीश + ४ न्यायाधीश"
+              }
+            },
+            {
+              "label": {
+                "en": "Chief Justice tenure",
+                "ne": "प्रधान न्यायाधीशको कार्यकाल"
+              },
+              "value": {
+                "en": "6 years, or until the age of 65",
+                "ne": "६ वर्ष, वा ६५ वर्ष उमेर पुगेसम्म"
+              }
+            },
+            {
+              "label": {
+                "en": "Judicial Council",
+                "ne": "न्याय परिषद्"
+              },
+              "value": {
+                "en": "5 members, chaired by the Chief Justice",
+                "ne": "५ सदस्य, प्रधान न्यायाधीशको अध्यक्षतामा"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Judicial review of laws inconsistent with the constitution goes to the Constitutional Bench under Article 133(1); other extraordinary jurisdiction petitions go to the Supreme Court under Article 133(2) and (3).",
+            "ne": "संविधानसँग बाझिने कानूनको न्यायिक पुनरावलोकन धारा १३३(१) अनुसार संवैधानिक इजलासमा जान्छ; अन्य असाधारण अधिकारक्षेत्रका निवेदन धारा १३३(२) र (३) अनुसार सर्वोच्च अदालतमा जान्छन्।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "con-05",
+      "subjectId": "constitution",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "The Thirteen Constitutional Bodies",
+        "ne": "तेह्र संवैधानिक निकाय"
+      },
+      "summary": {
+        "en": "Every constitutional commission, the article that creates it and what it does.",
+        "ne": "प्रत्येक संवैधानिक आयोग, तिनलाई स्थापना गर्ने धारा र तिनको काम।"
+      },
+      "readMinutes": 6,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Part 21 to Part 27 of the constitution create thirteen constitutional bodies. Their office holders are appointed by the President on the recommendation of the Constitutional Council, and can be removed only through a parliamentary impeachment motion.",
+            "ne": "संविधानको भाग २१ देखि भाग २७ सम्म तेह्र वटा संवैधानिक निकायको व्यवस्था छ। यिनका पदाधिकारी संवैधानिक परिषद्को सिफारिसमा राष्ट्रपतिबाट नियुक्त हुन्छन् र संसदीय महाभियोग प्रस्तावबाट मात्र हटाउन सकिन्छ।"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Body",
+              "ne": "निकाय"
+            },
+            {
+              "en": "Article",
+              "ne": "धारा"
+            },
+            {
+              "en": "Core mandate",
+              "ne": "मुख्य कार्यादेश"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Commission for the Investigation of Abuse of Authority (CIAA)",
+                "ne": "अख्तियार दुरुपयोग अनुसन्धान आयोग"
+              },
+              {
+                "en": "238",
+                "ne": "२३८"
+              },
+              {
+                "en": "Investigate improper conduct and corruption by public office holders",
+                "ne": "सार्वजनिक पद धारण गरेकाको अनुचित कार्य र भ्रष्टाचारको अनुसन्धान"
+              }
+            ],
+            [
+              {
+                "en": "Auditor General",
+                "ne": "महालेखा परीक्षक"
+              },
+              {
+                "en": "241",
+                "ne": "२४१"
+              },
+              {
+                "en": "Final audit of federal, provincial and local public accounts",
+                "ne": "संघ, प्रदेश र स्थानीय सार्वजनिक लेखाको अन्तिम लेखापरीक्षण"
+              }
+            ],
+            [
+              {
+                "en": "Public Service Commission",
+                "ne": "लोक सेवा आयोग"
+              },
+              {
+                "en": "242",
+                "ne": "२४२"
+              },
+              {
+                "en": "Select candidates for the civil service and advise on service conditions",
+                "ne": "निजामती सेवाका लागि उम्मेदवार छनोट र सेवा सर्तसम्बन्धी परामर्श"
+              }
+            ],
+            [
+              {
+                "en": "Election Commission",
+                "ne": "निर्वाचन आयोग"
+              },
+              {
+                "en": "245",
+                "ne": "२४५"
+              },
+              {
+                "en": "Conduct and supervise all elections and the voter roll",
+                "ne": "सबै निर्वाचन र मतदाता नामावलीको सञ्चालन तथा सुपरिवेक्षण"
+              }
+            ],
+            [
+              {
+                "en": "National Human Rights Commission",
+                "ne": "राष्ट्रिय मानव अधिकार आयोग"
+              },
+              {
+                "en": "248",
+                "ne": "२४८"
+              },
+              {
+                "en": "Respect, protection and promotion of human rights",
+                "ne": "मानव अधिकारको सम्मान, संरक्षण र सम्वर्धन"
+              }
+            ],
+            [
+              {
+                "en": "National Natural Resources and Fiscal Commission",
+                "ne": "राष्ट्रिय प्राकृतिक स्रोत तथा वित्त आयोग"
+              },
+              {
+                "en": "250",
+                "ne": "२५०"
+              },
+              {
+                "en": "Recommend revenue sharing and fiscal transfers between tiers",
+                "ne": "तहबीच राजस्व बाँडफाँट र वित्तीय हस्तान्तरणको सिफारिस"
+              }
+            ],
+            [
+              {
+                "en": "National Women Commission",
+                "ne": "राष्ट्रिय महिला आयोग"
+              },
+              {
+                "en": "252",
+                "ne": "२५२"
+              },
+              {
+                "en": "Rights and interests of women",
+                "ne": "महिलाको हक र हित"
+              }
+            ],
+            [
+              {
+                "en": "National Dalit Commission",
+                "ne": "राष्ट्रिय दलित आयोग"
+              },
+              {
+                "en": "255",
+                "ne": "२५५"
+              },
+              {
+                "en": "Rights and interests of the Dalit community",
+                "ne": "दलित समुदायको हक र हित"
+              }
+            ],
+            [
+              {
+                "en": "National Inclusion Commission",
+                "ne": "राष्ट्रिय समावेशी आयोग"
+              },
+              {
+                "en": "258",
+                "ne": "२५८"
+              },
+              {
+                "en": "Inclusion of communities not covered by other commissions",
+                "ne": "अन्य आयोगले नसमेटेका समुदायको समावेशीकरण"
+              }
+            ],
+            [
+              {
+                "en": "Indigenous Nationalities Commission",
+                "ne": "आदिवासी जनजाति आयोग"
+              },
+              {
+                "en": "261",
+                "ne": "२६१"
+              },
+              {
+                "en": "Rights of indigenous nationalities",
+                "ne": "आदिवासी जनजातिको हक"
+              }
+            ],
+            [
+              {
+                "en": "Madhesi Commission",
+                "ne": "मधेशी आयोग"
+              },
+              {
+                "en": "262",
+                "ne": "२६२"
+              },
+              {
+                "en": "Rights of the Madhesi community",
+                "ne": "मधेशी समुदायको हक"
+              }
+            ],
+            [
+              {
+                "en": "Tharu Commission",
+                "ne": "थारू आयोग"
+              },
+              {
+                "en": "263",
+                "ne": "२६३"
+              },
+              {
+                "en": "Rights of the Tharu community",
+                "ne": "थारू समुदायको हक"
+              }
+            ],
+            [
+              {
+                "en": "Muslim Commission",
+                "ne": "मुस्लिम आयोग"
+              },
+              {
+                "en": "264",
+                "ne": "२६४"
+              },
+              {
+                "en": "Rights of the Muslim community",
+                "ne": "मुस्लिम समुदायको हक"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "The last seven commissions (women through Muslim) are given a ten-year existence from the commencement of the constitution, subject to review by the Federal Parliament (Article 265).",
+            "ne": "अन्तिम सात आयोग (महिलादेखि मुस्लिमसम्म) संविधान प्रारम्भ भएको मितिले दश वर्षसम्मका लागि रहने र संघीय संसद्ले पुनरावलोकन गर्ने व्यवस्था छ (धारा २६५)।"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "The Constitutional Council (Article 284) is chaired by the Prime Minister and includes the Chief Justice, Speaker, Chairperson of the National Assembly, Leader of the Opposition and Deputy Speaker.",
+            "ne": "संवैधानिक परिषद् (धारा २८४) को अध्यक्ष प्रधानमन्त्री हुन्छन् र सदस्यमा प्रधान न्यायाधीश, सभामुख, राष्ट्रिय सभाका अध्यक्ष, विपक्षी दलका नेता र उपसभामुख रहन्छन्।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gkn-01",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Geography of Nepal — Position, Size and Relief",
+        "ne": "नेपालको भूगोल — अवस्थिति, आकार र धरातल"
+      },
+      "summary": {
+        "en": "Latitude and longitude, borders, physiographic belts, highest and lowest points.",
+        "ne": "अक्षांश र देशान्तर, सिमाना, भौगोलिक क्षेत्र, अग्लो र होचो बिन्दु।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Area",
+                "ne": "क्षेत्रफल"
+              },
+              "value": {
+                "en": "147,516 sq km",
+                "ne": "१,४७,५१६ वर्ग कि.मि."
+              }
+            },
+            {
+              "label": {
+                "en": "Latitude",
+                "ne": "अक्षांश"
+              },
+              "value": {
+                "en": "26°22'N to 30°27'N",
+                "ne": "२६°२२' उत्तर देखि ३०°२७' उत्तर"
+              }
+            },
+            {
+              "label": {
+                "en": "Longitude",
+                "ne": "देशान्तर"
+              },
+              "value": {
+                "en": "80°04'E to 88°12'E",
+                "ne": "८०°०४' पूर्व देखि ८८°१२' पूर्व"
+              }
+            },
+            {
+              "label": {
+                "en": "Length (east–west)",
+                "ne": "लम्बाइ (पूर्व–पश्चिम)"
+              },
+              "value": {
+                "en": "About 885 km",
+                "ne": "करिब ८८५ कि.मि."
+              }
+            },
+            {
+              "label": {
+                "en": "Breadth (north–south)",
+                "ne": "चौडाइ (उत्तर–दक्षिण)"
+              },
+              "value": {
+                "en": "145–241 km, mean about 193 km",
+                "ne": "१४५–२४१ कि.मि., औसत करिब १९३ कि.मि."
+              }
+            },
+            {
+              "label": {
+                "en": "Standard time",
+                "ne": "मानक समय"
+              },
+              "value": {
+                "en": "GMT + 5:45, based on 86°15'E (Gaurishankar)",
+                "ne": "जि.एम.टी. + ५:४५, ८६°१५' पूर्व (गौरीशंकर) का आधारमा"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Borders",
+            "ne": "सिमाना"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "North: the Tibet Autonomous Region of China, boundary about 1,439 km",
+              "ne": "उत्तर: चीनको तिब्बत स्वायत्त क्षेत्र, सिमाना करिब १,४३९ कि.मि."
+            },
+            {
+              "en": "East, south and west: India, boundary about 1,880 km",
+              "ne": "पूर्व, दक्षिण र पश्चिम: भारत, सिमाना करिब १,८८० कि.मि."
+            },
+            {
+              "en": "Nepal is a landlocked country; the nearest sea access is through the Bay of Bengal",
+              "ne": "नेपाल भूपरिवेष्टित मुलुक हो; नजिकको समुद्री पहुँच बंगालको खाडीबाट हुन्छ"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Physiographic regions",
+            "ne": "भौगोलिक क्षेत्रहरू"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Region",
+              "ne": "क्षेत्र"
+            },
+            {
+              "en": "Share of area",
+              "ne": "क्षेत्रफलको हिस्सा"
+            },
+            {
+              "en": "Character",
+              "ne": "विशेषता"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Himalayan (Himal)",
+                "ne": "हिमाली (हिमाल)"
+              },
+              {
+                "en": "About 15%",
+                "ne": "करिब १५%"
+              },
+              {
+                "en": "Above 4,877 m; snow, glaciers, sparse settlement",
+                "ne": "४,८७७ मि. भन्दा माथि; हिउँ, हिमनदी, पातलो बस्ती"
+              }
+            ],
+            [
+              {
+                "en": "Hill (Pahad)",
+                "ne": "पहाडी (पहाड)"
+              },
+              {
+                "en": "About 68%",
+                "ne": "करिब ६८%"
+              },
+              {
+                "en": "Mahabharat and Chure ranges, valleys, terraced farming",
+                "ne": "महाभारत र चुरे शृंखला, उपत्यका, तटिय खेती"
+              }
+            ],
+            [
+              {
+                "en": "Terai",
+                "ne": "तराई"
+              },
+              {
+                "en": "About 17%",
+                "ne": "करिब १७%"
+              },
+              {
+                "en": "Flat, fertile, densest population, granary of Nepal",
+                "ne": "समथर, उर्वर, सबैभन्दा घना जनसंख्या, नेपालको अन्नभण्डार"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Highest point",
+                "ne": "सबैभन्दा अग्लो बिन्दु"
+              },
+              "value": {
+                "en": "Mt. Everest (Sagarmatha), 8,848.86 m",
+                "ne": "सगरमाथा, ८,८४८.८६ मि."
+              }
+            },
+            {
+              "label": {
+                "en": "Lowest point",
+                "ne": "सबैभन्दा होचो बिन्दु"
+              },
+              "value": {
+                "en": "Kechana Kalan, Jhapa (about 60–70 m)",
+                "ne": "केचना कलन, झापा (करिब ६०–७० मि.)"
+              }
+            },
+            {
+              "label": {
+                "en": "Largest district by area",
+                "ne": "क्षेत्रफलमा सबैभन्दा ठूलो जिल्ला"
+              },
+              "value": {
+                "en": "Dolpa",
+                "ne": "डोल्पा"
+              }
+            },
+            {
+              "label": {
+                "en": "Smallest district by area",
+                "ne": "क्षेत्रफलमा सबैभन्दा सानो जिल्ला"
+              },
+              "value": {
+                "en": "Bhaktapur",
+                "ne": "भक्तपुर"
+              }
+            },
+            {
+              "label": {
+                "en": "Peaks above 8,000 m in Nepal",
+                "ne": "नेपालमा ८,००० मि. माथिका हिमाल"
+              },
+              "value": {
+                "en": "8",
+                "ne": "८"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "The eight-thousanders in Nepal, tallest first: Everest, Kanchenjunga, Lhotse, Makalu, Cho Oyu, Dhaulagiri, Manaslu, Annapurna I. Annapurna I is the only one entirely inside Nepal along with Manaslu and Dhaulagiri.",
+            "ne": "नेपालका आठ हजारी हिमाल, अग्लोदेखि क्रमशः: सगरमाथा, कञ्चनजंघा, ल्होत्से, मकालु, चोयु, धौलागिरी, मनास्लु, अन्नपूर्ण प्रथम। धौलागिरी, मनास्लु र अन्नपूर्ण प्रथम पूर्ण रूपमा नेपालभित्र पर्छन्।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gkn-02",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Rivers, Lakes and Protected Areas",
+        "ne": "नदी, ताल र संरक्षित क्षेत्र"
+      },
+      "summary": {
+        "en": "The four river systems, notable lakes and Nepal’s twenty protected areas.",
+        "ne": "चार नदी प्रणाली, प्रमुख तालहरू र नेपालका बीस संरक्षित क्षेत्र।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "River systems",
+            "ne": "नदी प्रणाली"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Koshi system (Saptakoshi) — east Nepal, seven tributaries including Sunkoshi, Tamakoshi, Dudhkoshi, Arun and Tamor. Largest by drainage area in Nepal.",
+              "ne": "कोशी प्रणाली (सप्तकोशी) — पूर्वी नेपाल, सुनकोशी, तामाकोशी, दूधकोशी, अरुण र तमोर सहित सात सहायक नदी। नेपालमा जलाधार क्षेत्रका हिसाबले सबैभन्दा ठूलो।"
+            },
+            {
+              "en": "Gandaki system (Saptagandaki) — central Nepal, includes Kaligandaki, Trishuli, Marsyangdi, Budhigandaki, Seti and Madi.",
+              "ne": "गण्डकी प्रणाली (सप्तगण्डकी) — मध्य नेपाल, कालीगण्डकी, त्रिशूली, मर्स्याङ्दी, बूढीगण्डकी, सेती र मादी समावेश।"
+            },
+            {
+              "en": "Karnali system — west Nepal, the longest river of Nepal at about 507 km within the country.",
+              "ne": "कर्णाली प्रणाली — पश्चिम नेपाल, देशभित्र करिब ५०७ कि.मि. लामो, नेपालको सबैभन्दा लामो नदी।"
+            },
+            {
+              "en": "Mahakali — forms the western boundary with India.",
+              "ne": "महाकाली — भारतसँगको पश्चिमी सिमाना बनाउँछ।"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Rivers are classified by source: himalayan-origin (perennial, snow fed — Koshi, Gandaki, Karnali, Mahakali), mahabharat-origin (Bagmati, Kankai, Rapti, Babai) and chure-origin (seasonal).",
+            "ne": "उद्गमका आधारमा नदी वर्गीकरण: हिमालबाट निस्किएका (वर्षैभरि बग्ने — कोशी, गण्डकी, कर्णाली, महाकाली), महाभारतबाट निस्किएका (बागमती, कन्काई, राप्ती, बबई) र चुरेबाट निस्किएका (मौसमी)।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Lakes",
+            "ne": "तालहरू"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Largest lake",
+                "ne": "सबैभन्दा ठूलो ताल"
+              },
+              "value": {
+                "en": "Rara, Mugu",
+                "ne": "रारा, मुगु"
+              }
+            },
+            {
+              "label": {
+                "en": "Deepest lake",
+                "ne": "सबैभन्दा गहिरो ताल"
+              },
+              "value": {
+                "en": "Shey Phoksundo, Dolpa",
+                "ne": "शे-फोक्सुन्डो, डोल्पा"
+              }
+            },
+            {
+              "label": {
+                "en": "Highest lake (among the world’s highest)",
+                "ne": "सबैभन्दा अग्लो ताल"
+              },
+              "value": {
+                "en": "Tilicho, Manang",
+                "ne": "तिलिचो, मनाङ"
+              }
+            },
+            {
+              "label": {
+                "en": "Ramsar sites",
+                "ne": "रामसार क्षेत्र"
+              },
+              "value": {
+                "en": "10",
+                "ne": "१०"
+              }
+            },
+            {
+              "label": {
+                "en": "First Ramsar site",
+                "ne": "पहिलो रामसार क्षेत्र"
+              },
+              "value": {
+                "en": "Koshi Tappu (1987)",
+                "ne": "कोशी टप्पु (१९८७)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Protected areas — 20 in total",
+            "ne": "संरक्षित क्षेत्र — जम्मा २०"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Category",
+              "ne": "वर्ग"
+            },
+            {
+              "en": "Number",
+              "ne": "संख्या"
+            },
+            {
+              "en": "Examples",
+              "ne": "उदाहरण"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "National parks",
+                "ne": "राष्ट्रिय निकुञ्ज"
+              },
+              {
+                "en": "12",
+                "ne": "१२"
+              },
+              {
+                "en": "Chitwan, Sagarmatha, Langtang, Bardiya, Rara",
+                "ne": "चितवन, सगरमाथा, लाङटाङ, बर्दिया, रारा"
+              }
+            ],
+            [
+              {
+                "en": "Wildlife reserves",
+                "ne": "वन्यजन्तु आरक्ष"
+              },
+              {
+                "en": "1",
+                "ne": "१"
+              },
+              {
+                "en": "Koshi Tappu",
+                "ne": "कोशी टप्पु"
+              }
+            ],
+            [
+              {
+                "en": "Hunting reserve",
+                "ne": "शिकार आरक्ष"
+              },
+              {
+                "en": "1",
+                "ne": "१"
+              },
+              {
+                "en": "Dhorpatan",
+                "ne": "ढोरपाटन"
+              }
+            ],
+            [
+              {
+                "en": "Conservation areas",
+                "ne": "संरक्षण क्षेत्र"
+              },
+              {
+                "en": "6",
+                "ne": "६"
+              },
+              {
+                "en": "Annapurna, Manaslu, Kanchenjunga, Api Nampa",
+                "ne": "अन्नपूर्ण, मनास्लु, कञ्चनजंघा, अपि नाम्पा"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Chitwan National Park (2030 BS / 1973) is Nepal’s first national park and its first natural World Heritage listing came in 1984. Annapurna Conservation Area is the largest protected area of Nepal.",
+            "ne": "चितवन राष्ट्रिय निकुञ्ज (२०३० साल / सन् १९७३) नेपालको पहिलो राष्ट्रिय निकुञ्ज हो र सन् १९८४ मा विश्व सम्पदा सूचीमा पर्‍यो। अन्नपूर्ण संरक्षण क्षेत्र नेपालको सबैभन्दा ठूलो संरक्षित क्षेत्र हो।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gkn-03",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "History of Nepal — Unification to Republic",
+        "ne": "नेपालको इतिहास — एकीकरणदेखि गणतन्त्रसम्म"
+      },
+      "summary": {
+        "en": "A dated timeline from Prithvi Narayan Shah to the promulgation of the 2072 constitution.",
+        "ne": "पृथ्वीनारायण शाहदेखि संविधान २०७२ जारी हुँदासम्मको मिति सहितको कालक्रम।"
+      },
+      "readMinutes": 9,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Year (BS / AD)",
+              "ne": "साल (वि.सं. / ई.सं.)"
+            },
+            {
+              "en": "Event",
+              "ne": "घटना"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "1825 BS / 1768 AD",
+                "ne": "१८२५ / १७६८"
+              },
+              {
+                "en": "Prithvi Narayan Shah captures Kantipur on Indra Jatra day; unification campaign gathers pace",
+                "ne": "पृथ्वीनारायण शाहले इन्द्रजात्राको दिन कान्तिपुर विजय गरे; एकीकरण अभियान तीव्र"
+              }
+            ],
+            [
+              {
+                "en": "1871–72 BS / 1814–16 AD",
+                "ne": "१८७१–७२ / १८१४–१६"
+              },
+              {
+                "en": "Anglo-Nepal War, ended by the Treaty of Sugauli",
+                "ne": "नेपाल–अंग्रेज युद्ध, सुगौली सन्धिबाट अन्त्य"
+              }
+            ],
+            [
+              {
+                "en": "1903 BS / 1846 AD",
+                "ne": "१९०३ / १८४६"
+              },
+              {
+                "en": "Kot Massacre; Jung Bahadur Rana begins 104 years of Rana rule",
+                "ne": "कोत पर्व; जंगबहादुर राणाबाट १०४ वर्षे राणा शासन सुरु"
+              }
+            ],
+            [
+              {
+                "en": "2007 BS / 1951 AD",
+                "ne": "२००७ / १९५१"
+              },
+              {
+                "en": "Revolution ends Rana rule; democracy established",
+                "ne": "क्रान्तिबाट राणा शासनको अन्त्य; प्रजातन्त्रको स्थापना"
+              }
+            ],
+            [
+              {
+                "en": "2015 BS / 1959 AD",
+                "ne": "२०१५ / १९५९"
+              },
+              {
+                "en": "First general election; B. P. Koirala becomes the first elected Prime Minister",
+                "ne": "पहिलो आम निर्वाचन; बी.पी. कोइराला पहिलो निर्वाचित प्रधानमन्त्री"
+              }
+            ],
+            [
+              {
+                "en": "2017 BS / 1960 AD",
+                "ne": "२०१७ / १९६०"
+              },
+              {
+                "en": "King Mahendra dissolves parliament and starts the Panchayat system",
+                "ne": "राजा महेन्द्रबाट संसद् विघटन र पञ्चायती व्यवस्था सुरु"
+              }
+            ],
+            [
+              {
+                "en": "2046 BS / 1990 AD",
+                "ne": "२०४६ / १९९०"
+              },
+              {
+                "en": "People’s Movement I restores multiparty democracy; Constitution 2047 promulgated",
+                "ne": "जनआन्दोलन–१ बाट बहुदलीय व्यवस्था पुनःस्थापना; संविधान २०४७ जारी"
+              }
+            ],
+            [
+              {
+                "en": "2052 BS / 1996 AD",
+                "ne": "२०५२ / १९९६"
+              },
+              {
+                "en": "Armed conflict begins",
+                "ne": "सशस्त्र द्वन्द्व सुरु"
+              }
+            ],
+            [
+              {
+                "en": "2062/63 BS / 2006 AD",
+                "ne": "२०६२/६३ / २००६"
+              },
+              {
+                "en": "People’s Movement II; Comprehensive Peace Accord signed on 5 Mangsir 2063 (21 Nov 2006)",
+                "ne": "जनआन्दोलन–२; २०६३ मंसिर ५ गते विस्तृत शान्ति सम्झौता"
+              }
+            ],
+            [
+              {
+                "en": "2065 BS / 2008 AD",
+                "ne": "२०६५ / २००८"
+              },
+              {
+                "en": "First Constituent Assembly declares Nepal a federal democratic republic on 15 Jestha 2065 (28 May 2008)",
+                "ne": "पहिलो संविधान सभाले २०६५ जेठ १५ गते नेपाललाई संघीय लोकतान्त्रिक गणतन्त्र घोषणा गर्‍यो"
+              }
+            ],
+            [
+              {
+                "en": "2072 BS / 2015 AD",
+                "ne": "२०७२ / २०१५"
+              },
+              {
+                "en": "Constitution of Nepal promulgated on 3 Ashoj 2072",
+                "ne": "२०७२ असोज ३ गते नेपालको संविधान जारी"
+              }
+            ],
+            [
+              {
+                "en": "2074 BS / 2017 AD",
+                "ne": "२०७४ / २०१७"
+              },
+              {
+                "en": "First elections to all three tiers under the new constitution",
+                "ne": "नयाँ संविधान अनुसार तीनै तहको पहिलो निर्वाचन"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Sugauli Treaty (1816): Nepal lost territory east of the Mechi, west of the Mahakali and part of the Terai; a British resident was stationed in Kathmandu. Some Terai land was returned in 1860 as a reward for Nepali help in the 1857 revolt.",
+            "ne": "सुगौली सन्धि (१८१६): नेपालले मेचीभन्दा पूर्व, महाकालीभन्दा पश्चिम र तराईको केही भूभाग गुमायो; काठमाडौंमा ब्रिटिश रेजिडेन्ट राखियो। सन् १८५७ को विद्रोहमा गरेको सहयोगबापत सन् १८६० मा तराईको केही भूभाग फिर्ता भयो।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gkn-04",
+      "subjectId": "gk-nepal",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Population, Society and Culture",
+        "ne": "जनसंख्या, समाज र संस्कृति"
+      },
+      "summary": {
+        "en": "Census facts, languages and religions, national symbols and world heritage sites.",
+        "ne": "जनगणनाका तथ्य, भाषा र धर्म, राष्ट्रिय प्रतीक र विश्व सम्पदा स्थल।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "National Census 2078 BS (2021) headline figures",
+            "ne": "राष्ट्रिय जनगणना २०७८ का मुख्य तथ्यांक"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Total population",
+                "ne": "कुल जनसंख्या"
+              },
+              "value": {
+                "en": "About 29.16 million",
+                "ne": "करिब २ करोड ९१ लाख"
+              }
+            },
+            {
+              "label": {
+                "en": "Annual growth rate",
+                "ne": "वार्षिक वृद्धिदर"
+              },
+              "value": {
+                "en": "About 0.92%",
+                "ne": "करिब ०.९२%"
+              }
+            },
+            {
+              "label": {
+                "en": "Sex ratio",
+                "ne": "लैंगिक अनुपात"
+              },
+              "value": {
+                "en": "About 95 males per 100 females",
+                "ne": "प्रति १०० महिलामा करिब ९५ पुरुष"
+              }
+            },
+            {
+              "label": {
+                "en": "Most populous district",
+                "ne": "सबैभन्दा बढी जनसंख्या भएको जिल्ला"
+              },
+              "value": {
+                "en": "Kathmandu",
+                "ne": "काठमाडौं"
+              }
+            },
+            {
+              "label": {
+                "en": "Least populous district",
+                "ne": "सबैभन्दा कम जनसंख्या भएको जिल्ला"
+              },
+              "value": {
+                "en": "Manang",
+                "ne": "मनाङ"
+              }
+            },
+            {
+              "label": {
+                "en": "First modern census",
+                "ne": "पहिलो आधुनिक जनगणना"
+              },
+              "value": {
+                "en": "2011 BS (1952/54)",
+                "ne": "२०११ साल"
+              }
+            }
+          ]
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "Nepali, written in Devanagari script, is the official language of business at the federal level (Article 7). All languages spoken as mother tongues in Nepal are national languages. A province may adopt one or more additional official languages by law.",
+            "ne": "देवनागरी लिपिमा लेखिने नेपाली भाषा संघीय तहको सरकारी कामकाजको भाषा हो (धारा ७)। नेपालमा बोलिने सबै मातृभाषा राष्ट्रभाषा हुन्। प्रदेशले कानून बनाई थप एक वा बढी सरकारी कामकाजको भाषा तोक्न सक्छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "National symbols",
+            "ne": "राष्ट्रिय प्रतीक"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Symbol",
+              "ne": "प्रतीक"
+            },
+            {
+              "en": "Nepal",
+              "ne": "नेपाल"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "National flower",
+                "ne": "राष्ट्रिय फूल"
+              },
+              {
+                "en": "Rhododendron (Lali Gurans)",
+                "ne": "लालीगुराँस"
+              }
+            ],
+            [
+              {
+                "en": "National bird",
+                "ne": "राष्ट्रिय पन्छी"
+              },
+              {
+                "en": "Himalayan Monal (Danphe)",
+                "ne": "डाँफे"
+              }
+            ],
+            [
+              {
+                "en": "National animal",
+                "ne": "राष्ट्रिय जनावर"
+              },
+              {
+                "en": "Cow",
+                "ne": "गाई"
+              }
+            ],
+            [
+              {
+                "en": "National colour",
+                "ne": "राष्ट्रिय रङ"
+              },
+              {
+                "en": "Crimson",
+                "ne": "सिम्रिक"
+              }
+            ],
+            [
+              {
+                "en": "National anthem",
+                "ne": "राष्ट्रिय गान"
+              },
+              {
+                "en": "\"Sayaun Thunga Phulka\" — lyrics by Byakul Maila, music by Amber Gurung",
+                "ne": "\"सयौं थुँगा फूलका\" — शब्द: व्याकुल माइला, संगीत: अम्बर गुरुङ"
+              }
+            ],
+            [
+              {
+                "en": "Flag",
+                "ne": "झण्डा"
+              },
+              {
+                "en": "The only non-quadrilateral national flag in the world",
+                "ne": "विश्वको एक मात्र चतुर्भुज नभएको राष्ट्रिय झण्डा"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "World Heritage Sites in Nepal",
+            "ne": "नेपालका विश्व सम्पदा स्थल"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Kathmandu Valley — cultural, inscribed 1979",
+              "ne": "काठमाडौं उपत्यका — सांस्कृतिक, सन् १९७९"
+            },
+            {
+              "en": "Sagarmatha National Park — natural, inscribed 1979",
+              "ne": "सगरमाथा राष्ट्रिय निकुञ्ज — प्राकृतिक, सन् १९७९"
+            },
+            {
+              "en": "Chitwan National Park — natural, inscribed 1984",
+              "ne": "चितवन राष्ट्रिय निकुञ्ज — प्राकृतिक, सन् १९८४"
+            },
+            {
+              "en": "Lumbini, the birthplace of Lord Buddha — cultural, inscribed 1997",
+              "ne": "लुम्बिनी, भगवान् बुद्धको जन्मस्थल — सांस्कृतिक, सन् १९९७"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "The Kathmandu Valley listing bundles seven monument zones: Hanuman Dhoka, Patan and Bhaktapur Durbar Squares, Swayambhu, Bauddhanath, Pashupatinath and Changu Narayan.",
+            "ne": "काठमाडौं उपत्यकाको सूचीमा सात स्मारक क्षेत्र पर्छन्: हनुमानढोका, पाटन र भक्तपुर दरबार क्षेत्र, स्वयम्भू, बौद्धनाथ, पशुपतिनाथ र चाँगुनारायण।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gov-01",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Good Governance — Concept, Principles and Law",
+        "ne": "सुशासन — अवधारणा, सिद्धान्त र कानून"
+      },
+      "summary": {
+        "en": "The eight characteristics of good governance, the 2064 Act and the tools that operationalise it.",
+        "ne": "सुशासनका आठ विशेषता, सुशासन ऐन २०६४ र यसलाई कार्यान्वयन गर्ने औजारहरू।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Good governance means the exercise of state authority in a way that is lawful, transparent, accountable, inclusive and responsive to citizens. In Nepal it is given statutory shape by the Good Governance (Management and Operation) Act, 2064 BS and its Rules, 2065.",
+            "ne": "सुशासन भन्नाले राज्य शक्तिको प्रयोग कानूनसम्मत, पारदर्शी, जवाफदेही, समावेशी र नागरिकप्रति उत्तरदायी ढंगले गर्नु हो। नेपालमा यसलाई सुशासन (व्यवस्थापन तथा सञ्चालन) ऐन, २०६४ र नियमावली, २०६५ ले कानूनी रूप दिएका छन्।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Eight characteristics of good governance",
+            "ne": "सुशासनका आठ विशेषता"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Rule of law",
+              "ne": "विधिको शासन"
+            },
+            {
+              "en": "Transparency",
+              "ne": "पारदर्शिता"
+            },
+            {
+              "en": "Accountability",
+              "ne": "जवाफदेहिता"
+            },
+            {
+              "en": "Participation",
+              "ne": "सहभागिता"
+            },
+            {
+              "en": "Responsiveness",
+              "ne": "उत्तरदायित्व / जवाफदेही प्रतिक्रिया"
+            },
+            {
+              "en": "Consensus orientation",
+              "ne": "सहमति उन्मुखता"
+            },
+            {
+              "en": "Equity and inclusiveness",
+              "ne": "समता र समावेशीकरण"
+            },
+            {
+              "en": "Effectiveness and efficiency",
+              "ne": "प्रभावकारिता र दक्षता"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Key provisions of the Good Governance Act 2064",
+            "ne": "सुशासन ऐन २०६४ का मुख्य व्यवस्था"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Every office must publish a citizen charter showing services, fees, time limits and the responsible officer",
+              "ne": "प्रत्येक कार्यालयले सेवा, दस्तुर, समयसीमा र जिम्मेवार कर्मचारी देखिने नागरिक बडापत्र प्रकाशित गर्नुपर्ने"
+            },
+            {
+              "en": "Decisions must be reasoned; a decision affecting a person must state its grounds",
+              "ne": "निर्णय कारणसहित हुनुपर्ने; कुनै व्यक्तिलाई असर पर्ने निर्णयमा आधार उल्लेख गर्नुपर्ने"
+            },
+            {
+              "en": "Grievance handling officer and a complaint box in every office",
+              "ne": "प्रत्येक कार्यालयमा गुनासो सुन्ने अधिकारी र गुनासो पेटिका"
+            },
+            {
+              "en": "Provision for hearing before a decision that affects rights",
+              "ne": "हक असर पर्ने निर्णय गर्नुअघि सुनुवाइको व्यवस्था"
+            },
+            {
+              "en": "Performance agreement and work plan for officials",
+              "ne": "पदाधिकारीका लागि कार्यसम्पादन सम्झौता र कार्ययोजना"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Learn the paired law-and-tool list: Good Governance Act 2064 → citizen charter; Right to Information Act 2064 → information officer; Prevention of Corruption Act 2059 → CIAA prosecution; Public Procurement Act 2063 → e-bidding.",
+            "ne": "कानून र औजार जोडा बनाएर सम्झनुहोस्: सुशासन ऐन २०६४ → नागरिक बडापत्र; सूचनाको हक ऐन २०६४ → सूचना अधिकारी; भ्रष्टाचार निवारण ऐन २०५९ → अख्तियारबाट अभियोजन; सार्वजनिक खरिद ऐन २०६३ → विद्युतीय बोलपत्र।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gov-02",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "The Civil Service of Nepal",
+        "ne": "नेपालको निजामती सेवा"
+      },
+      "summary": {
+        "en": "Service classification, the hierarchy of posts, recruitment through the Public Service Commission and conduct rules.",
+        "ne": "सेवाको वर्गीकरण, पदको तह, लोक सेवा आयोगमार्फत पदपूर्ति र आचरणसम्बन्धी नियम।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "The Civil Service Act, 2049 BS and the Civil Service Rules, 2050 govern the conditions of service of civil servants. Following federalisation, federal, provincial and local service laws now sit alongside them, and the federal civil service law has been under revision to match the federal structure.",
+            "ne": "निजामती सेवा ऐन, २०४९ र निजामती सेवा नियमावली, २०५० ले निजामती कर्मचारीको सेवा सर्त निर्धारण गर्छन्। संघीयता कार्यान्वयनपछि संघ, प्रदेश र स्थानीय सेवासम्बन्धी कानून सँगसँगै रहेका छन्, र संघीय निजामती सेवासम्बन्धी कानून संघीय संरचना अनुरूप परिमार्जनको प्रक्रियामा रहँदै आएको छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Hierarchy of posts",
+            "ne": "पदको तह"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Category",
+              "ne": "वर्ग"
+            },
+            {
+              "en": "Class",
+              "ne": "श्रेणी"
+            },
+            {
+              "en": "Typical post",
+              "ne": "सामान्य पद"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Gazetted (Rajpatrankit)",
+                "ne": "राजपत्रांकित"
+              },
+              {
+                "en": "Special class",
+                "ne": "विशिष्ट श्रेणी"
+              },
+              {
+                "en": "Secretary",
+                "ne": "सचिव"
+              }
+            ],
+            [
+              {
+                "en": "Gazetted",
+                "ne": "राजपत्रांकित"
+              },
+              {
+                "en": "First class",
+                "ne": "प्रथम श्रेणी"
+              },
+              {
+                "en": "Joint Secretary",
+                "ne": "सहसचिव"
+              }
+            ],
+            [
+              {
+                "en": "Gazetted",
+                "ne": "राजपत्रांकित"
+              },
+              {
+                "en": "Second class",
+                "ne": "द्वितीय श्रेणी"
+              },
+              {
+                "en": "Under Secretary",
+                "ne": "उपसचिव"
+              }
+            ],
+            [
+              {
+                "en": "Gazetted",
+                "ne": "राजपत्रांकित"
+              },
+              {
+                "en": "Third class",
+                "ne": "तृतीय श्रेणी"
+              },
+              {
+                "en": "Section Officer (Adhikrit)",
+                "ne": "शाखा अधिकृत"
+              }
+            ],
+            [
+              {
+                "en": "Non-gazetted (Rajpatra Anankit)",
+                "ne": "राजपत्र अनंकित"
+              },
+              {
+                "en": "First class",
+                "ne": "प्रथम श्रेणी"
+              },
+              {
+                "en": "Nayab Subba",
+                "ne": "नायब सुब्बा"
+              }
+            ],
+            [
+              {
+                "en": "Non-gazetted",
+                "ne": "राजपत्र अनंकित"
+              },
+              {
+                "en": "Second class",
+                "ne": "द्वितीय श्रेणी"
+              },
+              {
+                "en": "Kharidar",
+                "ne": "खरिदार"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Public Service Commission",
+            "ne": "लोक सेवा आयोग"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Established",
+                "ne": "स्थापना"
+              },
+              "value": {
+                "en": "1 Ashad 2008 BS (15 June 1951)",
+                "ne": "२००८ असार १ गते"
+              }
+            },
+            {
+              "label": {
+                "en": "Constitutional basis",
+                "ne": "संवैधानिक आधार"
+              },
+              "value": {
+                "en": "Article 242 of the Constitution of Nepal",
+                "ne": "नेपालको संविधानको धारा २४२"
+              }
+            },
+            {
+              "label": {
+                "en": "Head office",
+                "ne": "केन्द्रीय कार्यालय"
+              },
+              "value": {
+                "en": "Anamnagar, Kathmandu",
+                "ne": "अनामनगर, काठमाडौं"
+              }
+            },
+            {
+              "label": {
+                "en": "Tenure of Chairperson and members",
+                "ne": "अध्यक्ष र सदस्यको कार्यकाल"
+              },
+              "value": {
+                "en": "Six years or until the age of 65",
+                "ne": "छ वर्ष वा ६५ वर्ष उमेर पुगेसम्म"
+              }
+            },
+            {
+              "label": {
+                "en": "Civil Service Day",
+                "ne": "निजामती सेवा दिवस"
+              },
+              "value": {
+                "en": "22 Bhadra",
+                "ne": "भदौ २२ गते"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Inclusive reservation in vacancies",
+            "ne": "पदपूर्तिमा समावेशी आरक्षण"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "Forty-five per cent of the posts announced for open competition are set aside for inclusive groups and are distributed among women, indigenous nationalities, Madhesi, Dalit, persons with disability and people from backward areas. Learn the distribution percentages exactly as the Act states them.",
+            "ne": "खुला प्रतिस्पर्धाबाट पूर्ति हुने पदमध्ये ४५ प्रतिशत पद समावेशी समूहका लागि छुट्याइन्छ र यो महिला, आदिवासी जनजाति, मधेशी, दलित, अपांगता भएका व्यक्ति र पिछडिएको क्षेत्रबीच बाँडिन्छ। ऐनमा तोकिएको प्रतिशत जस्ताको तस्तै सम्झनुहोस्।"
+          }
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "text": {
+            "en": "Conduct rules examiners return to: a civil servant may not criticise government policy publicly, may not take part in politics, may not accept gifts or donations connected to duty, and may not engage in trade or another job without approval.",
+            "ne": "परीक्षामा बारम्बार आउने आचरणसम्बन्धी व्यवस्था: निजामती कर्मचारीले सार्वजनिक रूपमा सरकारी नीतिको आलोचना गर्न, राजनीतिमा भाग लिन, कर्तव्यसँग सम्बन्धित उपहार वा चन्दा लिन र स्वीकृति नलिई व्यापार वा अन्य जागिर गर्न पाउँदैन।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gov-03",
+      "subjectId": "governance",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "title": {
+        "en": "Federalism in Practice and Inter-governmental Relations",
+        "ne": "व्यवहारमा संघीयता र अन्तरसरकारी सम्बन्ध"
+      },
+      "summary": {
+        "en": "How the three tiers coordinate, share revenue, and resolve disputes.",
+        "ne": "तीन तहबीच समन्वय, राजस्व बाँडफाँट र विवाद समाधान कसरी हुन्छ।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Nepal follows a cooperative model of federalism. Article 232 places relations between the federation, provinces and local levels on the principles of cooperation, coexistence and coordination — not on a strict hierarchy.",
+            "ne": "नेपालले सहकारितामूलक संघीयताको नमुना अपनाएको छ। धारा २३२ ले संघ, प्रदेश र स्थानीय तहबीचको सम्बन्ध कडा पदसोपानमा होइन, सहकारिता, सहअस्तित्व र समन्वयको सिद्धान्तमा आधारित हुने भनेको छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Coordination mechanisms",
+            "ne": "समन्वयका संयन्त्र"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Mechanism",
+              "ne": "संयन्त्र"
+            },
+            {
+              "en": "Chaired by",
+              "ne": "अध्यक्ष"
+            },
+            {
+              "en": "Purpose",
+              "ne": "उद्देश्य"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Inter-Province Council (Art. 234)",
+                "ne": "अन्तर प्रदेश परिषद् (धारा २३४)"
+              },
+              {
+                "en": "Prime Minister",
+                "ne": "प्रधानमन्त्री"
+              },
+              {
+                "en": "Settle political disputes between the federation and a province, or between provinces",
+                "ne": "संघ र प्रदेश वा प्रदेशहरूबीचको राजनीतिक विवाद समाधान"
+              }
+            ],
+            [
+              {
+                "en": "National Coordination Council",
+                "ne": "राष्ट्रिय समन्वय परिषद्"
+              },
+              {
+                "en": "Prime Minister",
+                "ne": "प्रधानमन्त्री"
+              },
+              {
+                "en": "Policy and administrative coordination across all three tiers",
+                "ne": "तीनै तहबीच नीतिगत र प्रशासनिक समन्वय"
+              }
+            ],
+            [
+              {
+                "en": "Provincial Coordination Council",
+                "ne": "प्रदेश समन्वय परिषद्"
+              },
+              {
+                "en": "Chief Minister",
+                "ne": "मुख्यमन्त्री"
+              },
+              {
+                "en": "Coordination between the province and local levels",
+                "ne": "प्रदेश र स्थानीय तहबीच समन्वय"
+              }
+            ],
+            [
+              {
+                "en": "National Natural Resources and Fiscal Commission",
+                "ne": "राष्ट्रिय प्राकृतिक स्रोत तथा वित्त आयोग"
+              },
+              {
+                "en": "Its own chairperson",
+                "ne": "आफ्नै अध्यक्ष"
+              },
+              {
+                "en": "Recommend revenue sharing and grant formulas",
+                "ne": "राजस्व बाँडफाँट र अनुदानको सूत्र सिफारिस"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Four fiscal transfers to provinces and local levels",
+            "ne": "प्रदेश र स्थानीय तहमा जाने चार प्रकारका वित्तीय हस्तान्तरण"
+          }
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            {
+              "en": "Fiscal equalisation grant — based on expenditure need and revenue capacity",
+              "ne": "वित्तीय समानीकरण अनुदान — खर्चको आवश्यकता र राजस्व क्षमताका आधारमा"
+            },
+            {
+              "en": "Conditional grant — for a specified project or programme",
+              "ne": "सशर्त अनुदान — तोकिएको आयोजना वा कार्यक्रमका लागि"
+            },
+            {
+              "en": "Complementary grant — matching support for infrastructure",
+              "ne": "समपूरक अनुदान — पूर्वाधारका लागि साझेदारी सहयोग"
+            },
+            {
+              "en": "Special grant — for equity, quality of service or a special objective",
+              "ne": "विशेष अनुदान — समता, सेवाको गुणस्तर वा विशेष उद्देश्यका लागि"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Disputes on the *constitutionality* of a law made by any tier go to the Constitutional Bench; *political* disputes between tiers go to the Inter-Province Council. That distinction is a classic exam question.",
+            "ne": "कुनै पनि तहले बनाएको कानूनको *संवैधानिकता* सम्बन्धी विवाद संवैधानिक इजलासमा जान्छ; तहहरूबीचको *राजनीतिक* विवाद अन्तर प्रदेश परिषद्मा जान्छ। यो भिन्नता परीक्षामा बारम्बार सोधिन्छ।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "off-01",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "The Office — Meaning, Types and Functions",
+        "ne": "कार्यालय — अर्थ, प्रकार र कार्य"
+      },
+      "summary": {
+        "en": "What an office is, how offices are classified, and the resources every office manages.",
+        "ne": "कार्यालय के हो, कसरी वर्गीकरण हुन्छ र हरेक कार्यालयले व्यवस्थापन गर्ने साधनहरू।"
+      },
+      "readMinutes": 6,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "An office is the place where the work of planning, recording, communicating and delivering services of an organisation is carried out. It is often called the \"brain and nerve centre\" of an organisation because information is received, processed, stored and issued from it.",
+            "ne": "कार्यालय भनेको कुनै संगठनको योजना, अभिलेख, सञ्चार र सेवा प्रवाहसम्बन्धी काम हुने ठाउँ हो। सूचना यहीँ प्राप्त, प्रशोधन, संरक्षण र जारी हुने भएकाले यसलाई संगठनको \"मस्तिष्क तथा स्नायु केन्द्र\" भनिन्छ।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Classification of offices",
+            "ne": "कार्यालयको वर्गीकरण"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Basis",
+              "ne": "आधार"
+            },
+            {
+              "en": "Types",
+              "ne": "प्रकार"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Ownership",
+                "ne": "स्वामित्व"
+              },
+              {
+                "en": "Government, private, non-governmental, international",
+                "ne": "सरकारी, निजी, गैरसरकारी, अन्तर्राष्ट्रिय"
+              }
+            ],
+            [
+              {
+                "en": "Level in hierarchy",
+                "ne": "पदसोपानको तह"
+              },
+              {
+                "en": "Central / head office, regional or provincial, district, local",
+                "ne": "केन्द्रीय / प्रधान कार्यालय, प्रादेशिक, जिल्ला, स्थानीय"
+              }
+            ],
+            [
+              {
+                "en": "Function",
+                "ne": "कार्य"
+              },
+              {
+                "en": "Policy making, implementing, service delivering, regulatory",
+                "ne": "नीति निर्माण, कार्यान्वयन, सेवा प्रवाह, नियमनकारी"
+              }
+            ],
+            [
+              {
+                "en": "Duration",
+                "ne": "अवधि"
+              },
+              {
+                "en": "Permanent and temporary (project) offices",
+                "ne": "स्थायी र अस्थायी (आयोजना) कार्यालय"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Core functions",
+            "ne": "मुख्य कार्य"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Receiving, recording and distributing information",
+              "ne": "सूचना प्राप्ति, अभिलेखीकरण र वितरण"
+            },
+            {
+              "en": "Correspondence and communication",
+              "ne": "पत्राचार र सञ्चार"
+            },
+            {
+              "en": "Planning, budgeting and financial administration",
+              "ne": "योजना, बजेट र आर्थिक प्रशासन"
+            },
+            {
+              "en": "Human resource and store (jinsi) management",
+              "ne": "मानव संसाधन र जिन्सी व्यवस्थापन"
+            },
+            {
+              "en": "Service delivery to citizens and handling grievances",
+              "ne": "नागरिकलाई सेवा प्रवाह र गुनासो व्यवस्थापन"
+            },
+            {
+              "en": "Protection and preservation of records",
+              "ne": "अभिलेखको सुरक्षा र संरक्षण"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Resources of an office are often remembered as the five Ms: Men, Money, Materials, Machines and Methods — with Information and Time added in modern texts.",
+            "ne": "कार्यालयका साधनलाई प्रायः पाँच M ले सम्झिन्छ: Men (जनशक्ति), Money (रकम), Materials (सामग्री), Machines (मेसिन) र Methods (विधि) — आधुनिक पुस्तकहरूमा सूचना र समय पनि थपिन्छ।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "off-02",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Registration, Dispatch and Filing (Darta, Chalani, Filing)",
+        "ne": "दर्ता, चलानी र फाइलिङ"
+      },
+      "summary": {
+        "en": "How a letter travels through a government office and how records are filed and preserved.",
+        "ne": "सरकारी कार्यालयमा पत्र कसरी प्रवाह हुन्छ र अभिलेख कसरी फाइल तथा संरक्षण गरिन्छ।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "Darta — registration of incoming mail",
+            "ne": "दर्ता — प्राप्त पत्रको अभिलेख"
+          }
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            {
+              "en": "Receive the letter and check the envelope, enclosures and addressee",
+              "ne": "पत्र प्राप्त गरी खाम, संलग्न कागजात र पाउने पक्ष जाँच्ने"
+            },
+            {
+              "en": "Enter it in the darta register with date, registration number, sender, subject and enclosures",
+              "ne": "दर्ता किताबमा मिति, दर्ता नम्बर, पठाउने, विषय र संलग्न कागजात उल्लेख गरी दर्ता गर्ने"
+            },
+            {
+              "en": "Put the darta seal and number on the letter itself",
+              "ne": "पत्रमै दर्ता छाप र नम्बर लगाउने"
+            },
+            {
+              "en": "Send it to the concerned section against the movement record",
+              "ne": "चलन अभिलेखसहित सम्बन्धित शाखामा पठाउने"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Chalani — dispatch of outgoing mail",
+            "ne": "चलानी — पठाइने पत्रको अभिलेख"
+          }
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            {
+              "en": "The approved draft is fair-copied and signed by the competent authority",
+              "ne": "स्वीकृत मस्यौदा सफा प्रति तयार गरी अधिकारप्राप्त अधिकारीबाट हस्ताक्षर गराउने"
+            },
+            {
+              "en": "It is entered in the chalani register with date, chalani number, recipient and subject",
+              "ne": "चलानी किताबमा मिति, चलानी नम्बर, पाउने र विषय उल्लेख गरी दर्ता गर्ने"
+            },
+            {
+              "en": "One office copy is filed; the original is despatched by post, courier or electronic means",
+              "ne": "एक प्रति कार्यालय प्रति फाइल गर्ने; सक्कल हुलाक, कुरियर वा विद्युतीय माध्यमबाट पठाउने"
+            },
+            {
+              "en": "Acknowledgement of receipt is obtained and kept",
+              "ne": "प्राप्ति भरपाई लिई राख्ने"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Filing systems",
+            "ne": "फाइलिङ प्रणाली"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "System",
+              "ne": "प्रणाली"
+            },
+            {
+              "en": "Arranged by",
+              "ne": "क्रम मिलाउने आधार"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Alphabetical",
+                "ne": "वर्णानुक्रम"
+              },
+              {
+                "en": "Name of person, office or subject",
+                "ne": "व्यक्ति, कार्यालय वा विषयको नाम"
+              }
+            ],
+            [
+              {
+                "en": "Numerical",
+                "ne": "अंक क्रम"
+              },
+              {
+                "en": "File or registration number",
+                "ne": "फाइल वा दर्ता नम्बर"
+              }
+            ],
+            [
+              {
+                "en": "Subject-wise",
+                "ne": "विषयगत"
+              },
+              {
+                "en": "Subject of the correspondence",
+                "ne": "पत्राचारको विषय"
+              }
+            ],
+            [
+              {
+                "en": "Geographical",
+                "ne": "भौगोलिक"
+              },
+              {
+                "en": "District, province or region",
+                "ne": "जिल्ला, प्रदेश वा क्षेत्र"
+              }
+            ],
+            [
+              {
+                "en": "Chronological",
+                "ne": "मिति क्रम"
+              },
+              {
+                "en": "Date of receipt or dispatch",
+                "ne": "प्राप्ति वा प्रेषण मिति"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Good filing is judged by five tests: simplicity, economy, flexibility, safety and quick retrieval. If a paper cannot be found in a minute, the system has failed.",
+            "ne": "राम्रो फाइलिङको कसी पाँच हुन्: सरलता, मितव्ययिता, लचिलोपन, सुरक्षा र छिटो खोज्न सकिने गुण। कुनै कागज एक मिनेटमा भेटिँदैन भने प्रणाली असफल हो।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "off-03",
+      "subjectId": "office-mgmt",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Note Writing (Tippani) and Official Correspondence",
+        "ne": "टिप्पणी लेखन र सरकारी पत्राचार"
+      },
+      "summary": {
+        "en": "The structure of a tippani, how decisions are recorded, and the standard parts of a government letter.",
+        "ne": "टिप्पणीको संरचना, निर्णय कसरी अभिलेख हुन्छ र सरकारी पत्रका मानक भागहरू।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "A tippani is the internal note that carries a matter from the dealing assistant up to the deciding authority. It presents the facts, the legal basis, the options and a recommendation so that the officer can decide with a signature.",
+            "ne": "टिप्पणी भनेको फाँटवालादेखि निर्णय गर्ने अधिकारीसम्म विषय पुर्‍याउने आन्तरिक लेखोट हो। यसले तथ्य, कानूनी आधार, विकल्प र राय प्रस्तुत गर्छ ताकि अधिकारीले हस्ताक्षरसहित निर्णय गर्न सकून्।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Three parts of a tippani",
+            "ne": "टिप्पणीका तीन भाग"
+          }
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            {
+              "en": "Subject and background — what came in, from whom, on what date, with what request",
+              "ne": "विषय र पृष्ठभूमि — के, कसबाट, कुन मितिमा, के अनुरोधसहित आयो"
+            },
+            {
+              "en": "Analysis — the relevant law, rule, precedent, budget position and consequences of each option",
+              "ne": "विश्लेषण — सम्बन्धित कानून, नियम, नजिर, बजेट अवस्था र प्रत्येक विकल्पको परिणाम"
+            },
+            {
+              "en": "Opinion and proposal — a clear recommendation for the decision maker to approve or reject",
+              "ne": "राय र प्रस्ताव — निर्णयकर्ताले स्वीकृत वा अस्वीकृत गर्न सक्ने स्पष्ट सिफारिस"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "text": {
+            "en": "A tippani should never hide the inconvenient option. Under the Good Governance Act every decision must be reasoned, so the note is the written record that will be audited or examined by the CIAA years later.",
+            "ne": "टिप्पणीले असहज विकल्प लुकाउनु हुँदैन। सुशासन ऐन अनुसार प्रत्येक निर्णय कारणसहित हुनुपर्ने भएकाले वर्षौंपछि लेखापरीक्षण वा अख्तियारले हेर्ने लिखित प्रमाण यही टिप्पणी हो।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Parts of a government letter",
+            "ne": "सरकारी पत्रका भाग"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Letterhead with the emblem, office name and address",
+              "ne": "निशान छाप, कार्यालयको नाम र ठेगानासहितको लेटरहेड"
+            },
+            {
+              "en": "Patra sankhya (letter number) and chalani number",
+              "ne": "पत्र संख्या र चलानी नम्बर"
+            },
+            {
+              "en": "Date in Bikram Sambat",
+              "ne": "विक्रम सम्बत्‌मा मिति"
+            },
+            {
+              "en": "Name and address of the recipient office",
+              "ne": "पाउने कार्यालयको नाम र ठेगाना"
+            },
+            {
+              "en": "Subject line (bishaya)",
+              "ne": "विषय"
+            },
+            {
+              "en": "Body — reference, matter, request or direction",
+              "ne": "मुख्य भाग — सन्दर्भ, विषयवस्तु, अनुरोध वा निर्देशन"
+            },
+            {
+              "en": "Signature, name, post of the signing authority",
+              "ne": "हस्ताक्षर, नाम, हस्ताक्षरकर्ताको पद"
+            },
+            {
+              "en": "Boddharthaa (copy to) list and enclosures",
+              "ne": "बोधार्थ सूची र संलग्न कागजात"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Type of writing",
+              "ne": "लेखनको प्रकार"
+            },
+            {
+              "en": "Used for",
+              "ne": "प्रयोग"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Tippani",
+                "ne": "टिप्पणी"
+              },
+              {
+                "en": "Internal note seeking a decision",
+                "ne": "निर्णयका लागि आन्तरिक लेखोट"
+              }
+            ],
+            [
+              {
+                "en": "Patra",
+                "ne": "पत्र"
+              },
+              {
+                "en": "Formal communication between offices",
+                "ne": "कार्यालयबीचको औपचारिक सञ्चार"
+              }
+            ],
+            [
+              {
+                "en": "Paripatra / circular",
+                "ne": "परिपत्र"
+              },
+              {
+                "en": "One instruction sent to many offices",
+                "ne": "धेरै कार्यालयलाई एउटै निर्देशन"
+              }
+            ],
+            [
+              {
+                "en": "Suchana",
+                "ne": "सूचना"
+              },
+              {
+                "en": "Public notice, e.g. a vacancy or tender",
+                "ne": "सार्वजनिक सूचना, जस्तै विज्ञापन वा बोलपत्र"
+              }
+            ],
+            [
+              {
+                "en": "Pratibedan",
+                "ne": "प्रतिवेदन"
+              },
+              {
+                "en": "Report of an inquiry, inspection or programme",
+                "ne": "छानबिन, अनुगमन वा कार्यक्रमको प्रतिवेदन"
+              }
+            ],
+            [
+              {
+                "en": "Manutting / minute",
+                "ne": "माइन्युट"
+              },
+              {
+                "en": "Record of a meeting and its decisions",
+                "ne": "बैठक र निर्णयको अभिलेख"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eco-01",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "title": {
+        "en": "Nepali Economy and Public Finance",
+        "ne": "नेपाली अर्थतन्त्र र सार्वजनिक वित्त"
+      },
+      "summary": {
+        "en": "Structure of the economy, the fiscal year, budget process and the institutions that run public finance.",
+        "ne": "अर्थतन्त्रको संरचना, आर्थिक वर्ष, बजेट प्रक्रिया र सार्वजनिक वित्त सञ्चालन गर्ने निकाय।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Fiscal year",
+                "ne": "आर्थिक वर्ष"
+              },
+              "value": {
+                "en": "1 Shrawan to the end of Ashad (mid-July to mid-July)",
+                "ne": "साउन १ देखि असार मसान्तसम्म"
+              }
+            },
+            {
+              "label": {
+                "en": "Budget presented on",
+                "ne": "बजेट प्रस्तुत हुने मिति"
+              },
+              "value": {
+                "en": "15 Jestha every year (Article 119)",
+                "ne": "प्रत्येक वर्ष जेठ १५ गते (धारा ११९)"
+              }
+            },
+            {
+              "label": {
+                "en": "Central bank",
+                "ne": "केन्द्रीय बैंक"
+              },
+              "value": {
+                "en": "Nepal Rastra Bank, established 2013 BS (1956)",
+                "ne": "नेपाल राष्ट्र बैंक, स्थापना २०१३ साल"
+              }
+            },
+            {
+              "label": {
+                "en": "Planning body",
+                "ne": "योजना निकाय"
+              },
+              "value": {
+                "en": "National Planning Commission, chaired by the Prime Minister",
+                "ne": "राष्ट्रिय योजना आयोग, प्रधानमन्त्री अध्यक्ष"
+              }
+            },
+            {
+              "label": {
+                "en": "Final auditor",
+                "ne": "अन्तिम लेखापरीक्षक"
+              },
+              "value": {
+                "en": "Auditor General (Article 241)",
+                "ne": "महालेखा परीक्षक (धारा २४१)"
+              }
+            },
+            {
+              "label": {
+                "en": "Currency",
+                "ne": "मुद्रा"
+              },
+              "value": {
+                "en": "Nepalese Rupee; notes issued by Nepal Rastra Bank",
+                "ne": "नेपाली रुपैयाँ; नोट नेपाल राष्ट्र बैंकबाट जारी"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Three government funds under the constitution",
+            "ne": "संविधान अन्तर्गतका तीन सरकारी कोष"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Federal Consolidated Fund (Article 116) — all revenue and loans go in; money leaves only under law",
+              "ne": "संघीय सञ्चित कोष (धारा ११६) — सबै राजस्व र ऋण जम्मा हुने; कानून बमोजिम मात्र खर्च हुने"
+            },
+            {
+              "en": "Federal Contingency Fund (Article 124) — for urgent unforeseen expenditure",
+              "ne": "संघीय आकस्मिक कोष (धारा १२४) — अत्यावश्यक अप्रत्याशित खर्चका लागि"
+            },
+            {
+              "en": "Other government funds established by federal law",
+              "ne": "संघीय कानून बमोजिम स्थापित अन्य सरकारी कोष"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Sources of government revenue",
+            "ne": "सरकारी राजस्वका स्रोत"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Type",
+              "ne": "प्रकार"
+            },
+            {
+              "en": "Examples",
+              "ne": "उदाहरण"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Tax revenue — direct",
+                "ne": "कर राजस्व — प्रत्यक्ष"
+              },
+              {
+                "en": "Income tax, property tax",
+                "ne": "आयकर, सम्पत्ति कर"
+              }
+            ],
+            [
+              {
+                "en": "Tax revenue — indirect",
+                "ne": "कर राजस्व — अप्रत्यक्ष"
+              },
+              {
+                "en": "VAT, customs duty, excise duty",
+                "ne": "मूल्य अभिवृद्धि कर, भन्सार महसुल, अन्तःशुल्क"
+              }
+            ],
+            [
+              {
+                "en": "Non-tax revenue",
+                "ne": "गैर कर राजस्व"
+              },
+              {
+                "en": "Fees, fines, dividends, royalties",
+                "ne": "दस्तुर, जरिवाना, लाभांश, रोयल्टी"
+              }
+            ],
+            [
+              {
+                "en": "Grants and loans",
+                "ne": "अनुदान र ऋण"
+              },
+              {
+                "en": "Foreign grants, internal and external borrowing",
+                "ne": "वैदेशिक अनुदान, आन्तरिक तथा बाह्य ऋण"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "Value Added Tax was introduced in Nepal in 2054 BS (1997) replacing sales tax, hotel tax, contract tax and entertainment tax. Income tax is governed by the Income Tax Act, 2058.",
+            "ne": "नेपालमा मूल्य अभिवृद्धि कर २०५४ सालमा बिक्री कर, होटल कर, ठेक्का कर र मनोरञ्जन कर हटाएर लागू भयो। आयकर आयकर ऐन, २०५८ ले नियमन गर्छ।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eco-02",
+      "subjectId": "dev-economy",
+      "levels": [
+        "adhikrit",
+        "nayabsubba"
+      ],
+      "title": {
+        "en": "Periodic Plans and the Sustainable Development Goals",
+        "ne": "आवधिक योजना र दिगो विकास लक्ष्य"
+      },
+      "summary": {
+        "en": "Nepal’s planning history, the current periodic plan and how the SDGs are localised.",
+        "ne": "नेपालको योजना इतिहास, हालको आवधिक योजना र दिगो विकास लक्ष्यको स्थानीयकरण।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "Nepal began planned development with the First Five Year Plan in 2013 BS (1956), prepared under the then Planning Board. Plans are now prepared by the National Planning Commission and approved by the Council of Ministers.",
+            "ne": "नेपालले २०१३ सालमा तत्कालीन योजना बोर्ड अन्तर्गत तयार पहिलो पञ्चवर्षीय योजनाबाट योजनाबद्ध विकास सुरु गर्‍यो। अहिले योजना राष्ट्रिय योजना आयोगले तयार गर्छ र मन्त्रिपरिषद्ले स्वीकृत गर्छ।"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "First plan",
+                "ne": "पहिलो योजना"
+              },
+              "value": {
+                "en": "2013–2018 BS, five years",
+                "ne": "२०१३–२०१८, पाँच वर्ष"
+              }
+            },
+            {
+              "label": {
+                "en": "15th Plan",
+                "ne": "पन्ध्रौं योजना"
+              },
+              "value": {
+                "en": "2076/77–2080/81, vision \"Prosperous Nepal, Happy Nepali\"",
+                "ne": "२०७६/७७–२०८०/८१, सोच \"समृद्ध नेपाल, सुखी नेपाली\""
+              }
+            },
+            {
+              "label": {
+                "en": "16th Plan",
+                "ne": "सोह्रौं योजना"
+              },
+              "value": {
+                "en": "2081/82–2085/86",
+                "ne": "२०८१/८२–२०८५/८६"
+              }
+            },
+            {
+              "label": {
+                "en": "Long-term aspiration",
+                "ne": "दीर्घकालीन आकांक्षा"
+              },
+              "value": {
+                "en": "High income country status by 2100 BS",
+                "ne": "२१०० सालसम्म उच्च आय भएको मुलुक"
+              }
+            },
+            {
+              "label": {
+                "en": "LDC graduation",
+                "ne": "अतिकम विकसित मुलुकबाट स्तरोन्नति"
+              },
+              "value": {
+                "en": "Approved by the UN General Assembly, effective November 2026",
+                "ne": "संयुक्त राष्ट्र संघीय महासभाबाट स्वीकृत, नोभेम्बर २०२६ देखि लागू"
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Sustainable Development Goals",
+            "ne": "दिगो विकास लक्ष्य"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Adopted by the UN in 2015 for the period 2016 to 2030",
+              "ne": "सन् २०१५ मा संयुक्त राष्ट्र संघबाट सन् २०१६ देखि २०३० का लागि पारित"
+            },
+            {
+              "en": "17 goals and 169 targets, replacing the Millennium Development Goals",
+              "ne": "१७ लक्ष्य र १६९ गन्तव्य, सहस्राब्दी विकास लक्ष्यको स्थानमा"
+            },
+            {
+              "en": "Nepal has mainstreamed SDGs into periodic plans and annual budgets, with SDG coding of budget lines",
+              "ne": "नेपालले आवधिक योजना र वार्षिक बजेटमा दिगो विकास लक्ष्यलाई मूलप्रवाहीकरण गर्दै बजेट शीर्षकमा एसडीजी कोडिङ गरेको छ"
+            },
+            {
+              "en": "The National Planning Commission is the focal agency for SDG monitoring",
+              "ne": "दिगो विकास लक्ष्य अनुगमनको केन्द्रबिन्दु निकाय राष्ट्रिय योजना आयोग हो"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Remember the trio that examiners mix up: MDGs ran 2000–2015 with 8 goals; SDGs run 2016–2030 with 17 goals; the Paris Agreement on climate was adopted in 2015 and Nepal ratified it in 2016.",
+            "ne": "परीक्षामा झुक्किने त्रिकोण सम्झनुहोस्: सहस्राब्दी विकास लक्ष्य सन् २०००–२०१५, ८ लक्ष्य; दिगो विकास लक्ष्य सन् २०१६–२०३०, १७ लक्ष्य; जलवायुसम्बन्धी पेरिस सम्झौता सन् २०१५ मा पारित र नेपालले सन् २०१६ मा अनुमोदन गर्‍यो।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wor-01",
+      "subjectId": "gk-world",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "International Organisations and Nepal",
+        "ne": "अन्तर्राष्ट्रिय संघसंस्था र नेपाल"
+      },
+      "summary": {
+        "en": "Membership dates, headquarters and what each organisation does.",
+        "ne": "सदस्यता मिति, मुख्यालय र प्रत्येक संस्थाको काम।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Organisation",
+              "ne": "संस्था"
+            },
+            {
+              "en": "Headquarters",
+              "ne": "मुख्यालय"
+            },
+            {
+              "en": "Nepal joined",
+              "ne": "नेपाल सदस्य भएको"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "United Nations",
+                "ne": "संयुक्त राष्ट्र संघ"
+              },
+              {
+                "en": "New York",
+                "ne": "न्युयोर्क"
+              },
+              {
+                "en": "14 December 1955",
+                "ne": "१४ डिसेम्बर १९५५"
+              }
+            ],
+            [
+              {
+                "en": "Colombo Plan",
+                "ne": "कोलम्बो योजना"
+              },
+              {
+                "en": "Colombo",
+                "ne": "कोलम्बो"
+              },
+              {
+                "en": "1952",
+                "ne": "सन् १९५२"
+              }
+            ],
+            [
+              {
+                "en": "Non-Aligned Movement",
+                "ne": "असंलग्न आन्दोलन"
+              },
+              {
+                "en": "No permanent secretariat",
+                "ne": "स्थायी सचिवालय नभएको"
+              },
+              {
+                "en": "1961 (founding participant)",
+                "ne": "सन् १९६१ (संस्थापक सहभागी)"
+              }
+            ],
+            [
+              {
+                "en": "World Bank and IMF",
+                "ne": "विश्व बैंक र अन्तर्राष्ट्रिय मुद्रा कोष"
+              },
+              {
+                "en": "Washington DC",
+                "ne": "वासिङ्टन डीसी"
+              },
+              {
+                "en": "1961",
+                "ne": "सन् १९६१"
+              }
+            ],
+            [
+              {
+                "en": "Asian Development Bank",
+                "ne": "एसियाली विकास बैंक"
+              },
+              {
+                "en": "Manila",
+                "ne": "मनिला"
+              },
+              {
+                "en": "1966 (founding member)",
+                "ne": "सन् १९६६ (संस्थापक सदस्य)"
+              }
+            ],
+            [
+              {
+                "en": "SAARC",
+                "ne": "सार्क"
+              },
+              {
+                "en": "Kathmandu",
+                "ne": "काठमाडौं"
+              },
+              {
+                "en": "8 December 1985 (founding member)",
+                "ne": "८ डिसेम्बर १९८५ (संस्थापक सदस्य)"
+              }
+            ],
+            [
+              {
+                "en": "BIMSTEC",
+                "ne": "बिमस्टेक"
+              },
+              {
+                "en": "Dhaka",
+                "ne": "ढाका"
+              },
+              {
+                "en": "2004",
+                "ne": "सन् २००४"
+              }
+            ],
+            [
+              {
+                "en": "World Trade Organization",
+                "ne": "विश्व व्यापार संगठन"
+              },
+              {
+                "en": "Geneva",
+                "ne": "जेनेभा"
+              },
+              {
+                "en": "23 April 2004",
+                "ne": "२३ अप्रिल २००४"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "key",
+          "text": {
+            "en": "SAARC has eight members — Nepal, India, Pakistan, Bangladesh, Sri Lanka, Bhutan, the Maldives and Afghanistan. Afghanistan joined in 2007; the other seven founded it in 1985. The secretariat was established in Kathmandu on 16 January 1987.",
+            "ne": "सार्कका आठ सदस्य छन् — नेपाल, भारत, पाकिस्तान, बंगलादेश, श्रीलंका, भुटान, माल्दिभ्स र अफगानिस्तान। अफगानिस्तान सन् २००७ मा सामेल भयो; अन्य सात संस्थापक हुन्। सचिवालय १६ जनवरी १९८७ मा काठमाडौंमा स्थापना भयो।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "The United Nations in brief",
+            "ne": "संयुक्त राष्ट्र संघ संक्षेपमा"
+          }
+        },
+        {
+          "type": "facts",
+          "items": [
+            {
+              "label": {
+                "en": "Founded",
+                "ne": "स्थापना"
+              },
+              "value": {
+                "en": "24 October 1945",
+                "ne": "२४ अक्टोबर १९४५"
+              }
+            },
+            {
+              "label": {
+                "en": "Principal organs",
+                "ne": "मुख्य अंग"
+              },
+              "value": {
+                "en": "Six — General Assembly, Security Council, ECOSOC, Trusteeship Council, ICJ, Secretariat",
+                "ne": "छ — महासभा, सुरक्षा परिषद्, आर्थिक तथा सामाजिक परिषद्, संरक्षण परिषद्, अन्तर्राष्ट्रिय न्यायालय, सचिवालय"
+              }
+            },
+            {
+              "label": {
+                "en": "Security Council",
+                "ne": "सुरक्षा परिषद्"
+              },
+              "value": {
+                "en": "15 members — 5 permanent with veto, 10 elected for two years",
+                "ne": "१५ सदस्य — ५ स्थायी (भिटो अधिकारसहित), १० दुई वर्षका लागि निर्वाचित"
+              }
+            },
+            {
+              "label": {
+                "en": "International Court of Justice",
+                "ne": "अन्तर्राष्ट्रिय न्यायालय"
+              },
+              "value": {
+                "en": "The Hague, Netherlands",
+                "ne": "हेग, नेदरल्यान्ड्स"
+              }
+            },
+            {
+              "label": {
+                "en": "Official languages",
+                "ne": "आधिकारिक भाषा"
+              },
+              "value": {
+                "en": "Six — Arabic, Chinese, English, French, Russian, Spanish",
+                "ne": "छ — अरबी, चिनियाँ, अंग्रेजी, फ्रान्सेली, रुसी, स्पेनिस"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ict-01",
+      "subjectId": "ict",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Computer Fundamentals for the Office",
+        "ne": "कार्यालयका लागि कम्प्युटरको आधारभूत ज्ञान"
+      },
+      "summary": {
+        "en": "Hardware and software basics, common office software, and the units you must know.",
+        "ne": "हार्डवेयर र सफ्टवेयरको आधार, प्रचलित कार्यालय सफ्टवेयर र जान्नैपर्ने एकाइहरू।"
+      },
+      "readMinutes": 7,
+      "blocks": [
+        {
+          "type": "para",
+          "text": {
+            "en": "A computer processes data through the input–process–output cycle. Hardware is the physical part; software is the set of instructions. System software (operating system, utilities) runs the machine; application software (word processor, spreadsheet) does the user’s work.",
+            "ne": "कम्प्युटरले इनपुट–प्रोसेस–आउटपुट चक्रबाट डाटा प्रशोधन गर्छ। हार्डवेयर भौतिक भाग हो; सफ्टवेयर निर्देशनको समूह हो। सिस्टम सफ्टवेयर (अपरेटिङ सिस्टम, युटिलिटी) ले मेसिन चलाउँछ; एप्लिकेसन सफ्टवेयर (वर्ड प्रोसेसर, स्प्रेडसिट) ले प्रयोगकर्ताको काम गर्छ।"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Term",
+              "ne": "शब्द"
+            },
+            {
+              "en": "Meaning",
+              "ne": "अर्थ"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "CPU",
+                "ne": "सीपीयू"
+              },
+              {
+                "en": "Central Processing Unit — control unit plus arithmetic logic unit",
+                "ne": "केन्द्रीय प्रशोधन एकाइ — नियन्त्रण एकाइ र अंकगणितीय तार्किक एकाइ"
+              }
+            ],
+            [
+              {
+                "en": "RAM",
+                "ne": "र्‍याम"
+              },
+              {
+                "en": "Volatile working memory; contents lost when power goes off",
+                "ne": "अस्थायी कार्य स्मृति; बिजुली गएपछि सामग्री हराउँछ"
+              }
+            ],
+            [
+              {
+                "en": "ROM",
+                "ne": "रोम"
+              },
+              {
+                "en": "Non-volatile memory that keeps start-up instructions",
+                "ne": "स्थायी स्मृति जसले सुरुवाती निर्देशन राख्छ"
+              }
+            ],
+            [
+              {
+                "en": "1 Byte",
+                "ne": "१ बाइट"
+              },
+              {
+                "en": "8 bits",
+                "ne": "८ बिट"
+              }
+            ],
+            [
+              {
+                "en": "1 KB / MB / GB / TB",
+                "ne": "१ केबी / एमबी / जीबी / टीबी"
+              },
+              {
+                "en": "Each step is 1024 of the previous unit",
+                "ne": "प्रत्येक चरण अघिल्लो एकाइको १०२४ गुणा"
+              }
+            ],
+            [
+              {
+                "en": "Operating system",
+                "ne": "अपरेटिङ सिस्टम"
+              },
+              {
+                "en": "Windows, Linux, macOS — manages hardware and programs",
+                "ne": "विन्डोज, लिनक्स, म्याकओएस — हार्डवेयर र प्रोग्राम व्यवस्थापन"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "E-governance in Nepal",
+            "ne": "नेपालमा विद्युतीय सुशासन"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Electronic Transaction Act, 2063 gives legal recognition to electronic records and digital signatures",
+              "ne": "विद्युतीय कारोबार ऐन, २०६३ ले विद्युतीय अभिलेख र डिजिटल हस्ताक्षरलाई कानूनी मान्यता दिन्छ"
+            },
+            {
+              "en": "Nagarik App, online passport, PAN registration and e-procurement are common citizen-facing services",
+              "ne": "नागरिक एप, अनलाइन राहदानी, स्थायी लेखा नम्बर दर्ता र विद्युतीय खरिद प्रचलित नागरिकमुखी सेवा हुन्"
+            },
+            {
+              "en": "Four models of e-governance: G2C, G2B, G2G and G2E",
+              "ne": "विद्युतीय सुशासनका चार नमुना: G2C, G2B, G2G र G2E"
+            },
+            {
+              "en": "Cyber security basics: strong passwords, updates, backup, and not sharing credentials",
+              "ne": "साइबर सुरक्षाको आधार: बलियो पासवर्ड, अद्यावधिक, ब्याकअप र प्रयोगकर्ता विवरण साझा नगर्ने"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "Nepali typing questions usually contrast Preeti, a legacy font-based encoding, with Unicode, the standard encoding that works everywhere including email and government portals.",
+            "ne": "नेपाली टाइपिङका प्रश्नमा प्रायः प्रीति (पुरानो फन्टमा आधारित एन्कोडिङ) र युनिकोड (इमेल तथा सरकारी पोर्टल सबैतिर चल्ने मानक एन्कोडिङ) बीचको भिन्नता सोधिन्छ।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "iq-01",
+      "subjectId": "iq",
+      "levels": [
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Cracking the General Intelligence Test",
+        "ne": "सामान्य बौद्धिकता परीक्षण जित्ने तरिका"
+      },
+      "summary": {
+        "en": "The recurring question types and a worked method for each.",
+        "ne": "बारम्बार आउने प्रश्नका प्रकार र प्रत्येकका लागि समाधानको विधि।"
+      },
+      "readMinutes": 9,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "Number and letter series",
+            "ne": "संख्या र अक्षर शृंखला"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "Find the difference between consecutive terms first. If differences are constant it is arithmetic; if the ratio is constant it is geometric; if the differences themselves form a pattern, work one level deeper. Example: 2, 6, 12, 20, 30, ? — differences are 4, 6, 8, 10, so the next difference is 12 and the answer is 42.",
+            "ne": "पहिले लगातार पदबीचको अन्तर निकाल्नुहोस्। अन्तर स्थिर छ भने समान्तर, अनुपात स्थिर छ भने गुणोत्तर हो; अन्तर आफैँले ढाँचा बनाउँछ भने एक तह गहिरो जानुहोस्। उदाहरण: २, ६, १२, २०, ३०, ? — अन्तर ४, ६, ८, १० छन्, त्यसैले अर्को अन्तर १२ र उत्तर ४२ हुन्छ।"
+          }
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "For letter series, write the position numbers (A=1 … Z=26) under the letters. Almost every letter puzzle becomes a number puzzle once you do this.",
+            "ne": "अक्षर शृंखलामा अक्षरमुनि स्थान संख्या (A=१ … Z=२६) लेख्नुहोस्। यसो गरेपछि अक्षरका लगभग सबै प्रश्न संख्याको प्रश्नमा बदलिन्छन्।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Coding and decoding",
+            "ne": "कोडिङ र डिकोडिङ"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Letter shifting: each letter moves a fixed number of places forward or backward",
+              "ne": "अक्षर सार्ने: प्रत्येक अक्षर निश्चित स्थान अगाडि वा पछाडि सर्छ"
+            },
+            {
+              "en": "Reverse coding: the word is written backwards, sometimes with a shift",
+              "ne": "उल्टो कोडिङ: शब्द उल्टो लेखिन्छ, कहिलेकाहीँ सार्नेसहित"
+            },
+            {
+              "en": "Number coding: each letter is replaced by its position or a function of it",
+              "ne": "संख्या कोडिङ: प्रत्येक अक्षर आफ्नो स्थान वा त्यसको कुनै सूत्रले प्रतिस्थापित हुन्छ"
+            },
+            {
+              "en": "Substitution coding: whole words are swapped, e.g. \"sky is called water\"",
+              "ne": "प्रतिस्थापन कोडिङ: पूरै शब्द साटिन्छ, जस्तै \"आकाशलाई पानी भनिन्छ\""
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Blood relations",
+            "ne": "नाता सम्बन्ध"
+          }
+        },
+        {
+          "type": "para",
+          "text": {
+            "en": "Draw a family tree. Use a horizontal line for a married couple, a vertical line for parent to child, and mark gender with + and −. Read the statement from the end backwards: in \"pointing to a man, she said he is the son of my grandfather’s only son\", the grandfather’s only son is her father, so the man is her brother.",
+            "ne": "वंशवृक्ष कोर्नुहोस्। विवाहित जोडीका लागि तेर्सो रेखा, आमाबुबादेखि सन्तानसम्म ठाडो रेखा प्रयोग गर्नुहोस् र लिंग + तथा − ले चिनाउनुहोस्। वाक्यलाई अन्त्यबाट पछाडि पढ्नुहोस्: \"एक पुरुषतर्फ देखाउँदै उनले भनिन्, उहाँ मेरा हजुरबुबाका एक मात्र छोराका छोरा हुन्\" भन्दा हजुरबुबाका एक मात्र छोरा उनका बुबा भए, त्यसैले ती पुरुष उनका दाजु/भाइ हुन्।"
+          }
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Quick arithmetic formulas",
+            "ne": "द्रुत अंकगणितीय सूत्र"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Topic",
+              "ne": "विषय"
+            },
+            {
+              "en": "Formula",
+              "ne": "सूत्र"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Percentage change",
+                "ne": "प्रतिशत परिवर्तन"
+              },
+              {
+                "en": "(new − old) ÷ old × 100",
+                "ne": "(नयाँ − पुरानो) ÷ पुरानो × १००"
+              }
+            ],
+            [
+              {
+                "en": "Profit percent",
+                "ne": "नाफा प्रतिशत"
+              },
+              {
+                "en": "Profit ÷ cost price × 100",
+                "ne": "नाफा ÷ क्रय मूल्य × १००"
+              }
+            ],
+            [
+              {
+                "en": "Simple interest",
+                "ne": "साधारण ब्याज"
+              },
+              {
+                "en": "P × T × R ÷ 100",
+                "ne": "साँवा × समय × दर ÷ १००"
+              }
+            ],
+            [
+              {
+                "en": "Average",
+                "ne": "औसत"
+              },
+              {
+                "en": "Sum of terms ÷ number of terms",
+                "ne": "पदहरूको योग ÷ पदको संख्या"
+              }
+            ],
+            [
+              {
+                "en": "Time and work",
+                "ne": "समय र कार्य"
+              },
+              {
+                "en": "If A takes a days, A’s one-day work is 1/a",
+                "ne": "A लाई a दिन लाग्छ भने A को एक दिनको काम १/a"
+              }
+            ],
+            [
+              {
+                "en": "Speed",
+                "ne": "गति"
+              },
+              {
+                "en": "Distance ÷ time; km/h to m/s multiply by 5/18",
+                "ne": "दूरी ÷ समय; कि.मि./घण्टालाई मि./सेकेन्ड बनाउन ५/१८ ले गुणन"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nep-01",
+      "subjectId": "nepali",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "Nepali Grammar for the Exam",
+        "ne": "परीक्षाका लागि नेपाली व्याकरण"
+      },
+      "summary": {
+        "en": "Sandhi, samas, karak, spelling rules and the idioms that repeat every year.",
+        "ne": "सन्धि, समास, कारक, हिज्जेका नियम र प्रत्येक वर्ष दोहोरिने उखान–टुक्का।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "Sandhi (सन्धि)",
+            "ne": "सन्धि"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Type",
+              "ne": "प्रकार"
+            },
+            {
+              "en": "Example",
+              "ne": "उदाहरण"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Swar sandhi",
+                "ne": "स्वर सन्धि"
+              },
+              {
+                "en": "विद्या + आलय = विद्यालय",
+                "ne": "विद्या + आलय = विद्यालय"
+              }
+            ],
+            [
+              {
+                "en": "Vyanjan sandhi",
+                "ne": "व्यञ्जन सन्धि"
+              },
+              {
+                "en": "सत् + जन = सज्जन",
+                "ne": "सत् + जन = सज्जन"
+              }
+            ],
+            [
+              {
+                "en": "Visarga sandhi",
+                "ne": "विसर्ग सन्धि"
+              },
+              {
+                "en": "निः + चय = निश्चय",
+                "ne": "निः + चय = निश्चय"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Karak (कारक) — the six relations",
+            "ne": "कारक — छ सम्बन्ध"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Karta (subject) — le / ले",
+              "ne": "कर्ता — ले"
+            },
+            {
+              "en": "Karma (object) — lai / लाई",
+              "ne": "कर्म — लाई"
+            },
+            {
+              "en": "Karan (instrument) — le, dwara / ले, द्वारा",
+              "ne": "करण — ले, द्वारा"
+            },
+            {
+              "en": "Sampradan (recipient) — lai, ko lagi / लाई, को लागि",
+              "ne": "सम्प्रदान — लाई, को लागि"
+            },
+            {
+              "en": "Apadan (separation) — bata, dekhi / बाट, देखि",
+              "ne": "अपादान — बाट, देखि"
+            },
+            {
+              "en": "Adhikaran (location) — ma, mathi / मा, माथि",
+              "ne": "अधिकरण — मा, माथि"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Frequently asked idioms and proverbs",
+            "ne": "बारम्बार सोधिने उखान र टुक्का"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Idiom / proverb",
+              "ne": "उखान / टुक्का"
+            },
+            {
+              "en": "Meaning",
+              "ne": "अर्थ"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "हात धुनु",
+                "ne": "हात धुनु"
+              },
+              {
+                "en": "To lose or give up something",
+                "ne": "गुमाउनु वा छोड्नु"
+              }
+            ],
+            [
+              {
+                "en": "नाक काट्नु",
+                "ne": "नाक काट्नु"
+              },
+              {
+                "en": "To bring disgrace",
+                "ne": "इज्जत गुमाउनु"
+              }
+            ],
+            [
+              {
+                "en": "आँखा चिम्लनु",
+                "ne": "आँखा चिम्लनु"
+              },
+              {
+                "en": "To ignore deliberately, or to die",
+                "ne": "जानीजानी बेवास्ता गर्नु, वा मर्नु"
+              }
+            ],
+            [
+              {
+                "en": "हुरीले उडाएको खरजस्तो",
+                "ne": "हुरीले उडाएको खरजस्तो"
+              },
+              {
+                "en": "Completely scattered and helpless",
+                "ne": "पूर्ण रूपमा छरपष्ट र असहाय"
+              }
+            ],
+            [
+              {
+                "en": "कान भर्नु",
+                "ne": "कान भर्नु"
+              },
+              {
+                "en": "To poison someone’s mind against another",
+                "ne": "अर्कोविरुद्ध कसैको मन बिगार्नु"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "warn",
+          "text": {
+            "en": "Spelling questions almost always test the same confusions: सम्बन्ध not सम्बन्ध्, प्रज्ञा not प्रग्या, अन्तर्राष्ट्रिय not अन्तराष्ट्रिय, उत्तरदायित्व not उत्तरदायीत्व. Write the correct forms out by hand until they feel automatic.",
+            "ne": "हिज्जेका प्रश्नमा प्रायः उही अन्योल परीक्षण हुन्छ: प्रज्ञा (प्रग्या होइन), अन्तर्राष्ट्रिय (अन्तराष्ट्रिय होइन), उत्तरदायित्व (उत्तरदायीत्व होइन)। सही रूप स्वतःस्फूर्त नहुन्जेल हातले लेख्ने अभ्यास गर्नुहोस्।"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eng-01",
+      "subjectId": "english",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "title": {
+        "en": "English Grammar and Usage",
+        "ne": "अंग्रेजी व्याकरण र प्रयोग"
+      },
+      "summary": {
+        "en": "Tense, voice, prepositions, subject-verb agreement and one-word substitutions.",
+        "ne": "काल, वाच्य, पूर्वसर्ग, कर्ता–क्रिया मेल र एक शब्दमा अर्थ।"
+      },
+      "readMinutes": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "en": "Subject–verb agreement traps",
+            "ne": "कर्ता–क्रिया मेलका पासो"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "en": "Each, every, either, neither, everyone take a singular verb: \"Each of the officers has signed.\"",
+              "ne": "Each, every, either, neither, everyone सँग एकवचन क्रिया आउँछ: \"Each of the officers has signed.\""
+            },
+            {
+              "en": "Words joined by \"with\", \"along with\", \"as well as\" do not change the number of the subject: \"The Secretary, along with the officers, was present.\"",
+              "ne": "\"with\", \"along with\", \"as well as\" ले जोडिएका शब्दले कर्ताको वचन बदल्दैनन्: \"The Secretary, along with the officers, was present.\""
+            },
+            {
+              "en": "A collective noun takes a singular verb when acting as one body: \"The committee has decided.\"",
+              "ne": "समूहवाचक नाम एउटै निकायका रूपमा काम गर्दा एकवचन क्रिया लिन्छ: \"The committee has decided.\""
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "Active and passive voice",
+            "ne": "कर्तृवाच्य र कर्मवाच्य"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Active",
+              "ne": "कर्तृवाच्य"
+            },
+            {
+              "en": "Passive",
+              "ne": "कर्मवाच्य"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "The office issues the licence.",
+                "ne": "The office issues the licence."
+              },
+              {
+                "en": "The licence is issued by the office.",
+                "ne": "The licence is issued by the office."
+              }
+            ],
+            [
+              {
+                "en": "The committee has approved the plan.",
+                "ne": "The committee has approved the plan."
+              },
+              {
+                "en": "The plan has been approved by the committee.",
+                "ne": "The plan has been approved by the committee."
+              }
+            ],
+            [
+              {
+                "en": "Submit the application today.",
+                "ne": "Submit the application today."
+              },
+              {
+                "en": "Let the application be submitted today.",
+                "ne": "Let the application be submitted today."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": {
+            "en": "One-word substitutions that recur",
+            "ne": "बारम्बार आउने एक शब्दमा अर्थ"
+          }
+        },
+        {
+          "type": "table",
+          "headers": [
+            {
+              "en": "Phrase",
+              "ne": "वाक्यांश"
+            },
+            {
+              "en": "One word",
+              "ne": "एक शब्द"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Government by officials",
+                "ne": "कर्मचारीतन्त्रद्वारा शासन"
+              },
+              {
+                "en": "Bureaucracy",
+                "ne": "Bureaucracy"
+              }
+            ],
+            [
+              {
+                "en": "Rule by the people",
+                "ne": "जनताद्वारा शासन"
+              },
+              {
+                "en": "Democracy",
+                "ne": "Democracy"
+              }
+            ],
+            [
+              {
+                "en": "One who is present everywhere",
+                "ne": "सर्वत्र उपस्थित हुने"
+              },
+              {
+                "en": "Omnipresent",
+                "ne": "Omnipresent"
+              }
+            ],
+            [
+              {
+                "en": "A person appointed to settle a dispute",
+                "ne": "विवाद मिलाउन नियुक्त व्यक्ति"
+              },
+              {
+                "en": "Arbitrator",
+                "ne": "Arbitrator"
+              }
+            ],
+            [
+              {
+                "en": "Fear of foreigners",
+                "ne": "विदेशीप्रतिको डर"
+              },
+              {
+                "en": "Xenophobia",
+                "ne": "Xenophobia"
+              }
+            ],
+            [
+              {
+                "en": "A statement open to more than one meaning",
+                "ne": "एकभन्दा बढी अर्थ लाग्ने कथन"
+              },
+              {
+                "en": "Ambiguous",
+                "ne": "Ambiguous"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "text": {
+            "en": "For the writing section, keep three formats ready: a formal application, an official letter, and a short report with heading, background, findings and recommendation.",
+            "ne": "लेखन खण्डका लागि तीन ढाँचा तयार राख्नुहोस्: औपचारिक निवेदन, सरकारी पत्र, र शीर्षक, पृष्ठभूमि, निष्कर्ष र सिफारिससहितको छोटो प्रतिवेदन।"
+          }
+        }
+      ]
+    }
+  ]
+}

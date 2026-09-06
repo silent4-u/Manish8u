@@ -1,0 +1,16 @@
+{
+  "generatedBy": "npm run export:content",
+  "schemaVersion": 1,
+  "counts": {
+    "levels": 3,
+    "subjects": 11,
+    "lessons": 22,
+    "questions": 184,
+    "currentAffairs": 7,
+    "uiStrings": 102
+  },
+  "languages": [
+    "en",
+    "ne"
+  ]
+}
