@@ -6,7 +6,7 @@ A Kotlin/Compose Android app living in `android/`, alongside the web app.
 
 | Part | State |
 | --- | --- |
-| `android/core` — models, content parsing, scoring, progress rules | **Written and tested.** 27 unit tests pass. |
+| `android/core` — models, content parsing, scoring, progress rules, quiz session | **Written and tested.** 45 unit tests pass. |
 | `android/app` — Compose UI, navigation, storage, resources | **Written, never compiled.** See below. |
 
 The core module is pure Kotlin with no Android dependencies, so it builds and
@@ -58,7 +58,7 @@ cannot be compiled.
 Run in this repository:
 
 ```bash
-cd android && ./gradlew :core:test        # 27 tests, all passing
+cd android && ./gradlew :core:test        # 45 tests, all passing
 python3 scripts/check-android-strings.py  # every UI string key resolves
 npm test                                  # web app content + scoring
 ```
@@ -66,7 +66,15 @@ npm test                                  # web app content + scoring
 `:core:test` parses the real 184-question corpus and asserts every question is
 bilingual and well formed, every lesson block subtype round-trips, each level's
 pool covers its mock test, and the marking rules match the web app's exactly —
-the same 13 cases as `scripts/test-scoring.ts`, plus progress-state rules.
+the same 13 cases as `scripts/test-scoring.ts`.
+
+It also covers `QuizSession`, which holds the rules a learner actually feels:
+practice reveals the answer on choosing and refuses to let it be changed after,
+a mock hides the answer until submission and lets it be changed, navigation
+cannot run off either end of the paper, a mock finishes itself at zero without
+counting negative, a finished session ignores further taps, and only answered
+questions feed the subject statistics. That logic used to sit inside a
+composable where none of it could be tested.
 
 `check-android-strings.py` exists because `ContentRepository.string()` falls
 back to the key when one is missing, so a typo would render as `practiceQuiz`
@@ -133,6 +141,7 @@ android/
     Content.kt                   ContentRepository: parse and query the corpus
     Scoring.kt                   marking rules, clock, Devanagari numerals
     Progress.kt                  ProgressState and its pure transitions
+    Quiz.kt                      QuizSession: reveal rules, navigation, timer
   app/
     MainActivity.kt              activity, nav graph, top and bottom bars
     data/ProgressStore.kt        DataStore persistence of ProgressState
@@ -142,6 +151,7 @@ android/
     ui/HomeScreens.kt            level picker, home, syllabus, affairs, progress, saved
     ui/StudyScreens.kt           subjects, lessons, lesson reader with block renderer
     ui/QuizScreens.kt            practice picker, quiz runner, mock intro, result
+                                 (a thin renderer over the tested QuizSession)
     res/values{,-ne}/strings.xml generated from the content export
 ```
 

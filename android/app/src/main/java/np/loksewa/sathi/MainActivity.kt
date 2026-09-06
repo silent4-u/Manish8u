@@ -38,6 +38,8 @@ import kotlinx.coroutines.launch
 import np.loksewa.sathi.core.ContentRepository
 import np.loksewa.sathi.core.Lang
 import np.loksewa.sathi.core.ProgressState
+import np.loksewa.sathi.core.QuizMode
+import np.loksewa.sathi.core.QuizSession
 import np.loksewa.sathi.data.ProgressStore
 import np.loksewa.sathi.ui.*
 
@@ -136,16 +138,22 @@ private fun AppScaffold(app: AppState) {
                 PracticePickerScreen(startPractice = { nav.navigate(Routes.practiceQuiz(it)) })
             }
             composable(Routes.PRACTICE_QUIZ) { backStack ->
-                val raw = backStack.arguments?.getString("subjectId").orEmpty()
-                val subjectId = raw.takeIf { it != "all" }
-                // remember keyed on the entry so returning re-draws the same paper.
-                val paper = remember(backStack.id) { buildPaper(app, subjectId, isMock = false) }
-                QuizScreen(paper, isMock = false, subjectId = subjectId, onExit = { nav.popBackStack() })
+                val subjectId = backStack.arguments?.getString("subjectId")
+                    ?.takeIf { it != "all" }
+                val level = app.level ?: return@composable
+                // Keyed on the entry, so one visit keeps one paper.
+                val session = remember(backStack.id) {
+                    QuizSession.paper(app.repo, level, subjectId, QuizMode.PRACTICE)
+                }
+                QuizScreen(session, subjectId = subjectId, onExit = { nav.popBackStack() })
             }
             composable(Routes.MOCK) { MockIntroScreen(start = { nav.navigate(Routes.MOCK_RUN) }) }
             composable(Routes.MOCK_RUN) { backStack ->
-                val paper = remember(backStack.id) { buildPaper(app, null, isMock = true) }
-                QuizScreen(paper, isMock = true, subjectId = null, onExit = { nav.popBackStack() })
+                val level = app.level ?: return@composable
+                val session = remember(backStack.id) {
+                    QuizSession.paper(app.repo, level, null, QuizMode.MOCK)
+                }
+                QuizScreen(session, subjectId = null, onExit = { nav.popBackStack() })
             }
             composable(Routes.PROGRESS) { ProgressScreen() }
             composable(Routes.SAVED) { SavedScreen(openLesson = { nav.navigate(Routes.lesson(it)) }) }

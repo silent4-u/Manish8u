@@ -23,8 +23,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -34,14 +32,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-import np.loksewa.sathi.core.AttemptRecord
-import np.loksewa.sathi.core.AttemptSummary
-import np.loksewa.sathi.core.MarkingScheme
-import np.loksewa.sathi.core.Question
+import np.loksewa.sathi.core.OptionState
+import np.loksewa.sathi.core.QuizSession
 import np.loksewa.sathi.core.formatClock
-import np.loksewa.sathi.core.scoreAttempt
 
-private const val PRACTICE_SIZE = 10
 private val OPTION_KEYS = listOf("A", "B", "C", "D", "E")
 
 @Composable
@@ -139,77 +133,51 @@ fun MockIntroScreen(start: () -> Unit) {
 }
 
 /**
- * One quiz session. Practice reveals the answer as soon as it is chosen; a mock
- * test runs against the clock and only reveals everything at the end.
+ * Renders a [QuizSession]. All the rules — reveal behaviour, navigation limits,
+ * the countdown, marking — live in the core module and are unit-tested; this
+ * only draws the current state and forwards taps.
  */
 @Composable
 fun QuizScreen(
-    questions: List<Question>,
-    isMock: Boolean,
+    initial: QuizSession,
     subjectId: String?,
     onExit: () -> Unit,
 ) {
     val app = appState()
     val level = app.level ?: return
 
-    if (questions.isEmpty()) {
-        EmptyState("📭", app.repo.string("noQuestions", app.lang))
+    if (initial.isEmpty) {
+        EmptyState("\uD83D\uDCED", app.repo.string("noQuestions", app.lang))
         return
     }
 
-    val answers = remember(questions) { mutableStateListOf<Int?>().apply { repeat(questions.size) { add(null) } } }
-    var index by remember(questions) { mutableIntStateOf(0) }
-    var revealed by remember(questions) { mutableStateOf(false) }
-    var finished by remember(questions) { mutableStateOf(false) }
-    var secondsLeft by remember(questions) { mutableIntStateOf(level.mock.durationMinutes * 60) }
-    var elapsed by remember(questions) { mutableIntStateOf(0) }
+    var session by remember(initial) { mutableStateOf(initial) }
 
-    val scheme = if (isMock) MarkingScheme.of(level.mock) else MarkingScheme.NO_PENALTY
-    val summary = scoreAttempt(answers.toList(), questions, scheme)
-
-    fun finish() {
-        if (finished) return
-        finished = true
-        val answered = questions.mapIndexedNotNull { i, q ->
-            answers[i]?.let { q.subjectId to (it == q.answer) }
-        }
-        val record = AttemptRecord(
-            id = "${System.currentTimeMillis()}",
-            levelId = level.id,
-            mode = if (isMock) "mock" else "practice",
-            subjectId = subjectId,
-            total = questions.size,
-            correct = summary.correct,
-            wrong = summary.wrong,
-            skipped = summary.skipped,
-            score = summary.score,
-            maxScore = summary.maxScore,
-            seconds = elapsed,
-            finishedAt = System.currentTimeMillis(),
-        )
-        app.update { it.withAttempt(record, answered) }
-    }
-
-    // One ticker drives both the elapsed counter and the mock countdown.
-    LaunchedEffect(finished) {
-        while (!finished) {
+    // One ticker drives the elapsed counter and, for a mock, the countdown.
+    // The session finishes itself at zero, so nothing here has to watch for it.
+    LaunchedEffect(session.finished) {
+        while (!session.finished) {
             delay(1000)
-            elapsed += 1
-            if (isMock) {
-                secondsLeft -= 1
-                if (secondsLeft <= 0) finish()
-            }
+            session = session.tick()
         }
     }
 
-    if (finished) {
-        ResultView(questions, answers.toList(), summary, elapsed, level.mock.passPercent, onExit)
+    // Record exactly once, however the session ended — submitted or timed out.
+    LaunchedEffect(session.finished) {
+        if (session.finished) {
+            val record = session.toRecord(level.id, subjectId, System.currentTimeMillis())
+            val answered = session.answeredSubjects()
+            app.update { it.withAttempt(record, answered) }
+        }
+    }
+
+    if (session.finished) {
+        ResultView(session, level.mock.passPercent, onExit)
         return
     }
 
-    val question = questions[index]
+    val question = session.current ?: return
     val saved = question.id in app.progress.savedQuestions
-    val isLast = index == questions.lastIndex
 
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
@@ -219,7 +187,8 @@ fun QuizScreen(
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Column {
                     SectionLabel(
-                        "${app.repo.string("question", app.lang)} ${app.n(index + 1)} / ${app.n(questions.size)}",
+                        "${app.repo.string("question", app.lang)} " +
+                            "${app.n(session.index + 1)} / ${app.n(session.questions.size)}",
                     )
                     app.repo.subject(question.subjectId)?.let {
                         Text(
@@ -229,17 +198,17 @@ fun QuizScreen(
                         )
                     }
                 }
-                if (isMock) {
+                if (session.isMock) {
                     Text(
-                        app.n(formatClock(secondsLeft)),
+                        app.n(formatClock(session.secondsLeft)),
                         style = MaterialTheme.typography.titleLarge,
-                        color = if (secondsLeft <= 60) MaterialTheme.colorScheme.error
+                        color = if (session.secondsLeft <= 60) MaterialTheme.colorScheme.error
                         else MaterialTheme.colorScheme.onSurface,
                     )
                 }
             }
         }
-        item { ProgressBar((index + 1).toFloat() / questions.size) }
+        item { ProgressBar((session.index + 1).toFloat() / session.questions.size) }
 
         item {
             Card(
@@ -255,25 +224,19 @@ fun QuizScreen(
                             modifier = Modifier.weight(1f),
                         )
                         TextButton(onClick = { app.update { it.toggleSavedQuestion(question.id) } }) {
-                            Text(if (saved) "★" else "☆")
+                            Text(if (saved) "\u2605" else "\u2606")
                         }
                     }
 
                     question.options.forEachIndexed { i, option ->
-                        val chosen = answers[index] == i
-                        val showAnswer = !isMock && revealed
-                        val border = when {
-                            showAnswer && i == question.answer -> Color(0xFF15803D)
-                            showAnswer && chosen -> MaterialTheme.colorScheme.error
-                            chosen -> MaterialTheme.colorScheme.primary
-                            else -> MaterialTheme.colorScheme.outline
+                        val border = when (session.optionState(i)) {
+                            OptionState.CORRECT -> Color(0xFF15803D)
+                            OptionState.WRONG -> MaterialTheme.colorScheme.error
+                            OptionState.CHOSEN -> MaterialTheme.colorScheme.primary
+                            OptionState.NEUTRAL -> MaterialTheme.colorScheme.outline
                         }
                         OutlinedButton(
-                            onClick = {
-                                if (showAnswer) return@OutlinedButton
-                                answers[index] = i
-                                if (!isMock) revealed = true
-                            },
+                            onClick = { session = session.choose(i) },
                             modifier = Modifier.fillMaxWidth(),
                             border = BorderStroke(1.5.dp, border),
                         ) {
@@ -285,7 +248,7 @@ fun QuizScreen(
                         }
                     }
 
-                    if (!isMock && revealed) {
+                    if (session.revealed && !session.isMock) {
                         Callout("tip", app.repo.string("explanation", app.lang), app.b(question.explanation))
                     }
                 }
@@ -295,34 +258,34 @@ fun QuizScreen(
         item {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 OutlinedButton(
-                    onClick = { index -= 1; revealed = false },
-                    enabled = index > 0,
+                    onClick = { session = session.previous() },
+                    enabled = session.index > 0,
                 ) { Text(app.repo.string("previous", app.lang)) }
 
-                if (isLast) {
-                    Button(onClick = { finish() }) {
+                if (session.isLast) {
+                    Button(onClick = { session = session.finish() }) {
                         Text(
-                            if (isMock) app.repo.string("submitTest", app.lang)
+                            if (session.isMock) app.repo.string("submitTest", app.lang)
                             else app.repo.string("finish", app.lang),
                         )
                     }
                 } else {
-                    Button(onClick = { index += 1; revealed = false }) {
+                    Button(onClick = { session = session.next() }) {
                         Text(app.repo.string("next", app.lang))
                     }
                 }
             }
         }
 
-        if (isMock) {
+        if (session.isMock) {
             item {
                 Column {
-                    SectionLabel("${app.n(answers.count { it != null })} / ${app.n(questions.size)}")
+                    SectionLabel("${app.n(session.answeredCount)} / ${app.n(session.questions.size)}")
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                        questions.indices.forEach { i ->
-                            val answered = answers[i] != null
+                        session.questions.indices.forEach { i ->
+                            val answered = session.isAnswered(i)
                             TextButton(
-                                onClick = { index = i; revealed = false },
+                                onClick = { session = session.goTo(i) },
                                 modifier = Modifier
                                     .size(38.dp)
                                     .background(
@@ -339,7 +302,7 @@ fun QuizScreen(
                             }
                         }
                     }
-                    Button(onClick = { finish() }, modifier = Modifier.fillMaxWidth()) {
+                    Button(onClick = { session = session.finish() }, modifier = Modifier.fillMaxWidth()) {
                         Text(app.repo.string("submitTest", app.lang))
                     }
                 }
@@ -349,16 +312,10 @@ fun QuizScreen(
 }
 
 @Composable
-private fun ResultView(
-    questions: List<Question>,
-    answers: List<Int?>,
-    summary: AttemptSummary,
-    seconds: Int,
-    passPercent: Int,
-    onExit: () -> Unit,
-) {
+private fun ResultView(session: QuizSession, passPercent: Int, onExit: () -> Unit) {
     val app = appState()
     var showReview by remember { mutableStateOf(false) }
+    val summary = session.summary
     val passed = summary.percent >= passPercent
 
     LazyColumn(
@@ -402,7 +359,7 @@ private fun ResultView(
         item {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 StatTile("${app.n(summary.accuracy)}%", app.repo.string("accuracy", app.lang), Modifier.weight(1f))
-                StatTile(app.n(formatClock(seconds)), app.repo.string("timeTaken", app.lang), Modifier.weight(1f))
+                StatTile(app.n(formatClock(session.elapsed)), app.repo.string("timeTaken", app.lang), Modifier.weight(1f))
             }
         }
         item {
@@ -417,9 +374,9 @@ private fun ResultView(
         }
 
         if (showReview) {
-            items(questions.size) { i ->
-                val question = questions[i]
-                val given = answers.getOrNull(i)
+            items(session.questions.size) { i ->
+                val question = session.questions[i]
+                val given = session.answers.getOrNull(i)
                 val correct = given == question.answer
                 Card(
                     Modifier.fillMaxWidth(),
@@ -428,7 +385,7 @@ private fun ResultView(
                 ) {
                     Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                         Pill(
-                            "${app.n(i + 1)} · " + when {
+                            "${app.n(i + 1)} \u00B7 " + when {
                                 given == null -> app.repo.string("skipped", app.lang)
                                 correct -> app.repo.string("correct", app.lang)
                                 else -> app.repo.string("wrong", app.lang)
@@ -456,11 +413,4 @@ private fun ResultView(
             }
         }
     }
-}
-
-/** Draw a fresh paper. Kept here so both quiz entry points shuffle the same way. */
-fun buildPaper(app: AppState, subjectId: String?, isMock: Boolean): List<Question> {
-    val level = app.level ?: return emptyList()
-    val count = if (isMock) level.mock.questionCount else PRACTICE_SIZE
-    return app.repo.paperFor(level.id, subjectId, count)
 }
