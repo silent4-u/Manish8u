@@ -21,3 +21,17 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+
+  android-core:
+    # The core module is pure Kotlin, so it builds without the Android SDK.
+    # The :app module needs an SDK and is skipped automatically when absent.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Core unit tests
+        working-directory: android
+        run: ./gradlew --no-daemon :core:test

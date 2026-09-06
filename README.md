@@ -112,9 +112,18 @@ string sets. This is how other clients consume the content without importing
 TypeScript. The files are generated; edit the sources under `src/data/` and
 re-export rather than editing `content/` by hand.
 
-A native Android port is planned and consumes that export. See
-[ANDROID_PORT.md](ANDROID_PORT.md) for the handoff, including the network
-requirement that has to be met before the Android toolchain can be installed.
+## Native Android app
+
+`android/` holds a Kotlin/Compose port that reads the same content export.
+
+- `android/core` — models, content parsing, marking rules and progress state.
+  Pure Kotlin with no Android dependencies, covered by 27 unit tests, and
+  buildable anywhere: `cd android && ./gradlew :core:test`.
+- `android/app` — the Compose interface. It needs the Android SDK to build and
+  **has never been compiled**, so expect errors on a first build.
+
+[ANDROID_PORT.md](ANDROID_PORT.md) explains what is verified, what is not, and
+how to get the first build going.
 
 ## Project layout
 

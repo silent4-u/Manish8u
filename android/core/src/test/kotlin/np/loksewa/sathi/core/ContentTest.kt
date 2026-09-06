@@ -1,0 +1,119 @@
+package np.loksewa.sathi.core
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
+
+/**
+ * Parses the real bundled corpus. These are the checks that would otherwise
+ * only fail at runtime on a device, so they run on every build.
+ */
+class ContentTest {
+
+    private val repo = ContentRepository.load()
+
+    @Test
+    fun `whole corpus parses with the expected counts`() {
+        assertEquals(3, repo.levels.size, "levels")
+        assertEquals(11, repo.subjects.size, "subjects")
+        assertEquals(22, repo.lessons.size, "lessons")
+        assertEquals(184, repo.questions.size, "questions")
+        assertEquals(7, repo.affairs.size, "current affairs")
+    }
+
+    @Test
+    fun `every question is well formed and bilingual`() {
+        repo.questions.forEach { q ->
+            assertTrue(q.prompt.en.isNotBlank() && q.prompt.ne.isNotBlank(), "${q.id}: prompt")
+            assertTrue(q.explanation.en.isNotBlank() && q.explanation.ne.isNotBlank(), "${q.id}: explanation")
+            assertEquals(4, q.options.size, "${q.id}: option count")
+            q.options.forEach { o ->
+                assertTrue(o.en.isNotBlank() && o.ne.isNotBlank(), "${q.id}: option language")
+            }
+            assertTrue(q.answer in q.options.indices, "${q.id}: answer index")
+            assertNotNull(repo.subject(q.subjectId), "${q.id}: unknown subject ${q.subjectId}")
+        }
+    }
+
+    @Test
+    fun `every lesson has content and a known subject`() {
+        repo.lessons.forEach { l ->
+            assertTrue(l.blocks.isNotEmpty(), "${l.id}: no blocks")
+            assertTrue(l.title.en.isNotBlank() && l.title.ne.isNotBlank(), "${l.id}: title")
+            assertNotNull(repo.subject(l.subjectId), "${l.id}: unknown subject")
+        }
+    }
+
+    @Test
+    fun `every lesson block subtype round trips`() {
+        val kinds = repo.lessons.flatMap { it.blocks }.map { it::class.simpleName }.toSet()
+        // All six authored block types must deserialise into their sealed subclass.
+        assertEquals(
+            setOf("Heading", "Para", "Listing", "Facts", "Table", "Callout"),
+            kinds,
+        )
+        repo.lessons.flatMap { it.blocks }.filterIsInstance<LessonBlock.Table>().forEach { t ->
+            t.rows.forEach { row ->
+                assertEquals(t.headers.size, row.size, "table row width")
+            }
+        }
+    }
+
+    @Test
+    fun `each level has enough questions for its mock test`() {
+        repo.levels.forEach { level ->
+            val pool = repo.questionsFor(level.id)
+            assertTrue(
+                pool.size >= level.mock.questionCount,
+                "${level.id}: pool ${pool.size} < mock ${level.mock.questionCount}",
+            )
+            assertTrue(repo.lessonsFor(level.id).isNotEmpty(), "${level.id}: no lessons")
+        }
+    }
+
+    @Test
+    fun `a generated paper is the right size and drawn from the level`() {
+        val level = repo.level("kharidar")!!
+        val paper = repo.paperFor(level.id, count = level.mock.questionCount)
+        assertEquals(level.mock.questionCount, paper.size)
+        assertEquals(paper.size, paper.map { it.id }.toSet().size, "no repeats")
+        assertTrue(paper.all { level.id in it.levels }, "all drawn from this level")
+    }
+
+    @Test
+    fun `interface strings resolve in both languages`() {
+        listOf("appName", "navHome", "practiceQuiz", "fullMockTest").forEach { key ->
+            assertTrue(repo.string(key, Lang.EN).isNotBlank(), "en:$key")
+            assertTrue(repo.string(key, Lang.NE).isNotBlank(), "ne:$key")
+        }
+        // An unknown key degrades to the key rather than throwing on a device.
+        assertEquals("nope", repo.string("nope", Lang.NE))
+    }
+
+    @Test
+    fun `nepali content is genuinely devanagari not copied english`() {
+        val devanagari = Regex("\\p{IsDevanagari}")
+        val suspicious = repo.questions.filter { !devanagari.containsMatchIn(it.prompt.ne) }
+        // Language questions legitimately quote English sentences in both fields.
+        assertTrue(
+            suspicious.all { it.subjectId == "english" },
+            "non-Devanagari Nepali prompts outside the English subject: ${suspicious.map { it.id }}",
+        )
+    }
+
+    @Test
+    fun `syllabus papers are internally consistent`() {
+        repo.levels.forEach { level ->
+            level.papers.forEach { p ->
+                assertTrue(p.passMarks <= p.fullMarks, "${p.id}: pass > full")
+                assertTrue(p.sections.isNotEmpty(), "${p.id}: no sections")
+                p.sections.forEach { s ->
+                    s.subjectIds.forEach { id ->
+                        assertNotNull(repo.subject(id), "${s.id}: unknown subject $id")
+                    }
+                }
+            }
+        }
+    }
+}
