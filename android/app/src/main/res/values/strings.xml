@@ -105,6 +105,15 @@
     <string name="needs_checking">needs checking</string>
     <string name="before_you_trust_this">Before you rely on this:</string>
     <string name="reported_by">Reported by</string>
+    <string name="first_paper_title">The First Paper</string>
+    <string name="first_paper_lede">Pick a topic and study it. The first paper is the objective paper every post sits.</string>
+    <string name="first_paper_note">Nayab Subba and Kharidar sit the same first paper. The Section Officer paper is set differently — a different question pattern, and no general intelligence section — so each topic below shows which posts examine it.</string>
+    <string name="pick_a_topic">Pick a topic and study it</string>
+    <string name="examined_under">Examined under</string>
+    <string name="all_posts">All posts</string>
+    <string name="only_my_paper">Only my paper</string>
+    <string name="on_your_paper">On your paper</string>
+    <string name="all_three_posts">All three posts</string>
     <string name="one_entry">entry</string>
     <string name="many_entries">entries</string>
     <string name="offline_ready">Works offline once loaded</string>

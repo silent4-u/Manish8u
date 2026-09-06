@@ -59,6 +59,13 @@ export function Home() {
       <section>
         <div className="eyebrow">{t('quickActions')}</div>
         <div className="grid grid-2">
+          <Link to="/first-paper" className="subject-tile">
+            <span className="subject-icon" aria-hidden="true">🎯</span>
+            <span>
+              <strong>{t('firstPaperTitle')}</strong>
+              <div className="small muted">{t('pickATopic')}</div>
+            </span>
+          </Link>
           <Link to="/study" className="subject-tile">
             <span className="subject-icon" aria-hidden="true">📚</span>
             <span>

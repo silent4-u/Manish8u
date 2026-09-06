@@ -27,6 +27,15 @@ export function questionsFor(levelId: string, subjectId?: string | null): Questi
   );
 }
 
+/**
+ * Every question on a subject, whatever post it was written for. The first
+ * paper hub is deliberately not level-filtered: a candidate may want to work
+ * a topic that sits on another post's paper.
+ */
+export function questionsBySubject(subjectId: string): Question[] {
+  return QUESTIONS.filter((q) => q.subjectId === subjectId);
+}
+
 /** Deterministic-enough shuffle for building a fresh paper each time. */
 export function shuffle<T>(items: T[]): T[] {
   const copy = [...items];

@@ -33,6 +33,17 @@ export function SubjectList() {
         <h1 className="display">{t('subjects')}</h1>
       </div>
 
+      <Link to="/first-paper" className="card" style={{ display: 'block', color: 'inherit' }}>
+        <div className="between">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 2 }}>{t('paper')} I</div>
+            <strong>{t('firstPaperTitle')}</strong>
+            <div className="small muted">{t('firstPaperLede')}</div>
+          </div>
+          <span aria-hidden="true" className="muted">→</span>
+        </div>
+      </Link>
+
       <input
         className="input"
         type="search"

@@ -1,4 +1,4 @@
-import type { ExamLevel } from '../types';
+import type { Bilingual, ExamLevel, LevelId } from '../types';
 
 /**
  * Exam patterns follow the Public Service Commission (Lok Sewa Aayog) syllabus
@@ -366,3 +366,63 @@ export const LEVELS: ExamLevel[] = [
 export const LEVEL_BY_ID: Record<string, ExamLevel> = Object.fromEntries(
   LEVELS.map((level) => [level.id, level]),
 );
+
+/** One subject as it appears in the first paper, across every post. */
+export interface FirstPaperSubject {
+  subjectId: string;
+  /** Posts whose first paper covers this subject. */
+  levels: LevelId[];
+  /** Where it sits in each post's first paper. */
+  placements: {
+    levelId: LevelId;
+    sectionName: Bilingual;
+    marks?: number;
+    topics: Bilingual[];
+  }[];
+  /** Marks across every post that examines it, for rough weighting. */
+  totalMarks: number;
+}
+
+/**
+ * The first paper, pooled across all three posts.
+ *
+ * Nayab Subba and Kharidar sit the same first paper. The Section Officer paper
+ * is set differently — a different pattern, and no general intelligence
+ * section — so a subject is tagged with the posts that actually examine it
+ * rather than being presented as common to all when it is not.
+ */
+export function firstPaperSubjects(): FirstPaperSubject[] {
+  const bySubject = new Map<string, FirstPaperSubject>();
+
+  for (const level of LEVELS) {
+    const paper = level.papers[0];
+    if (!paper) continue;
+    for (const section of paper.sections) {
+      for (const subjectId of section.subjectIds) {
+        let entry = bySubject.get(subjectId);
+        if (!entry) {
+          entry = { subjectId, levels: [], placements: [], totalMarks: 0 };
+          bySubject.set(subjectId, entry);
+        }
+        if (!entry.levels.includes(level.id)) entry.levels.push(level.id);
+        entry.placements.push({
+          levelId: level.id,
+          sectionName: section.name,
+          marks: section.marks,
+          topics: section.topics,
+        });
+        entry.totalMarks += section.marks ?? 0;
+      }
+    }
+  }
+
+  // Subjects every post examines come first; then by how much they are worth.
+  return [...bySubject.values()].sort(
+    (a, b) => b.levels.length - a.levels.length || b.totalMarks - a.totalMarks,
+  );
+}
+
+/** True when every post's first paper covers this subject. */
+export function isCommonToAllPosts(subject: FirstPaperSubject): boolean {
+  return subject.levels.length === LEVELS.length;
+}

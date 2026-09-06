@@ -105,6 +105,15 @@
     <string name="needs_checking">जाँच बाँकी</string>
     <string name="before_you_trust_this">भर पर्नुअघि:</string>
     <string name="reported_by">स्रोत</string>
+    <string name="first_paper_title">प्रथम पत्र</string>
+    <string name="first_paper_lede">विषय छान्नुहोस् र अध्ययन गर्नुहोस्। प्रथम पत्र सबै पदमा हुने वस्तुगत पत्र हो।</string>
+    <string name="first_paper_note">नायब सुब्बा र खरिदारको प्रथम पत्र एउटै हो। शाखा अधिकृतको पत्र फरक ढाँचामा हुन्छ — प्रश्न ढाँचा फरक र सामान्य बौद्धिकता खण्ड नहुने — त्यसैले तलका प्रत्येक विषयमा कुन पदमा सोधिन्छ भन्ने देखाइएको छ।</string>
+    <string name="pick_a_topic">विषय छानेर अध्ययन गर्नुहोस्</string>
+    <string name="examined_under">कुन खण्डमा सोधिन्छ</string>
+    <string name="all_posts">सबै पद</string>
+    <string name="only_my_paper">मेरो पत्र मात्र</string>
+    <string name="on_your_paper">तपाईंको पत्रमा</string>
+    <string name="all_three_posts">तीनै पद</string>
     <string name="one_entry">सामग्री</string>
     <string name="many_entries">सामग्री</string>
     <string name="offline_ready">एकपटक खुलेपछि अफलाइन चल्छ</string>

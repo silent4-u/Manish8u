@@ -7,7 +7,8 @@ import { LevelSelect } from './pages/LevelSelect';
 import { Home } from './pages/Home';
 import { Syllabus } from './pages/Syllabus';
 import { SubjectList, LessonList, LessonView } from './pages/Study';
-import { PracticePicker, PracticeQuiz } from './pages/Practice';
+import { FirstPaperQuiz, PracticePicker, PracticeQuiz } from './pages/Practice';
+import { FirstPaper } from './pages/FirstPaper';
 import { Mock } from './pages/Mock';
 import { ProgressPage } from './pages/ProgressPage';
 import { Saved } from './pages/Saved';
@@ -32,6 +33,8 @@ export default function App() {
               <Route path="/levels" element={<LevelSelect />} />
               <Route path="/" element={<RequireLevel><Home /></RequireLevel>} />
               <Route path="/syllabus" element={<RequireLevel><Syllabus /></RequireLevel>} />
+              <Route path="/first-paper" element={<RequireLevel><FirstPaper /></RequireLevel>} />
+              <Route path="/first-paper/practice/:subjectId" element={<RequireLevel><FirstPaperQuiz /></RequireLevel>} />
               <Route path="/study" element={<RequireLevel><SubjectList /></RequireLevel>} />
               <Route path="/study/:subjectId" element={<RequireLevel><LessonList /></RequireLevel>} />
               <Route path="/lesson/:lessonId" element={<RequireLevel><LessonView /></RequireLevel>} />

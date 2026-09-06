@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
 import { SUBJECTS, SUBJECT_BY_ID } from '../data/subjects';
-import { questionsFor, shuffle } from '../data/questions';
+import { questionsBySubject, questionsFor, shuffle } from '../data/questions';
 import { QuizRunner } from '../components/QuizRunner';
 import { Empty } from '../components/Empty';
 
@@ -92,6 +92,56 @@ export function PracticeQuiz() {
         mode="practice"
         levelId={levelId}
         subjectId={subjectId === 'all' ? null : subjectId}
+        onExit={() => setRound((r) => r + 1)}
+      />
+    </div>
+  );
+}
+
+/**
+ * Practice drawn from every post's questions on one subject, entered from the
+ * first paper hub. The attempt is still recorded against the learner's own
+ * level so their progress stays coherent.
+ */
+export function FirstPaperQuiz() {
+  const { subjectId = '' } = useParams();
+  const { t, b } = useLang();
+  const { levelId } = useProgress();
+  const navigate = useNavigate();
+  const [round, setRound] = useState(0);
+
+  const subject = SUBJECT_BY_ID[subjectId];
+
+  const questions = useMemo(
+    () => shuffle(questionsBySubject(subjectId)).slice(0, PRACTICE_SIZE),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [subjectId, round],
+  );
+
+  if (!levelId) return null;
+
+  if (questions.length === 0) {
+    return (
+      <div className="stack">
+        <Empty icon="📭">{t('noQuestions')}</Empty>
+        <button type="button" className="btn" onClick={() => navigate('/first-paper')}>
+          {t('back')}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="breadcrumb">
+        <Link to="/first-paper">{t('firstPaperTitle')}</Link> / {subject ? b(subject.short) : subjectId}
+      </div>
+      <QuizRunner
+        key={`fp-${subjectId}-${round}`}
+        questions={questions}
+        mode="practice"
+        levelId={levelId}
+        subjectId={subjectId}
         onExit={() => setRound((r) => r + 1)}
       />
     </div>
