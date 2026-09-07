@@ -57,8 +57,34 @@ class FirstPaperTest {
             officer.pattern.en != nasu.pattern.en,
             "officer and assistant first papers now share a pattern — update the app's copy",
         )
+        assertEquals(90, officer.durationMinutes, "officer preliminary runs 90 minutes")
+        assertEquals(45, officer.passMarks, "officer preliminary passes at 45")
+        assertEquals(45, nasu.durationMinutes)
+        assertEquals(40, nasu.passMarks)
+
+        // Both examine aptitude; only the officer paper tests English. The app's
+        // copy about the difference is written against exactly this.
         val officerSubjects = officer.sections.flatMap { it.subjectIds }.toSet()
-        assertFalse("iq" in officerSubjects, "officer paper has no general intelligence section")
+        val nasuSubjects = nasu.sections.flatMap { it.subjectIds }.toSet()
+        assertTrue("iq" in officerSubjects, "officer paper has an aptitude section")
+        assertTrue("iq" in nasuSubjects, "assistant paper has an intelligence section")
+        assertTrue("english" in officerSubjects, "officer paper tests English")
+        assertFalse("english" in nasuSubjects, "assistant paper does not test English separately")
+    }
+
+    @Test
+    fun `the officer sits four papers under the unified system`() {
+        val officer = repo.level("adhikrit")!!
+        assertEquals(4, officer.papers.size, "one preliminary and three main papers")
+        assertEquals(400, officer.totalMarks, "100 preliminary plus 300 main")
+        // Only the preliminary is objective; the three main papers are written.
+        assertEquals("objective", officer.papers[0].format)
+        officer.papers.drop(1).forEach {
+            assertEquals("subjective", it.format)
+            assertEquals(180, it.durationMinutes)
+            assertEquals(100, it.fullMarks)
+            assertEquals(40, it.passMarks)
+        }
     }
 
     @Test

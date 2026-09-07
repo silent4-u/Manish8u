@@ -125,8 +125,8 @@ export const UI = {
     ne: 'विषय छान्नुहोस् र अध्ययन गर्नुहोस्। प्रथम पत्र सबै पदमा हुने वस्तुगत पत्र हो।',
   },
   firstPaperNote: {
-    en: 'Nayab Subba and Kharidar sit the same first paper. The Section Officer paper is set differently — a different question pattern, and no general intelligence section — so each topic below shows which posts examine it.',
-    ne: 'नायब सुब्बा र खरिदारको प्रथम पत्र एउटै हो। शाखा अधिकृतको पत्र फरक ढाँचामा हुन्छ — प्रश्न ढाँचा फरक र सामान्य बौद्धिकता खण्ड नहुने — त्यसैले तलका प्रत्येक विषयमा कुन पदमा सोधिन्छ भन्ने देखाइएको छ।',
+    en: 'Nayab Subba and Kharidar sit the same first paper: 50 questions of two marks in 45 minutes. The Section Officer preliminary is set differently — 100 questions of one mark in 90 minutes, it adds an English language section, and it is a screening test whose marks are not carried into the main examination. Each topic below shows which posts examine it.',
+    ne: 'नायब सुब्बा र खरिदारको प्रथम पत्र एउटै हो: ४५ मिनेटमा ५० प्रश्न, प्रत्येक २ अङ्कको। शाखा अधिकृतको प्रारम्भिक परीक्षा फरक छ — ९० मिनेटमा १०० प्रश्न, प्रत्येक १ अङ्कको, अंग्रेजी भाषाको खण्ड थपिएको, र यो छनोट परीक्षा भएकाले यसको अङ्क मूल परीक्षामा जोडिँदैन। तलका प्रत्येक विषयमा कुन पदमा सोधिन्छ भन्ने देखाइएको छ।',
   },
   pickATopic: { en: 'Pick a topic and study it', ne: 'विषय छानेर अध्ययन गर्नुहोस्' },
   aboutTitle: { en: 'About this app', ne: 'यो एपबारे' },
