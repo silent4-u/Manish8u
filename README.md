@@ -16,15 +16,24 @@ any moment without losing their place.
 
 ## What it does
 
+- **Medium first** — the app asks for Nepali or English medium before anything
+  else, and says what the commission actually allows: for every post you may
+  answer in Nepali, English or both, and for Kharidar the question paper itself
+  is set in Nepali.
 - **Syllabus browser** — each paper with its full marks, pass marks, duration,
   question pattern and section-wise topics, linked through to the notes that
-  cover them.
+  cover them. All three posts now sit the Integrated and Unified Examination
+  System: a screening preliminary that does not count towards the main total,
+  then subjective main papers.
 - **Study notes** — structured bilingual lessons with fact grids, comparison
   tables and "key point / tip / watch out" callouts, sized for one sitting.
 - **Practice quizzes** — ten questions at a time, by subject or mixed, with the
   correct answer and a written explanation revealed as soon as you answer.
 - **Mock tests** — timed, in the real exam pattern for the chosen post,
   including negative marking, with a question palette and a full answer review.
+- **A home dashboard** — a study streak with the week behind it, the day's
+  question count, and one row per paper showing how much of it has been
+  practised. Every figure is derived from stored attempts.
 - **Progress tracking** — per-subject accuracy, attempt history and overall
   numbers, kept on the device.
 - **Bookmarks** — save any note or question for a last-minute revision list.
@@ -47,7 +56,7 @@ npm install
 npm run dev        # development server
 npm run build      # production build into dist/
 npm run preview    # serve the production build
-npm test           # content integrity, scoring rules, material filing
+npm test           # content integrity, scoring, material filing, streaks
 npm run export:content   # write content/ as portable JSON
 ```
 

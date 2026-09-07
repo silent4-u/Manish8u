@@ -51,6 +51,16 @@ WHAT IS INSIDE
   as such, with its sources shown, so you are never handed an unchecked claim as
   a settled answer.
 
+• Nepali medium or English medium
+  Choose before you start, change whenever you like. The app also tells you what
+  the commission allows: you may answer in Nepali, English or both, and for
+  Kharidar the question paper itself is set in Nepali.
+
+• Basic Office Skills and General Mathematics
+  The two subjects the 2081 syllabus added and almost nothing covers yet — all
+  ten named office skills question types, and the arithmetic from the unitary
+  method through to mensuration, with the working shown every time.
+
 • Your own PDFs, filed by paper
   Add a PDF and file it under the paper — and the section of that paper — it
   belongs to, then read it offline. Added files are held on your phone and are
