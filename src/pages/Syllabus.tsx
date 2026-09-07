@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
-import { LEVEL_BY_ID, SYLLABUS_REVISION_NOTE } from '../data/levels';
+import { EXAM_MEDIUM_NOTE, LEVEL_BY_ID, SYLLABUS_REVISION_NOTE } from '../data/levels';
 import { SUBJECT_BY_ID } from '../data/subjects';
 
 export function Syllabus() {
@@ -28,6 +28,9 @@ export function Syllabus() {
       <div className="card">
         <div className="eyebrow" style={{ marginBottom: 4 }}>{t('minQualification')}</div>
         <div className="small">{b(level.minQualification)}</div>
+        <hr className="divider" />
+        <div className="eyebrow" style={{ marginBottom: 4 }}>{t('examMedium')}</div>
+        <div className="small">{b(EXAM_MEDIUM_NOTE[level.id])}</div>
       </div>
 
       {level.papers.map((paper) => {

@@ -164,6 +164,15 @@ export const UI = {
   manyEntries: { en: 'entries', ne: 'सामग्री' },
   offlineReady: { en: 'Works offline once loaded', ne: 'एकपटक खुलेपछि अफलाइन चल्छ' },
   // Materials
+  dayStreak: { en: 'day streak', ne: 'दिन लगातार' },
+  todaysGoal: { en: 'Today', ne: 'आज' },
+  lastSevenDays: { en: 'The last seven days', ne: 'गत सात दिन' },
+  yourPapers: { en: 'Your papers', ne: 'तपाईंका पत्र' },
+  examMedium: { en: 'Medium of the examination', ne: 'परीक्षाको माध्यम' },
+  yourMedium: { en: 'Your medium', ne: 'तपाईंको माध्यम' },
+  changeMedium: { en: 'Change medium', ne: 'माध्यम बदल्नुहोस्' },
+  nepaliMedium: { en: 'Nepali medium', ne: 'नेपाली माध्यम' },
+  englishMedium: { en: 'English medium', ne: 'अंग्रेजी माध्यम' },
   navMaterials: { en: 'Materials', ne: 'सामग्री' },
   materialsTagline: { en: 'PDFs filed by paper', ne: 'पत्रअनुसार राखिएका पीडीएफ' },
   materialsLede: {

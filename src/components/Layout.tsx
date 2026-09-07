@@ -1,4 +1,4 @@
-import { NavLink, Outlet, Link } from 'react-router-dom';
+import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
@@ -15,7 +15,11 @@ const TABS = [
 export function Layout() {
   const { t, b, lang, setLang } = useLang();
   const { levelId } = useProgress();
+  const { pathname } = useLocation();
   const level = levelId ? LEVEL_BY_ID[levelId] : null;
+  // The medium screen is the choice the top bar's toggle would duplicate, and
+  // every tab behind it needs a level that has not been picked yet.
+  const onboarding = pathname === '/start';
 
   return (
     <div className="app">
@@ -37,6 +41,7 @@ export function Layout() {
           </Link>
         )}
 
+        {!onboarding && (
         <div className="lang-switch" role="group" aria-label={t('language')}>
           <button type="button" aria-pressed={lang === 'ne'} onClick={() => setLang('ne')}>
             नेपाली
@@ -45,12 +50,14 @@ export function Layout() {
             EN
           </button>
         </div>
+        )}
       </header>
 
       <main className="shell">
         <Outlet />
       </main>
 
+      {!onboarding && (
       <nav className="tabbar" aria-label={t('navHome')}>
         <div className="tabbar-inner">
           {TABS.map((tab) => (
@@ -66,6 +73,7 @@ export function Layout() {
           ))}
         </div>
       </nav>
+      )}
     </div>
   );
 }

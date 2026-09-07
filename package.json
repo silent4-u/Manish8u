@@ -11,10 +11,11 @@
     "typecheck": "tsc -b --noEmit false --emitDeclarationOnly false --pretty",
     "test:data": "tsx scripts/validate-data.ts",
     "test:scoring": "tsx scripts/test-scoring.ts",
-    "test": "npm run test:data && npm run test:scoring && npm run test:materials && npm run test:android-strings",
+    "test": "npm run test:data && npm run test:scoring && npm run test:materials && npm run test:streak && npm run test:android-strings",
     "export:content": "tsx scripts/export-content.ts",
     "test:android-strings": "python3 scripts/check-android-strings.py",
-    "test:materials": "tsx scripts/test-materials.ts"
+    "test:materials": "tsx scripts/test-materials.ts",
+    "test:streak": "tsx scripts/test-streak.ts"
   },
   "dependencies": {
     "react": "^18.3.1",

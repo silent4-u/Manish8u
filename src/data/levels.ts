@@ -10,6 +10,27 @@ export const SYLLABUS_REVISION_NOTE = {
   ne: 'अङ्कभार, समय र विषयवस्तु लोक सेवा आयोगको प्रशासन सेवाको प्रकाशित पाठ्यक्रम अनुसार राखिएको हो। परीक्षा दिनुअघि psc.gov.np मा प्रकाशित पछिल्लो सूचनासँग अनिवार्य रूपमा भिडाउनुहोस्।',
 };
 
+/**
+ * What the commission allows as the medium of the written examination, taken
+ * from the द्रष्टव्य notes on each syllabus. This is a real exam rule, not an
+ * app setting: it decides what language a candidate may answer in, and for
+ * Kharidar it also decides what language the question paper arrives in.
+ */
+export const EXAM_MEDIUM_NOTE: Record<LevelId, Bilingual> = {
+  adhikrit: {
+    en: 'You may write the examination in Nepali, in English, or in both. (Foreign Service candidates sit their extra papers in English only.)',
+    ne: 'परीक्षा नेपाली, अंग्रेजी वा दुवै भाषामा लेख्न पाइन्छ। (परराष्ट्र सेवाका अतिरिक्त पत्रको माध्यम भने अंग्रेजी मात्र हुन्छ।)',
+  },
+  nayabsubba: {
+    en: 'You may write the examination in Nepali, in English, or in both.',
+    ne: 'परीक्षा नेपाली, अंग्रेजी वा दुवै भाषामा लेख्न पाइन्छ।',
+  },
+  kharidar: {
+    en: 'The question paper is set in Nepali, with English terms in brackets where a point needs clarifying. You may write your answers in Nepali, in English, or in both.',
+    ne: 'प्रश्नपत्रको माध्यम भाषा नेपाली हुन्छ; विषयवस्तु स्पष्ट पार्नुपर्ने अवस्थामा कोष्ठभित्र अंग्रेजी शब्द पनि राखिन्छ। उत्तर भने नेपाली, अंग्रेजी वा दुवै भाषामा लेख्न पाइन्छ।',
+  },
+};
+
 export const LEVELS: ExamLevel[] = [
   {
     id: 'adhikrit',

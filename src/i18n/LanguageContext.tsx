@@ -3,11 +3,20 @@ import type { ReactNode } from 'react';
 import type { Bilingual, Lang } from '../types';
 import { UI, localiseNumber, type UiKey } from './strings';
 
-const STORAGE_KEY = 'lss.lang';
+/**
+ * The medium is the language a candidate studies and answers in, chosen once
+ * on the way into the app. It is also the interface language — keeping one
+ * value rather than two means the top bar and the medium can never disagree.
+ */
+const STORAGE_KEY = 'lss.medium';
 
 interface LanguageValue {
   lang: Lang;
+  /** False until the candidate has picked a medium on the way in. */
+  mediumChosen: boolean;
   setLang: (lang: Lang) => void;
+  /** Record the medium chosen on the entry screen. */
+  chooseMedium: (lang: Lang) => void;
   toggle: () => void;
   /** Translate a UI key. */
   t: (key: UiKey) => string;
@@ -19,42 +28,84 @@ interface LanguageValue {
 
 const LanguageContext = createContext<LanguageValue | null>(null);
 
-function readStored(): Lang {
+function readStored(): Lang | null {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === 'en' || stored === 'ne') return stored;
   } catch {
     // Private mode or blocked storage — fall through to the default.
   }
-  return 'ne';
+  return null;
+}
+
+/**
+ * The language this build used before the medium screen existed. It seeds the
+ * entry screen so a returning candidate confirms rather than starts over, but
+ * it is not treated as a medium choice: the screen still shows once, because
+ * the medium carries an exam rule a language toggle never told anyone about.
+ */
+function readLegacyLang(): Lang | null {
+  try {
+    const stored = localStorage.getItem('lss.lang');
+    if (stored === 'en' || stored === 'ne') return stored;
+  } catch {
+    // Ignore — the default below is fine.
+  }
+  return null;
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(readStored);
+  const stored = readStored();
+  const [lang, setLangState] = useState<Lang>(() => stored ?? readLegacyLang() ?? 'ne');
+  const [mediumChosen, setMediumChosen] = useState(stored !== null);
 
   useEffect(() => {
     document.documentElement.lang = lang === 'ne' ? 'ne' : 'en';
     document.documentElement.dataset.lang = lang;
+  }, [lang]);
+
+  const persist = useCallback((next: Lang) => {
     try {
-      localStorage.setItem(STORAGE_KEY, lang);
+      localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // Ignore storage failures; the choice simply will not persist.
     }
-  }, [lang]);
+  }, []);
 
-  const setLang = useCallback((next: Lang) => setLangState(next), []);
+  // Switching language in the top bar switches the medium with it, so the
+  // two can never drift apart. It only persists once a medium exists, or the
+  // entry screen would be skipped by a stray tap on the way past it.
+  const setLang = useCallback(
+    (next: Lang) => {
+      setLangState(next);
+      if (mediumChosen) persist(next);
+    },
+    [mediumChosen, persist],
+  );
+
+  const chooseMedium = useCallback(
+    (next: Lang) => {
+      setLangState(next);
+      setMediumChosen(true);
+      persist(next);
+    },
+    [persist],
+  );
+
   const toggle = useCallback(() => setLangState((cur) => (cur === 'en' ? 'ne' : 'en')), []);
 
   const value = useMemo<LanguageValue>(
     () => ({
       lang,
+      mediumChosen,
       setLang,
+      chooseMedium,
       toggle,
       t: (key) => UI[key][lang],
       b: (content) => content[lang],
       n: (num) => localiseNumber(num, lang),
     }),
-    [lang, setLang, toggle],
+    [lang, mediumChosen, setLang, chooseMedium, toggle],
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

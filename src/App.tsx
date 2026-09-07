@@ -1,8 +1,9 @@
 import { HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import { LanguageProvider } from './i18n/LanguageContext';
+import { LanguageProvider, useLang } from './i18n/LanguageContext';
 import { ProgressProvider, useProgress } from './hooks/useProgress';
 import { Layout } from './components/Layout';
+import { Medium } from './pages/Medium';
 import { LevelSelect } from './pages/LevelSelect';
 import { Home } from './pages/Home';
 import { Syllabus } from './pages/Syllabus';
@@ -17,11 +18,24 @@ import { Materials } from './pages/Materials';
 import { About } from './pages/About';
 import './styles/app.css';
 
-/** Everything except the level chooser needs a chosen exam level. */
+/**
+ * The way in runs medium first, then exam level. The medium comes first
+ * because it decides what language the rest of the app — the level chooser
+ * included — is written in.
+ */
 function RequireLevel({ children }: { children: ReactNode }) {
+  const { mediumChosen } = useLang();
   const { levelId } = useProgress();
   const location = useLocation();
+  if (!mediumChosen) return <Navigate to="/start" replace state={{ from: location.pathname }} />;
   if (!levelId) return <Navigate to="/levels" replace state={{ from: location.pathname }} />;
+  return <>{children}</>;
+}
+
+/** The level chooser itself still needs a medium, but not a level. */
+function RequireMedium({ children }: { children: ReactNode }) {
+  const { mediumChosen } = useLang();
+  if (!mediumChosen) return <Navigate to="/start" replace />;
   return <>{children}</>;
 }
 
@@ -32,7 +46,8 @@ export default function App() {
         <HashRouter>
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/levels" element={<LevelSelect />} />
+              <Route path="/start" element={<Medium />} />
+              <Route path="/levels" element={<RequireMedium><LevelSelect /></RequireMedium>} />
               <Route path="/" element={<RequireLevel><Home /></RequireLevel>} />
               <Route path="/syllabus" element={<RequireLevel><Syllabus /></RequireLevel>} />
               <Route path="/first-paper" element={<RequireLevel><FirstPaper /></RequireLevel>} />

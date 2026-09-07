@@ -5,6 +5,7 @@ import { LEVEL_BY_ID } from '../data/levels';
 import { lessonsForLevel } from '../data/lessons';
 import { questionsFor } from '../data/questions';
 import { CURRENT_AFFAIRS } from '../data/currentAffairs';
+import { DAILY_GOAL, currentStreak, goalPercent, questionsToday, recentDays } from '../lib/streak';
 
 export function Home() {
   const { t, b, n } = useLang();
@@ -20,9 +21,26 @@ export function Home() {
   const accuracy = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
   const focus = CURRENT_AFFAIRS.filter((item) => item.levels.includes(level.id))[0];
 
+  const streak = currentStreak(attempts);
+  const today = questionsToday(attempts);
+  const week = recentDays(attempts, 7).reverse();
+
+  // Progress per paper: the share of that paper's subjects the candidate has
+  // answered anything in. A rough measure, but an honest one — it moves only
+  // when a real question has been attempted.
+  const papers = level.papers.map((paper) => {
+    const subjectIds = [...new Set(paper.sections.flatMap((s) => s.subjectIds))];
+    const touched = subjectIds.filter((id) => (subjectStats[id]?.attempted ?? 0) > 0).length;
+    return {
+      paper,
+      subjectCount: subjectIds.length,
+      percent: subjectIds.length === 0 ? 0 : Math.round((touched / subjectIds.length) * 100),
+    };
+  });
+
   return (
     <div className="stack">
-      <div className="card" style={{ ['--level-accent' as string]: level.accent }}>
+      <div className="hero" style={{ ['--level-accent' as string]: level.accent }}>
         <div className="eyebrow">{t('preparingFor')}</div>
         <div className="between" style={{ alignItems: 'flex-start' }}>
           <div>
@@ -30,25 +48,57 @@ export function Home() {
               <span aria-hidden="true">{level.icon} </span>
               {b(level.name)}
             </h1>
-            <div className="small muted">{b(level.grade)}</div>
+            <div className="small">{b(level.grade)}</div>
           </div>
-          <Link to="/levels" className="btn btn-sm btn-ghost">{t('changeLevel')}</Link>
         </div>
-        <p className="small" style={{ marginTop: 10, marginBottom: 0 }}>{b(level.summary)}</p>
+        <span className="hero-stage">
+          {n(level.papers.length)} {t('papers')} · {n(level.papers.reduce((s, p) => s + p.fullMarks, 0))} {t('marks')}
+        </span>
       </div>
+
+      <div className="streak">
+        <span className="streak-flame" aria-hidden="true">{streak > 0 ? '🔥' : '🕯️'}</span>
+        <div>
+          <div className="streak-count mono-num">{n(streak)}</div>
+          <div className="tiny muted">{t('dayStreak')}</div>
+        </div>
+        <div className="streak-goal">
+          <div className="between tiny" style={{ marginBottom: 5 }}>
+            <span>{t('todaysGoal')}</span>
+            <span className="mono-num">{n(today)}/{n(DAILY_GOAL)}</span>
+          </div>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${goalPercent(today)}%` }} />
+          </div>
+          <div className="week" style={{ marginTop: 8 }} aria-label={t('lastSevenDays')}>
+            {week.map((on, i) => <span key={i} className={on ? 'on' : ''} />)}
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <div className="eyebrow">{t('yourPapers')}</div>
+        {papers.map(({ paper, subjectCount, percent }) => (
+          <Link key={paper.id} to="/syllabus" className="paper-row">
+            <div className="between" style={{ alignItems: 'flex-start', gap: 10 }}>
+              <span className="paper-name">{b(paper.name)}</span>
+              <span className="pill">{n(paper.fullMarks)} {t('marks')}</span>
+            </div>
+            <div className="between tiny muted" style={{ margin: '8px 0 5px' }}>
+              <span>{t('subjects')} · {n(subjectCount)}</span>
+              <span className="mono-num">{n(percent)}%</span>
+            </div>
+            <div className="progress-track">
+              <div className="progress-fill" style={{ width: `${percent}%` }} />
+            </div>
+          </Link>
+        ))}
+      </section>
 
       <div className="grid grid-3">
         <div className="stat">
-          <div className="stat-value">{n(lessons.length)}</div>
-          <div className="stat-label">{t('lessons')}</div>
-        </div>
-        <div className="stat">
-          <div className="stat-value">{n(questions.length)}</div>
-          <div className="stat-label">{t('questions')}</div>
-        </div>
-        <div className="stat">
-          <div className="stat-value">{n(attempts.length)}</div>
-          <div className="stat-label">{t('totalAttempts')}</div>
+          <div className="stat-value">{n(totalAttempted)}</div>
+          <div className="stat-label">{t('questionsAttempted')}</div>
         </div>
         <div className="stat">
           <div className="stat-value">{n(accuracy)}%</div>
@@ -58,72 +108,75 @@ export function Home() {
 
       <section>
         <div className="eyebrow">{t('quickActions')}</div>
-        <div className="grid grid-2">
-          <Link to="/first-paper" className="subject-tile">
+        <div className="action-grid">
+          <Link to="/first-paper" className="action-tile">
             <span className="subject-icon" aria-hidden="true">🎯</span>
             <span>
               <strong>{t('firstPaperTitle')}</strong>
-              <div className="small muted">{t('pickATopic')}</div>
+              <div className="tiny muted">{t('pickATopic')}</div>
             </span>
           </Link>
-          <Link to="/study" className="subject-tile">
+          <Link to="/study" className="action-tile">
             <span className="subject-icon" aria-hidden="true">📚</span>
             <span>
               <strong>{t('studyNotes')}</strong>
-              <div className="small muted">{n(lessons.length)} {t('lessons')}</div>
+              <div className="tiny muted">{n(lessons.length)} {t('lessons')}</div>
             </span>
           </Link>
-          <Link to="/practice" className="subject-tile">
+          <Link to="/practice" className="action-tile">
             <span className="subject-icon" aria-hidden="true">✍️</span>
             <span>
               <strong>{t('practiceQuiz')}</strong>
-              <div className="small muted">{n(questions.length)} {t('questions')}</div>
+              <div className="tiny muted">{n(questions.length)} {t('questions')}</div>
             </span>
           </Link>
-          <Link to="/mock" className="subject-tile">
+          <Link to="/mock" className="action-tile">
             <span className="subject-icon" aria-hidden="true">⏱️</span>
             <span>
               <strong>{t('fullMockTest')}</strong>
-              <div className="small muted">
-                {n(level.mock.questionCount)} {t('questions')} · {n(level.mock.durationMinutes)} {t('minutes')}
-              </div>
+              <div className="tiny muted">{n(level.mock.questionCount)} {t('questions')} · {n(level.mock.durationMinutes)} {t('minutes')}</div>
             </span>
           </Link>
-          <Link to="/syllabus" className="subject-tile">
+          <Link to="/syllabus" className="action-tile">
             <span className="subject-icon" aria-hidden="true">📜</span>
             <span>
               <strong>{t('examPattern')}</strong>
-              <div className="small muted">
-                {n(level.papers.length)} {t('papers')} · {n(level.papers.reduce((s, p) => s + p.fullMarks, 0))} {t('marks')}
-              </div>
+              <div className="tiny muted">{n(level.papers.length)} {t('papers')}</div>
             </span>
           </Link>
-          <Link to="/affairs" className="subject-tile">
+          <Link to="/affairs" className="action-tile">
             <span className="subject-icon" aria-hidden="true">📰</span>
             <span>
               <strong>{t('navAffairs')}</strong>
-              <div className="small muted">{n(CURRENT_AFFAIRS.filter((c) => c.levels.includes(level.id)).length)} {t('topicsCovered')}</div>
+              <div className="tiny muted">{n(CURRENT_AFFAIRS.filter((c) => c.levels.includes(level.id)).length)} {t('topicsCovered')}</div>
             </span>
           </Link>
-          <Link to="/materials" className="subject-tile">
+          <Link to="/materials" className="action-tile">
             <span className="subject-icon" aria-hidden="true">📄</span>
             <span>
               <strong>{t('navMaterials')}</strong>
-              <div className="small muted">{t('materialsTagline')}</div>
+              <div className="tiny muted">{t('materialsTagline')}</div>
             </span>
           </Link>
-          <Link to="/about" className="subject-tile">
-            <span className="subject-icon" aria-hidden="true">ℹ️</span>
-            <span>
-              <strong>{t('aboutTitle')}</strong>
-              <div className="small muted">{t('aboutPrivacyTitle')}</div>
-            </span>
-          </Link>
-          <Link to="/saved" className="subject-tile">
+          <Link to="/saved" className="action-tile">
             <span className="subject-icon" aria-hidden="true">⭐</span>
             <span>
               <strong>{t('navSaved')}</strong>
-              <div className="small muted">{n(savedLessons.length + savedQuestions.length)} {t('savedItems')}</div>
+              <div className="tiny muted">{n(savedLessons.length + savedQuestions.length)} {t('savedItems')}</div>
+            </span>
+          </Link>
+          <Link to="/progress" className="action-tile">
+            <span className="subject-icon" aria-hidden="true">📊</span>
+            <span>
+              <strong>{t('navProgress')}</strong>
+              <div className="tiny muted">{n(attempts.length)} {t('totalAttempts')}</div>
+            </span>
+          </Link>
+          <Link to="/about" className="action-tile">
+            <span className="subject-icon" aria-hidden="true">ℹ️</span>
+            <span>
+              <strong>{t('aboutTitle')}</strong>
+              <div className="tiny muted">{t('yourMedium')}</div>
             </span>
           </Link>
         </div>
