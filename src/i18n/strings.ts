@@ -168,6 +168,13 @@ export const UI = {
   todaysGoal: { en: 'Today', ne: 'आज' },
   lastSevenDays: { en: 'The last seven days', ne: 'गत सात दिन' },
   yourPapers: { en: 'Your papers', ne: 'तपाईंका पत्र' },
+  writtenForThisSection: { en: 'Written for this section', ne: 'यसै खण्डका लागि लेखिएका' },
+  alsoOnTheseSubjects: { en: 'Also on these subjects', ne: 'यिनै विषयका अन्य पाठ' },
+  noNotesForSectionYet: {
+    en: 'No notes for this section yet. The syllabus topics above are what it examines.',
+    ne: 'यस खण्डका पाठ अहिलेसम्म छैनन्। माथिका पाठ्यक्रम बुँदा नै यसमा सोधिने विषय हुन्।',
+  },
+  studyThisPaper: { en: 'Study this paper', ne: 'यो पत्र पढ्नुहोस्' },
   examMedium: { en: 'Medium of the examination', ne: 'परीक्षाको माध्यम' },
   yourMedium: { en: 'Your medium', ne: 'तपाईंको माध्यम' },
   changeMedium: { en: 'Change medium', ne: 'माध्यम बदल्नुहोस्' },

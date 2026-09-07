@@ -79,7 +79,7 @@ export function Home() {
       <section>
         <div className="eyebrow">{t('yourPapers')}</div>
         {papers.map(({ paper, subjectCount, percent }) => (
-          <Link key={paper.id} to="/syllabus" className="paper-row">
+          <Link key={paper.id} to={`/paper/${paper.id}`} className="paper-row">
             <div className="between" style={{ alignItems: 'flex-start', gap: 10 }}>
               <span className="paper-name">{b(paper.name)}</span>
               <span className="pill">{n(paper.fullMarks)} {t('marks')}</span>

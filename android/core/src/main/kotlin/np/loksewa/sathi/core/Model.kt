@@ -129,6 +129,8 @@ data class Lesson(
     val id: String,
     val subjectId: String,
     val levels: List<String> = emptyList(),
+    /** Syllabus sections this lesson was written for, when it targets one. */
+    val sections: List<String> = emptyList(),
     val title: Bilingual,
     val summary: Bilingual,
     val readMinutes: Int,

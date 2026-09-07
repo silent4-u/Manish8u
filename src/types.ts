@@ -77,6 +77,12 @@ export interface Lesson {
   id: string;
   subjectId: string;
   levels: LevelId[];
+  /**
+   * Syllabus section ids this lesson was written for, when it was written
+   * against a particular paper rather than a subject in general. The paper
+   * view leads with these; everything else on the subject follows.
+   */
+  sections?: string[];
   title: Bilingual;
   summary: Bilingual;
   readMinutes: number;

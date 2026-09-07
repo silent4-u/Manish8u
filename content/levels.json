@@ -545,8 +545,8 @@
           "durationMinutes": 180,
           "format": "subjective",
           "pattern": {
-            "en": "10 subjective questions × 10 marks. Common to every service except Foreign Affairs and Audit, which have their own fourth paper.",
-            "ne": "१० विषयगत प्रश्न × १० अङ्क। परराष्ट्र र लेखापरीक्षण सेवाबाहेक सबै सेवाका लागि साझा; ती दुईको चतुर्थ पत्र फरक हुन्छ।"
+            "en": "10 subjective questions × 10 marks in 3 hours. This paper is set for the Administration and Federal Parliament Services; the Foreign Affairs and Audit Services sit a different fourth paper.",
+            "ne": "३ घण्टामा १० विषयगत प्रश्न × १० अङ्क। यो पत्र प्रशासन र संघीय संसद सेवाका लागि हो; परराष्ट्र र लेखापरीक्षण सेवाको चतुर्थ पत्र फरक हुन्छ।"
           },
           "sections": [
             {
@@ -557,41 +557,49 @@
               },
               "marks": 30,
               "subjectIds": [
-                "office-mgmt",
-                "governance"
+                "governance",
+                "office-mgmt"
               ],
               "topics": [
                 {
-                  "en": "Introduction and scope of public management",
-                  "ne": "सार्वजनिक व्यवस्थापनको परिचय र क्षेत्र"
+                  "en": "1.1 Introduction and scope of public management",
+                  "ne": "१.१ सार्वजनिक व्यवस्थापनको परिचय र कार्यक्षेत्र"
                 },
                 {
-                  "en": "Personnel management: classification, recruitment, appointment, promotion, compensation, motivation, career development, performance appraisal and separation",
-                  "ne": "कर्मचारी प्रशासन: वर्गीकरण, पदपूर्ति, नियुक्ति, बढुवा, सुविधा, अभिप्रेरणा, वृत्ति विकास, कार्यसम्पादन मूल्यांकन र सेवाबाट अलग हुने व्यवस्था"
+                  "en": "1.2 Personnel management: classification of the civil service, recruitment, selection, appointment, placement, promotion, compensation, motivation, career development, performance appraisal and separation from the service",
+                  "ne": "१.२ कर्मचारी व्यवस्थापनका विविध पक्षहरू: निजामती सेवाको वर्गीकरण, भर्ना, छनोट, नियुक्ति, पदस्थापन, बढुवा, तलब सुविधा, उत्प्रेरणा, वृत्ति विकास, कार्यसम्पादन मूल्यांकन र अवकाश"
                 },
                 {
-                  "en": "Organisation: concept, nature, type and organisational development",
-                  "ne": "संगठन: अवधारणा, प्रकृति, प्रकार र संगठनात्मक विकास"
+                  "en": "1.3 Organization: concept, nature, type and organizational development",
+                  "ne": "१.३ संगठन: अवधारणा, प्रकृति, प्रकार र संगठनात्मक विकास"
                 },
                 {
-                  "en": "Directing, controlling, hierarchy, decision making, leadership, coordination, delegation, supervision, monitoring and evaluation",
-                  "ne": "निर्देशन, नियन्त्रण, पदसोपान, निर्णय प्रक्रिया, नेतृत्व, समन्वय, अधिकार प्रत्यायोजन, सुपरिवेक्षण, अनुगमन र मूल्यांकन"
+                  "en": "1.4 Directing, controlling, hierarchy, decision making, leadership, coordination, delegation and devolution of authority, supervision, monitoring and evaluation in public management",
+                  "ne": "१.४ सार्वजनिक व्यवस्थापनमा निर्देशन, नियन्त्रण, पदसोपान, निर्णय प्रक्रिया, नेतृत्व, समन्वय, अधिकार प्रत्यायोजन र निक्षेपण, सुपरीवेक्षण, अनुगमन तथा मूल्यांकन"
                 },
                 {
-                  "en": "Evolution of public administration in Nepal: structure, features, reform efforts and challenges",
-                  "ne": "नेपालको सार्वजनिक प्रशासनको विकासक्रम: संरचना, विशेषता, सुधारका प्रयास र चुनौती"
+                  "en": "1.5 Evolution of public administration in Nepal: basic structure, features, reform efforts and challenges",
+                  "ne": "१.५ नेपालको सार्वजनिक प्रशासनको विकासक्रम, आधारभुत संरचना, विशेषता, सुधारका प्रयास एवं चुनौती"
                 },
                 {
-                  "en": "Management audit; professionalism, discipline and code of conduct",
-                  "ne": "व्यवस्थापन परीक्षण; व्यावसायिकता, अनुशासन र आचारसंहिता"
+                  "en": "1.6 Management audit",
+                  "ne": "१.६ व्यवस्थापन परीक्षण"
                 },
                 {
-                  "en": "Citizen involvement: public hearing, social audit, public testing and third party evaluation",
-                  "ne": "नागरिक सहभागिता: सार्वजनिक सुनुवाइ, सामाजिक परीक्षण, सार्वजनिक परीक्षण र तेस्रो पक्ष मूल्यांकन"
+                  "en": "1.7 Professionalism, discipline and the code of conduct",
+                  "ne": "१.७ व्यावसायिकता, अनुशासन र आचार-संहिता"
                 },
                 {
-                  "en": "Use of computers, internet, social networking and ICT in service delivery: opportunities and challenges",
-                  "ne": "सेवा प्रवाहमा कम्प्युटर, इन्टरनेट, सामाजिक सञ्जाल र सूचना–सञ्चार प्रविधिको प्रयोग: अवसर र चुनौती"
+                  "en": "1.8 Citizens’ involvement in evaluating public sector performance: public hearing, social audit, public testing and third party evaluation",
+                  "ne": "१.८ नागरिकबाट सार्वजनिक कार्यहरूको मूल्यांकन: सार्वजनिक सुनुवाइ, सामाजिक परीक्षण, सार्वजनिक परीक्षण र तेस्रो पक्ष मूल्यांकन"
+                },
+                {
+                  "en": "1.9 Innovative trends in public management",
+                  "ne": "१.९ सार्वजनिक व्यवस्थापनका नवीन प्रवृत्तिहरू"
+                },
+                {
+                  "en": "1.10 Use of computers, the internet, social networking and information and communication technology in public service delivery: opportunities and challenges",
+                  "ne": "१.१० सार्वजनिक सेवा प्रवाहमा कम्प्युटर, इन्टरनेट, सामाजिक सञ्जाल र सूचना-सञ्चार प्रविधिको प्रयोग: अवसर तथा चुनौतीहरू"
                 }
               ]
             },
@@ -604,32 +612,36 @@
               "marks": 20,
               "subjectIds": [
                 "dev-economy",
-                "office-mgmt"
+                "governance"
               ],
               "topics": [
                 {
-                  "en": "Financial procedures; concept and principles of revenue",
-                  "ne": "आर्थिक कार्यविधि; राजस्वको अवधारणा र सिद्धान्त"
+                  "en": "2.1 Financial procedures",
+                  "ne": "२.१ आर्थिक कार्यप्रणाली"
                 },
                 {
-                  "en": "Public income, public expenditure and public debt",
-                  "ne": "सार्वजनिक आय, सार्वजनिक व्यय र सार्वजनिक ऋण"
+                  "en": "2.2 Concept and principles of revenue",
+                  "ne": "२.२ राजस्वको अवधारणा र सिद्धान्त"
                 },
                 {
-                  "en": "Nepal’s tax system: VAT, income tax, excise duty, customs duty and local taxes",
-                  "ne": "नेपालको कर प्रणाली: मूल्य अभिवृद्धि कर, आयकर, अन्तःशुल्क, भन्सार महसुल र स्थानीय कर"
+                  "en": "2.3 Concepts of public income, public expenditure and public debt",
+                  "ne": "२.३ सार्वजनिक आय, सार्वजनिक खर्च र सार्वजनिक ऋणको अवधारणा"
                 },
                 {
-                  "en": "Inter-governmental financial transfer and revenue allocation",
-                  "ne": "अन्तरसरकारी वित्तीय हस्तान्तरण र राजस्व बाँडफाँट"
+                  "en": "2.4 The tax system in Nepal: current structure and implementability — value added tax, income tax, excise duty, customs duty, local taxes and other taxes",
+                  "ne": "२.४ नेपालमा कर प्रणाली: वर्तमान स्वरुप र कार्यान्वयनको अवस्था — मूल्य अभिवृद्धि कर, आयकर, अन्तःशुल्क, भंसार महसूल, स्थानीय कर तथा अन्य करहरू"
                 },
                 {
-                  "en": "Economic, financial and monetary policy",
-                  "ne": "आर्थिक, वित्तीय र मौद्रिक नीति"
+                  "en": "2.5 Intergovernmental financial transfer and revenue allocation",
+                  "ne": "२.५ अन्तरसरकारी वित्तीय हस्तान्तरण र राजस्व बाँडफाँड"
                 },
                 {
-                  "en": "Budget cycle: formulation, implementation and evaluation",
-                  "ne": "बजेट चक्र: निर्माण, कार्यान्वयन र मूल्यांकन"
+                  "en": "2.6 Economic policy, financial policy and monetary policy",
+                  "ne": "२.६ आर्थिक नीति, वित्तीय नीति र मौद्रिक नीति"
+                },
+                {
+                  "en": "2.7 The budget cycle: formulation, implementation and evaluation",
+                  "ne": "२.७ बजेट चक्र: बजेट निर्माण, कार्यान्वयन र मूल्याङ्कन"
                 }
               ]
             },
@@ -637,7 +649,7 @@
               "id": "adhikrit-p4-c",
               "name": {
                 "en": "Section C — Government Accounting, Reporting and Auditing",
-                "ne": "खण्ड ग — सरकारी लेखा, प्रतिवेदन र लेखापरीक्षण"
+                "ne": "खण्ड ग — सरकारी लेखाङ्कन, प्रतिवेदन र लेखापरीक्षण"
               },
               "marks": 30,
               "subjectIds": [
@@ -646,32 +658,60 @@
               ],
               "topics": [
                 {
-                  "en": "Government financial transactions: features, analysis, primary records, ledger posting and reporting (20 marks)",
-                  "ne": "सरकारी वित्तीय कारोबार: विशेषता, विश्लेषण, प्रारम्भिक अभिलेख, खाता पोस्टिङ र प्रतिवेदन (२० अङ्क)"
+                  "en": "3. Accounting and reporting of government financial transactions (20 marks)",
+                  "ne": "३. सरकारी आर्थिक कारोवारको लेखाङ्कन र प्रतिवेदन (२० अङ्क)"
                 },
                 {
-                  "en": "Double entry accounting; cash and accrual based systems",
-                  "ne": "दोहोरो लेखा प्रणाली; नगद र प्रोदभावी आधारित प्रणाली"
+                  "en": "3.1 Government financial transactions: introduction, features, transaction analysis, primary record, ledger posting and the reporting system",
+                  "ne": "३.१ सरकारी आर्थिक कारोवार: परिचय, विशेषता, कारोवार विश्लेषण, प्रारम्भिक लेखाङ्कन, खातामा प्रविष्टि र प्रतिवेदन सम्बन्धी व्यवस्था"
                 },
                 {
-                  "en": "Chart of Accounts, Treasury Single Account and the Revenue Management Information System",
-                  "ne": "खाता वर्गीकरण, एकल कोष खाता र राजस्व व्यवस्थापन सूचना प्रणाली"
+                  "en": "3.2 The double entry system, and cash and accrual based accounting",
+                  "ne": "३.२ दोहोरो लेखा प्रणाली, नगद र प्रोदभावीमा आधारित लेखा प्रणाली"
                 },
                 {
-                  "en": "Public assets, store or inventory and deposit accounting",
-                  "ne": "सार्वजनिक सम्पत्ति, जिन्सी र धरौटी लेखा"
+                  "en": "3.3 Chart of Accounts, the Treasury Single Account (TSA) and the Revenue Management Information System (RMIS)",
+                  "ne": "३.३ खाता सूची (Charts of Accounts), एकल खाता कोष (TSA) तथा राजस्व व्यवस्थापन सूचना प्रणाली (RMIS) सम्बन्धी जानकारी"
                 },
                 {
-                  "en": "Nepal Public Sector Accounting Standards; public procurement management and its law",
-                  "ne": "नेपाल सार्वजनिक क्षेत्र लेखामान; सार्वजनिक खरिद व्यवस्थापन र सम्बन्धित कानून"
+                  "en": "3.4 Public assets, store or inventory, and deposit accounting",
+                  "ne": "३.४ सार्वजनिक सम्पत्ती, जिन्सी तथा धरौटी लेखा"
                 },
                 {
-                  "en": "Auditing system: purpose, types, principles, standards, irregularities and their settlement (10 marks)",
-                  "ne": "लेखापरीक्षण प्रणाली: उद्देश्य, प्रकार, सिद्धान्त, मापदण्ड, बेरुजु र फर्छ्यौट (१० अङ्क)"
+                  "en": "3.5 Nepal Public Sector Accounting Standards and the law on financial procedure",
+                  "ne": "३.५ सार्वजनिक क्षेत्रको लेखामान र आर्थिक कार्यविधि सञ्चालन सम्बन्धी कानुनी व्यवस्था"
                 },
                 {
-                  "en": "Audit of federal, provincial and local levels and state-owned enterprises; ICAN, INTOSAI and ASOSAI",
-                  "ne": "संघ, प्रदेश, स्थानीय तह र सार्वजनिक संस्थानको लेखापरीक्षण; ICAN, INTOSAI र ASOSAI"
+                  "en": "3.6 Public procurement management and the law governing public procurement",
+                  "ne": "३.६ सार्वजनिक खरीद व्यवस्थापन र यस सम्बन्धी कानुनी व्यवस्था"
+                },
+                {
+                  "en": "4. Auditing system (10 marks)",
+                  "ne": "४. लेखापरीक्षण प्रणाली (१० अङ्क)"
+                },
+                {
+                  "en": "4.1 Auditing: introduction, purpose, types, basic principles and importance",
+                  "ne": "४.१ लेखापरीक्षणको परिचय, उद्देश्य, प्रकार र आधारभूत सिद्धान्त"
+                },
+                {
+                  "en": "4.2 Government and corporate sector auditing standards",
+                  "ne": "४.२ सरकारी तथा संगठित क्षेत्र लेखापरीक्षण मान"
+                },
+                {
+                  "en": "4.3 Irregularities (beruju) and their settlement",
+                  "ne": "४.३ बेरुजु र बेरुजु फछ्र्यौट सम्बन्धी व्यवस्था"
+                },
+                {
+                  "en": "4.4 Audit of the federal, provincial and local levels and of public enterprises",
+                  "ne": "४.४ संघ, प्रदेश र स्थानीय तहको लेखापरीक्षण तथा सार्वजनिक संस्थानको लेखापरीक्षण"
+                },
+                {
+                  "en": "4.5 Legal provisions on the Auditor General and on auditing",
+                  "ne": "४.५ महालेखा परीक्षक र लेखापरीक्षण सम्बन्धी कानुनी व्यवस्था"
+                },
+                {
+                  "en": "4.6 National and international auditing institutions: ICAN, INTOSAI and ASOSAI",
+                  "ne": "४.६ लेखापरीक्षण सम्बन्धी राष्ट्रिय तथा अन्तर्राष्ट्रिय संस्थाहरू (ICAN, INTOSAI, ASOSAI)"
                 }
               ]
             },
@@ -683,37 +723,45 @@
               },
               "marks": 20,
               "subjectIds": [
-                "governance",
-                "constitution"
+                "constitution",
+                "governance"
               ],
               "topics": [
                 {
-                  "en": "The federal system and federalism in Nepal",
-                  "ne": "संघीय प्रणाली र नेपालमा संघीयता"
+                  "en": "5.1 The federal system, and federalism in Nepal",
+                  "ne": "५.१ संघीय प्रणाली र नेपालमा संघीयता"
                 },
                 {
-                  "en": "Legislative interrelation among federal, provincial and local levels",
-                  "ne": "संघ, प्रदेश र स्थानीय तहबीचको विधायिकी अन्तरसम्बन्ध"
+                  "en": "5.2 Legislative interrelation among the federal, provincial and local levels",
+                  "ne": "५.२ संघ, प्रदेश र स्थानीय तहहरू बिचको विधायिकी अन्तरसम्बन्ध"
                 },
                 {
-                  "en": "Management procedures and the law-making process",
-                  "ne": "व्यवस्थापन कार्यविधि र कानून निर्माण प्रक्रिया"
+                  "en": "5.3 Management procedures and the law making process",
+                  "ne": "५.३ व्यवस्थापन कार्यविधि र कानून निर्माण प्रक्रिया"
                 },
                 {
-                  "en": "Relationship between the House of Representatives and the National Assembly",
-                  "ne": "प्रतिनिधि सभा र राष्ट्रिय सभाबीचको अन्तरसम्बन्ध"
+                  "en": "5.4 Interrelation between the House of Representatives and the National Assembly",
+                  "ne": "५.४ प्रतिनिधि सभा र राष्ट्रिय सभा बिचको अन्तरसम्बन्ध"
                 },
                 {
-                  "en": "Parliament, parliamentary committees and constitutional bodies",
-                  "ne": "संसद, संसदीय समिति र संवैधानिक निकाय"
+                  "en": "5.5 Interrelation among Parliament, the parliamentary committees and the constitutional bodies",
+                  "ne": "५.५ संसद, संसदीय समिति र संवैधानिक निकायहरू बिचको अन्तरसम्बन्ध"
                 },
                 {
-                  "en": "Parliamentary officials, parliamentary parties and the role of the opposition",
-                  "ne": "संसदीय पदाधिकारी, संसदीय दल र प्रतिपक्षको भूमिका"
+                  "en": "5.6 The role of parliamentary officials, parliamentary parties and the opposition in Parliament",
+                  "ne": "५.६ संसदीय पदाधिकारी, संसदीय दल र संसदमा प्रतिपक्षको भूमिका"
                 },
                 {
-                  "en": "Code of conduct, discipline and ethics for members of parliament and elected representatives",
-                  "ne": "सांसद र निर्वाचित जनप्रतिनिधिको आचारसंहिता, अनुशासन र नैतिकता"
+                  "en": "5.7 The role of the Secretariat and of the Conduct of Business and Management Committee",
+                  "ne": "५.७ सचिवालय सञ्चालन तथा व्यवस्थापन समितिको भूमिका"
+                },
+                {
+                  "en": "5.8 Jurisdiction and policy provisions for the operation of government services at the federal, provincial and local levels",
+                  "ne": "५.८ संघ, प्रदेश र स्थानीय तहमा सरकारी सेवा संचालन सम्बन्धी नीतिगत व्यवस्था र क्षेत्राधिकार"
+                },
+                {
+                  "en": "5.9 Code of conduct, discipline, integrity and ethics of parliamentarians and elected representatives",
+                  "ne": "५.९ सांसद र निर्वाचित जनप्रतिनिधिहरूको आचार-संहिता, अनुशासन, सदाचार र नैतिकता"
                 }
               ]
             }

@@ -4,10 +4,10 @@
   "counts": {
     "levels": 3,
     "subjects": 13,
-    "lessons": 27,
+    "lessons": 32,
     "questions": 242,
     "currentAffairs": 9,
-    "uiStrings": 167
+    "uiStrings": 171
   },
   "languages": [
     "en",

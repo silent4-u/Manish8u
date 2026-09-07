@@ -57,6 +57,9 @@ export function Syllabus() {
             <div className="small muted" style={{ marginTop: 8 }}>
               {t('pattern')}: {b(paper.pattern)}
             </div>
+            <Link to={`/paper/${paper.id}`} className="btn btn-sm btn-primary" style={{ marginTop: 10 }}>
+              {t('studyThisPaper')}
+            </Link>
 
             {isOpen && (
               <>
