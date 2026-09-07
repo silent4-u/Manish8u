@@ -35,15 +35,25 @@ class FirstPaperTest {
     }
 
     @Test
-    fun `nayab subba and kharidar sit the same first paper`() {
+    fun `every post sits the same preliminary shape but a different subject`() {
         val nasu = repo.level("nayabsubba")!!.papers.first()
         val khar = repo.level("kharidar")!!.papers.first()
-        assertEquals(nasu.fullMarks, khar.fullMarks)
-        assertEquals(nasu.durationMinutes, khar.durationMinutes)
-        assertEquals(nasu.pattern.en, khar.pattern.en)
-        assertEquals(
-            nasu.sections.flatMap { it.subjectIds }.toSet(),
-            khar.sections.flatMap { it.subjectIds }.toSet(),
+        // The two assistant posts share the mechanics of the screening test...
+        assertEquals(100, nasu.fullMarks)
+        assertEquals(100, khar.fullMarks)
+        assertEquals(45, nasu.durationMinutes)
+        assertEquals(45, khar.durationMinutes)
+        assertEquals(45, nasu.passMarks, "screening test passes at 45 per cent")
+        assertEquals(45, khar.passMarks, "screening test passes at 45 per cent")
+
+        // ...but not what it examines. Nayab Subba sits General Mental Ability
+        // and Kharidar sits Basic Office Skills, so the app must never present
+        // the two first papers as one shared paper.
+        assertTrue("General Mental Ability" in nasu.name.en, "Na. Su. paper I is a mental ability test")
+        assertTrue("Basic Office Skills" in khar.name.en, "Kharidar paper I is an office skills test")
+        assertTrue(
+            nasu.sections.map { it.name.en } != khar.sections.map { it.name.en },
+            "the two assistant first papers now share sections — rewrite the first-paper copy",
         )
     }
 
@@ -60,7 +70,7 @@ class FirstPaperTest {
         assertEquals(90, officer.durationMinutes, "officer preliminary runs 90 minutes")
         assertEquals(45, officer.passMarks, "officer preliminary passes at 45")
         assertEquals(45, nasu.durationMinutes)
-        assertEquals(40, nasu.passMarks)
+        assertEquals(45, nasu.passMarks)
 
         // Both examine aptitude; only the officer paper tests English. The app's
         // copy about the difference is written against exactly this.
@@ -70,6 +80,40 @@ class FirstPaperTest {
         assertTrue("iq" in nasuSubjects, "assistant paper has an intelligence section")
         assertTrue("english" in officerSubjects, "officer paper tests English")
         assertFalse("english" in nasuSubjects, "assistant paper does not test English separately")
+    }
+
+    @Test
+    fun `every post now sits the unified three-stage system`() {
+        // Officer 2082, Nayab Subba and Kharidar 2081: all three syllabi put a
+        // screening preliminary in front of subjective main papers. If a post
+        // ever drops back to a two-paper scheme this fails first.
+        repo.levels.forEach { level ->
+            val prelim = level.papers.first()
+            assertEquals("objective", prelim.format, "${level.id} preliminary is objective")
+            assertEquals(100, prelim.fullMarks, "${level.id} preliminary is out of 100")
+            assertEquals(45, prelim.passMarks, "${level.id} preliminary passes at 45 per cent")
+            assertTrue(level.papers.size >= 3, "${level.id} has a preliminary and at least two main papers")
+            level.papers.drop(1).forEach { main ->
+                assertEquals("subjective", main.format, "${level.id} main papers are written")
+                assertEquals(100, main.fullMarks)
+                assertEquals(40, main.passMarks)
+            }
+        }
+    }
+
+    @Test
+    fun `each assistant main paper adds up to its full marks`() {
+        // The section marks come straight off the syllabus tables, so a typo in
+        // one of them shows up here rather than in a candidate's revision plan.
+        listOf("nayabsubba", "kharidar").forEach { id ->
+            repo.level(id)!!.papers.drop(1).forEach { paper ->
+                assertEquals(
+                    paper.fullMarks,
+                    paper.sections.sumOf { it.marks ?: 0 },
+                    "$id ${paper.id}: section marks do not total the paper",
+                )
+            }
+        }
     }
 
     @Test

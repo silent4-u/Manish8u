@@ -121,12 +121,12 @@ export const UI = {
   reportedBy: { en: 'Reported by', ne: 'स्रोत' },
   firstPaperTitle: { en: 'The First Paper', ne: 'प्रथम पत्र' },
   firstPaperLede: {
-    en: 'Pick a topic and study it. The first paper is the objective paper every post sits.',
-    ne: 'विषय छान्नुहोस् र अध्ययन गर्नुहोस्। प्रथम पत्र सबै पदमा हुने वस्तुगत पत्र हो।',
+    en: 'Pick a topic and study it. Every post now sits a screening preliminary as its first paper — but not the same one.',
+    ne: 'विषय छान्नुहोस् र अध्ययन गर्नुहोस्। अब सबै पदको प्रथम पत्र छनोट परीक्षा हो — तर एउटै भने होइन।',
   },
   firstPaperNote: {
-    en: 'Nayab Subba and Kharidar sit the same first paper: 50 questions of two marks in 45 minutes. The Section Officer preliminary is set differently — 100 questions of one mark in 90 minutes, it adds an English language section, and it is a screening test whose marks are not carried into the main examination. Each topic below shows which posts examine it.',
-    ne: 'नायब सुब्बा र खरिदारको प्रथम पत्र एउटै हो: ४५ मिनेटमा ५० प्रश्न, प्रत्येक २ अङ्कको। शाखा अधिकृतको प्रारम्भिक परीक्षा फरक छ — ९० मिनेटमा १०० प्रश्न, प्रत्येक १ अङ्कको, अंग्रेजी भाषाको खण्ड थपिएको, र यो छनोट परीक्षा भएकाले यसको अङ्क मूल परीक्षामा जोडिँदैन। तलका प्रत्येक विषयमा कुन पदमा सोधिन्छ भन्ने देखाइएको छ।',
+    en: 'All three posts now sit the Integrated and Unified Examination System, so every first paper is a screening test: out of 100, pass 45 per cent, 20 per cent deducted for a wrong answer, and the marks are not carried into the main examination. What each one examines still differs. The Section Officer sits 100 questions of one mark in 90 minutes, with an aptitude section and an English section. Nayab Subba sits 50 questions of two marks in 45 minutes, half general knowledge and half general mental ability. Kharidar sits the same 50 by 2 in 45 minutes, but the second half is a Basic Office Skills Test rather than mental ability. General knowledge is the ground all three share. Each topic below shows which posts examine it.',
+    ne: 'अब तीनै पद संयुक्त र एकीकृत परीक्षा प्रणाली अन्तर्गत छन्, त्यसैले हरेक प्रथम पत्र छनोट परीक्षा हो: पूर्णाङ्क १००, उत्तीर्णाङ्क ४५ प्रतिशत, गलत उत्तरमा २० प्रतिशत कट्टा, र यसको अङ्क मूल परीक्षामा जोडिँदैन। तर कुन पत्रले के जाँच्छ भन्नेमा फरक छ। शाखा अधिकृतले ९० मिनेटमा १ अङ्कका १०० प्रश्न दिन्छन्, जसमा अभिरुचि खण्ड र अंग्रेजी खण्ड हुन्छ। नायब सुब्बाले ४५ मिनेटमा २ अङ्कका ५० प्रश्न दिन्छन् — आधा सामान्य ज्ञान, आधा सामान्य बौद्धिक परीक्षण। खरिदारको पनि ४५ मिनेटमा ५०×२ नै हो, तर दोस्रो आधा बौद्धिक परीक्षण नभई आधारभुत कार्यालय सीप परीक्षण हो। सामान्य ज्ञान चाहिँ तीनै पदमा साझा आधार हो। तलका प्रत्येक विषयमा कुन पदमा सोधिन्छ भन्ने देखाइएको छ।',
   },
   pickATopic: { en: 'Pick a topic and study it', ne: 'विषय छानेर अध्ययन गर्नुहोस्' },
   aboutTitle: { en: 'About this app', ne: 'यो एपबारे' },
