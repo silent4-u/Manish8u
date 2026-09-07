@@ -7,6 +7,8 @@ import { worldIctQuestions } from './worldIct';
 import { iqQuestions } from './iq';
 import { languageQuestions } from './language';
 import { currentAffairsQuestions } from './currentAffairs';
+import { bostQuestions } from './bost';
+import { mathsQuestions } from './maths';
 
 export const QUESTIONS: Question[] = [
   ...constitutionQuestions,
@@ -17,6 +19,8 @@ export const QUESTIONS: Question[] = [
   ...iqQuestions,
   ...languageQuestions,
   ...currentAffairsQuestions,
+  ...bostQuestions,
+  ...mathsQuestions,
 ];
 
 export function questionsFor(levelId: string, subjectId?: string | null): Question[] {

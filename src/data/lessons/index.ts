@@ -6,6 +6,8 @@ import { officeMgmtLessons } from './officeMgmt';
 import { economyLessons } from './economy';
 import { worldIctLessons } from './worldIct';
 import { skillLessons } from './skills';
+import { bostLessons } from './bost';
+import { mathsLessons } from './maths';
 
 export const LESSONS: Lesson[] = [
   ...constitutionLessons,
@@ -15,6 +17,8 @@ export const LESSONS: Lesson[] = [
   ...economyLessons,
   ...worldIctLessons,
   ...skillLessons,
+  ...bostLessons,
+  ...mathsLessons,
 ];
 
 export const LESSON_BY_ID: Record<string, Lesson> = Object.fromEntries(

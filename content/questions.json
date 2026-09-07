@@ -6719,6 +6719,2096 @@
         "en": "The joint announcement of 8,848.86 metres was made in December 2020.",
         "ne": "८,८४८.८६ मिटरको संयुक्त घोषणा डिसेम्बर २०२० मा भएको हो।"
       }
+    },
+    {
+      "id": "bost-q01",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which of these pairs is identical? (1) 5074216 / 5074216   (2) 5074216 / 5074126",
+        "ne": "यीमध्ये कुन जोडी बिल्कुल उस्तै छ? (१) ५०७४२१६ / ५०७४२१६   (२) ५०७४२१६ / ५०७४१२६"
+      },
+      "options": [
+        {
+          "en": "Only the first pair",
+          "ne": "पहिलो जोडी मात्र"
+        },
+        {
+          "en": "Only the second pair",
+          "ne": "दोस्रो जोडी मात्र"
+        },
+        {
+          "en": "Both pairs",
+          "ne": "दुवै जोडी"
+        },
+        {
+          "en": "None of them",
+          "ne": "कुनै पनि होइन"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "In the second pair the last three digits read 126 against 216 — a transposition. Only the first pair matches.",
+        "ne": "दोस्रो जोडीमा अन्तिम तीन अङ्क २१६ को साटो १२६ छन् — ठाउँ साटिएको। पहिलो जोडी मात्र मिल्छ।"
+      }
+    },
+    {
+      "id": "bost-q02",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A register is copied out. In how many of these five rows does the copy differ from the original?  Gorkha 2081 / Gorkha 2081 · Kaski 4173 / Kaski 4137 · Banke 9052 / Banke 9052 · Ilam 6640 / Ilam 6604 · Dolpa 3318 / Dolpa 3318",
+        "ne": "एउटा दर्ता किताब सारियो। यी पाँच हरफमध्ये कतिमा प्रतिलिपि मूलसँग फरक छ?  गोरखा २०८१ / गोरखा २०८१ · कास्की ४१७३ / कास्की ४१३७ · बाँके ९०५२ / बाँके ९०५२ · इलाम ६६४० / इलाम ६६०४ · डोल्पा ३३१८ / डोल्पा ३३१८"
+      },
+      "options": [
+        {
+          "en": "1",
+          "ne": "१"
+        },
+        {
+          "en": "2",
+          "ne": "२"
+        },
+        {
+          "en": "3",
+          "ne": "३"
+        },
+        {
+          "en": "4",
+          "ne": "४"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Kaski (4173 against 4137) and Ilam (6640 against 6604) differ; the other three match. Both errors are transpositions, which is why they are easy to read past.",
+        "ne": "कास्की (४१७३ र ४१३७) र इलाम (६६४० र ६६०४) फरक छन्; बाँकी तीन मिल्छन्। दुवै त्रुटि ठाउँ साटिएका हुन्, त्यसैले पढ्दा छुट्न सजिलो हुन्छ।"
+      }
+    },
+    {
+      "id": "bost-q03",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Complete the series: 7, 14, 28, 56, ?",
+        "ne": "शृंखला पुरा गर्नुहोस्: ७, १४, २८, ५६, ?"
+      },
+      "options": [
+        {
+          "en": "84",
+          "ne": "८४"
+        },
+        {
+          "en": "98",
+          "ne": "९८"
+        },
+        {
+          "en": "112",
+          "ne": "११२"
+        },
+        {
+          "en": "128",
+          "ne": "१२८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Each term doubles, so 56 × 2 = 112.",
+        "ne": "प्रत्येक पद दोब्बर हुन्छ, त्यसैले ५६ × २ = ११२।"
+      }
+    },
+    {
+      "id": "bost-q04",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Complete the letter series: B, D, G, K, ?",
+        "ne": "अक्षर शृंखला पुरा गर्नुहोस्: B, D, G, K, ?"
+      },
+      "options": [
+        {
+          "en": "N",
+          "ne": "N"
+        },
+        {
+          "en": "O",
+          "ne": "O"
+        },
+        {
+          "en": "P",
+          "ne": "P"
+        },
+        {
+          "en": "Q",
+          "ne": "Q"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The gaps grow by one each time: B +2 D, D +3 G, G +4 K, so K +5 = P.",
+        "ne": "अन्तर हरेकपटक एकले बढ्छ: B +२ D, D +३ G, G +४ K, त्यसैले K +५ = P।"
+      }
+    },
+    {
+      "id": "bost-q05",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Fill the gap: 3, 8, 18, 38, ?",
+        "ne": "खाली ठाउँ भर्नुहोस्: ३, ८, १८, ३८, ?"
+      },
+      "options": [
+        {
+          "en": "58",
+          "ne": "५८"
+        },
+        {
+          "en": "68",
+          "ne": "६८"
+        },
+        {
+          "en": "78",
+          "ne": "७८"
+        },
+        {
+          "en": "88",
+          "ne": "८८"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Each term is the previous one doubled plus 2: 38 × 2 + 2 = 78.",
+        "ne": "प्रत्येक पद अघिल्लोलाई दोब्बर गरी २ जोडेको हो: ३८ × २ + २ = ७८।"
+      }
+    },
+    {
+      "id": "bost-q06",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which one does not belong?",
+        "ne": "कुन चाहिँ समूहमा पर्दैन?"
+      },
+      "options": [
+        {
+          "en": "Registration",
+          "ne": "दर्ता"
+        },
+        {
+          "en": "Dispatch",
+          "ne": "चलानी"
+        },
+        {
+          "en": "Filing",
+          "ne": "फाइलिङ"
+        },
+        {
+          "en": "Monsoon",
+          "ne": "मनसुन"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Registration, dispatch and filing are office procedures. Monsoon is a weather term and does not belong.",
+        "ne": "दर्ता, चलानी र फाइलिङ कार्यालय कार्यविधि हुन्। मनसुन मौसमको शब्द हो, समूहमा पर्दैन।"
+      }
+    },
+    {
+      "id": "bost-q07",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which number does not belong: 121, 144, 169, 180?",
+        "ne": "कुन संख्या समूहमा पर्दैन: १२१, १४४, १६९, १८०?"
+      },
+      "options": [
+        {
+          "en": "121",
+          "ne": "१२१"
+        },
+        {
+          "en": "144",
+          "ne": "१४४"
+        },
+        {
+          "en": "169",
+          "ne": "१६९"
+        },
+        {
+          "en": "180",
+          "ne": "१८०"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "121 = 11², 144 = 12² and 169 = 13² are perfect squares. 180 is not.",
+        "ne": "१२१ = ११², १४४ = १२² र १६९ = १३² पूर्ण वर्ग हुन्। १८० होइन।"
+      }
+    },
+    {
+      "id": "bost-q08",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which one does not belong?",
+        "ne": "कुन चाहिँ समूहमा पर्दैन?"
+      },
+      "options": [
+        {
+          "en": "Ministry",
+          "ne": "मन्त्रालय"
+        },
+        {
+          "en": "Department",
+          "ne": "विभाग"
+        },
+        {
+          "en": "Division",
+          "ne": "महाशाखा"
+        },
+        {
+          "en": "Ropani",
+          "ne": "रोपनी"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Ministry, department and division are levels of an organisation. A ropani is a unit of land area.",
+        "ne": "मन्त्रालय, विभाग र महाशाखा संगठनका तह हुन्। रोपनी जग्गाको क्षेत्रफलको एकाइ हो।"
+      }
+    },
+    {
+      "id": "bost-q09",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Letter is to Envelope as File is to ______.",
+        "ne": "चिठी : खाम :: फाइल : ______।"
+      },
+      "options": [
+        {
+          "en": "Table",
+          "ne": "टेबुल"
+        },
+        {
+          "en": "Cabinet",
+          "ne": "दराज"
+        },
+        {
+          "en": "Register",
+          "ne": "दर्ता किताब"
+        },
+        {
+          "en": "Stamp",
+          "ne": "टिकट"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "A letter is kept in an envelope, so a file is kept in a cabinet. The relation is contained-in.",
+        "ne": "चिठी खाममा राखिन्छ, त्यसैले फाइल दराजमा राखिन्छ। सम्बन्ध \"भित्र राखिने\" हो।"
+      }
+    },
+    {
+      "id": "bost-q10",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "4 : 16 :: 7 : ?",
+        "ne": "४ : १६ :: ७ : ?"
+      },
+      "options": [
+        {
+          "en": "28",
+          "ne": "२८"
+        },
+        {
+          "en": "35",
+          "ne": "३५"
+        },
+        {
+          "en": "42",
+          "ne": "४२"
+        },
+        {
+          "en": "49",
+          "ne": "४९"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "The second number is the square of the first: 4² = 16, so 7² = 49.",
+        "ne": "दोस्रो संख्या पहिलोको वर्ग हो: ४² = १६, त्यसैले ७² = ४९।"
+      }
+    },
+    {
+      "id": "bost-q11",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Chairperson is to Meeting as Editor is to ______.",
+        "ne": "अध्यक्ष : बैठक :: सम्पादक : ______।"
+      },
+      "options": [
+        {
+          "en": "Newspaper",
+          "ne": "पत्रिका"
+        },
+        {
+          "en": "Reader",
+          "ne": "पाठक"
+        },
+        {
+          "en": "Printer",
+          "ne": "छापाखाना"
+        },
+        {
+          "en": "Advertisement",
+          "ne": "विज्ञापन"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "A chairperson presides over a meeting; an editor presides over a newspaper. The relation is who-leads-what.",
+        "ne": "अध्यक्षले बैठकको नेतृत्व गर्छ; सम्पादकले पत्रिकाको। सम्बन्ध \"कसले केको नेतृत्व गर्छ\" भन्ने हो।"
+      }
+    },
+    {
+      "id": "bost-q12",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Filing alphabetically, which name comes first?",
+        "ne": "वर्णमाला क्रममा फाइल गर्दा कुन नाम पहिले पर्छ?"
+      },
+      "options": [
+        {
+          "en": "Rijal",
+          "ne": "Rijal"
+        },
+        {
+          "en": "Rai",
+          "ne": "Rai"
+        },
+        {
+          "en": "Raika",
+          "ne": "Raika"
+        },
+        {
+          "en": "Rana",
+          "ne": "Rana"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Compare letter by letter: Rai, Raika, Rana, Rijal. Rai and Raika share their first three letters, and the shorter name files first.",
+        "ne": "अक्षर–अक्षर मिलाउनुहोस्: Rai, Raika, Rana, Rijal। Rai र Raika का पहिला तीन अक्षर उही छन्, र छोटो नाम पहिले पर्छ।"
+      }
+    },
+    {
+      "id": "bost-q13",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Filing by number, which order is correct?",
+        "ne": "संख्या क्रममा फाइल गर्दा कुन क्रम सही हो?"
+      },
+      "options": [
+        {
+          "en": "9, 07, 100",
+          "ne": "९, ०७, १००"
+        },
+        {
+          "en": "07, 9, 100",
+          "ne": "०७, ९, १००"
+        },
+        {
+          "en": "100, 07, 9",
+          "ne": "१००, ०७, ९"
+        },
+        {
+          "en": "07, 100, 9",
+          "ne": "०७, १००, ९"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Pad to the same length first: 007, 009, 100. So the order is 07, 9, 100. Sorting them as text would wrongly put 100 before 9.",
+        "ne": "पहिले शून्य थपेर लम्बाइ बराबर बनाउनुहोस्: ००७, ००९, १००। त्यसैले क्रम ०७, ९, १०० हुन्छ। पाठकै रूपमा क्रम मिलाए १०० गलत तवरले ९ भन्दा अघि पर्थ्यो।"
+      }
+    },
+    {
+      "id": "bost-q14",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Filing by date, which file comes last?",
+        "ne": "मिति क्रममा फाइल गर्दा कुन फाइल अन्तिममा पर्छ?"
+      },
+      "options": [
+        {
+          "en": "2079-11-02",
+          "ne": "२०७९-११-०२"
+        },
+        {
+          "en": "2080-01-15",
+          "ne": "२०८०-०१-१५"
+        },
+        {
+          "en": "2080-01-05",
+          "ne": "२०८०-०१-०५"
+        },
+        {
+          "en": "2079-12-30",
+          "ne": "२०७९-१२-३०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Compare year, then month, then day. 2080-01-15 is the latest.",
+        "ne": "पहिले साल, अनि महिना, अनि गते मिलाउनुहोस्। २०८०-०१-१५ सबैभन्दा पछिल्लो हो।"
+      }
+    },
+    {
+      "id": "bost-q15",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Instruction: write down the third letter of the second word in the phrase \"OFFICE RECORD MANAGEMENT\". Which letter is it?",
+        "ne": "निर्देशन: \"OFFICE RECORD MANAGEMENT\" वाक्यांशको दोस्रो शब्दको तेस्रो अक्षर लेख्नुहोस्। त्यो कुन अक्षर हो?"
+      },
+      "options": [
+        {
+          "en": "C",
+          "ne": "C"
+        },
+        {
+          "en": "E",
+          "ne": "E"
+        },
+        {
+          "en": "O",
+          "ne": "O"
+        },
+        {
+          "en": "R",
+          "ne": "R"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The second word is RECORD and its third letter is C. The trap is answering on the first word or the second letter.",
+        "ne": "दोस्रो शब्द RECORD हो र यसको तेस्रो अक्षर C हो। पहिलो शब्द वा दोस्रो अक्षरमा उत्तर दिनु नै जाल हो।"
+      }
+    },
+    {
+      "id": "bost-q16",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Instruction: add together only the even numbers in this list — 14, 7, 22, 9, 30, 15. What is the total?",
+        "ne": "निर्देशन: यस सूचीका जोर संख्या मात्र जोड्नुहोस् — १४, ७, २२, ९, ३०, १५। जम्मा कति?"
+      },
+      "options": [
+        {
+          "en": "52",
+          "ne": "५२"
+        },
+        {
+          "en": "66",
+          "ne": "६६"
+        },
+        {
+          "en": "97",
+          "ne": "९७"
+        },
+        {
+          "en": "31",
+          "ne": "३१"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The even numbers are 14, 22 and 30, and 14 + 22 + 30 = 66. Adding every number would give 97.",
+        "ne": "जोर संख्या १४, २२ र ३० हुन्, र १४ + २२ + ३० = ६६। सबै जोडेको भए ९७ आउँथ्यो।"
+      }
+    },
+    {
+      "id": "bost-q17",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is 15 per cent of 240?",
+        "ne": "२४० को १५ प्रतिशत कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "30",
+          "ne": "३०"
+        },
+        {
+          "en": "34",
+          "ne": "३४"
+        },
+        {
+          "en": "36",
+          "ne": "३६"
+        },
+        {
+          "en": "40",
+          "ne": "४०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "240 × 15 ÷ 100 = 36.",
+        "ne": "२४० × १५ ÷ १०० = ३६।"
+      }
+    },
+    {
+      "id": "bost-q18",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Calculate 1,247 + 358 − 605.",
+        "ne": "१,२४७ + ३५८ − ६०५ को मान निकाल्नुहोस्।"
+      },
+      "options": [
+        {
+          "en": "900",
+          "ne": "९००"
+        },
+        {
+          "en": "1,000",
+          "ne": "१,०००"
+        },
+        {
+          "en": "1,100",
+          "ne": "१,१००"
+        },
+        {
+          "en": "1,210",
+          "ne": "१,२१०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "1,247 + 358 = 1,605, and 1,605 − 605 = 1,000.",
+        "ne": "१,२४७ + ३५८ = १,६०५, र १,६०५ − ६०५ = १,०००।"
+      }
+    },
+    {
+      "id": "bost-q19",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A clerk registers 24, 31, 19 and 26 files on four days. What is the daily average?",
+        "ne": "एक कर्मचारीले चार दिनमा २४, ३१, १९ र २६ फाइल दर्ता गर्छन्। दैनिक औसत कति?"
+      },
+      "options": [
+        {
+          "en": "24",
+          "ne": "२४"
+        },
+        {
+          "en": "25",
+          "ne": "२५"
+        },
+        {
+          "en": "26",
+          "ne": "२६"
+        },
+        {
+          "en": "27",
+          "ne": "२७"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The total is 100 over four days, so the average is 100 ÷ 4 = 25.",
+        "ne": "जम्मा १०० चार दिनमा, त्यसैले औसत १०० ÷ ४ = २५।"
+      }
+    },
+    {
+      "id": "bost-q20",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "If FILE is coded as GJMF, how is DESK coded?",
+        "ne": "यदि FILE लाई GJMF लेखिन्छ भने DESK लाई कसरी लेखिन्छ?"
+      },
+      "options": [
+        {
+          "en": "EFTL",
+          "ne": "EFTL"
+        },
+        {
+          "en": "EFLT",
+          "ne": "EFLT"
+        },
+        {
+          "en": "CDRJ",
+          "ne": "CDRJ"
+        },
+        {
+          "en": "EGTL",
+          "ne": "EGTL"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Each letter moves one place forward: F→G, I→J, L→M, E→F. So D→E, E→F, S→T, K→L, giving EFTL.",
+        "ne": "प्रत्येक अक्षर एक स्थान अगाडि सर्छ: F→G, I→J, L→M, E→F। त्यसैले D→E, E→F, S→T, K→L, अर्थात् EFTL।"
+      }
+    },
+    {
+      "id": "bost-q21",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "If 3, 5, 7 is coded as 9, 25, 49, how is 4, 6, 8 coded?",
+        "ne": "यदि ३, ५, ७ लाई ९, २५, ४९ लेखिन्छ भने ४, ६, ८ लाई कसरी लेखिन्छ?"
+      },
+      "options": [
+        {
+          "en": "8, 12, 16",
+          "ne": "८, १२, १६"
+        },
+        {
+          "en": "12, 18, 24",
+          "ne": "१२, १८, २४"
+        },
+        {
+          "en": "16, 36, 64",
+          "ne": "१६, ३६, ६४"
+        },
+        {
+          "en": "16, 30, 56",
+          "ne": "१६, ३०, ५६"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Each number is replaced by its square: 4² = 16, 6² = 36, 8² = 64.",
+        "ne": "प्रत्येक संख्यालाई त्यसको वर्गले प्रतिस्थापन गरिन्छ: ४² = १६, ६² = ३६, ८² = ६४।"
+      }
+    },
+    {
+      "id": "bost-q22",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "If OFFICE is coded as ECIFFO, how is RECORD coded?",
+        "ne": "यदि OFFICE लाई ECIFFO लेखिन्छ भने RECORD लाई कसरी लेखिन्छ?"
+      },
+      "options": [
+        {
+          "en": "DROCER",
+          "ne": "DROCER"
+        },
+        {
+          "en": "DORCER",
+          "ne": "DORCER"
+        },
+        {
+          "en": "RECDRO",
+          "ne": "RECDRO"
+        },
+        {
+          "en": "DROCRE",
+          "ne": "DROCRE"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The word is simply written backwards, so RECORD becomes DROCER.",
+        "ne": "शब्दलाई उल्टो लेखिएको मात्र हो, त्यसैले RECORD को DROCER हुन्छ।"
+      }
+    },
+    {
+      "id": "bost-q23",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Five clerks sit in a row. Bimal is to the left of Chandra. Deepa is to the right of Chandra. Anil is at the far left and Esha at the far right. Who sits in the middle?",
+        "ne": "पाँच कर्मचारी एउटै लहरमा बस्छन्। विमल चन्द्राको बायाँ छन्। दीपा चन्द्राको दायाँ छिन्। अनिल सबैभन्दा बायाँ र इशा सबैभन्दा दायाँ छन्। बीचमा को बस्छ?"
+      },
+      "options": [
+        {
+          "en": "Bimal",
+          "ne": "विमल"
+        },
+        {
+          "en": "Chandra",
+          "ne": "चन्द्रा"
+        },
+        {
+          "en": "Deepa",
+          "ne": "दीपा"
+        },
+        {
+          "en": "Esha",
+          "ne": "इशा"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Anil is first and Esha last, leaving Bimal, Chandra and Deepa in positions two to four in that order, so Chandra is in the middle.",
+        "ne": "अनिल पहिलो र इशा अन्तिम, त्यसैले विमल, चन्द्रा र दीपा क्रमशः दोस्रोदेखि चौथो स्थानमा पर्छन्, अर्थात् बीचमा चन्द्रा।"
+      }
+    },
+    {
+      "id": "bost-q24",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Every file in the cabinet has a number. Some numbered files are confidential. Which conclusion certainly follows?",
+        "ne": "दराजका हरेक फाइलको नम्बर छ। नम्बर भएका केही फाइल गोप्य छन्। कुन निष्कर्ष निश्चित रूपमा निस्कन्छ?"
+      },
+      "options": [
+        {
+          "en": "All files in the cabinet are confidential",
+          "ne": "दराजका सबै फाइल गोप्य छन्"
+        },
+        {
+          "en": "Some files in the cabinet may be confidential",
+          "ne": "दराजका केही फाइल गोप्य हुन सक्छन्"
+        },
+        {
+          "en": "No file in the cabinet is confidential",
+          "ne": "दराजको कुनै पनि फाइल गोप्य छैन"
+        },
+        {
+          "en": "Only numbered files are confidential",
+          "ne": "नम्बर भएका फाइल मात्र गोप्य हुन्छन्"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "\"Some numbered files are confidential\" does not say which ones, and the confidential ones need not be in this cabinet at all. Only the possibility follows.",
+        "ne": "\"नम्बर भएका केही फाइल गोप्य छन्\" भन्दैमा कुन हो भन्ने भन्दैन, र ती गोप्य फाइल यही दराजमै हुनुपर्ने पनि होइन। सम्भावना मात्र निस्कन्छ।"
+      }
+    },
+    {
+      "id": "bost-q25",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Ram cleared more files than Hari. Gita cleared fewer than Hari. Sita cleared more than Ram. Who cleared the fewest?",
+        "ne": "रामले हरिभन्दा बढी फाइल फछ्र्यौट गरे। गीताले हरिभन्दा कम गरिन्। सीताले रामभन्दा बढी गरिन्। सबैभन्दा कम कसले गर्‍यो?"
+      },
+      "options": [
+        {
+          "en": "Ram",
+          "ne": "राम"
+        },
+        {
+          "en": "Hari",
+          "ne": "हरि"
+        },
+        {
+          "en": "Gita",
+          "ne": "गीता"
+        },
+        {
+          "en": "Sita",
+          "ne": "सीता"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The order from most to fewest is Sita, Ram, Hari, Gita, so Gita cleared the fewest.",
+        "ne": "बढीदेखि कमको क्रम सीता, राम, हरि, गीता हो, त्यसैले सबैभन्दा कम गीताले गरिन्।"
+      }
+    },
+    {
+      "id": "bost-q26",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A clerk is facing north. She turns right, then right again. Which way is she now facing?",
+        "ne": "एक कर्मचारी उत्तरतर्फ फर्केकी छिन्। उनी दायाँ मोडिन्छिन्, अनि फेरि दायाँ। अहिले उनी कतातर्फ फर्केकी छिन्?"
+      },
+      "options": [
+        {
+          "en": "North",
+          "ne": "उत्तर"
+        },
+        {
+          "en": "East",
+          "ne": "पूर्व"
+        },
+        {
+          "en": "South",
+          "ne": "दक्षिण"
+        },
+        {
+          "en": "West",
+          "ne": "पश्चिम"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "North turning right is east, and east turning right is south.",
+        "ne": "उत्तरबाट दायाँ मोड्दा पूर्व, र पूर्वबाट दायाँ मोड्दा दक्षिण हुन्छ।"
+      }
+    },
+    {
+      "id": "bost-q27",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A messenger walks 3 km north, then 4 km east. How far is he from where he started?",
+        "ne": "एक हुलाकी ३ किलोमिटर उत्तर हिँड्छन्, अनि ४ किलोमिटर पूर्व। सुरु गरेको ठाउँबाट उनी कति टाढा छन्?"
+      },
+      "options": [
+        {
+          "en": "5 km",
+          "ne": "५ किमी"
+        },
+        {
+          "en": "7 km",
+          "ne": "७ किमी"
+        },
+        {
+          "en": "9 km",
+          "ne": "९ किमी"
+        },
+        {
+          "en": "12 km",
+          "ne": "१२ किमी"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "The two legs meet at a right angle, so the direct distance is the hypotenuse: √(3² + 4²) = 5 km. He walked 7 km, but he is 5 km away.",
+        "ne": "दुई खण्ड समकोणमा मिल्छन्, त्यसैले सीधा दुरी कर्ण हो: √(३² + ४²) = ५ किमी। उनी हिँडेको ७ किमी हो, तर टाढा ५ किमी छन्।"
+      }
+    },
+    {
+      "id": "bost-q28",
+      "subjectId": "bost",
+      "levels": [
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A peon facing east turns left, walks on, then turns left again. Which way is he facing?",
+        "ne": "पूर्वतर्फ फर्केका कार्यालय सहयोगी बायाँ मोडिन्छन्, अगाडि बढ्छन्, अनि फेरि बायाँ मोडिन्छन्। उनी कतातर्फ फर्केका छन्?"
+      },
+      "options": [
+        {
+          "en": "North",
+          "ne": "उत्तर"
+        },
+        {
+          "en": "East",
+          "ne": "पूर्व"
+        },
+        {
+          "en": "South",
+          "ne": "दक्षिण"
+        },
+        {
+          "en": "West",
+          "ne": "पश्चिम"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "East turning left is north, and north turning left is west. Two turns the same way always reverse the original direction.",
+        "ne": "पूर्वबाट बायाँ मोड्दा उत्तर, र उत्तरबाट बायाँ मोड्दा पश्चिम। एउटै दिशामा दुई मोड्दा सधैँ सुरुको उल्टो दिशा हुन्छ।"
+      }
+    },
+    {
+      "id": "math-q01",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "If 12 files cost Rs 480, what do 7 files cost?",
+        "ne": "यदि १२ फाइलको मूल्य रु. ४८० हो भने ७ फाइलको मूल्य कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 240",
+          "ne": "रु. २४०"
+        },
+        {
+          "en": "Rs 260",
+          "ne": "रु. २६०"
+        },
+        {
+          "en": "Rs 280",
+          "ne": "रु. २८०"
+        },
+        {
+          "en": "Rs 300",
+          "ne": "रु. ३००"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "One file costs 480 ÷ 12 = Rs 40, so 7 files cost 7 × 40 = Rs 280.",
+        "ne": "एउटा फाइलको मूल्य ४८० ÷ १२ = रु. ४०, त्यसैले ७ फाइलको ७ × ४० = रु. २८०।"
+      }
+    },
+    {
+      "id": "math-q02",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Eight clerks finish a job in 15 days. Working at the same rate, how long do ten clerks take?",
+        "ne": "आठ कर्मचारीले एउटा काम १५ दिनमा सक्छन्। त्यही गतिमा दस कर्मचारीले कति दिन लगाउँछन्?"
+      },
+      "options": [
+        {
+          "en": "10 days",
+          "ne": "१० दिन"
+        },
+        {
+          "en": "12 days",
+          "ne": "१२ दिन"
+        },
+        {
+          "en": "14 days",
+          "ne": "१४ दिन"
+        },
+        {
+          "en": "18 days",
+          "ne": "१८ दिन"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The job is 8 × 15 = 120 clerk-days, so ten clerks need 120 ÷ 10 = 12 days. More clerks, fewer days — this is inverse proportion.",
+        "ne": "काम ८ × १५ = १२० कर्मचारी–दिनको हो, त्यसैले दस कर्मचारीलाई १२० ÷ १० = १२ दिन लाग्छ। कर्मचारी बढी, दिन कम — यो व्युत्क्रम अनुपात हो।"
+      }
+    },
+    {
+      "id": "math-q03",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Express 5/8 as a percentage.",
+        "ne": "५/८ लाई प्रतिशतमा लेख्नुहोस्।"
+      },
+      "options": [
+        {
+          "en": "58 per cent",
+          "ne": "५८ प्रतिशत"
+        },
+        {
+          "en": "60 per cent",
+          "ne": "६० प्रतिशत"
+        },
+        {
+          "en": "62.5 per cent",
+          "ne": "६२.५ प्रतिशत"
+        },
+        {
+          "en": "65 per cent",
+          "ne": "६५ प्रतिशत"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "5 ÷ 8 = 0.625, and 0.625 × 100 = 62.5 per cent.",
+        "ne": "५ ÷ ८ = ०.६२५, र ०.६२५ × १०० = ६२.५ प्रतिशत।"
+      }
+    },
+    {
+      "id": "math-q04",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is 15 per cent of 840?",
+        "ne": "८४० को १५ प्रतिशत कति हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "116",
+          "ne": "११६"
+        },
+        {
+          "en": "120",
+          "ne": "१२०"
+        },
+        {
+          "en": "126",
+          "ne": "१२६"
+        },
+        {
+          "en": "132",
+          "ne": "१३२"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "840 × 15 ÷ 100 = 126.",
+        "ne": "८४० × १५ ÷ १०० = १२६।"
+      }
+    },
+    {
+      "id": "math-q05",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "45 is what percentage of 180?",
+        "ne": "४५ भनेको १८० को कति प्रतिशत हो?"
+      },
+      "options": [
+        {
+          "en": "20 per cent",
+          "ne": "२० प्रतिशत"
+        },
+        {
+          "en": "25 per cent",
+          "ne": "२५ प्रतिशत"
+        },
+        {
+          "en": "30 per cent",
+          "ne": "३० प्रतिशत"
+        },
+        {
+          "en": "35 per cent",
+          "ne": "३५ प्रतिशत"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "45 ÷ 180 × 100 = 25 per cent.",
+        "ne": "४५ ÷ १८० × १०० = २५ प्रतिशत।"
+      }
+    },
+    {
+      "id": "math-q06",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A salary of Rs 2,400 is increased by 15 per cent. What is the new salary?",
+        "ne": "रु. २,४०० तलब १५ प्रतिशतले बढाइयो। नयाँ तलब कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 2,640",
+          "ne": "रु. २,६४०"
+        },
+        {
+          "en": "Rs 2,715",
+          "ne": "रु. २,७१५"
+        },
+        {
+          "en": "Rs 2,760",
+          "ne": "रु. २,७६०"
+        },
+        {
+          "en": "Rs 2,860",
+          "ne": "रु. २,८६०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "2,400 × 115 ÷ 100 = Rs 2,760.",
+        "ne": "२,४०० × ११५ ÷ १०० = रु. २,७६०।"
+      }
+    },
+    {
+      "id": "math-q07",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A price rises by 20 per cent and then falls by 20 per cent. What is the overall change?",
+        "ne": "कुनै मूल्य २० प्रतिशतले बढ्यो र त्यसपछि २० प्रतिशतले घट्यो। कुल परिवर्तन कति?"
+      },
+      "options": [
+        {
+          "en": "No change",
+          "ne": "कुनै परिवर्तन छैन"
+        },
+        {
+          "en": "4 per cent increase",
+          "ne": "४ प्रतिशत वृद्धि"
+        },
+        {
+          "en": "4 per cent decrease",
+          "ne": "४ प्रतिशत कमी"
+        },
+        {
+          "en": "2 per cent decrease",
+          "ne": "२ प्रतिशत कमी"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Take 100. It becomes 120, and 20 per cent of 120 is 24, leaving 96 — a decrease of 4 per cent. The two percentages are taken on different bases.",
+        "ne": "१०० लिनुहोस्। त्यो १२० हुन्छ, र १२० को २० प्रतिशत २४ हुने भएकाले ९६ बाँकी रहन्छ — ४ प्रतिशत घटी। दुई प्रतिशत फरक–फरक आधारमा लिइएका छन्।"
+      }
+    },
+    {
+      "id": "math-q08",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Rs 4,500 is divided among three people in the ratio 2 : 3 : 4. What is the largest share?",
+        "ne": "रु. ४,५०० लाई तीन जनामा २ : ३ : ४ को अनुपातमा बाँडियो। सबैभन्दा ठूलो हिस्सा कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 1,500",
+          "ne": "रु. १,५००"
+        },
+        {
+          "en": "Rs 1,800",
+          "ne": "रु. १,८००"
+        },
+        {
+          "en": "Rs 2,000",
+          "ne": "रु. २,०००"
+        },
+        {
+          "en": "Rs 2,250",
+          "ne": "रु. २,२५०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "2 + 3 + 4 = 9 parts, so one part is 4,500 ÷ 9 = Rs 500 and the largest share is 4 × 500 = Rs 2,000.",
+        "ne": "२ + ३ + ४ = ९ भाग, त्यसैले एक भाग ४,५०० ÷ ९ = रु. ५०० र सबैभन्दा ठूलो हिस्सा ४ × ५०० = रु. २,०००।"
+      }
+    },
+    {
+      "id": "math-q09",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "An article bought for Rs 1,500 is sold for Rs 1,800. What is the profit percentage?",
+        "ne": "रु. १,५०० मा किनेको सामान रु. १,८०० मा बेचियो। नाफा प्रतिशत कति?"
+      },
+      "options": [
+        {
+          "en": "15 per cent",
+          "ne": "१५ प्रतिशत"
+        },
+        {
+          "en": "16.67 per cent",
+          "ne": "१६.६७ प्रतिशत"
+        },
+        {
+          "en": "20 per cent",
+          "ne": "२० प्रतिशत"
+        },
+        {
+          "en": "25 per cent",
+          "ne": "२५ प्रतिशत"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Profit is 1,800 − 1,500 = Rs 300, and 300 ÷ 1,500 × 100 = 20 per cent. Profit percentage is always taken on the cost price.",
+        "ne": "नाफा १,८०० − १,५०० = रु. ३००, र ३०० ÷ १,५०० × १०० = २० प्रतिशत। नाफा प्रतिशत सधैँ क्रय मूल्यमा लिइन्छ।"
+      }
+    },
+    {
+      "id": "math-q10",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "An article bought for Rs 800 is sold for Rs 720. What is the loss percentage?",
+        "ne": "रु. ८०० मा किनेको सामान रु. ७२० मा बेचियो। नोक्सान प्रतिशत कति?"
+      },
+      "options": [
+        {
+          "en": "8 per cent",
+          "ne": "८ प्रतिशत"
+        },
+        {
+          "en": "10 per cent",
+          "ne": "१० प्रतिशत"
+        },
+        {
+          "en": "11 per cent",
+          "ne": "११ प्रतिशत"
+        },
+        {
+          "en": "12 per cent",
+          "ne": "१२ प्रतिशत"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Loss is 800 − 720 = Rs 80, and 80 ÷ 800 × 100 = 10 per cent.",
+        "ne": "नोक्सान ८०० − ७२० = रु. ८०, र ८० ÷ ८०० × १०० = १० प्रतिशत।"
+      }
+    },
+    {
+      "id": "math-q11",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A chair marked at Rs 2,500 is sold at a 20 per cent discount, with 13 per cent VAT added. What does the customer pay?",
+        "ne": "रु. २,५०० अङ्कित मूल्य भएको कुर्सी २० प्रतिशत छुटमा बेचियो र १३ प्रतिशत मूल्य अभिवृद्धि कर थपियो। ग्राहकले कति तिर्छ?"
+      },
+      "options": [
+        {
+          "en": "Rs 2,000",
+          "ne": "रु. २,०००"
+        },
+        {
+          "en": "Rs 2,120",
+          "ne": "रु. २,१२०"
+        },
+        {
+          "en": "Rs 2,260",
+          "ne": "रु. २,२६०"
+        },
+        {
+          "en": "Rs 2,825",
+          "ne": "रु. २,८२५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The discount is Rs 500, so the price is Rs 2,000. VAT is 13 per cent of 2,000 = Rs 260, so the customer pays Rs 2,260. VAT is always added after the discount.",
+        "ne": "छुट रु. ५००, त्यसैले मूल्य रु. २,०००। कर २,००० को १३ प्रतिशत = रु. २६०, त्यसैले ग्राहकले रु. २,२६० तिर्छ। कर सधैँ छुटपछि थपिन्छ।"
+      }
+    },
+    {
+      "id": "math-q12",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "An agent earns 2 per cent commission on a sale of Rs 3,50,000. What is the commission?",
+        "ne": "एजेन्टले रु. ३,५०,००० को बिक्रीमा २ प्रतिशत कमिसन पाउँछ। कमिसन कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 3,500",
+          "ne": "रु. ३,५००"
+        },
+        {
+          "en": "Rs 5,000",
+          "ne": "रु. ५,०००"
+        },
+        {
+          "en": "Rs 7,000",
+          "ne": "रु. ७,०००"
+        },
+        {
+          "en": "Rs 8,750",
+          "ne": "रु. ८,७५०"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "350,000 × 2 ÷ 100 = Rs 7,000.",
+        "ne": "३,५०,००० × २ ÷ १०० = रु. ७,०००।"
+      }
+    },
+    {
+      "id": "math-q13",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "A machine worth Rs 1,00,000 depreciates at 10 per cent a year. What is it worth after two years?",
+        "ne": "रु. १,००,००० मूल्यको मेसिन वार्षिक १० प्रतिशतले ह्रास हुन्छ। दुई वर्षपछि यसको मूल्य कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 80,000",
+          "ne": "रु. ८०,०००"
+        },
+        {
+          "en": "Rs 81,000",
+          "ne": "रु. ८१,०००"
+        },
+        {
+          "en": "Rs 82,000",
+          "ne": "रु. ८२,०००"
+        },
+        {
+          "en": "Rs 90,000",
+          "ne": "रु. ९०,०००"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "After one year it is worth Rs 90,000. The second year’s 10 per cent is taken on 90,000, not on the original, so it falls by Rs 9,000 to Rs 81,000.",
+        "ne": "एक वर्षपछि रु. ९०,००० हुन्छ। दोस्रो वर्षको १० प्रतिशत सुरुको होइन, ९०,००० मा लाग्छ, त्यसैले रु. ९,००० घटेर रु. ८१,००० हुन्छ।"
+      }
+    },
+    {
+      "id": "math-q14",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Find the simple interest on Rs 20,000 at 10 per cent per year for 2 years.",
+        "ne": "रु. २०,००० मा वार्षिक १० प्रतिशतले २ वर्षको साधारण ब्याज पत्ता लगाउनुहोस्।"
+      },
+      "options": [
+        {
+          "en": "Rs 2,000",
+          "ne": "रु. २,०००"
+        },
+        {
+          "en": "Rs 4,000",
+          "ne": "रु. ४,०००"
+        },
+        {
+          "en": "Rs 4,200",
+          "ne": "रु. ४,२००"
+        },
+        {
+          "en": "Rs 6,000",
+          "ne": "रु. ६,०००"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "I = P × T × R ÷ 100 = 20,000 × 2 × 10 ÷ 100 = Rs 4,000.",
+        "ne": "ब्याज = साँवा × समय × दर ÷ १०० = २०,००० × २ × १० ÷ १०० = रु. ४,०००।"
+      }
+    },
+    {
+      "id": "math-q15",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Rs 15,000 earns Rs 2,700 in simple interest over 3 years. What is the annual rate?",
+        "ne": "रु. १५,००० ले ३ वर्षमा रु. २,७०० साधारण ब्याज कमायो। वार्षिक दर कति?"
+      },
+      "options": [
+        {
+          "en": "5 per cent",
+          "ne": "५ प्रतिशत"
+        },
+        {
+          "en": "6 per cent",
+          "ne": "६ प्रतिशत"
+        },
+        {
+          "en": "7 per cent",
+          "ne": "७ प्रतिशत"
+        },
+        {
+          "en": "9 per cent",
+          "ne": "९ प्रतिशत"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "R = I × 100 ÷ (P × T) = 2,700 × 100 ÷ (15,000 × 3) = 6 per cent.",
+        "ne": "दर = ब्याज × १०० ÷ (साँवा × समय) = २,७०० × १०० ÷ (१५,००० × ३) = ६ प्रतिशत।"
+      }
+    },
+    {
+      "id": "math-q16",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Find the compound interest on Rs 20,000 at 10 per cent per year, compounded yearly, for 2 years.",
+        "ne": "रु. २०,००० मा वार्षिक १० प्रतिशतले वार्षिक चक्रीय हिसाबमा २ वर्षको चक्रीय ब्याज पत्ता लगाउनुहोस्।"
+      },
+      "options": [
+        {
+          "en": "Rs 4,000",
+          "ne": "रु. ४,०००"
+        },
+        {
+          "en": "Rs 4,100",
+          "ne": "रु. ४,१००"
+        },
+        {
+          "en": "Rs 4,200",
+          "ne": "रु. ४,२००"
+        },
+        {
+          "en": "Rs 4,400",
+          "ne": "रु. ४,४००"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "A = 20,000 × 1.1 × 1.1 = Rs 24,200, so the interest is Rs 4,200 — Rs 200 more than simple interest, which is the second year’s interest on the first year’s interest.",
+        "ne": "मिश्रधन = २०,००० × १.१ × १.१ = रु. २४,२००, त्यसैले ब्याज रु. ४,२०० — साधारण ब्याजभन्दा रु. २०० बढी, जुन पहिलो वर्षको ब्याजमा दोस्रो वर्ष लागेको ब्याज हो।"
+      }
+    },
+    {
+      "id": "math-q17",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The average of 5 numbers is 18. A sixth number is added and the average becomes 20. What is the sixth number?",
+        "ne": "५ संख्याको औसत १८ छ। छैटौँ संख्या थपेपछि औसत २० भयो। छैटौँ संख्या कति हो?"
+      },
+      "options": [
+        {
+          "en": "24",
+          "ne": "२४"
+        },
+        {
+          "en": "28",
+          "ne": "२८"
+        },
+        {
+          "en": "30",
+          "ne": "३०"
+        },
+        {
+          "en": "32",
+          "ne": "३२"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "The first total is 5 × 18 = 90 and the new total is 6 × 20 = 120, so the number added is 120 − 90 = 30. Work in totals, not averages.",
+        "ne": "पहिलो जम्मा ५ × १८ = ९० र नयाँ जम्मा ६ × २० = १२०, त्यसैले थपिएको संख्या १२० − ९० = ३०। औसतमा होइन, जम्मामा काम गर्नुहोस्।"
+      }
+    },
+    {
+      "id": "math-q18",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the average of the first ten natural numbers?",
+        "ne": "पहिला दस प्राकृतिक संख्याको औसत कति हो?"
+      },
+      "options": [
+        {
+          "en": "5",
+          "ne": "५"
+        },
+        {
+          "en": "5.5",
+          "ne": "५.५"
+        },
+        {
+          "en": "6",
+          "ne": "६"
+        },
+        {
+          "en": "6.5",
+          "ne": "६.५"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Their total is 55 and there are ten of them, so the average is 55 ÷ 10 = 5.5.",
+        "ne": "तिनको जम्मा ५५ र संख्या दस, त्यसैले औसत ५५ ÷ १० = ५.५।"
+      }
+    },
+    {
+      "id": "math-q19",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A meter read 4,520 units last month and 4,655 this month. At Rs 12 a unit, what is the charge for the units used?",
+        "ne": "मिटरमा गत महिना ४,५२० युनिट र यस महिना ४,६५५ देखियो। प्रति युनिट रु. १२ का दरले खपत भएको युनिटको शुल्क कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 1,485",
+          "ne": "रु. १,४८५"
+        },
+        {
+          "en": "Rs 1,620",
+          "ne": "रु. १,६२०"
+        },
+        {
+          "en": "Rs 1,740",
+          "ne": "रु. १,७४०"
+        },
+        {
+          "en": "Rs 1,860",
+          "ne": "रु. १,८६०"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The units used are 4,655 − 4,520 = 135, and 135 × 12 = Rs 1,620.",
+        "ne": "खपत युनिट ४,६५५ − ४,५२० = १३५, र १३५ × १२ = रु. १,६२०।"
+      }
+    },
+    {
+      "id": "math-q20",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "A bill charges Rs 9.50 a unit for 120 units plus a fixed service charge of Rs 125. What is the total?",
+        "ne": "बिलमा १२० युनिटका लागि प्रति युनिट रु. ९.५० र रु. १२५ निश्चित सेवा शुल्क छ। जम्मा कति?"
+      },
+      "options": [
+        {
+          "en": "Rs 1,140",
+          "ne": "रु. १,१४०"
+        },
+        {
+          "en": "Rs 1,240",
+          "ne": "रु. १,२४०"
+        },
+        {
+          "en": "Rs 1,265",
+          "ne": "रु. १,२६५"
+        },
+        {
+          "en": "Rs 1,385",
+          "ne": "रु. १,३८५"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "120 × 9.50 = Rs 1,140, plus the Rs 125 service charge, gives Rs 1,265.",
+        "ne": "१२० × ९.५० = रु. १,१४०, त्यसमा रु. १२५ सेवा शुल्क जोड्दा रु. १,२६५।"
+      }
+    },
+    {
+      "id": "math-q21",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "At NPR 160 to INR 100, how many Nepali rupees do you get for INR 5,000?",
+        "ne": "भा.रु. १०० बराबर ने.रु. १६० को दरमा भा.रु. ५,००० को कति नेपाली रुपैयाँ हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "NPR 6,250",
+          "ne": "ने.रु. ६,२५०"
+        },
+        {
+          "en": "NPR 7,500",
+          "ne": "ने.रु. ७,५००"
+        },
+        {
+          "en": "NPR 8,000",
+          "ne": "ने.रु. ८,०००"
+        },
+        {
+          "en": "NPR 8,500",
+          "ne": "ने.रु. ८,५००"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "INR 1 is NPR 1.6, so 5,000 × 1.6 = NPR 8,000.",
+        "ne": "भा.रु. १ बराबर ने.रु. १.६, त्यसैले ५,००० × १.६ = ने.रु. ८,०००।"
+      }
+    },
+    {
+      "id": "math-q22",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A rectangular plot is 24 m long and 18 m wide. What is its perimeter?",
+        "ne": "एउटा आयताकार जग्गा २४ मिटर लामो र १८ मिटर चौडा छ। यसको परिमिति कति?"
+      },
+      "options": [
+        {
+          "en": "42 m",
+          "ne": "४२ मिटर"
+        },
+        {
+          "en": "68 m",
+          "ne": "६८ मिटर"
+        },
+        {
+          "en": "84 m",
+          "ne": "८४ मिटर"
+        },
+        {
+          "en": "96 m",
+          "ne": "९६ मिटर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Perimeter = 2(l + b) = 2(24 + 18) = 84 m.",
+        "ne": "परिमिति = २(लम्बाइ + चौडाइ) = २(२४ + १८) = ८४ मिटर।"
+      }
+    },
+    {
+      "id": "math-q23",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the area of a rectangle 24 m by 18 m?",
+        "ne": "२४ मिटर × १८ मिटरको आयतको क्षेत्रफल कति?"
+      },
+      "options": [
+        {
+          "en": "324 sq m",
+          "ne": "३२४ वर्ग मिटर"
+        },
+        {
+          "en": "408 sq m",
+          "ne": "४०८ वर्ग मिटर"
+        },
+        {
+          "en": "432 sq m",
+          "ne": "४३२ वर्ग मिटर"
+        },
+        {
+          "en": "456 sq m",
+          "ne": "४५६ वर्ग मिटर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Area = length × breadth = 24 × 18 = 432 square metres.",
+        "ne": "क्षेत्रफल = लम्बाइ × चौडाइ = २४ × १८ = ४३२ वर्ग मिटर।"
+      }
+    },
+    {
+      "id": "math-q24",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "The perimeter of a square is 36 cm. What is its area?",
+        "ne": "एउटा वर्गको परिमिति ३६ सेन्टिमिटर छ। यसको क्षेत्रफल कति?"
+      },
+      "options": [
+        {
+          "en": "64 sq cm",
+          "ne": "६४ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "81 sq cm",
+          "ne": "८१ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "96 sq cm",
+          "ne": "९६ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "144 sq cm",
+          "ne": "१४४ वर्ग सेन्टिमिटर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "The side is 36 ÷ 4 = 9 cm, so the area is 9² = 81 square centimetres.",
+        "ne": "भुजा ३६ ÷ ४ = ९ सेन्टिमिटर, त्यसैले क्षेत्रफल ९² = ८१ वर्ग सेन्टिमिटर।"
+      }
+    },
+    {
+      "id": "math-q25",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "A triangle has a base of 14 cm and a height of 9 cm. What is its area?",
+        "ne": "एउटा त्रिभुजको आधार १४ सेन्टिमिटर र उचाइ ९ सेन्टिमिटर छ। क्षेत्रफल कति?"
+      },
+      "options": [
+        {
+          "en": "56 sq cm",
+          "ne": "५६ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "63 sq cm",
+          "ne": "६३ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "72 sq cm",
+          "ne": "७२ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "126 sq cm",
+          "ne": "१२६ वर्ग सेन्टिमिटर"
+        }
+      ],
+      "answer": 1,
+      "explanation": {
+        "en": "Area = ½ × base × height = ½ × 14 × 9 = 63 square centimetres.",
+        "ne": "क्षेत्रफल = ½ × आधार × उचाइ = ½ × १४ × ९ = ६३ वर्ग सेन्टिमिटर।"
+      }
+    },
+    {
+      "id": "math-q26",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Taking π as 22/7, what is the circumference of a circle of radius 7 cm?",
+        "ne": "पाई (π) लाई २२/७ लिँदा ७ सेन्टिमिटर त्रिज्या भएको वृत्तको परिधि कति?"
+      },
+      "options": [
+        {
+          "en": "22 cm",
+          "ne": "२२ सेन्टिमिटर"
+        },
+        {
+          "en": "38.5 cm",
+          "ne": "३८.५ सेन्टिमिटर"
+        },
+        {
+          "en": "44 cm",
+          "ne": "४४ सेन्टिमिटर"
+        },
+        {
+          "en": "154 cm",
+          "ne": "१५४ सेन्टिमिटर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Circumference = 2πr = 2 × 22/7 × 7 = 44 cm.",
+        "ne": "परिधि = २ × पाई × त्रिज्या = २ × २२/७ × ७ = ४४ सेन्टिमिटर।"
+      }
+    },
+    {
+      "id": "math-q27",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Taking π as 22/7, what is the area of a circle of radius 7 cm?",
+        "ne": "पाई (π) लाई २२/७ लिँदा ७ सेन्टिमिटर त्रिज्या भएको वृत्तको क्षेत्रफल कति?"
+      },
+      "options": [
+        {
+          "en": "44 sq cm",
+          "ne": "४४ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "77 sq cm",
+          "ne": "७७ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "154 sq cm",
+          "ne": "१५४ वर्ग सेन्टिमिटर"
+        },
+        {
+          "en": "308 sq cm",
+          "ne": "३०८ वर्ग सेन्टिमिटर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Area = πr² = 22/7 × 7 × 7 = 154 square centimetres.",
+        "ne": "क्षेत्रफल = पाई × त्रिज्या² = २२/७ × ७ × ७ = १५४ वर्ग सेन्टिमिटर।"
+      }
+    },
+    {
+      "id": "math-q28",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the volume of a box 5 m long, 4 m wide and 3 m high?",
+        "ne": "५ मिटर लामो, ४ मिटर चौडा र ३ मिटर अग्लो बाकसको आयतन कति?"
+      },
+      "options": [
+        {
+          "en": "12 cu m",
+          "ne": "१२ घन मिटर"
+        },
+        {
+          "en": "47 cu m",
+          "ne": "४७ घन मिटर"
+        },
+        {
+          "en": "60 cu m",
+          "ne": "६० घन मिटर"
+        },
+        {
+          "en": "120 cu m",
+          "ne": "१२० घन मिटर"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "Volume = l × b × h = 5 × 4 × 3 = 60 cubic metres.",
+        "ne": "आयतन = लम्बाइ × चौडाइ × उचाइ = ५ × ४ × ३ = ६० घन मिटर।"
+      }
+    },
+    {
+      "id": "math-q29",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "hard",
+      "prompt": {
+        "en": "If the side of a cube is doubled, what happens to its volume?",
+        "ne": "घनको भुजा दोब्बर पार्दा आयतनमा के हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "It doubles",
+          "ne": "दोब्बर हुन्छ"
+        },
+        {
+          "en": "It becomes four times",
+          "ne": "चार गुणा हुन्छ"
+        },
+        {
+          "en": "It becomes six times",
+          "ne": "छ गुणा हुन्छ"
+        },
+        {
+          "en": "It becomes eight times",
+          "ne": "आठ गुणा हुन्छ"
+        }
+      ],
+      "answer": 3,
+      "explanation": {
+        "en": "Volume is a³, so doubling the side gives (2a)³ = 8a³ — eight times. Length scales by k, area by k² and volume by k³.",
+        "ne": "आयतन भुजा³ हो, त्यसैले भुजा दोब्बर पार्दा (२भुजा)³ = ८भुजा³ — आठ गुणा। लम्बाइ k ले, क्षेत्रफल k² ले र आयतन k³ ले बढ्छ।"
+      }
+    },
+    {
+      "id": "math-q30",
+      "subjectId": "maths",
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ],
+      "difficulty": "medium",
+      "prompt": {
+        "en": "How many square centimetres are there in 2.5 square metres?",
+        "ne": "२.५ वर्ग मिटरमा कति वर्ग सेन्टिमिटर हुन्छ?"
+      },
+      "options": [
+        {
+          "en": "250",
+          "ne": "२५०"
+        },
+        {
+          "en": "2,500",
+          "ne": "२,५००"
+        },
+        {
+          "en": "25,000",
+          "ne": "२५,०००"
+        },
+        {
+          "en": "250,000",
+          "ne": "२५०,०००"
+        }
+      ],
+      "answer": 2,
+      "explanation": {
+        "en": "One square metre is 100 × 100 = 10,000 square centimetres, so 2.5 × 10,000 = 25,000. Units square along with the shape.",
+        "ne": "एक वर्ग मिटर १०० × १०० = १०,००० वर्ग सेन्टिमिटर हुन्छ, त्यसैले २.५ × १०,००० = २५,०००। एकाइ पनि आकृतिसँगै वर्ग हुन्छ।"
+      }
     }
   ]
 }

@@ -1,9 +1,15 @@
 package np.loksewa.sathi.core
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+
+/** The counts `npm run export:content` writes alongside the JSON it exports. */
+@Serializable
+private data class Manifest(val schemaVersion: Int, val counts: Map<String, Int>)
 
 /**
  * Parses the real bundled corpus. These are the checks that would otherwise
@@ -15,11 +21,26 @@ class ContentTest {
 
     @Test
     fun `whole corpus parses with the expected counts`() {
-        assertEquals(3, repo.levels.size, "levels")
-        assertEquals(11, repo.subjects.size, "subjects")
-        assertEquals(22, repo.lessons.size, "lessons")
-        assertEquals(184, repo.questions.size, "questions")
-        assertEquals(9, repo.affairs.size, "current affairs")
+        // Checked against the manifest the exporter writes rather than against
+        // numbers typed here. A hardcoded count fails every time content grows,
+        // which trains people to edit the test; comparing with the manifest
+        // still catches the failure that matters — a bundle that is stale or
+        // only partly parsed — and needs no editing when a question is added.
+        val text = javaClass.getResourceAsStream("/content/manifest.json")
+            ?.readBytes()?.decodeToString()
+            ?: error("Missing bundled content resource: content/manifest.json")
+        val manifest = Json { ignoreUnknownKeys = true }.decodeFromString(Manifest.serializer(), text)
+
+        assertEquals(1, manifest.schemaVersion, "content schema version")
+        assertEquals(manifest.counts["levels"], repo.levels.size, "levels")
+        assertEquals(manifest.counts["subjects"], repo.subjects.size, "subjects")
+        assertEquals(manifest.counts["lessons"], repo.lessons.size, "lessons")
+        assertEquals(manifest.counts["questions"], repo.questions.size, "questions")
+        assertEquals(manifest.counts["currentAffairs"], repo.affairs.size, "current affairs")
+
+        // A corpus this far below its real size means a resource failed to load.
+        assertTrue(repo.questions.size > 200, "question bank looks truncated")
+        assertTrue(repo.lessons.size > 20, "lesson set looks truncated")
     }
 
     @Test

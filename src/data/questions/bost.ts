@@ -1,0 +1,348 @@
+import { buildQuestions, type QSpec } from './build';
+
+/**
+ * The Basic Office Skills Test — Section B of the Kharidar preliminary, and
+ * only Kharidar: no other post sits it. The commission fixes two questions
+ * per named type, so the bank carries at least two of each. Every logical
+ * answer was checked before this file was generated.
+ */
+const specs: QSpec[] = [
+  {
+    id: 'bost-q01', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Which of these pairs is identical? (1) 5074216 / 5074216   (2) 5074216 / 5074126', 'यीमध्ये कुन जोडी बिल्कुल उस्तै छ? (१) ५०७४२१६ / ५०७४२१६   (२) ५०७४२१६ / ५०७४१२६'],
+    o: [
+      ['Only the first pair', 'पहिलो जोडी मात्र'],
+      ['Only the second pair', 'दोस्रो जोडी मात्र'],
+      ['Both pairs', 'दुवै जोडी'],
+      ['None of them', 'कुनै पनि होइन'],
+    ],
+    a: 0,
+    e: ['In the second pair the last three digits read 126 against 216 — a transposition. Only the first pair matches.', 'दोस्रो जोडीमा अन्तिम तीन अङ्क २१६ को साटो १२६ छन् — ठाउँ साटिएको। पहिलो जोडी मात्र मिल्छ।'],
+  },
+  {
+    id: 'bost-q02', s: 'bost', lv: 'k', d: 'medium',
+    q: ['A register is copied out. In how many of these five rows does the copy differ from the original?  Gorkha 2081 / Gorkha 2081 · Kaski 4173 / Kaski 4137 · Banke 9052 / Banke 9052 · Ilam 6640 / Ilam 6604 · Dolpa 3318 / Dolpa 3318', 'एउटा दर्ता किताब सारियो। यी पाँच हरफमध्ये कतिमा प्रतिलिपि मूलसँग फरक छ?  गोरखा २०८१ / गोरखा २०८१ · कास्की ४१७३ / कास्की ४१३७ · बाँके ९०५२ / बाँके ९०५२ · इलाम ६६४० / इलाम ६६०४ · डोल्पा ३३१८ / डोल्पा ३३१८'],
+    o: [
+      ['1', '१'],
+      ['2', '२'],
+      ['3', '३'],
+      ['4', '४'],
+    ],
+    a: 1,
+    e: ['Kaski (4173 against 4137) and Ilam (6640 against 6604) differ; the other three match. Both errors are transpositions, which is why they are easy to read past.', 'कास्की (४१७३ र ४१३७) र इलाम (६६४० र ६६०४) फरक छन्; बाँकी तीन मिल्छन्। दुवै त्रुटि ठाउँ साटिएका हुन्, त्यसैले पढ्दा छुट्न सजिलो हुन्छ।'],
+  },
+  {
+    id: 'bost-q03', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Complete the series: 7, 14, 28, 56, ?', 'शृंखला पुरा गर्नुहोस्: ७, १४, २८, ५६, ?'],
+    o: [
+      ['84', '८४'],
+      ['98', '९८'],
+      ['112', '११२'],
+      ['128', '१२८'],
+    ],
+    a: 2,
+    e: ['Each term doubles, so 56 × 2 = 112.', 'प्रत्येक पद दोब्बर हुन्छ, त्यसैले ५६ × २ = ११२।'],
+  },
+  {
+    id: 'bost-q04', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Complete the letter series: B, D, G, K, ?', 'अक्षर शृंखला पुरा गर्नुहोस्: B, D, G, K, ?'],
+    o: [
+      ['N', 'N'],
+      ['O', 'O'],
+      ['P', 'P'],
+      ['Q', 'Q'],
+    ],
+    a: 2,
+    e: ['The gaps grow by one each time: B +2 D, D +3 G, G +4 K, so K +5 = P.', 'अन्तर हरेकपटक एकले बढ्छ: B +२ D, D +३ G, G +४ K, त्यसैले K +५ = P।'],
+  },
+  {
+    id: 'bost-q05', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Fill the gap: 3, 8, 18, 38, ?', 'खाली ठाउँ भर्नुहोस्: ३, ८, १८, ३८, ?'],
+    o: [
+      ['58', '५८'],
+      ['68', '६८'],
+      ['78', '७८'],
+      ['88', '८८'],
+    ],
+    a: 2,
+    e: ['Each term is the previous one doubled plus 2: 38 × 2 + 2 = 78.', 'प्रत्येक पद अघिल्लोलाई दोब्बर गरी २ जोडेको हो: ३८ × २ + २ = ७८।'],
+  },
+  {
+    id: 'bost-q06', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Which one does not belong?', 'कुन चाहिँ समूहमा पर्दैन?'],
+    o: [
+      ['Registration', 'दर्ता'],
+      ['Dispatch', 'चलानी'],
+      ['Filing', 'फाइलिङ'],
+      ['Monsoon', 'मनसुन'],
+    ],
+    a: 3,
+    e: ['Registration, dispatch and filing are office procedures. Monsoon is a weather term and does not belong.', 'दर्ता, चलानी र फाइलिङ कार्यालय कार्यविधि हुन्। मनसुन मौसमको शब्द हो, समूहमा पर्दैन।'],
+  },
+  {
+    id: 'bost-q07', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Which number does not belong: 121, 144, 169, 180?', 'कुन संख्या समूहमा पर्दैन: १२१, १४४, १६९, १८०?'],
+    o: [
+      ['121', '१२१'],
+      ['144', '१४४'],
+      ['169', '१६९'],
+      ['180', '१८०'],
+    ],
+    a: 3,
+    e: ['121 = 11², 144 = 12² and 169 = 13² are perfect squares. 180 is not.', '१२१ = ११², १४४ = १२² र १६९ = १३² पूर्ण वर्ग हुन्। १८० होइन।'],
+  },
+  {
+    id: 'bost-q08', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Which one does not belong?', 'कुन चाहिँ समूहमा पर्दैन?'],
+    o: [
+      ['Ministry', 'मन्त्रालय'],
+      ['Department', 'विभाग'],
+      ['Division', 'महाशाखा'],
+      ['Ropani', 'रोपनी'],
+    ],
+    a: 3,
+    e: ['Ministry, department and division are levels of an organisation. A ropani is a unit of land area.', 'मन्त्रालय, विभाग र महाशाखा संगठनका तह हुन्। रोपनी जग्गाको क्षेत्रफलको एकाइ हो।'],
+  },
+  {
+    id: 'bost-q09', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Letter is to Envelope as File is to ______.', 'चिठी : खाम :: फाइल : ______।'],
+    o: [
+      ['Table', 'टेबुल'],
+      ['Cabinet', 'दराज'],
+      ['Register', 'दर्ता किताब'],
+      ['Stamp', 'टिकट'],
+    ],
+    a: 1,
+    e: ['A letter is kept in an envelope, so a file is kept in a cabinet. The relation is contained-in.', 'चिठी खाममा राखिन्छ, त्यसैले फाइल दराजमा राखिन्छ। सम्बन्ध "भित्र राखिने" हो।'],
+  },
+  {
+    id: 'bost-q10', s: 'bost', lv: 'k', d: 'medium',
+    q: ['4 : 16 :: 7 : ?', '४ : १६ :: ७ : ?'],
+    o: [
+      ['28', '२८'],
+      ['35', '३५'],
+      ['42', '४२'],
+      ['49', '४९'],
+    ],
+    a: 3,
+    e: ['The second number is the square of the first: 4² = 16, so 7² = 49.', 'दोस्रो संख्या पहिलोको वर्ग हो: ४² = १६, त्यसैले ७² = ४९।'],
+  },
+  {
+    id: 'bost-q11', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Chairperson is to Meeting as Editor is to ______.', 'अध्यक्ष : बैठक :: सम्पादक : ______।'],
+    o: [
+      ['Newspaper', 'पत्रिका'],
+      ['Reader', 'पाठक'],
+      ['Printer', 'छापाखाना'],
+      ['Advertisement', 'विज्ञापन'],
+    ],
+    a: 0,
+    e: ['A chairperson presides over a meeting; an editor presides over a newspaper. The relation is who-leads-what.', 'अध्यक्षले बैठकको नेतृत्व गर्छ; सम्पादकले पत्रिकाको। सम्बन्ध "कसले केको नेतृत्व गर्छ" भन्ने हो।'],
+  },
+  {
+    id: 'bost-q12', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Filing alphabetically, which name comes first?', 'वर्णमाला क्रममा फाइल गर्दा कुन नाम पहिले पर्छ?'],
+    o: [
+      ['Rijal', 'Rijal'],
+      ['Rai', 'Rai'],
+      ['Raika', 'Raika'],
+      ['Rana', 'Rana'],
+    ],
+    a: 1,
+    e: ['Compare letter by letter: Rai, Raika, Rana, Rijal. Rai and Raika share their first three letters, and the shorter name files first.', 'अक्षर–अक्षर मिलाउनुहोस्: Rai, Raika, Rana, Rijal। Rai र Raika का पहिला तीन अक्षर उही छन्, र छोटो नाम पहिले पर्छ।'],
+  },
+  {
+    id: 'bost-q13', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Filing by number, which order is correct?', 'संख्या क्रममा फाइल गर्दा कुन क्रम सही हो?'],
+    o: [
+      ['9, 07, 100', '९, ०७, १००'],
+      ['07, 9, 100', '०७, ९, १००'],
+      ['100, 07, 9', '१००, ०७, ९'],
+      ['07, 100, 9', '०७, १००, ९'],
+    ],
+    a: 1,
+    e: ['Pad to the same length first: 007, 009, 100. So the order is 07, 9, 100. Sorting them as text would wrongly put 100 before 9.', 'पहिले शून्य थपेर लम्बाइ बराबर बनाउनुहोस्: ००७, ००९, १००। त्यसैले क्रम ०७, ९, १०० हुन्छ। पाठकै रूपमा क्रम मिलाए १०० गलत तवरले ९ भन्दा अघि पर्थ्यो।'],
+  },
+  {
+    id: 'bost-q14', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Filing by date, which file comes last?', 'मिति क्रममा फाइल गर्दा कुन फाइल अन्तिममा पर्छ?'],
+    o: [
+      ['2079-11-02', '२०७९-११-०२'],
+      ['2080-01-15', '२०८०-०१-१५'],
+      ['2080-01-05', '२०८०-०१-०५'],
+      ['2079-12-30', '२०७९-१२-३०'],
+    ],
+    a: 1,
+    e: ['Compare year, then month, then day. 2080-01-15 is the latest.', 'पहिले साल, अनि महिना, अनि गते मिलाउनुहोस्। २०८०-०१-१५ सबैभन्दा पछिल्लो हो।'],
+  },
+  {
+    id: 'bost-q15', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Instruction: write down the third letter of the second word in the phrase "OFFICE RECORD MANAGEMENT". Which letter is it?', 'निर्देशन: "OFFICE RECORD MANAGEMENT" वाक्यांशको दोस्रो शब्दको तेस्रो अक्षर लेख्नुहोस्। त्यो कुन अक्षर हो?'],
+    o: [
+      ['C', 'C'],
+      ['E', 'E'],
+      ['O', 'O'],
+      ['R', 'R'],
+    ],
+    a: 0,
+    e: ['The second word is RECORD and its third letter is C. The trap is answering on the first word or the second letter.', 'दोस्रो शब्द RECORD हो र यसको तेस्रो अक्षर C हो। पहिलो शब्द वा दोस्रो अक्षरमा उत्तर दिनु नै जाल हो।'],
+  },
+  {
+    id: 'bost-q16', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Instruction: add together only the even numbers in this list — 14, 7, 22, 9, 30, 15. What is the total?', 'निर्देशन: यस सूचीका जोर संख्या मात्र जोड्नुहोस् — १४, ७, २२, ९, ३०, १५। जम्मा कति?'],
+    o: [
+      ['52', '५२'],
+      ['66', '६६'],
+      ['97', '९७'],
+      ['31', '३१'],
+    ],
+    a: 1,
+    e: ['The even numbers are 14, 22 and 30, and 14 + 22 + 30 = 66. Adding every number would give 97.', 'जोर संख्या १४, २२ र ३० हुन्, र १४ + २२ + ३० = ६६। सबै जोडेको भए ९७ आउँथ्यो।'],
+  },
+  {
+    id: 'bost-q17', s: 'bost', lv: 'k', d: 'easy',
+    q: ['What is 15 per cent of 240?', '२४० को १५ प्रतिशत कति हुन्छ?'],
+    o: [
+      ['30', '३०'],
+      ['34', '३४'],
+      ['36', '३६'],
+      ['40', '४०'],
+    ],
+    a: 2,
+    e: ['240 × 15 ÷ 100 = 36.', '२४० × १५ ÷ १०० = ३६।'],
+  },
+  {
+    id: 'bost-q18', s: 'bost', lv: 'k', d: 'easy',
+    q: ['Calculate 1,247 + 358 − 605.', '१,२४७ + ३५८ − ६०५ को मान निकाल्नुहोस्।'],
+    o: [
+      ['900', '९००'],
+      ['1,000', '१,०००'],
+      ['1,100', '१,१००'],
+      ['1,210', '१,२१०'],
+    ],
+    a: 1,
+    e: ['1,247 + 358 = 1,605, and 1,605 − 605 = 1,000.', '१,२४७ + ३५८ = १,६०५, र १,६०५ − ६०५ = १,०००।'],
+  },
+  {
+    id: 'bost-q19', s: 'bost', lv: 'k', d: 'medium',
+    q: ['A clerk registers 24, 31, 19 and 26 files on four days. What is the daily average?', 'एक कर्मचारीले चार दिनमा २४, ३१, १९ र २६ फाइल दर्ता गर्छन्। दैनिक औसत कति?'],
+    o: [
+      ['24', '२४'],
+      ['25', '२५'],
+      ['26', '२६'],
+      ['27', '२७'],
+    ],
+    a: 1,
+    e: ['The total is 100 over four days, so the average is 100 ÷ 4 = 25.', 'जम्मा १०० चार दिनमा, त्यसैले औसत १०० ÷ ४ = २५।'],
+  },
+  {
+    id: 'bost-q20', s: 'bost', lv: 'k', d: 'medium',
+    q: ['If FILE is coded as GJMF, how is DESK coded?', 'यदि FILE लाई GJMF लेखिन्छ भने DESK लाई कसरी लेखिन्छ?'],
+    o: [
+      ['EFTL', 'EFTL'],
+      ['EFLT', 'EFLT'],
+      ['CDRJ', 'CDRJ'],
+      ['EGTL', 'EGTL'],
+    ],
+    a: 0,
+    e: ['Each letter moves one place forward: F→G, I→J, L→M, E→F. So D→E, E→F, S→T, K→L, giving EFTL.', 'प्रत्येक अक्षर एक स्थान अगाडि सर्छ: F→G, I→J, L→M, E→F। त्यसैले D→E, E→F, S→T, K→L, अर्थात् EFTL।'],
+  },
+  {
+    id: 'bost-q21', s: 'bost', lv: 'k', d: 'medium',
+    q: ['If 3, 5, 7 is coded as 9, 25, 49, how is 4, 6, 8 coded?', 'यदि ३, ५, ७ लाई ९, २५, ४९ लेखिन्छ भने ४, ६, ८ लाई कसरी लेखिन्छ?'],
+    o: [
+      ['8, 12, 16', '८, १२, १६'],
+      ['12, 18, 24', '१२, १८, २४'],
+      ['16, 36, 64', '१६, ३६, ६४'],
+      ['16, 30, 56', '१६, ३०, ५६'],
+    ],
+    a: 2,
+    e: ['Each number is replaced by its square: 4² = 16, 6² = 36, 8² = 64.', 'प्रत्येक संख्यालाई त्यसको वर्गले प्रतिस्थापन गरिन्छ: ४² = १६, ६² = ३६, ८² = ६४।'],
+  },
+  {
+    id: 'bost-q22', s: 'bost', lv: 'k', d: 'hard',
+    q: ['If OFFICE is coded as ECIFFO, how is RECORD coded?', 'यदि OFFICE लाई ECIFFO लेखिन्छ भने RECORD लाई कसरी लेखिन्छ?'],
+    o: [
+      ['DROCER', 'DROCER'],
+      ['DORCER', 'DORCER'],
+      ['RECDRO', 'RECDRO'],
+      ['DROCRE', 'DROCRE'],
+    ],
+    a: 0,
+    e: ['The word is simply written backwards, so RECORD becomes DROCER.', 'शब्दलाई उल्टो लेखिएको मात्र हो, त्यसैले RECORD को DROCER हुन्छ।'],
+  },
+  {
+    id: 'bost-q23', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Five clerks sit in a row. Bimal is to the left of Chandra. Deepa is to the right of Chandra. Anil is at the far left and Esha at the far right. Who sits in the middle?', 'पाँच कर्मचारी एउटै लहरमा बस्छन्। विमल चन्द्राको बायाँ छन्। दीपा चन्द्राको दायाँ छिन्। अनिल सबैभन्दा बायाँ र इशा सबैभन्दा दायाँ छन्। बीचमा को बस्छ?'],
+    o: [
+      ['Bimal', 'विमल'],
+      ['Chandra', 'चन्द्रा'],
+      ['Deepa', 'दीपा'],
+      ['Esha', 'इशा'],
+    ],
+    a: 1,
+    e: ['Anil is first and Esha last, leaving Bimal, Chandra and Deepa in positions two to four in that order, so Chandra is in the middle.', 'अनिल पहिलो र इशा अन्तिम, त्यसैले विमल, चन्द्रा र दीपा क्रमशः दोस्रोदेखि चौथो स्थानमा पर्छन्, अर्थात् बीचमा चन्द्रा।'],
+  },
+  {
+    id: 'bost-q24', s: 'bost', lv: 'k', d: 'medium',
+    q: ['Every file in the cabinet has a number. Some numbered files are confidential. Which conclusion certainly follows?', 'दराजका हरेक फाइलको नम्बर छ। नम्बर भएका केही फाइल गोप्य छन्। कुन निष्कर्ष निश्चित रूपमा निस्कन्छ?'],
+    o: [
+      ['All files in the cabinet are confidential', 'दराजका सबै फाइल गोप्य छन्'],
+      ['Some files in the cabinet may be confidential', 'दराजका केही फाइल गोप्य हुन सक्छन्'],
+      ['No file in the cabinet is confidential', 'दराजको कुनै पनि फाइल गोप्य छैन'],
+      ['Only numbered files are confidential', 'नम्बर भएका फाइल मात्र गोप्य हुन्छन्'],
+    ],
+    a: 1,
+    e: ['"Some numbered files are confidential" does not say which ones, and the confidential ones need not be in this cabinet at all. Only the possibility follows.', '"नम्बर भएका केही फाइल गोप्य छन्" भन्दैमा कुन हो भन्ने भन्दैन, र ती गोप्य फाइल यही दराजमै हुनुपर्ने पनि होइन। सम्भावना मात्र निस्कन्छ।'],
+  },
+  {
+    id: 'bost-q25', s: 'bost', lv: 'k', d: 'hard',
+    q: ['Ram cleared more files than Hari. Gita cleared fewer than Hari. Sita cleared more than Ram. Who cleared the fewest?', 'रामले हरिभन्दा बढी फाइल फछ्र्यौट गरे। गीताले हरिभन्दा कम गरिन्। सीताले रामभन्दा बढी गरिन्। सबैभन्दा कम कसले गर्\u200dयो?'],
+    o: [
+      ['Ram', 'राम'],
+      ['Hari', 'हरि'],
+      ['Gita', 'गीता'],
+      ['Sita', 'सीता'],
+    ],
+    a: 2,
+    e: ['The order from most to fewest is Sita, Ram, Hari, Gita, so Gita cleared the fewest.', 'बढीदेखि कमको क्रम सीता, राम, हरि, गीता हो, त्यसैले सबैभन्दा कम गीताले गरिन्।'],
+  },
+  {
+    id: 'bost-q26', s: 'bost', lv: 'k', d: 'easy',
+    q: ['A clerk is facing north. She turns right, then right again. Which way is she now facing?', 'एक कर्मचारी उत्तरतर्फ फर्केकी छिन्। उनी दायाँ मोडिन्छिन्, अनि फेरि दायाँ। अहिले उनी कतातर्फ फर्केकी छिन्?'],
+    o: [
+      ['North', 'उत्तर'],
+      ['East', 'पूर्व'],
+      ['South', 'दक्षिण'],
+      ['West', 'पश्चिम'],
+    ],
+    a: 2,
+    e: ['North turning right is east, and east turning right is south.', 'उत्तरबाट दायाँ मोड्दा पूर्व, र पूर्वबाट दायाँ मोड्दा दक्षिण हुन्छ।'],
+  },
+  {
+    id: 'bost-q27', s: 'bost', lv: 'k', d: 'medium',
+    q: ['A messenger walks 3 km north, then 4 km east. How far is he from where he started?', 'एक हुलाकी ३ किलोमिटर उत्तर हिँड्छन्, अनि ४ किलोमिटर पूर्व। सुरु गरेको ठाउँबाट उनी कति टाढा छन्?'],
+    o: [
+      ['5 km', '५ किमी'],
+      ['7 km', '७ किमी'],
+      ['9 km', '९ किमी'],
+      ['12 km', '१२ किमी'],
+    ],
+    a: 0,
+    e: ['The two legs meet at a right angle, so the direct distance is the hypotenuse: √(3² + 4²) = 5 km. He walked 7 km, but he is 5 km away.', 'दुई खण्ड समकोणमा मिल्छन्, त्यसैले सीधा दुरी कर्ण हो: √(३² + ४²) = ५ किमी। उनी हिँडेको ७ किमी हो, तर टाढा ५ किमी छन्।'],
+  },
+  {
+    id: 'bost-q28', s: 'bost', lv: 'k', d: 'medium',
+    q: ['A peon facing east turns left, walks on, then turns left again. Which way is he facing?', 'पूर्वतर्फ फर्केका कार्यालय सहयोगी बायाँ मोडिन्छन्, अगाडि बढ्छन्, अनि फेरि बायाँ मोडिन्छन्। उनी कतातर्फ फर्केका छन्?'],
+    o: [
+      ['North', 'उत्तर'],
+      ['East', 'पूर्व'],
+      ['South', 'दक्षिण'],
+      ['West', 'पश्चिम'],
+    ],
+    a: 3,
+    e: ['East turning left is north, and north turning left is west. Two turns the same way always reverse the original direction.', 'पूर्वबाट बायाँ मोड्दा उत्तर, र उत्तरबाट बायाँ मोड्दा पश्चिम। एउटै दिशामा दुई मोड्दा सधैँ सुरुको उल्टो दिशा हुन्छ।'],
+  },
+];
+
+export const bostQuestions = buildQuestions(specs);

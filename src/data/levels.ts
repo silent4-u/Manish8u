@@ -86,7 +86,7 @@ export const LEVELS: ExamLevel[] = [
             id: 'adhikrit-p1-b',
             name: { en: 'Part B — Aptitude Test', ne: 'खण्ड ख — अभिरुचि परीक्षण' },
             marks: 30,
-            subjectIds: ['iq'],
+            subjectIds: ['iq', 'maths'],
             topics: [
               { en: 'Verbal reasoning: series, analogy, classification, coding-decoding, direction and distance, ranking, assertion and reason (6 marks)', ne: 'शाब्दिक तर्क: शृंखला, समानता, वर्गीकरण, कोडिङ-डिकोडिङ, दिशा र दूरी, क्रम, कथन र कारण (६ अङ्क)' },
               { en: 'Non-verbal reasoning: series, Venn diagrams, matrices, figure formation, mirror and water images, embedded figures (6 marks)', ne: 'अशाब्दिक तर्क: शृंखला, भेन चित्र, म्याट्रिक्स, आकृति निर्माण, ऐना र पानी प्रतिबिम्ब, लुकेका आकृति (६ अङ्क)' },
@@ -387,7 +387,7 @@ export const LEVELS: ExamLevel[] = [
             id: 'nasu-p1-b',
             name: { en: '2. General Mental Ability Test', ne: '२. सामान्य बौद्धिक परीक्षण' },
             marks: 40,
-            subjectIds: ['iq'],
+            subjectIds: ['iq', 'maths'],
             topics: [
               { en: '2.1 Verbal reasoning: comprehension, vocabulary, series, analogy, classification, coding-decoding, missing letters and symbols, direction and distance, logical analysis, ranking, reason, induction and deduction (6 questions)', ne: '२.१ शाब्दिक तार्किक परीक्षण: बोध, शब्दज्ञान, अनुक्रम, समरुपता, वर्गीकरण, कोडिङ–डिकोडिङ, छोडिएका अक्षर/संकेत मिलाउने, दिशा र दुरी ज्ञान, तार्किक विश्लेषण, श्रेणीक्रम, भनाइ र कारण, आगमन र निगमन (६ प्रश्न)' },
               { en: '2.2 Quantitative reasoning: series, analogy, classification, coding, missing numbers, common factors, matrices, data interpretation and checking, arithmetic reasoning, percentage, fraction, decimal, ratio, average, profit and loss, calendar, time and work (8 questions)', ne: '२.२ मात्रात्मक (संख्यात्मक वा अंक सम्बन्धी) तार्किक परीक्षण: अनुक्रम, समरुपता, वर्गीकरण, कोडिङ, छोडिएका संख्या मिलाउने, साझा गुण, मेट्रिक्स, तथ्यांक व्याख्या र जाँच, अंकगणितीय तर्क, प्रतिशत, भिन्न, दशमलव, अनुपात, औसत, नाफा, नोक्सान, मिति/पात्रो, समय र काम (८ प्रश्न)' },
@@ -591,7 +591,7 @@ export const LEVELS: ExamLevel[] = [
             id: 'kharidar-p1-b',
             name: { en: 'Section B — Basic Office Skills Test (BOST)', ne: 'खण्ड ख — आधारभुत कार्यालय सीप परीक्षण' },
             marks: 40,
-            subjectIds: ['iq', 'office-mgmt'],
+            subjectIds: ['bost'],
             topics: [
               { en: 'Verification test: checking data, numbers or written information for errors, sameness or difference (2 questions)', ne: 'रुजु गर्ने: तथ्यांक, संख्या वा शाब्दिक सूचनालाई जाँच गर्ने वा त्रुटि पत्ता लगाउने अथवा समानता वा भिन्नता पत्ता लगाउने (२ प्रश्न)' },
               { en: 'Completion: filling a blank, order, pattern or matrix in a verbal, numerical or pictorial description (2 questions)', ne: 'खाली स्थान वा क्रम पुरा गर्ने: शाब्दिक, संख्यात्मक वा अशाब्दिक विवरणको खाली स्थान, क्रम, ढाँचा वा मेट्रिक्स पुरा गर्ने (२ प्रश्न)' },
@@ -659,7 +659,7 @@ export const LEVELS: ExamLevel[] = [
             id: 'kharidar-p2-c',
             name: { en: 'Section C — General Mathematics', ne: 'खण्ड ग — सामान्य गणित' },
             marks: 30,
-            subjectIds: ['iq'],
+            subjectIds: ['maths'],
             topics: [
               { en: 'Fundamental operations in mathematics and the unitary method', ne: 'गणितका आधारभूत क्रियाहरू तथा ऐकिक नियम' },
               { en: 'Fraction, decimal, percentage and ratio', ne: 'भिन्न, दशमलव, प्रतिशत र अनुपात' },

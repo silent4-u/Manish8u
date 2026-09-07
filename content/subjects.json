@@ -105,6 +105,46 @@
       ]
     },
     {
+      "id": "bost",
+      "name": {
+        "en": "Basic Office Skills Test",
+        "ne": "आधारभुत कार्यालय सीप परीक्षण"
+      },
+      "short": {
+        "en": "Office Skills",
+        "ne": "कार्यालय सीप"
+      },
+      "icon": "🗃️",
+      "description": {
+        "en": "The ten question types of the Kharidar preliminary: verification, completion, classification, analogy, filing aptitude, following instructions, numerical reasoning, coding and matching, analytical reasoning, and direction and distance.",
+        "ne": "खरिदार प्रारम्भिक परीक्षाका दस किसिमका प्रश्न: रुजु, क्रम पुरा, वर्गीकरण, सम्बन्ध, फाइलिङ अभिरुचि, निर्देशन अनुसरण, संख्यात्मक चातुर्य, कोडिङ र भिडान, विश्लेषणात्मक तार्किकता, र दिशा तथा दुरी।"
+      },
+      "levels": [
+        "kharidar"
+      ]
+    },
+    {
+      "id": "maths",
+      "name": {
+        "en": "General Mathematics",
+        "ne": "सामान्य गणित"
+      },
+      "short": {
+        "en": "Mathematics",
+        "ne": "गणित"
+      },
+      "icon": "🧮",
+      "description": {
+        "en": "Unitary method, fractions and percentage, profit and loss, tax and depreciation, interest, average, household bills and currency, and mensuration.",
+        "ne": "ऐकिक नियम, भिन्न र प्रतिशत, नाफा–नोक्सान, कर र ह्रासकट्टी, ब्याज, औसत, घरायसी महसुल र मुद्रा, तथा क्षेत्रमिति।"
+      },
+      "levels": [
+        "adhikrit",
+        "nayabsubba",
+        "kharidar"
+      ]
+    },
+    {
       "id": "iq",
       "name": {
         "en": "General Intelligence Test",

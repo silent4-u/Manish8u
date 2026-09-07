@@ -110,7 +110,8 @@
               },
               "marks": 30,
               "subjectIds": [
-                "iq"
+                "iq",
+                "maths"
               ],
               "topics": [
                 {
@@ -837,7 +838,8 @@
               },
               "marks": 40,
               "subjectIds": [
-                "iq"
+                "iq",
+                "maths"
               ],
               "topics": [
                 {
@@ -1304,8 +1306,7 @@
               },
               "marks": 40,
               "subjectIds": [
-                "iq",
-                "office-mgmt"
+                "bost"
               ],
               "topics": [
                 {
@@ -1470,7 +1471,7 @@
               },
               "marks": 30,
               "subjectIds": [
-                "iq"
+                "maths"
               ],
               "topics": [
                 {
