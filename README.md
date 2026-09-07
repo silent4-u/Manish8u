@@ -30,11 +30,15 @@ any moment without losing their place.
 - **Bookmarks** — save any note or question for a last-minute revision list.
 - **Contemporary issues** — a revision list of standing topics that keep
   reappearing in the objective papers.
+- **Materials** — PDFs filed under the paper, and the section of that paper,
+  they belong to. Files a learner adds are held in the browser's own storage
+  and never leave the device; files published with the app live in
+  `public/materials/` and are declared in `src/data/materials.ts`.
 - **Offline** — a service worker caches the app shell, so it keeps working on a
   patchy connection, and it installs to the home screen as a PWA.
 
-Nothing is sent anywhere. All progress lives in the browser's local storage on
-the learner's own device.
+Nothing is sent anywhere. Progress lives in the browser's local storage and
+added PDFs in its IndexedDB, both on the learner's own device.
 
 ## Running it
 
@@ -43,7 +47,7 @@ npm install
 npm run dev        # development server
 npm run build      # production build into dist/
 npm run preview    # serve the production build
-npm test           # content integrity + scoring rules
+npm test           # content integrity, scoring rules, material filing
 npm run export:content   # write content/ as portable JSON
 ```
 

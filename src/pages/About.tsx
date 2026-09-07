@@ -53,6 +53,7 @@ export function About() {
           <li>{t('privacyNoAccount')}</li>
           <li>{t('privacyNoTracking')}</li>
           <li>{t('privacyLocalOnly')}</li>
+          <li>{t('privacyFilesLocal')}</li>
         </ul>
         <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-sm">
           {t('privacyPolicy')}

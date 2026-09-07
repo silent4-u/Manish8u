@@ -5,6 +5,11 @@
  * cache-first afterwards, so a learner on a patchy connection can still read
  * notes and take practice tests. A new deployment gets a new CACHE version,
  * which drops the old caches on activation.
+ *
+ * PDFs published under materials/ are not in the shell — they are cached the
+ * first time they are opened, by the runtime handler below, so a material only
+ * takes up room on a device that has actually read it. PDFs a learner adds
+ * themselves never come through here at all; they live in IndexedDB.
  */
 const CACHE = 'lok-sewa-sathi-v1';
 const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png'];

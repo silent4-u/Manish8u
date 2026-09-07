@@ -7,7 +7,11 @@ import { SUBJECTS, SUBJECT_BY_ID } from '../src/data/subjects';
 import { LESSONS } from '../src/data/lessons';
 import { QUESTIONS } from '../src/data/questions';
 import { CURRENT_AFFAIRS } from '../src/data/currentAffairs';
+import { CATALOGUE_ENTRIES } from '../src/data/materials';
 import type { Bilingual } from '../src/types';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -35,6 +39,7 @@ checkUnique('subjects', SUBJECTS.map((s) => s.id));
 checkUnique('lessons', LESSONS.map((l) => l.id));
 checkUnique('questions', QUESTIONS.map((q) => q.id));
 checkUnique('currentAffairs', CURRENT_AFFAIRS.map((c) => c.id));
+checkUnique('materials', CATALOGUE_ENTRIES.map((m) => m.id));
 
 // --- levels and syllabus ---
 for (const level of LEVELS) {
@@ -139,6 +144,33 @@ for (const level of LEVELS) {
   }
   const lessonPool = LESSONS.filter((l) => l.levels.includes(level.id));
   if (lessonPool.length === 0) fail(`level ${level.id}: no lessons`);
+}
+
+// --- published materials point at a real paper, section and file ---
+const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
+
+for (const entry of CATALOGUE_ENTRIES) {
+  const where = `material ${entry.id}`;
+  if (!entry.title.trim()) fail(`${where}: missing title`);
+  if (Number.isNaN(Date.parse(entry.published))) fail(`${where}: "${entry.published}" is not a date`);
+
+  const level = LEVELS.find((l) => l.id === entry.levelId);
+  if (!level) {
+    fail(`${where}: unknown level "${entry.levelId}"`);
+    continue;
+  }
+  const paper = level.papers.find((p) => p.id === entry.paperId);
+  if (!paper) {
+    fail(`${where}: level "${entry.levelId}" has no paper "${entry.paperId}"`);
+    continue;
+  }
+  if (entry.sectionId && !paper.sections.some((s) => s.id === entry.sectionId)) {
+    fail(`${where}: paper "${paper.id}" has no section "${entry.sectionId}"`);
+  }
+  // A missing file would ship as a dead download, so it fails the build here.
+  if (!existsSync(join(repoRoot, 'public/materials', entry.file))) {
+    fail(`${where}: public/materials/${entry.file} does not exist`);
+  }
 }
 
 // --- every subject offered to a level should have questions for it ---

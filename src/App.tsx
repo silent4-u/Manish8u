@@ -13,6 +13,7 @@ import { Mock } from './pages/Mock';
 import { ProgressPage } from './pages/ProgressPage';
 import { Saved } from './pages/Saved';
 import { Affairs } from './pages/Affairs';
+import { Materials } from './pages/Materials';
 import { About } from './pages/About';
 import './styles/app.css';
 
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/progress" element={<RequireLevel><ProgressPage /></RequireLevel>} />
               <Route path="/saved" element={<RequireLevel><Saved /></RequireLevel>} />
               <Route path="/affairs" element={<RequireLevel><Affairs /></RequireLevel>} />
+              <Route path="/materials" element={<RequireLevel><Materials /></RequireLevel>} />
               <Route path="/about" element={<RequireLevel><About /></RequireLevel>} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>

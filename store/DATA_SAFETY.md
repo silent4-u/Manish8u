@@ -19,6 +19,12 @@ safety declaration is grounds for removal.
 - Progress and bookmarks are written to the app's own DataStore, which is
   private app storage on the device.
 - The study material is bundled in the APK; nothing is fetched at runtime.
+- The Materials screen lets a user pick a PDF from their own device. Google
+  counts that as collection only if the file is transmitted off the device or
+  read for any purpose beyond showing it back to the user. Neither happens
+  here: the file is written to the app's private storage and read only by the
+  viewer, so "Files and docs" stays undeclared. Ship a build that uploads a
+  picked file and this answer becomes false.
 
 ## What would change these answers
 
@@ -29,3 +35,5 @@ Adding any of the following means redoing this form before your next release:
 - Any login, cloud sync or server-side progress backup
 - In-app purchases — billing data is handled by Google, but you must still
   declare purchase history if the app reads it
+- Uploading, syncing or backing up a PDF a user added on the Materials screen —
+  that turns file access into collection of "Files and docs"

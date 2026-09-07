@@ -51,6 +51,11 @@ WHAT IS INSIDE
   as such, with its sources shown, so you are never handed an unchecked claim as
   a settled answer.
 
+• Your own PDFs, filed by paper
+  Add a PDF and file it under the paper — and the section of that paper — it
+  belongs to, then read it offline. Added files are held on your phone and are
+  never uploaded anywhere.
+
 • Bookmarks
   Save any note or question for a last-minute revision list.
 
@@ -62,8 +67,8 @@ window, or anywhere the signal drops. No account, no sign-up.
 YOUR DATA STAYS YOURS
 
 The app collects nothing. No account, no analytics, no advertising identifiers,
-nothing sent to any server. Your progress lives in your phone's own storage and
-is deleted when you uninstall.
+nothing sent to any server. Your progress and any PDF you add live in your
+phone's own storage and are deleted when you uninstall.
 
 ABOUT THE CONTENT
 

@@ -20,9 +20,13 @@ The app keeps the following **on your own device only**:
 - Your chosen interface language
 - Your quiz and mock test results, and per-subject accuracy
 - Notes and questions you bookmark
+- Any PDF you add on the Materials screen, together with the title you gave it
+  and the paper you filed it under
 
 This is held in the app's own private storage. We cannot read it. It is not
-backed up to any server we control, and uninstalling the app deletes it.
+backed up to any server we control, and uninstalling the app deletes it. A PDF
+you add is never uploaded — it is read only to show it back to you, and
+removing it from the Materials screen deletes the file from your device.
 
 ## What the app does not do
 

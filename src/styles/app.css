@@ -122,6 +122,16 @@ button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 :focus-visible { outline: 2px solid var(--crimson); outline-offset: 2px; border-radius: 4px; }
 
+/* The file input is hidden behind its label but stays in the tab order, so a
+   keyboard can still reach it; `display: none` would take it out entirely. */
+.file-input {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; border: 0;
+  clip-path: inset(50%); white-space: nowrap;
+}
+.file-label:focus-within { outline: 2px solid var(--crimson); outline-offset: 2px; }
+.material-count { opacity: 0.72; font-variant-numeric: tabular-nums; }
+
 /* ---------------- Layout ---------------- */
 
 .app { display: flex; flex-direction: column; min-height: 100%; }

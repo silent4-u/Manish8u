@@ -145,6 +145,10 @@ export const UI = {
   privacyNoAccount: { en: 'No account and no sign-up', ne: 'खाता र दर्ता चाहिँदैन' },
   privacyNoTracking: { en: 'No analytics and no advertising', ne: 'एनालिटिक्स र विज्ञापन छैन' },
   privacyLocalOnly: { en: 'Progress is stored only on your phone', ne: 'प्रगति तपाईंकै फोनमा मात्र राखिन्छ' },
+  privacyFilesLocal: {
+    en: 'PDFs you add are never uploaded',
+    ne: 'थप्नुभएका पीडीएफ कतै अपलोड हुँदैनन्',
+  },
   privacyPolicy: { en: 'Privacy policy', ne: 'गोपनीयता नीति' },
   aboutContactTitle: { en: 'Get in touch', ne: 'सम्पर्क' },
   aboutContactBody: {
@@ -159,6 +163,56 @@ export const UI = {
   oneEntry: { en: 'entry', ne: 'सामग्री' },
   manyEntries: { en: 'entries', ne: 'सामग्री' },
   offlineReady: { en: 'Works offline once loaded', ne: 'एकपटक खुलेपछि अफलाइन चल्छ' },
+  // Materials
+  navMaterials: { en: 'Materials', ne: 'सामग्री' },
+  materialsTagline: { en: 'PDFs filed by paper', ne: 'पत्रअनुसार राखिएका पीडीएफ' },
+  materialsLede: {
+    en: 'PDFs and notes, filed under the paper they belong to. Files you add stay on this device — nothing is uploaded.',
+    ne: 'पीडीएफ र नोटहरू, आफू पर्ने पत्रअन्तर्गत राखिएका। तपाईंले थप्नुभएका फाइल यही यन्त्रमै रहन्छन् — कतै अपलोड हुँदैन।',
+  },
+  addMaterial: { en: 'Add a PDF', ne: 'पीडीएफ थप्नुहोस्' },
+  chooseFile: { en: 'Choose a PDF', ne: 'पीडीएफ छान्नुहोस्' },
+  materialTitle: { en: 'Title', ne: 'शीर्षक' },
+  fileUnder: { en: 'File under', ne: 'कहाँ राख्ने' },
+  wholePaper: { en: 'The whole paper', ne: 'सिङ्गो पत्र' },
+  addToShelf: { en: 'Add to shelf', ne: 'थप्नुहोस्' },
+  openMaterial: { en: 'Open', ne: 'खोल्नुहोस्' },
+  closePreview: { en: 'Close', ne: 'बन्द गर्नुहोस्' },
+  saveCopy: { en: 'Save a copy', ne: 'प्रतिलिपि सुरक्षित' },
+  openInNewTab: { en: 'Open in a new tab', ne: 'नयाँ ट्याबमा खोल्नुहोस्' },
+  publishedMaterial: { en: 'Published with the app', ne: 'एपसँगै आएको' },
+  myMaterial: { en: 'Added by you', ne: 'तपाईंले थप्नुभएको' },
+  watermarkedWith: { en: 'Watermarked', ne: 'वाटरमार्क' },
+  noMaterialsYet: {
+    en: 'Nothing filed under this paper yet. Add a PDF and it will appear here, ready to read offline.',
+    ne: 'यस पत्रअन्तर्गत अहिलेसम्म केही छैन। पीडीएफ थप्नुहोस्, यहीँ देखिन्छ र अफलाइन पढ्न मिल्छ।',
+  },
+  materialsUnavailable: {
+    en: 'This browser will not let the app store files, so only material published with the app is shown.',
+    ne: 'यो ब्राउजरले एपलाई फाइल राख्न दिँदैन, त्यसैले एपसँगै आएको सामग्री मात्र देखिन्छ।',
+  },
+  materialNotPdf: { en: 'That is not a PDF file.', ne: 'त्यो पीडीएफ फाइल होइन।' },
+  materialTooLarge: {
+    en: 'That file is too large. The limit is 40 MB per file.',
+    ne: 'त्यो फाइल धेरै ठूलो भयो। प्रति फाइल ४० एमबीसम्म मात्र मिल्छ।',
+  },
+  materialEmpty: { en: 'That file is empty.', ne: 'त्यो फाइल खाली छ।' },
+  materialQuotaFull: {
+    en: 'There is no room left on this device. Remove a material and try again.',
+    ne: 'यस यन्त्रमा ठाउँ बाँकी छैन। कुनै सामग्री हटाएर फेरि प्रयास गर्नुहोस्।',
+  },
+  materialSaveFailed: { en: 'That file could not be saved.', ne: 'त्यो फाइल सुरक्षित गर्न सकिएन।' },
+  materialMissing: { en: 'That file is no longer on this device.', ne: 'त्यो फाइल यस यन्त्रमा छैन।' },
+  removeMaterialConfirm: {
+    en: 'Remove this material from your shelf? The file is deleted from this device.',
+    ne: 'यो सामग्री हटाउने? फाइल यस यन्त्रबाट मेटिन्छ।',
+  },
+  materialsFromOldSyllabus: { en: 'From an earlier syllabus', ne: 'अघिल्लो पाठ्यक्रमको' },
+  onThisDevice: { en: 'on this device', ne: 'यस यन्त्रमा' },
+  materialRights: {
+    en: 'Add only material you have the right to keep and read.',
+    ne: 'आफूलाई राख्ने र पढ्ने अधिकार भएको सामग्री मात्र थप्नुहोस्।',
+  },
 } satisfies Record<string, Bilingual>;
 
 export type UiKey = keyof typeof UI;
