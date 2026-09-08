@@ -66,6 +66,18 @@ export const officeMgmtLessons: Lesson[] = [
     },
     readMinutes: 8,
     blocks: [
+      {
+        type: 'figure',
+        figureId: 'filing-flow',
+        caption: {
+          en: 'The path every incoming paper takes through an office.',
+          ne: 'कार्यालयमा आउने हरेक कागजले लिने बाटो।',
+        },
+        alt: {
+          en: 'Five steps in order: darta or registration, tippani or note, decision, chalani or dispatch, and filing with an index.',
+          ne: 'क्रमैसँग पाँच चरण: दर्ता, टिप्पणी, निर्णय, चलानी, र अनुक्रमणिकासहित फाइलिङ।',
+        },
+      },
       { type: 'heading', text: { en: 'Darta — registration of incoming mail', ne: 'दर्ता — प्राप्त पत्रको अभिलेख' } },
       {
         type: 'list',

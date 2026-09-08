@@ -530,3 +530,16 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
   font-size: 19px; line-height: 1; cursor: pointer;
 }
 .back-btn:hover { border-color: var(--crimson); color: var(--crimson); }
+
+/* Lesson diagrams. Drawn from the same tokens as the rest of the app, so they
+   follow the theme instead of being a picture pasted onto it. */
+.lesson-figure { margin: 18px 0; }
+.lesson-figure-art {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); padding: 14px 12px;
+  overflow-x: auto;
+}
+.lesson-figure-art svg { min-width: 380px; }
+.lesson-figure figcaption {
+  margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
+}

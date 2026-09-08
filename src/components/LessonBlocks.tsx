@@ -1,5 +1,6 @@
 import type { LessonBlock } from '../types';
 import { useLang } from '../i18n/LanguageContext';
+import { FIGURES } from './figures';
 
 const TONE_LABEL = { key: 'keyPoint', tip: 'tip', warn: 'watchOut' } as const;
 
@@ -54,6 +55,21 @@ export function LessonBlocks({ blocks }: { blocks: LessonBlock[] }) {
                 </table>
               </div>
             );
+
+          case 'figure': {
+            const Figure = FIGURES[block.figureId];
+            // A figure whose drawing has gone is skipped rather than left as a
+            // gap; validate-data fails the build before that can ship.
+            if (!Figure) return null;
+            return (
+              <figure className="lesson-figure" key={index}>
+                <div className="lesson-figure-art" role="img" aria-label={b(block.alt)}>
+                  <Figure />
+                </div>
+                <figcaption>{b(block.caption)}</figcaption>
+              </figure>
+            );
+          }
 
           case 'callout':
             return (

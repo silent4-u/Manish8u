@@ -8,6 +8,7 @@ import { LESSONS } from '../src/data/lessons';
 import { QUESTIONS } from '../src/data/questions';
 import { CURRENT_AFFAIRS } from '../src/data/currentAffairs';
 import { CATALOGUE_ENTRIES } from '../src/data/materials';
+import { FIGURE_IDS } from '../src/components/figures';
 import type { Bilingual } from '../src/types';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -144,6 +145,25 @@ for (const level of LEVELS) {
   }
   const lessonPool = LESSONS.filter((l) => l.levels.includes(level.id));
   if (lessonPool.length === 0) fail(`level ${level.id}: no lessons`);
+}
+
+// --- every lesson figure names a drawing the app actually has ---
+const knownFigures = new Set(FIGURE_IDS);
+const usedFigures = new Set<string>();
+for (const lesson of LESSONS) {
+  for (const block of lesson.blocks) {
+    if (block.type !== 'figure') continue;
+    usedFigures.add(block.figureId);
+    if (!knownFigures.has(block.figureId)) {
+      fail(`lesson ${lesson.id}: unknown figure "${block.figureId}"`);
+    }
+    checkBilingual(`lesson ${lesson.id} figure ${block.figureId}.caption`, block.caption);
+    // The alt text is what a screen reader gets instead of the drawing.
+    checkBilingual(`lesson ${lesson.id} figure ${block.figureId}.alt`, block.alt);
+  }
+}
+for (const id of knownFigures) {
+  if (!usedFigures.has(id)) warnings.push(`figure ${id}: drawn but not used by any lesson`);
 }
 
 // --- alternative versions of a paper are as well formed as the paper ---

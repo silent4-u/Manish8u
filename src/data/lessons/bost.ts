@@ -28,6 +28,18 @@ export const bostLessons: Lesson[] = [
         },
       },
       {
+        type: 'figure',
+        figureId: 'exam-stages',
+        caption: {
+          en: 'Where the first paper sits. It screens who reaches the main examination and nothing more — its marks are not carried forward.',
+          ne: 'प्रथम पत्र कहाँ पर्छ। यसले मूल परीक्षामा को पुग्ने भन्ने छनोट मात्र गर्छ — यसको अङ्क अगाडि जोडिँदैन।',
+        },
+        alt: {
+          en: 'Three stages in a row: Stage I preliminary out of 100 as a screening test passing at 45 per cent whose marks are not carried, then Stage II main and the final stage, whose marks together decide the result.',
+          ne: 'लहरमा तीन चरण: १०० पूर्णाङ्कको प्रथम चरण प्रारम्भिक परीक्षा — ४५ प्रतिशतमा उत्तीर्ण हुने छनोट परीक्षा, जसको अङ्क अगाडि जोडिँदैन; त्यसपछि द्वितीय चरण मूल परीक्षा र अन्तिम चरण, जसको जोडले नतिजा निर्धारण गर्छ।',
+        },
+      },
+      {
         type: 'callout',
         tone: 'key',
         text: {

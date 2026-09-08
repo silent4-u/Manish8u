@@ -135,6 +135,11 @@ sealed class LessonBlock {
     @SerialName("table")
     data class Table(val headers: List<Bilingual>, val rows: List<List<Bilingual>>) : LessonBlock()
 
+    /** Names a diagram the client draws; it carries no image data. */
+    @Serializable
+    @SerialName("figure")
+    data class Figure(val figureId: String, val caption: Bilingual, val alt: Bilingual) : LessonBlock()
+
     @Serializable
     @SerialName("callout")
     data class Callout(val tone: String, val text: Bilingual) : LessonBlock()

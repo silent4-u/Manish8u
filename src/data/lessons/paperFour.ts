@@ -176,6 +176,18 @@ export const paperFourLessons: Lesson[] = [
         ],
       },
       {
+        type: 'figure',
+        figureId: 'budget-cycle',
+        caption: {
+          en: 'The five stages, and the return path that makes it a cycle.',
+          ne: 'पाँच चरण, र यसलाई चक्र बनाउने फर्किने बाटो।',
+        },
+        alt: {
+          en: 'Five stages in order — formulation, approval, implementation, accounting, audit — with an arrow from audit back to formulation showing that findings shape the next year\u2019s estimates.',
+          ne: 'क्रमैसँग पाँच चरण — निर्माण, स्वीकृति, कार्यान्वयन, लेखाङ्कन, लेखापरीक्षण — र लेखापरीक्षणबाट निर्माणतिर फर्किने तीर, जसले निष्कर्षले अर्को वर्षको अनुमान बनाउँछ भन्ने देखाउँछ।',
+        },
+      },
+      {
         type: 'callout',
         tone: 'tip',
         text: {
@@ -303,6 +315,18 @@ export const paperFourLessons: Lesson[] = [
           ne: 'महालेखा परीक्षकले संघ, प्रदेश र स्थानीय तह तथा सरकारको पूर्ण वा बहुल स्वामित्व भएका कार्यालय र निकायको लेखापरीक्षण गर्छ, र राष्ट्रपतिसमक्ष प्रतिवेदन पेस गर्छ, जसले त्यो संसदमा पेस गराउँछन्। त्यसपछि सार्वजनिक लेखा समितिले प्रतिवेदन जाँच्छ — यसैले लेखापरीक्षणलाई आन्तरिक अभ्यास नभई संसदीय नियन्त्रणको साधन बनाउँछ।',
         },
       },
+      {
+        type: 'figure',
+        figureId: 'audit-chain',
+        caption: {
+          en: 'Where an audit report travels, and why that route matters.',
+          ne: 'लेखापरीक्षण प्रतिवेदन कहाँ–कहाँ जान्छ, र त्यो बाटो किन महत्वपूर्ण छ।',
+        },
+        alt: {
+          en: 'A chain from the office\u2019s accounts to the Auditor General, then the President, then Parliament and its Public Accounts Committee.',
+          ne: 'कार्यालयको लेखाबाट महालेखा परीक्षक, अनि राष्ट्रपति, अनि संसद र यसको सार्वजनिक लेखा समितिसम्मको शृंखला।',
+        },
+      },
       { type: 'heading', text: { en: 'The standard-setting institutions', ne: 'मान तोक्ने संस्थाहरू' } },
       {
         type: 'facts',
@@ -339,6 +363,18 @@ export const paperFourLessons: Lesson[] = [
         text: {
           en: 'Nepal is a federal democratic republic with three levels of government — federal, provincial and local — each with its own legislature, executive and, at the federal and provincial level, its own courts or judicial bodies. The Constitution divides power through schedules: exclusive powers of the federation, of the provinces and of the local levels, and then lists of powers held concurrently by the federation and provinces, and by all three. Where a concurrent law conflicts, the federal law prevails to the extent of the inconsistency.',
           ne: 'नेपाल संघीय लोकतान्त्रिक गणतन्त्र हो, जसमा सरकारका तीन तह छन् — संघ, प्रदेश र स्थानीय — र प्रत्येकको आफ्नै व्यवस्थापिका, कार्यपालिका र संघ तथा प्रदेश तहमा आफ्नै अदालत वा न्यायिक निकाय हुन्छ। संविधानले अनुसूचीमार्फत अधिकार बाँड्छ: संघ, प्रदेश र स्थानीय तहका एकल अधिकार, अनि संघ र प्रदेशले तथा तीनै तहले साझा रूपमा प्रयोग गर्ने अधिकारका सूची। साझा अधिकारमा बनेको कानून बाझिएमा बाझिएको हदसम्म संघीय कानून मान्य हुन्छ।',
+        },
+      },
+      {
+        type: 'figure',
+        figureId: 'three-levels',
+        caption: {
+          en: 'The three levels and the schedules that divide their powers.',
+          ne: 'तीन तह र तिनका अधिकार बाँड्ने अनुसूचीहरू।',
+        },
+        alt: {
+          en: 'Federation, seven provinces and 753 local levels stacked in order, with Schedules 5, 6 and 8 giving each its exclusive powers, Schedule 7 shared between federation and province, Schedule 9 shared by all three, and federal law prevailing where a concurrent law conflicts.',
+          ne: 'संघ, सात प्रदेश र ७५३ स्थानीय तह क्रमैसँग; अनुसूची ५, ६ र ८ ले प्रत्येकको एकल अधिकार, अनुसूची ७ संघ र प्रदेशको साझा, अनुसूची ९ तीनै तहको साझा, र साझा अधिकारमा बाझिएमा संघीय कानून मान्य।',
         },
       },
       {

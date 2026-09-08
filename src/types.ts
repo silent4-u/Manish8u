@@ -91,7 +91,13 @@ export type LessonBlock =
   | { type: 'list'; items: Bilingual[]; ordered?: boolean }
   | { type: 'facts'; items: { label: Bilingual; value: Bilingual }[] }
   | { type: 'table'; headers: Bilingual[]; rows: Bilingual[][] }
-  | { type: 'callout'; tone: 'key' | 'tip' | 'warn'; text: Bilingual };
+  | { type: 'callout'; tone: 'key' | 'tip' | 'warn'; text: Bilingual }
+  /**
+   * A diagram drawn by the app. The block names a figure rather than carrying
+   * an image, so nothing is fetched at runtime, the drawing follows the theme,
+   * and the app ships no artwork whose licence it cannot account for.
+   */
+  | { type: 'figure'; figureId: string; caption: Bilingual; alt: Bilingual };
 
 export interface Lesson {
   id: string;

@@ -69,9 +69,9 @@ class ContentTest {
     @Test
     fun `every lesson block subtype round trips`() {
         val kinds = repo.lessons.flatMap { it.blocks }.map { it::class.simpleName }.toSet()
-        // All six authored block types must deserialise into their sealed subclass.
+        // Every authored block type must deserialise into its sealed subclass.
         assertEquals(
-            setOf("Heading", "Para", "Listing", "Facts", "Table", "Callout"),
+            setOf("Heading", "Para", "Listing", "Facts", "Table", "Callout", "Figure"),
             kinds,
         )
         repo.lessons.flatMap { it.blocks }.filterIsInstance<LessonBlock.Table>().forEach { t ->
