@@ -107,9 +107,14 @@ export function LessonList() {
           {b(subject.name)}
         </h1>
         <p className="muted small">{b(subject.description)}</p>
-        <Link to={`/practice/${subject.id}`} className="btn btn-primary btn-sm">
-          {t('practiceThisSubject')}
-        </Link>
+        <div className="row">
+          <Link to={`/practice/${subject.id}`} className="btn btn-primary btn-sm">
+            {t('practiceThisSubject')}
+          </Link>
+          <Link to={`/notes/subject/${subject.id}`} className="btn btn-sm">
+            {t('notesBooklet')}
+          </Link>
+        </div>
       </div>
 
       {lessons.length === 0 ? (

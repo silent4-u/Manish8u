@@ -90,6 +90,10 @@ export function Paper() {
         </div>
       )}
 
+      <Link to={`/notes/paper/${paper.id}`} className="btn btn-block">
+        {t('notesBooklet')}
+      </Link>
+
       {paper.format === 'objective' && (
         <Link to="/mock" className="btn btn-primary btn-block">
           {t('fullMockTest')} · {n(level.mock.questionCount)} {t('questions')}

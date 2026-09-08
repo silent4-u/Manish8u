@@ -16,6 +16,7 @@ import { Saved } from './pages/Saved';
 import { Affairs } from './pages/Affairs';
 import { Materials } from './pages/Materials';
 import { Paper } from './pages/Paper';
+import { Notes } from './pages/Notes';
 import { About } from './pages/About';
 import './styles/app.css';
 
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="/" element={<RequireLevel><Home /></RequireLevel>} />
               <Route path="/syllabus" element={<RequireLevel><Syllabus /></RequireLevel>} />
               <Route path="/paper/:paperId" element={<RequireLevel><Paper /></RequireLevel>} />
+              <Route path="/notes/:scope/:id" element={<RequireLevel><Notes /></RequireLevel>} />
               <Route path="/first-paper" element={<RequireLevel><FirstPaper /></RequireLevel>} />
               <Route path="/first-paper/practice/:subjectId" element={<RequireLevel><FirstPaperQuiz /></RequireLevel>} />
               <Route path="/study" element={<RequireLevel><SubjectList /></RequireLevel>} />
