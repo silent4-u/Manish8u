@@ -517,3 +517,16 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
    the notes actually written for the section above it. */
 .link-list { margin: 6px 0 0; padding-left: 18px; }
 .link-list li { margin-bottom: 3px; }
+
+/* Back takes the brand mark's place rather than sitting beside it, so the top
+   bar keeps its width on a phone. Every screen the tab bar cannot reach shows
+   it — the lesson reader most of all, which used to be a dead end. */
+.topbar-lead { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.back-btn {
+  width: 34px; height: 34px; flex: none;
+  display: grid; place-items: center;
+  border: 1px solid var(--border-strong); border-radius: 10px;
+  background: var(--surface); color: var(--text);
+  font-size: 19px; line-height: 1; cursor: pointer;
+}
+.back-btn:hover { border-color: var(--crimson); color: var(--crimson); }

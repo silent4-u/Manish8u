@@ -1,4 +1,4 @@
-import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
@@ -12,25 +12,58 @@ const TABS = [
   { to: '/progress', icon: '📊', key: 'navProgress', end: false },
 ] as const;
 
+/** The six screens the tab bar reaches. Everywhere else needs a way back. */
+const TAB_PATHS = new Set<string>(TABS.map((tab) => tab.to));
+
+/**
+ * Where back goes when a screen was opened directly — a shared link, a
+ * restored tab, a notification — and there is no in-app history behind it.
+ * Without this, back on a deep link would leave the app entirely.
+ */
+function parentOf(pathname: string): string {
+  if (pathname.startsWith('/lesson/') || pathname.startsWith('/study/')) return '/study';
+  if (pathname.startsWith('/first-paper/')) return '/first-paper';
+  if (pathname.startsWith('/practice/')) return '/practice';
+  if (pathname.startsWith('/paper/')) return '/syllabus';
+  return '/';
+}
+
 export function Layout() {
   const { t, b, lang, setLang } = useLang();
   const { levelId } = useProgress();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = location;
   const level = levelId ? LEVEL_BY_ID[levelId] : null;
   // The medium screen is the choice the top bar's toggle would duplicate, and
   // every tab behind it needs a level that has not been picked yet.
   const onboarding = pathname === '/start';
+  const showBack = !onboarding && !TAB_PATHS.has(pathname);
+
+  function goBack() {
+    // A location key of 'default' means this is the first entry in the history
+    // stack, so `navigate(-1)` would step out of the app instead of back.
+    if (location.key === 'default') navigate(parentOf(pathname), { replace: true });
+    else navigate(-1);
+  }
 
   return (
     <div className="app">
       <header className="topbar">
-        <Link to="/" className="brand">
-          <span className="brand-mark" aria-hidden="true">लो</span>
-          <span className="brand-text">
-            <span className="brand-name">{t('appName')}</span>
-            <span className="brand-sub">{t('tagline')}</span>
-          </span>
-        </Link>
+        <div className="topbar-lead">
+          {showBack && (
+            <button type="button" className="back-btn" onClick={goBack} aria-label={t('back')}>
+              <span aria-hidden="true">←</span>
+            </button>
+          )}
+          <Link to="/" className="brand">
+            {!showBack && <span className="brand-mark" aria-hidden="true">लो</span>}
+            <span className="brand-text">
+              <span className="brand-name">{t('appName')}</span>
+              <span className="brand-sub">{t('tagline')}</span>
+            </span>
+          </Link>
+        </div>
 
         <span className="topbar-spacer" />
 
