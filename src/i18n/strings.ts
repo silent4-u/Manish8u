@@ -170,11 +170,17 @@ export const UI = {
   yourPapers: { en: 'Your papers', ne: 'तपाईंका पत्र' },
   writtenForThisSection: { en: 'Written for this section', ne: 'यसै खण्डका लागि लेखिएका' },
   alsoOnTheseSubjects: { en: 'Also on these subjects', ne: 'यिनै विषयका अन्य पाठ' },
+  noNotesWrittenForSection: {
+    en: 'No notes written for this section yet. These cover its subjects more broadly.',
+    ne: 'यस खण्डका लागि लेखिएका पाठ अहिलेसम्म छैनन्। तलका पाठले यसका विषयलाई फराकिलो रूपमा समेट्छन्।',
+  },
   noNotesForSectionYet: {
     en: 'No notes for this section yet. The syllabus topics above are what it examines.',
     ne: 'यस खण्डका पाठ अहिलेसम्म छैनन्। माथिका पाठ्यक्रम बुँदा नै यसमा सोधिने विषय हुन्।',
   },
   studyThisPaper: { en: 'Study this paper', ne: 'यो पत्र पढ्नुहोस्' },
+  whichVersion: { en: 'Which service do you sit this paper for?', ne: 'तपाईं कुन सेवाका लागि यो पत्र दिँदै हुनुहुन्छ?' },
+  showingSyllabusFor: { en: 'Showing the syllabus for', ne: 'देखाइएको पाठ्यक्रम' },
   examMedium: { en: 'Medium of the examination', ne: 'परीक्षाको माध्यम' },
   yourMedium: { en: 'Your medium', ne: 'तपाईंको माध्यम' },
   changeMedium: { en: 'Change medium', ne: 'माध्यम बदल्नुहोस्' },

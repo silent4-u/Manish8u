@@ -20,6 +20,19 @@ export interface SyllabusSection {
   topics: Bilingual[];
 }
 
+/**
+ * An alternative version of a paper, set for a different service or group.
+ * The commission sets one service related paper per group, so a single paper
+ * slot can carry several syllabi — the Section Officer's fourth paper differs
+ * for the Audit Service, and Nayab Subba's third differs five ways.
+ */
+export interface PaperVariant {
+  id: string;
+  /** The service or group that sits this version of the paper. */
+  appliesTo: Bilingual;
+  sections: SyllabusSection[];
+}
+
 export interface Paper {
   id: string;
   name: Bilingual;
@@ -30,6 +43,13 @@ export interface Paper {
   /** Human readable question pattern, e.g. "50 x 2 marks". */
   pattern: Bilingual;
   sections: SyllabusSection[];
+  /**
+   * Who sits the sections above, named only when the paper has more than one
+   * version. Left unset, the paper is the same for everyone taking the post.
+   */
+  appliesTo?: Bilingual;
+  /** Other versions of the same paper, for other services or groups. */
+  variants?: PaperVariant[];
 }
 
 export interface MockPattern {

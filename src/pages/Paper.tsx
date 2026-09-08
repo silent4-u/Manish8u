@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
@@ -17,6 +18,7 @@ export function Paper() {
   const { paperId } = useParams<{ paperId: string }>();
   const { t, b, n } = useLang();
   const { levelId } = useProgress();
+  const [variantId, setVariantId] = useState<string | null>(null);
   const level = levelId ? LEVEL_BY_ID[levelId] : null;
   const paper = level?.papers.find((p) => p.id === paperId) ?? null;
 
@@ -31,6 +33,14 @@ export function Paper() {
 
   const forLevel = LESSONS.filter((l) => l.levels.includes(level.id));
   const formatLabel = { objective: t('objective'), subjective: t('subjective'), mixed: t('mixed') };
+
+  // A service related paper is set once per service group, so the same paper
+  // slot can carry several syllabi. The version the paper itself holds is the
+  // one most candidates sit; the rest are offered beside it.
+  const variants = paper.variants ?? [];
+  const selected = variants.find((v) => v.id === variantId) ?? null;
+  const sections = selected ? selected.sections : paper.sections;
+  const appliesTo = selected ? selected.appliesTo : paper.appliesTo;
 
   return (
     <div className="stack">
@@ -48,13 +58,45 @@ export function Paper() {
         <p className="small muted" style={{ marginTop: 10, marginBottom: 0 }}>{b(paper.pattern)}</p>
       </div>
 
+      {variants.length > 0 && (
+        <div className="card">
+          <div className="eyebrow">{t('whichVersion')}</div>
+          <div className="row" style={{ marginTop: 6 }}>
+            <button
+              type="button"
+              className={`btn btn-sm${selected === null ? ' btn-primary' : ''}`}
+              aria-pressed={selected === null}
+              onClick={() => setVariantId(null)}
+            >
+              {paper.appliesTo ? b(paper.appliesTo) : t('all')}
+            </button>
+            {variants.map((variant) => (
+              <button
+                key={variant.id}
+                type="button"
+                className={`btn btn-sm${selected?.id === variant.id ? ' btn-primary' : ''}`}
+                aria-pressed={selected?.id === variant.id}
+                onClick={() => setVariantId(variant.id)}
+              >
+                {b(variant.appliesTo)}
+              </button>
+            ))}
+          </div>
+          {appliesTo && (
+            <div className="tiny muted" style={{ marginTop: 8 }}>
+              {t('showingSyllabusFor')}: {b(appliesTo)}
+            </div>
+          )}
+        </div>
+      )}
+
       {paper.format === 'objective' && (
         <Link to="/mock" className="btn btn-primary btn-block">
           {t('fullMockTest')} · {n(level.mock.questionCount)} {t('questions')}
         </Link>
       )}
 
-      {paper.sections.map((section) => {
+      {sections.map((section) => {
         const written = forLevel.filter((l) => l.sections?.includes(section.id));
         const writtenIds = new Set(written.map((l) => l.id));
         const related = forLevel.filter(
@@ -93,6 +135,9 @@ export function Paper() {
             {related.length > 0 && (
               <>
                 <div className="eyebrow" style={{ marginTop: 14 }}>{t('alsoOnTheseSubjects')}</div>
+                {written.length === 0 && (
+                  <div className="tiny muted">{t('noNotesWrittenForSection')}</div>
+                )}
                 <ul className="small link-list">
                   {related.slice(0, 6).map((lesson) => (
                     <li key={lesson.id}>

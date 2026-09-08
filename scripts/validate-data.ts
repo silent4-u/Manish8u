@@ -146,6 +146,37 @@ for (const level of LEVELS) {
   if (lessonPool.length === 0) fail(`level ${level.id}: no lessons`);
 }
 
+// --- alternative versions of a paper are as well formed as the paper ---
+const variantIds = new Set<string>();
+for (const level of LEVELS) {
+  for (const paper of level.papers) {
+    const variants = paper.variants ?? [];
+    if (variants.length > 0 && !paper.appliesTo) {
+      fail(`paper ${paper.id}: has variants but does not say who its own sections are for`);
+    }
+    for (const variant of variants) {
+      const where = `variant ${variant.id}`;
+      if (variantIds.has(variant.id)) fail(`${where}: duplicate id`);
+      variantIds.add(variant.id);
+      checkBilingual(`${where}.appliesTo`, variant.appliesTo);
+      if (variant.sections.length === 0) fail(`${where}: no sections`);
+
+      // A variant is a whole alternative paper, so it must be worth the same.
+      const total = variant.sections.reduce((sum, section) => sum + (section.marks ?? 0), 0);
+      if (total !== paper.fullMarks) {
+        fail(`${where}: sections total ${total} but the paper is out of ${paper.fullMarks}`);
+      }
+      for (const section of variant.sections) {
+        checkBilingual(`${where} section ${section.id}.name`, section.name);
+        if (section.topics.length === 0) fail(`${where} section ${section.id}: no topics`);
+        for (const id of section.subjectIds) {
+          if (!SUBJECT_BY_ID[id]) fail(`${where} section ${section.id}: unknown subject "${id}"`);
+        }
+      }
+    }
+  }
+}
+
 // --- published materials point at a real paper, section and file ---
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 

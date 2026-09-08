@@ -40,6 +40,18 @@ data class SyllabusSection(
     val topics: List<Bilingual> = emptyList(),
 )
 
+/**
+ * An alternative version of a paper, set for a different service or group.
+ * The commission sets one service related paper per group, so a single paper
+ * can carry several syllabi worth the same marks.
+ */
+@Serializable
+data class PaperVariant(
+    val id: String,
+    val appliesTo: Bilingual,
+    val sections: List<SyllabusSection> = emptyList(),
+)
+
 @Serializable
 data class Paper(
     val id: String,
@@ -50,6 +62,10 @@ data class Paper(
     val format: String,
     val pattern: Bilingual,
     val sections: List<SyllabusSection> = emptyList(),
+    /** Who sits [sections], named only when the paper has more than one version. */
+    val appliesTo: Bilingual? = null,
+    /** Other versions of this paper, for other services or groups. */
+    val variants: List<PaperVariant> = emptyList(),
 )
 
 @Serializable

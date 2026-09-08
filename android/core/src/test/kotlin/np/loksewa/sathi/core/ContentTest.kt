@@ -139,6 +139,33 @@ class ContentTest {
     }
 
     @Test
+    fun `an alternative version of a paper is worth the same as the paper`() {
+        var seen = 0
+        repo.levels.forEach { level ->
+            level.papers.forEach { paper ->
+                if (paper.variants.isNotEmpty()) {
+                    assertNotNull(paper.appliesTo, "${paper.id}: has variants but does not say who its own sections are for")
+                }
+                paper.variants.forEach { variant ->
+                    seen += 1
+                    assertTrue(variant.sections.isNotEmpty(), "${variant.id}: no sections")
+                    assertEquals(
+                        paper.fullMarks,
+                        variant.sections.sumOf { it.marks ?: 0 },
+                        "${variant.id}: an alternative paper must be worth the same as the paper",
+                    )
+                    variant.sections.forEach { s ->
+                        s.subjectIds.forEach { assertNotNull(repo.subject(it), "${s.id}: unknown subject $it") }
+                    }
+                }
+            }
+        }
+        // The Section Officer's fourth paper differs for the Audit Service, so
+        // a build that carries no variant at all has dropped the data.
+        assertTrue(seen > 0, "no paper variants parsed from the bundle")
+    }
+
+    @Test
     fun `current affairs are filed by month, newest first`() {
         val grouped = repo.affairsByMonth("adhikrit")
         assertTrue(grouped.isNotEmpty(), "no months")
