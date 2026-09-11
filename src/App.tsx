@@ -17,6 +17,7 @@ import { Affairs } from './pages/Affairs';
 import { Materials } from './pages/Materials';
 import { Paper } from './pages/Paper';
 import { Notes } from './pages/Notes';
+import { References } from './pages/References';
 import { About } from './pages/About';
 import './styles/app.css';
 
@@ -66,6 +67,7 @@ export default function App() {
               <Route path="/saved" element={<RequireLevel><Saved /></RequireLevel>} />
               <Route path="/affairs" element={<RequireLevel><Affairs /></RequireLevel>} />
               <Route path="/materials" element={<RequireLevel><Materials /></RequireLevel>} />
+              <Route path="/references" element={<RequireLevel><References /></RequireLevel>} />
               <Route path="/about" element={<RequireLevel><About /></RequireLevel>} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>

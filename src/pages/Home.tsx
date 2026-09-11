@@ -5,6 +5,7 @@ import { LEVEL_BY_ID } from '../data/levels';
 import { lessonsForLevel } from '../data/lessons';
 import { questionsFor } from '../data/questions';
 import { CURRENT_AFFAIRS } from '../data/currentAffairs';
+import { REFERENCES } from '../data/references';
 import { DAILY_GOAL, currentStreak, goalPercent, questionsToday, recentDays } from '../lib/streak';
 
 export function Home() {
@@ -156,6 +157,13 @@ export function Home() {
             <span>
               <strong>{t('navMaterials')}</strong>
               <div className="tiny muted">{t('materialsTagline')}</div>
+            </span>
+          </Link>
+          <Link to="/references" className="action-tile">
+            <span className="subject-icon" aria-hidden="true">🏛️</span>
+            <span>
+              <strong>{t('primarySources')}</strong>
+              <div className="tiny muted">{n(REFERENCES.filter((r) => r.levels.includes(level.id)).length)} {t('documents')}</div>
             </span>
           </Link>
           <Link to="/saved" className="action-tile">

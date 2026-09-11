@@ -9,6 +9,7 @@ import { QUESTIONS } from '../src/data/questions';
 import { CURRENT_AFFAIRS } from '../src/data/currentAffairs';
 import { CATALOGUE_ENTRIES } from '../src/data/materials';
 import { FIGURE_IDS } from '../src/components/figures';
+import { REFERENCES } from '../src/data/references';
 import type { Bilingual } from '../src/types';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -145,6 +146,46 @@ for (const level of LEVELS) {
   }
   const lessonPool = LESSONS.filter((l) => l.levels.includes(level.id));
   if (lessonPool.length === 0) fail(`level ${level.id}: no lessons`);
+}
+
+// --- primary sources point at syllabus sections that exist ---
+const sectionIds = new Set<string>();
+const sectionLevels = new Map<string, string>();
+for (const level of LEVELS) {
+  for (const paper of level.papers) {
+    const all = [paper.sections, ...(paper.variants ?? []).map((v) => v.sections)];
+    for (const sections of all) {
+      for (const section of sections) {
+        sectionIds.add(section.id);
+        sectionLevels.set(section.id, level.id);
+      }
+    }
+  }
+}
+checkUnique('references', REFERENCES.map((r) => r.id));
+for (const ref of REFERENCES) {
+  const where = `reference ${ref.id}`;
+  checkBilingual(`${where}.title`, ref.title);
+  checkBilingual(`${where}.publisher`, ref.publisher);
+  checkBilingual(`${where}.what`, ref.what);
+  checkBilingual(`${where}.cadence`, ref.cadence);
+  if (ref.covers.length === 0) fail(`${where}: covers no syllabus section`);
+  if (ref.levels.length === 0) fail(`${where}: cited by no level`);
+  // A bare host, never a deep link: a path into a ministry site rots.
+  if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(ref.site)) {
+    fail(`${where}: site "${ref.site}" should be a bare host, not a URL or path`);
+  }
+  for (const id of ref.covers) {
+    if (!sectionIds.has(id)) {
+      fail(`${where}: covers unknown syllabus section "${id}"`);
+      continue;
+    }
+    // A section it covers must belong to a post that actually cites it.
+    const owner = sectionLevels.get(id)!;
+    if (!ref.levels.includes(owner as (typeof ref.levels)[number])) {
+      fail(`${where}: covers ${id} on level "${owner}" but does not list that level`);
+    }
+  }
 }
 
 // --- every lesson figure names a drawing the app actually has ---

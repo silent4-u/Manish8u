@@ -179,6 +179,23 @@ export const UI = {
     ne: 'यस खण्डका पाठ अहिलेसम्म छैनन्। माथिका पाठ्यक्रम बुँदा नै यसमा सोधिने विषय हुन्।',
   },
   studyThisPaper: { en: 'Study this paper', ne: 'यो पत्र पढ्नुहोस्' },
+  primarySources: { en: 'Primary sources', ne: 'मूल स्रोतहरू' },
+  documents: { en: 'documents', ne: 'कागजात' },
+  primarySourcesLede: {
+    en: 'The documents your answers should rest on, and which part of your own papers each one answers.',
+    ne: 'तपाईंका उत्तर जसमा अडिनुपर्छ ती कागजात, र प्रत्येकले तपाईंकै कुन पत्रको कुन भाग समेट्छ।',
+  },
+  primarySourcesHow: {
+    en: 'The app does not carry these files: they are large, they are revised on their own schedule, and their figures must come from the publisher rather than from anyone’s memory of them. Download the current edition from the publisher, then add it on the Materials screen and it will sit under the paper it belongs to.',
+    ne: 'यी फाइल एपमा राखिएका छैनन्: ठूला छन्, आ–आफ्नै तालिकामा संशोधन हुन्छन्, र यिनका अङ्क कसैको सम्झनाबाट होइन प्रकाशकबाटै आउनुपर्छ। प्रकाशकबाट चालु संस्करण डाउनलोड गर्नुहोस्, अनि सामग्री पृष्ठमा थप्नुहोस् — त्यो आफै सम्बन्धित पत्रअन्तर्गत बस्नेछ।',
+  },
+  primarySourcesRights: {
+    en: 'Check the publisher’s own terms before redistributing any of these documents, especially in a paid app.',
+    ne: 'यीमध्ये कुनै पनि कागजात पुनःवितरण गर्नुअघि, विशेषगरी शुल्क लिने एपमा, प्रकाशककै सर्त जाँच्नुहोस्।',
+  },
+  answersTheseP: { en: 'A primary source for', ne: 'यी पत्रको मूल स्रोत' },
+  publishedAt: { en: 'Published at', ne: 'प्रकाशन स्थल' },
+  primarySourcesToFile: { en: 'to collect', ne: 'संकलन गर्न' },
   saveAsPdf: { en: 'Save as PDF', ne: 'पीडीएफ बनाउनुहोस्' },
   notesBooklet: { en: 'Notes as PDF', ne: 'नोट पीडीएफमा' },
   contents: { en: 'Contents', ne: 'विषयसूची' },
