@@ -9,6 +9,7 @@ import { Home } from './pages/Home';
 import { Syllabus } from './pages/Syllabus';
 import { SubjectList, LessonList, LessonView } from './pages/Study';
 import { FirstPaperQuiz, PracticePicker, PracticeQuiz } from './pages/Practice';
+import { WrittenAnswerView, WrittenPaper, WrittenPicker } from './pages/Written';
 import { FirstPaper } from './pages/FirstPaper';
 import { Mock } from './pages/Mock';
 import { ProgressPage } from './pages/ProgressPage';
@@ -60,6 +61,12 @@ export default function App() {
               <Route path="/study" element={<RequireLevel><SubjectList /></RequireLevel>} />
               <Route path="/study/:subjectId" element={<RequireLevel><LessonList /></RequireLevel>} />
               <Route path="/lesson/:lessonId" element={<RequireLevel><LessonView /></RequireLevel>} />
+              <Route path="/written" element={<RequireLevel><WrittenPicker /></RequireLevel>} />
+              <Route path="/written/:paperId" element={<RequireLevel><WrittenPaper /></RequireLevel>} />
+              <Route
+                path="/written/:paperId/:questionId"
+                element={<RequireLevel><WrittenAnswerView /></RequireLevel>}
+              />
               <Route path="/practice" element={<RequireLevel><PracticePicker /></RequireLevel>} />
               <Route path="/practice/:subjectId" element={<RequireLevel><PracticeQuiz /></RequireLevel>} />
               <Route path="/mock" element={<RequireLevel><Mock /></RequireLevel>} />

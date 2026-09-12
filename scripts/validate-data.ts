@@ -9,6 +9,7 @@ import { QUESTIONS } from '../src/data/questions';
 import { CURRENT_AFFAIRS } from '../src/data/currentAffairs';
 import { CATALOGUE_ENTRIES } from '../src/data/materials';
 import { MATERIAL_CONTENTS } from '../src/data/materialChapters';
+import { WRITTEN_QUESTIONS } from '../src/data/written';
 import { FIGURE_IDS } from '../src/components/figures';
 import { REFERENCES } from '../src/data/references';
 import type { Bilingual } from '../src/types';
@@ -43,6 +44,7 @@ checkUnique('lessons', LESSONS.map((l) => l.id));
 checkUnique('questions', QUESTIONS.map((q) => q.id));
 checkUnique('currentAffairs', CURRENT_AFFAIRS.map((c) => c.id));
 checkUnique('materials', CATALOGUE_ENTRIES.map((m) => m.id));
+checkUnique('written', WRITTEN_QUESTIONS.map((q) => q.id));
 
 // --- levels and syllabus ---
 for (const level of LEVELS) {
@@ -263,6 +265,54 @@ for (const entry of CATALOGUE_ENTRIES) {
   // A missing file would ship as a dead download, so it fails the build here.
   if (!existsSync(join(repoRoot, 'public/materials', entry.file))) {
     fail(`${where}: public/materials/${entry.file} does not exist`);
+  }
+}
+
+// --- written paper questions ---
+// A long-answer question is only practice if it is attached to a paper that is
+// actually answered in prose, in a section that paper still has.
+for (const question of WRITTEN_QUESTIONS) {
+  const where = `written ${question.id}`;
+  checkBilingual(`${where}.prompt`, question.prompt);
+  checkBilingual(`${where}.intro`, question.intro);
+  checkBilingual(`${where}.conclusion`, question.conclusion);
+  if (question.keyPoints.length === 0) fail(`${where}: no key points`);
+  question.keyPoints.forEach((point, i) => checkBilingual(`${where}.keyPoints[${i}]`, point));
+  if (question.parts.length === 0) fail(`${where}: the model answer has no parts`);
+  question.parts.forEach((part, i) => {
+    checkBilingual(`${where}.parts[${i}].heading`, part.heading);
+    if (part.points.length === 0) fail(`${where}: parts[${i}] has no points`);
+    part.points.forEach((point, j) => checkBilingual(`${where}.parts[${i}].points[${j}]`, point));
+  });
+  question.authorities?.forEach((item, i) => checkBilingual(`${where}.authorities[${i}]`, item));
+  if (question.freshnessNote) checkBilingual(`${where}.freshnessNote`, question.freshnessNote);
+  if (question.marks <= 0) fail(`${where}: marks must be positive`);
+  if (question.minutes <= 0) fail(`${where}: minutes must be positive`);
+  if (!SUBJECT_BY_ID[question.subjectId]) fail(`${where}: unknown subject "${question.subjectId}"`);
+  if (question.levels.length === 0) fail(`${where}: no levels`);
+
+  for (const levelId of question.levels) {
+    const level = LEVELS.find((l) => l.id === levelId);
+    if (!level) {
+      fail(`${where}: unknown level "${levelId}"`);
+      continue;
+    }
+    const paper = level.papers.find((p) => p.id === question.paperId);
+    if (!paper) {
+      fail(`${where}: level "${levelId}" has no paper "${question.paperId}"`);
+      continue;
+    }
+    // Multiple choice is the exercise for an objective paper; prose is not.
+    if (paper.format === 'objective') {
+      fail(`${where}: paper "${paper.id}" is objective, so a long answer is the wrong exercise`);
+    }
+    if (question.marks > paper.fullMarks) {
+      fail(`${where}: ${question.marks} marks exceeds the paper's ${paper.fullMarks}`);
+    }
+    const sections = [...paper.sections, ...(paper.variants ?? []).flatMap((v) => v.sections)];
+    if (!sections.some((s) => s.id === question.sectionId)) {
+      fail(`${where}: paper "${paper.id}" has no section "${question.sectionId}"`);
+    }
   }
 }
 

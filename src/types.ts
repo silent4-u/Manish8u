@@ -129,6 +129,50 @@ export interface Question {
   explanation: Bilingual;
 }
 
+/** One block of a model answer: a heading and the points made under it. */
+export interface WrittenAnswerPart {
+  heading: Bilingual;
+  points: Bilingual[];
+}
+
+/**
+ * A long-answer question with a model answer, for the written papers.
+ *
+ * Papers II to IV are answered in prose, not by choosing an option, so
+ * multiple choice is the wrong exercise for them entirely: it never asks a
+ * candidate to structure an argument, cite an Act, or write to the length the
+ * marks allow. These carry the marks and the minutes the commission allots,
+ * the skeleton to recall before writing, and a model answer to compare an
+ * attempt against.
+ */
+export interface WrittenQuestion {
+  id: string;
+  levels: LevelId[];
+  /** Paper this is practice for. */
+  paperId: string;
+  /** Syllabus section within that paper. */
+  sectionId: string;
+  subjectId: string;
+  /** Marks the commission allots, so the answer is written to length. */
+  marks: number;
+  /** Minutes to spend, from the paper's own marks-to-time ratio. */
+  minutes: number;
+  prompt: Bilingual;
+  /** The skeleton a candidate should be able to recall before writing. */
+  keyPoints: Bilingual[];
+  intro: Bilingual;
+  parts: WrittenAnswerPart[];
+  conclusion: Bilingual;
+  /** Acts, articles and plans worth naming in the answer. */
+  authorities?: Bilingual[];
+  /**
+   * Set where the answer would otherwise carry a figure that goes stale. The
+   * app does not print a number it cannot stand behind; it says which
+   * publication to take this year's from.
+   */
+  freshnessNote?: Bilingual;
+}
+
 /**
  * How far a current-affairs entry has been checked. Entries gathered from
  * news search are `unverified` until someone confirms them against an

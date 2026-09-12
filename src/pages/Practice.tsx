@@ -22,7 +22,18 @@ export function PracticePicker() {
       <div>
         <div className="eyebrow">{t('navPractice')}</div>
         <h1 className="display">{t('selectSubject')}</h1>
+        <p className="small muted" style={{ marginBottom: 0 }}>{t('practiceObjectiveOnly')}</p>
       </div>
+
+      <Link to="/written" className="card" style={{ display: 'block', color: 'inherit' }}>
+        <div className="between">
+          <div>
+            <strong>✍️ {t('writtenTitle')}</strong>
+            <div className="small muted">{t('practiceWrittenPointer')}</div>
+          </div>
+          <span className="btn btn-sm">{t('openMaterial')}</span>
+        </div>
+      </Link>
 
       <Link to="/practice/all" className="card" style={{ display: 'block', color: 'inherit' }}>
         <div className="between">

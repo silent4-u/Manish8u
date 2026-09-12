@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
+import { writtenFor } from '../data/written';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
 import { lessonsForLevel } from '../data/lessons';
@@ -17,6 +18,7 @@ export function Home() {
 
   const lessons = lessonsForLevel(level.id);
   const questions = questionsFor(level.id);
+  const writtenHere = writtenFor(level.id).length;
   const totalAttempted = Object.values(subjectStats).reduce((sum, s) => sum + s.attempted, 0);
   const totalCorrect = Object.values(subjectStats).reduce((sum, s) => sum + s.correct, 0);
   const accuracy = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
@@ -129,6 +131,13 @@ export function Home() {
             <span>
               <strong>{t('practiceQuiz')}</strong>
               <div className="tiny muted">{n(questions.length)} {t('questions')}</div>
+            </span>
+          </Link>
+          <Link to="/written" className="action-tile">
+            <span className="subject-icon" aria-hidden="true">📝</span>
+            <span>
+              <strong>{t('writtenTitle')}</strong>
+              <div className="tiny muted">{n(writtenHere)} {t('writtenQuestions')}</div>
             </span>
           </Link>
           <Link to="/mock" className="action-tile">

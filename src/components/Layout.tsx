@@ -23,6 +23,11 @@ const TAB_PATHS = new Set<string>(TABS.map((tab) => tab.to));
 function parentOf(pathname: string): string {
   if (pathname.startsWith('/lesson/') || pathname.startsWith('/study/')) return '/study';
   if (pathname.startsWith('/first-paper/')) return '/first-paper';
+  if (pathname.startsWith('/written/')) {
+    // /written/:paperId/:questionId goes back to the paper, not past it.
+    const parts = pathname.split('/').filter(Boolean);
+    return parts.length > 2 ? `/written/${parts[1]}` : '/written';
+  }
   if (pathname.startsWith('/practice/')) return '/practice';
   if (pathname.startsWith('/paper/')) return '/syllabus';
   return '/';

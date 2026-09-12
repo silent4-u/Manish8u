@@ -544,6 +544,26 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
   margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
 }
 
+/* Written paper practice. A question list that reads like a question paper,
+   and an answer laid out the way a marker reads one. */
+.written-list {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+}
+.written-row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+  padding: 13px 15px; color: var(--text); font-size: 0.9rem; line-height: 1.45;
+}
+.written-row:hover { text-decoration: none; background: var(--surface-2); }
+.written-row + .written-row { border-top: 1px solid var(--border); }
+.written-row-marks { flex: none; white-space: nowrap; }
+.written-draft {
+  margin-top: 10px; min-height: 200px; resize: vertical;
+  font-family: inherit; line-height: 1.7;
+}
+.written-answer h3 { font-size: 1rem; }
+.written-answer > p:first-child { font-weight: 500; }
+
 /* Published PDFs, drawn page by page onto a canvas. The page keeps its own
    white ground in either theme, because a scanned sheet inverted to dark is
    unreadable — the frame around it is what follows the theme. */

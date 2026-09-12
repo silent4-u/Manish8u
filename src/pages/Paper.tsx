@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
+import { writtenFor } from '../data/written';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
 import { LESSONS } from '../data/lessons';
@@ -40,6 +41,7 @@ export function Paper() {
   const variants = paper.variants ?? [];
   const selected = variants.find((v) => v.id === variantId) ?? null;
   const sections = selected ? selected.sections : paper.sections;
+  const writtenHere = writtenFor(level.id, paper.id).length;
   const appliesTo = selected ? selected.appliesTo : paper.appliesTo;
 
   return (
@@ -94,9 +96,15 @@ export function Paper() {
         {t('notesBooklet')}
       </Link>
 
-      {paper.format === 'objective' && (
+      {paper.format === 'objective' ? (
         <Link to="/mock" className="btn btn-primary btn-block">
           {t('fullMockTest')} · {n(level.mock.questionCount)} {t('questions')}
+        </Link>
+      ) : (
+        // Answered in prose, so the exercise is a long answer, not a quiz.
+        <Link to={`/written/${paper.id}`} className="btn btn-primary btn-block">
+          {t('writtenTitle')}
+          {writtenHere > 0 && <> · {n(writtenHere)} {t('writtenQuestions')}</>}
         </Link>
       )}
 
