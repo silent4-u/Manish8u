@@ -224,6 +224,9 @@ export const UI = {
   openInNewTab: { en: 'Open in a new tab', ne: 'नयाँ ट्याबमा खोल्नुहोस्' },
   pdfPage: { en: 'Page', ne: 'पृष्ठ' },
   pdfZoom: { en: 'Zoom', ne: 'आकार' },
+  pdfContents: { en: 'Contents', ne: 'विषयसूची' },
+  pdfChapters: { en: 'chapters', ne: 'अध्याय' },
+  pdfAllPages: { en: 'All pages', ne: 'सबै पृष्ठ' },
   pdfFitWidth: { en: 'Fit', ne: 'पूरा पृष्ठ' },
   pdfLoading: { en: 'Opening the file…', ne: 'फाइल खोल्दै…' },
   pdfFailed: {

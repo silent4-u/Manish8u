@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type { PDFDocumentProxy } from 'pdfjs-dist';
 import { useLang } from '../i18n/LanguageContext';
+import type { MaterialContents } from '../lib/materials';
 
 /**
  * Renders a PDF page by page, in the app itself.
@@ -11,7 +13,7 @@ import { useLang } from '../i18n/LanguageContext';
  * their study notes should be. Drawing the pages ourselves works everywhere
  * the app runs, offline included, and leaves the file itself untouched.
  *
- * One page is on screen at a time on purpose. A 65-page booklet held as
+ * One page is on screen at a time on purpose. A 90-page booklet held as
  * canvases at phone resolution runs to hundreds of megabytes, so the viewer
  * keeps exactly one and repaints it on every move.
  */
@@ -42,21 +44,26 @@ const MAX_CANVAS_WIDTH = 2400;
  */
 const ZOOMS = [1, 1.5, 2, 3];
 
+/** Backing width of a contents thumbnail. Small enough that a 90-page grid fits. */
+const THUMB_WIDTH = 150;
+
 interface Props {
   /** Path or object URL of the file to show. */
   url: string;
   /** Shown above the page, and used as the canvas label. */
   title: string;
+  /** Chapter index, when the file's headings could be read. */
+  contents?: MaterialContents;
 }
 
-export function PdfPreview({ url, title }: Props) {
+export function PdfPreview({ url, title, contents }: Props) {
   const { t, n } = useLang();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
-  const docRef = useRef<{ destroy(): Promise<void> } | null>(null);
-  const [pageCount, setPageCount] = useState(0);
+  const [doc, setDoc] = useState<PDFDocumentProxy | null>(null);
   const [page, setPage] = useState(1);
   const [zoom, setZoom] = useState(0);
+  const [browsing, setBrowsing] = useState(false);
   const [state, setState] = useState<'loading' | 'ready' | 'failed'>('loading');
 
   // One document per file. Opening another closes this one, so a candidate
@@ -64,20 +71,21 @@ export function PdfPreview({ url, title }: Props) {
   useEffect(() => {
     let live = true;
     setState('loading');
-    setPageCount(0);
+    setDoc(null);
     setPage(1);
     setZoom(0);
+    setBrowsing(false);
+    let opened: PDFDocumentProxy | null = null;
 
     void (async () => {
       try {
         const pdfjs = await loadPdfjs();
-        const doc = await pdfjs.getDocument({ url, isEvalSupported: false }).promise;
+        opened = await pdfjs.getDocument({ url, isEvalSupported: false }).promise;
         if (!live) {
-          void doc.destroy();
+          void opened.destroy();
           return;
         }
-        docRef.current = doc;
-        setPageCount(doc.numPages);
+        setDoc(opened);
         setState('ready');
       } catch {
         if (live) setState('failed');
@@ -86,13 +94,13 @@ export function PdfPreview({ url, title }: Props) {
 
     return () => {
       live = false;
-      void docRef.current?.destroy();
-      docRef.current = null;
+      void opened?.destroy();
     };
   }, [url]);
 
+  const pageCount = doc?.numPages ?? 0;
+
   const draw = useCallback(async () => {
-    const doc = docRef.current as Awaited<ReturnType<PdfModule['getDocument']>['promise']> | null;
     const canvas = canvasRef.current;
     const frame = frameRef.current;
     if (!doc || !canvas || !frame) return;
@@ -118,16 +126,16 @@ export function PdfPreview({ url, title }: Props) {
     } catch {
       setState('failed');
     }
-  }, [page, zoom]);
+  }, [doc, page, zoom]);
 
   useEffect(() => {
-    if (state !== 'ready') return;
+    if (state !== 'ready' || browsing) return;
     void draw();
     // Rotating a phone changes the column width, so the page is redrawn to it.
     const onResize = () => void draw();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, [state, draw]);
+  }, [state, browsing, draw]);
 
   if (state === 'failed') {
     return (
@@ -138,48 +146,181 @@ export function PdfPreview({ url, title }: Props) {
   }
 
   const step = (by: number) => setPage((p) => Math.min(Math.max(p + by, 1), pageCount || 1));
+  const goTo = (target: number) => {
+    setPage(Math.min(Math.max(target, 1), pageCount || 1));
+    setZoom(0);
+    setBrowsing(false);
+  };
 
   return (
     <div ref={frameRef}>
-      <div className="pdf-sheet">
-        <canvas ref={canvasRef} aria-label={title} />
-        {state === 'loading' && <p className="small muted center pdf-sheet-note">{t('pdfLoading')}</p>}
-      </div>
-
-      <div className="row between pdf-pager">
-        {pageCount > 1 ? (
-          <button type="button" className="btn btn-sm" onClick={() => step(-1)} disabled={page <= 1}>
-            ← {t('previous')}
-          </button>
-        ) : (
-          <span />
-        )}
-        <span className="small muted mono-num">
-          {pageCount > 1 && `${t('pdfPage')} ${n(page)} / ${n(pageCount)}`}
-        </span>
-        {pageCount > 1 ? (
-          <button type="button" className="btn btn-sm" onClick={() => step(1)} disabled={page >= pageCount}>
-            {t('next')} →
-          </button>
-        ) : (
-          <span />
-        )}
-      </div>
-
-      <div className="row pdf-zoom">
-        <span className="tiny muted">{t('pdfZoom')}</span>
-        {ZOOMS.map((factor, i) => (
+      {pageCount > 1 && (
+        <div className="row pdf-tools">
           <button
-            key={factor}
             type="button"
-            className={`btn btn-sm${i === zoom ? ' btn-primary' : ''}`}
-            aria-pressed={i === zoom}
-            onClick={() => setZoom(i)}
+            className={`btn btn-sm${browsing ? ' btn-primary' : ''}`}
+            aria-expanded={browsing}
+            onClick={() => setBrowsing((open) => !open)}
           >
-            {i === 0 ? t('pdfFitWidth') : `${n(factor)}×`}
+            ☰ {t('pdfContents')}
           </button>
-        ))}
-      </div>
+          {contents && (
+            <span className="tiny muted">
+              {n(contents.chapters.length)} {t('pdfChapters')}
+            </span>
+          )}
+        </div>
+      )}
+
+      {browsing ? (
+        <div className="pdf-browse">
+          {contents && (
+            <ol className="pdf-chapters">
+              {contents.chapters.map((chapter) => (
+                <li key={`${chapter.level}-${chapter.title}`} className={`pdf-chapter lvl-${chapter.level}`}>
+                  <button type="button" className="pdf-chapter-btn" onClick={() => goTo(chapter.page)}>
+                    <span>{chapter.title}</span>
+                    <span className="tiny muted mono-num">{n(chapter.page)}</span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+          )}
+          <div className="eyebrow" style={{ marginTop: contents ? 16 : 0 }}>
+            {t('pdfAllPages')}
+          </div>
+          {doc && <PdfThumbs doc={doc} current={page} onPick={goTo} />}
+        </div>
+      ) : (
+        <>
+          <div className="pdf-sheet">
+            <canvas ref={canvasRef} aria-label={title} />
+            {state === 'loading' && <p className="small muted center pdf-sheet-note">{t('pdfLoading')}</p>}
+          </div>
+
+          {pageCount > 1 && (
+            <div className="row between pdf-pager">
+              <button type="button" className="btn btn-sm" onClick={() => step(-1)} disabled={page <= 1}>
+                ← {t('previous')}
+              </button>
+              <span className="small muted mono-num">
+                {t('pdfPage')} {n(page)} / {n(pageCount)}
+              </span>
+              <button type="button" className="btn btn-sm" onClick={() => step(1)} disabled={page >= pageCount}>
+                {t('next')} →
+              </button>
+            </div>
+          )}
+
+          <div className="row pdf-zoom">
+            <span className="tiny muted">{t('pdfZoom')}</span>
+            {ZOOMS.map((factor, i) => (
+              <button
+                key={factor}
+                type="button"
+                className={`btn btn-sm${i === zoom ? ' btn-primary' : ''}`}
+                aria-pressed={i === zoom}
+                onClick={() => setZoom(i)}
+              >
+                {i === 0 ? t('pdfFitWidth') : `${n(factor)}×`}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
+}
+
+/**
+ * Every page as a thumbnail. This is the only navigation that works for the
+ * booklets whose Devanagari is set in a legacy Preeti font: their text cannot
+ * be read out of the file, but a candidate can see the headings and tap the
+ * page. Thumbnails are drawn as they come into view, one at a time, so opening
+ * a 90-page booklet does not render 90 pages at once.
+ */
+function PdfThumbs({
+  doc,
+  current,
+  onPick,
+}: {
+  doc: PDFDocumentProxy;
+  current: number;
+  onPick: (page: number) => void;
+}) {
+  const { n } = useLang();
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [wanted, setWanted] = useState<number[]>([]);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const seen = entries
+          .filter((e) => e.isIntersecting)
+          .map((e) => Number((e.target as HTMLElement).dataset.page))
+          .filter((p) => p > 0);
+        if (seen.length) setWanted((prev) => [...new Set([...prev, ...seen])]);
+      },
+      { root: grid, rootMargin: '200px' },
+    );
+    for (const cell of grid.querySelectorAll('[data-page]')) observer.observe(cell);
+    return () => observer.disconnect();
+  }, [doc]);
+
+  return (
+    <div className="pdf-thumbs" ref={gridRef}>
+      {Array.from({ length: doc.numPages }, (_, i) => i + 1).map((p) => (
+        <button
+          key={p}
+          type="button"
+          data-page={p}
+          className={`pdf-thumb${p === current ? ' current' : ''}`}
+          onClick={() => onPick(p)}
+        >
+          <Thumb doc={doc} page={p} render={wanted.includes(p)} />
+          <span className="tiny mono-num">{n(p)}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Thumbnail renders are serialised across the whole grid: pdf.js will happily
+ * start fifty page renders at once and then deliver none of them promptly.
+ */
+let thumbQueue: Promise<unknown> = Promise.resolve();
+
+function Thumb({ doc, page, render }: { doc: PDFDocumentProxy; page: number; render: boolean }) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  const [drawn, setDrawn] = useState(false);
+
+  useEffect(() => {
+    if (!render || drawn) return;
+    let live = true;
+    thumbQueue = thumbQueue.then(async () => {
+      const canvas = ref.current;
+      if (!live || !canvas) return;
+      try {
+        const sheet = await doc.getPage(page);
+        const unscaled = sheet.getViewport({ scale: 1 });
+        const viewport = sheet.getViewport({ scale: THUMB_WIDTH / unscaled.width });
+        const context = canvas.getContext('2d');
+        if (!context) return;
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await sheet.render({ canvasContext: context, viewport }).promise;
+        if (live) setDrawn(true);
+      } catch {
+        // A page that will not draw simply stays blank; its number still works.
+      }
+    });
+    return () => {
+      live = false;
+    };
+  }, [doc, page, render, drawn]);
+
+  return <canvas ref={ref} className="pdf-thumb-art" />;
 }

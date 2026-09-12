@@ -3,6 +3,7 @@ import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
 import { CATALOGUE } from '../data/materials';
+import { MATERIAL_CONTENTS } from '../data/materialChapters';
 import { Empty } from '../components/Empty';
 import { PdfPreview } from '../components/PdfPreview';
 import {
@@ -254,7 +255,12 @@ export function Materials() {
               {t('closePreview')}
             </button>
           </div>
-          <PdfPreview key={preview.id} url={preview.url} title={preview.title} />
+          <PdfPreview
+            key={preview.id}
+            url={preview.url}
+            title={preview.title}
+            contents={MATERIAL_CONTENTS[preview.fileName]}
+          />
           <div className="row" style={{ marginTop: 10 }}>
             <a className="btn btn-sm btn-primary" href={preview.url} target="_blank" rel="noreferrer">
               {t('openInNewTab')}

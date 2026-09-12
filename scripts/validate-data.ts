@@ -8,6 +8,7 @@ import { LESSONS } from '../src/data/lessons';
 import { QUESTIONS } from '../src/data/questions';
 import { CURRENT_AFFAIRS } from '../src/data/currentAffairs';
 import { CATALOGUE_ENTRIES } from '../src/data/materials';
+import { MATERIAL_CONTENTS } from '../src/data/materialChapters';
 import { FIGURE_IDS } from '../src/components/figures';
 import { REFERENCES } from '../src/data/references';
 import type { Bilingual } from '../src/types';
@@ -262,6 +263,32 @@ for (const entry of CATALOGUE_ENTRIES) {
   // A missing file would ship as a dead download, so it fails the build here.
   if (!existsSync(join(repoRoot, 'public/materials', entry.file))) {
     fail(`${where}: public/materials/${entry.file} does not exist`);
+  }
+}
+
+// --- published chapter indexes ---
+// A chapter pointing at the wrong page sends a candidate to the wrong reading,
+// so the index is checked against the catalogue it claims to describe.
+const published = new Set(CATALOGUE_ENTRIES.map((entry) => entry.file));
+for (const [file, contents] of Object.entries(MATERIAL_CONTENTS)) {
+  const where = `contents ${file}`;
+  if (!published.has(file)) fail(`${where}: no catalogue entry publishes this file`);
+  if (contents.pages <= 0) fail(`${where}: page count must be positive`);
+  if (contents.chapters.length === 0) fail(`${where}: no chapters`);
+  if (!contents.chapters.some((c) => c.level === 1)) fail(`${where}: no top-level chapter`);
+
+  let last = 0;
+  for (const chapter of contents.chapters) {
+    if (!chapter.title.trim()) fail(`${where}: a chapter has no title`);
+    if (chapter.page < 1 || chapter.page > contents.pages) {
+      fail(`${where}: "${chapter.title}" is on page ${chapter.page} of ${contents.pages}`);
+    }
+    // Chapters are listed in reading order, so a step backwards means the
+    // index picked up a contents-page listing rather than the heading itself.
+    if (chapter.page < last) {
+      fail(`${where}: "${chapter.title}" on page ${chapter.page} follows page ${last}`);
+    }
+    last = chapter.page;
   }
 }
 

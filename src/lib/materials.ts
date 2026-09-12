@@ -88,6 +88,27 @@ export function formatBytes(size: number): string {
   return `${Math.max(1, Math.round(size / 1024))} KB`;
 }
 
+/** One heading in a published PDF's contents. */
+export interface MaterialChapter {
+  /** The document's own heading, quoted rather than translated. */
+  title: string;
+  /** 1-based page the chapter opens on. */
+  page: number;
+  /** 1 for a chapter, 2 for a section inside one. */
+  level: 1 | 2;
+}
+
+/**
+ * A published PDF's chapter index, so a booklet can be opened at the chapter
+ * being studied. Absent for a file whose headings could not be read — see
+ * `src/data/materialChapters.ts`.
+ */
+export interface MaterialContents {
+  /** Page count, as read from the file when the index was built. */
+  pages: number;
+  chapters: MaterialChapter[];
+}
+
 export interface SectionShelf {
   section: SyllabusSection;
   items: MaterialMeta[];

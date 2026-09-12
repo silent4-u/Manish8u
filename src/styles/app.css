@@ -562,6 +562,44 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
 .pdf-pager { margin-top: 10px; gap: 8px; flex-wrap: nowrap; }
 .pdf-pager .btn { white-space: nowrap; }
 .pdf-zoom { margin-top: 8px; gap: 6px; }
+.pdf-tools { margin-top: 10px; gap: 10px; }
+
+/* Contents. A chapter list where the headings could be read, and a grid of
+   page thumbnails either way — the only navigation that works for a booklet
+   whose Devanagari is set in a legacy font no text extractor can read. */
+.pdf-browse { margin-top: 10px; }
+.pdf-chapters {
+  list-style: none; margin: 0; padding: 0;
+  max-height: 46vh; overflow-y: auto;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+.pdf-chapter { margin: 0; }
+.pdf-chapter + .pdf-chapter { border-top: 1px solid var(--border); }
+.pdf-chapter-btn {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  width: 100%; text-align: left; border: 0; background: transparent;
+  padding: 9px 12px; font-size: 0.86rem; line-height: 1.4; color: var(--text);
+}
+.pdf-chapter-btn:hover { background: var(--surface); }
+.pdf-chapter.lvl-1 .pdf-chapter-btn { font-weight: 650; }
+.pdf-chapter.lvl-2 .pdf-chapter-btn { padding-left: 26px; color: var(--text-muted); }
+
+.pdf-thumbs {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px;
+  max-height: 52vh; overflow-y: auto; padding: 4px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+.pdf-thumb {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  border: 0; background: transparent; padding: 2px; color: var(--text-muted);
+}
+.pdf-thumb-art {
+  display: block; width: 100%; height: auto; aspect-ratio: 1 / 1.414;
+  background: #fff; border: 1px solid var(--border-strong); border-radius: 3px;
+}
+.pdf-thumb.current .pdf-thumb-art { border-color: var(--crimson); box-shadow: 0 0 0 2px var(--crimson-soft); }
+.pdf-thumb.current { color: var(--crimson); font-weight: 700; }
 
 /* ---------------- Printable notes ----------------
    The booklet is laid out on screen and converted by the browser's own
