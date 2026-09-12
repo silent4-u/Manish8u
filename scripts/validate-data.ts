@@ -268,6 +268,21 @@ for (const entry of CATALOGUE_ENTRIES) {
   }
 }
 
+// --- references ---
+// The steward agent decides what to look at from `lastChecked`, so a date that
+// does not parse, or one in the future, silently removes an entry from its
+// work queue. That is worth failing the build for.
+for (const ref of REFERENCES) {
+  const where = `reference ${ref.id}`;
+  checkBilingual(`${where}.edition`, ref.edition);
+  const checked = Date.parse(ref.lastChecked);
+  if (Number.isNaN(checked)) {
+    fail(`${where}: lastChecked "${ref.lastChecked}" is not a date`);
+  } else if (checked > Date.now() + 24 * 60 * 60 * 1000) {
+    fail(`${where}: lastChecked ${ref.lastChecked} is in the future`);
+  }
+}
+
 // --- written paper questions ---
 // A long-answer question is only practice if it is attached to a paper that is
 // actually answered in prose, in a section that paper still has.

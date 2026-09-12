@@ -217,6 +217,8 @@ export const UI = {
   materialTitle: { en: 'Title', ne: 'शीर्षक' },
   fileUnder: { en: 'File under', ne: 'कहाँ राख्ने' },
   wholePaper: { en: 'The whole paper', ne: 'सिङ्गो पत्र' },
+  refEdition: { en: 'Current edition', ne: 'चालु संस्करण' },
+  refLastChecked: { en: 'Checked against the publisher on', ne: 'प्रकाशकसँग जाँचिएको मिति' },
   // Written papers
   navWritten: { en: 'Written', ne: 'लिखित' },
   writtenTitle: { en: 'Written paper practice', ne: 'लिखित पत्रको अभ्यास' },

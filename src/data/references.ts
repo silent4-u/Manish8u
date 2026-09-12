@@ -28,6 +28,19 @@ export interface ReferenceDoc {
   levels: LevelId[];
   /** Revised on a schedule, so a downloaded copy goes stale. */
   cadence: Bilingual;
+  /**
+   * The edition in force when this entry was last checked, in the publisher's
+   * own words. A candidate revising "the current periodic plan" needs to know
+   * which plan that is; the syllabus names the phrase, not the number.
+   */
+  edition: Bilingual;
+  /**
+   * ISO date this entry was last checked against the publisher. The steward
+   * agent works oldest first and `npm run check:freshness` reports anything
+   * that has gone past its cadence — a reference nobody has looked at since
+   * the last budget is the one most likely to be wrong.
+   */
+  lastChecked: string;
 }
 
 export const REFERENCES: ReferenceDoc[] = [
@@ -43,6 +56,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p2-b', 'adhikrit-p4-d', 'nasu-p2-b', 'kharidar-p2-b'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'As amended to date; the Second Amendment (2077) revised the map in Schedule 3',
+      ne: 'हालसम्म भएका संशोधनसहित; दोस्रो संशोधन (२०७७) ले अनुसूची ३ को नक्सा संशोधन गरेको',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'periodic-plan',
@@ -56,6 +74,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p2-d', 'adhikrit-p3-c', 'nasu-p2-a', 'kharidar-p1-a'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'A new plan every five years', ne: 'हरेक पाँच वर्षमा नयाँ योजना' },
+    edition: {
+      en: 'The Sixteenth Plan is the current one — confirm it is still in force on your exam date',
+      ne: 'सोह्रौँ योजना चालु — परीक्षाको मितिमा यही लागू छ कि जाँच्नुहोस्',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'economic-survey',
@@ -69,6 +92,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p3-b', 'adhikrit-p4-b', 'nasu-p2-a', 'kharidar-p1-a'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Annual, with the budget', ne: 'वार्षिक, बजेटसँगै' },
+    edition: {
+      en: 'The survey tabled with the most recent budget; a new one each Jestha',
+      ne: 'पछिल्लो बजेटसँगै पेस भएको सर्वेक्षण; हरेक जेठमा नयाँ',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'census-2078',
@@ -82,6 +110,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p1-a', 'adhikrit-p3-a', 'nasu-p1-a', 'nasu-p2-a', 'kharidar-p1-a'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Every ten years; 2078 is the current one', ne: 'हरेक दस वर्षमा; हाल २०७८ को नै चालु' },
+    edition: {
+      en: 'National Population and Housing Census 2078, with its thematic reports',
+      ne: 'राष्ट्रिय जनगणना २०७८, विषयगत प्रतिवेदनसहित',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'nepal-parichaya',
@@ -95,6 +128,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p1-a', 'nasu-p1-a', 'kharidar-p1-a'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Each figure changes on its own publisher’s schedule', ne: 'हरेक अङ्क आ–आफ्नो प्रकाशकको तालिकामा बदलिन्छ' },
+    edition: {
+      en: 'Compiled from the current statistical pocket book and sectoral releases',
+      ne: 'चालु सांख्यिक पुस्तिका र क्षेत्रगत प्रकाशनबाट संकलित',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'civil-service-act',
@@ -108,6 +146,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p4-a', 'nasu-p2-c', 'nasu-p3-b', 'kharidar-p3-a'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Civil Service Act 2049 as amended; a federal civil service bill has been under consideration, so check whether it has been enacted',
+      ne: 'निजामती सेवा ऐन, २०४९ संशोधनसहित; सङ्घीय निजामती सेवा विधेयक विचाराधीन रहेको हुँदा जारी भयो कि जाँच्नुहोस्',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'good-governance-act',
@@ -121,6 +164,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['kharidar-p3-a', 'nasu-p3-c', 'adhikrit-p2-c'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Good Governance (Management and Operation) Act 2064 as amended',
+      ne: 'सुशासन (व्यवस्थापन तथा सञ्चालन) ऐन, २०६४ संशोधनसहित',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'rti-act',
@@ -134,6 +182,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['kharidar-p3-a', 'nasu-p2-b', 'adhikrit-p2-a', 'nasu-p3-c'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Right to Information Act 2064 as amended, with the 2065 Regulations',
+      ne: 'सूचनाको हक सम्बन्धी ऐन, २०६४ संशोधनसहित, नियमावली २०६५ सँगै',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'procurement-act',
@@ -147,6 +200,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p4-c', 'nasu-p3-c', 'kharidar-p3-b'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Public Procurement Act 2063 as amended, with the Regulations 2064 — the thresholds move by amendment to the Regulations',
+      ne: 'सार्वजनिक खरिद ऐन, २०६३ संशोधनसहित, नियमावली २०६४ सँगै — रकम सीमा नियमावलीको संशोधनबाट फेरिन्छ',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'financial-procedure-act',
@@ -160,6 +218,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p4-c', 'nasu-p3-c', 'kharidar-p3-b'],
     levels: ['adhikrit', 'nayabsubba', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Financial Procedure and Fiscal Responsibility Act 2076, which replaced the 2055 Act',
+      ne: 'आर्थिक कार्यविधि तथा वित्तीय उत्तरदायित्व ऐन, २०७६, जसले २०५५ को ऐन विस्थापित गरेको',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'audit-act',
@@ -173,6 +236,11 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['adhikrit-p4-c', 'kharidar-p3-b'],
     levels: ['adhikrit', 'kharidar'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Audit Act 2075, which replaced the 2048 Act',
+      ne: 'लेखापरीक्षण ऐन, २०७५, जसले २०४८ को ऐन विस्थापित गरेको',
+    },
+    lastChecked: '2026-09-12',
   },
   {
     id: 'local-government-act',
@@ -186,5 +254,10 @@ export const REFERENCES: ReferenceDoc[] = [
     covers: ['nasu-p3-c', 'adhikrit-p4-d', 'nasu-p2-b'],
     levels: ['adhikrit', 'nayabsubba'],
     cadence: { en: 'Amended from time to time', ne: 'समय–समयमा संशोधन हुने' },
+    edition: {
+      en: 'Local Government Operation Act 2074 as amended',
+      ne: 'स्थानीय सरकार सञ्चालन ऐन, २०७४ संशोधनसहित',
+    },
+    lastChecked: '2026-09-12',
   },
 ];

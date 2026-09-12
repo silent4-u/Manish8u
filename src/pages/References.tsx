@@ -54,6 +54,18 @@ export function References() {
               <span className="pill pill-warn">{b(ref.cadence)}</span>
             </div>
 
+            {/* Which edition is current is the thing a candidate most needs and
+                is least likely to know — it decides whether their revision is
+                answering this year's question. */}
+            <div className="notice tone-tip" style={{ marginTop: 10 }}>
+              <div className="small">
+                <strong>{t('refEdition')}:</strong> {b(ref.edition)}
+                <div className="tiny muted" style={{ marginTop: 4 }}>
+                  {t('refLastChecked')}: {n(ref.lastChecked)}
+                </div>
+              </div>
+            </div>
+
             {papers.length > 0 && (
               <>
                 <hr className="divider" />
