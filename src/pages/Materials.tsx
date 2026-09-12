@@ -4,6 +4,7 @@ import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
 import { CATALOGUE } from '../data/materials';
 import { Empty } from '../components/Empty';
+import { PdfPreview } from '../components/PdfPreview';
 import {
   defaultTitle,
   formatBytes,
@@ -253,19 +254,11 @@ export function Materials() {
               {t('closePreview')}
             </button>
           </div>
-          <object
-            data={preview.url}
-            type="application/pdf"
-            aria-label={preview.title}
-            style={{ width: '100%', height: '68vh', marginTop: 10, border: 0, borderRadius: 8 }}
-          >
-            <p className="small">
-              <a className="btn btn-sm btn-primary" href={preview.url} target="_blank" rel="noreferrer">
-                {t('openInNewTab')}
-              </a>
-            </p>
-          </object>
+          <PdfPreview key={preview.id} url={preview.url} title={preview.title} />
           <div className="row" style={{ marginTop: 10 }}>
+            <a className="btn btn-sm btn-primary" href={preview.url} target="_blank" rel="noreferrer">
+              {t('openInNewTab')}
+            </a>
             <a className="btn btn-sm" href={preview.url} download={preview.fileName}>
               {t('saveCopy')}
             </a>

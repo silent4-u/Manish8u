@@ -544,6 +544,25 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
   margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
 }
 
+/* Published PDFs, drawn page by page onto a canvas. The page keeps its own
+   white ground in either theme, because a scanned sheet inverted to dark is
+   unreadable — the frame around it is what follows the theme. */
+.pdf-sheet {
+  position: relative; margin-top: 10px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: #fff; overflow: auto; min-height: 180px;
+}
+/* Width is set per zoom step; a zoomed page is wider than the frame and the
+   frame scrolls, rather than the page being squeezed back into it. */
+.pdf-sheet canvas { display: block; height: auto; }
+.pdf-sheet-note {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  margin: 0; color: var(--text-muted); background: var(--surface);
+}
+.pdf-pager { margin-top: 10px; gap: 8px; flex-wrap: nowrap; }
+.pdf-pager .btn { white-space: nowrap; }
+.pdf-zoom { margin-top: 8px; gap: 6px; }
+
 /* ---------------- Printable notes ----------------
    The booklet is laid out on screen and converted by the browser's own
    print-to-PDF, so the app carries no PDF library and no embedded fonts:

@@ -8,8 +8,11 @@
  *
  * PDFs published under materials/ are not in the shell — they are cached the
  * first time they are opened, by the runtime handler below, so a material only
- * takes up room on a device that has actually read it. PDFs a learner adds
- * themselves never come through here at all; they live in IndexedDB.
+ * takes up room on a device that has actually read it. The PDF viewer itself
+ * is loaded the same way, on first open rather than on first visit, so its
+ * megabyte and a half costs nothing to a candidate who never opens a file.
+ * PDFs a learner adds themselves never come through here at all; they live in
+ * IndexedDB.
  */
 const CACHE = 'lok-sewa-sathi-v1';
 const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png'];
