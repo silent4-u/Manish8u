@@ -13,7 +13,9 @@ To publish one:
 3. Add a matching entry to `CATALOGUE_ENTRIES` in `src/data/materials.ts`,
    naming the `paperId` — and, when the material covers one part of a paper,
    the `sectionId` — it belongs under. Paper and section ids are in
-   `src/data/levels.ts`.
+   `src/data/levels.ts`. When the file is one of a set meant to be read in
+   sequence, number it with `order`; without that, files published on the same
+   day fall into alphabetical order.
 4. Run `npm run test:data`. It fails if the paper, the section or the file
    itself does not exist, so a broken entry cannot ship.
 

@@ -132,6 +132,20 @@ check(
 );
 check('another exam is not shown', shelves.every((s) => s.items.every((i) => i.levelId === 'adhikrit')), true);
 
+// A set published together shares one date, so without a declared position it
+// would fall into alphabetical order — no order at all to study it in.
+const series = shelvesFor(officer, [
+  meta({ id: 'third', origin: 'catalogue', order: 3, addedAt: 100 }),
+  meta({ id: 'first', origin: 'catalogue', order: 1, addedAt: 100 }),
+  meta({ id: 'second', origin: 'catalogue', order: 2, addedAt: 100 }),
+  meta({ id: 'my-own-scan', addedAt: 100 }),
+]);
+check(
+  'a published set reads in its own order, ahead of the candidate’s uploads',
+  series[3].items.map((i) => i.id),
+  ['first', 'second', 'third', 'my-own-scan'],
+);
+
 console.log('unfiledFor');
 check('a stale paper id is not lost', unfiledFor(officer, filed).map((i) => i.id), ['stale-paper']);
 check('a level with everything filed has no strays', unfiledFor(officer, [meta({ id: 'ok' })]), []);

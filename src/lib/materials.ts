@@ -24,6 +24,12 @@ export interface MaterialMeta {
   url?: string;
   /** Watermark carried by a published file, shown so its origin is plain. */
   watermark?: string;
+  /**
+   * Position in a published set. A dozen booklets published on the same day
+   * would otherwise fall into alphabetical order, which is no order at all to
+   * read them in; this keeps them in the sequence they were written for.
+   */
+  order?: number;
 }
 
 /**
@@ -96,9 +102,21 @@ export interface PaperShelf {
   general: MaterialMeta[];
 }
 
-/** Newest first, then by title so the order never depends on insertion. */
+/**
+ * A declared reading order first, then newest first, then by title so the
+ * order never depends on insertion. Anything without a declared position
+ * sorts after everything that has one, which is where a candidate's own
+ * uploads belong: after the set the app shipped.
+ */
+const UNPLACED = Number.MAX_SAFE_INTEGER;
+
 function ordered(items: MaterialMeta[]): MaterialMeta[] {
-  return [...items].sort((a, b) => b.addedAt - a.addedAt || a.title.localeCompare(b.title));
+  return [...items].sort(
+    (a, b) =>
+      (a.order ?? UNPLACED) - (b.order ?? UNPLACED) ||
+      b.addedAt - a.addedAt ||
+      a.title.localeCompare(b.title),
+  );
 }
 
 /**
