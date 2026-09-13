@@ -25,3 +25,8 @@ android/keystore.properties
 
 # Pristine copies of published materials, kept so a restamp never double-marks.
 materials-source/
+
+# Local build configuration. Holds the project keys; never committed.
+.env
+.env.local
+.env.*.local

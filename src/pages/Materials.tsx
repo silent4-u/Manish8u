@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
 import { LEVEL_BY_ID } from '../data/levels';
@@ -7,6 +8,7 @@ import { MATERIAL_CONTENTS } from '../data/materialChapters';
 import { Empty } from '../components/Empty';
 import { MaterialView } from '../components/MaterialView';
 import { WATERMARK_TEXT, stampImage, stampPdf, stampedName } from '../lib/watermark';
+import { asMaterialMeta, getLibrary } from '../lib/library';
 import {
   ACCEPTED_TYPES,
   defaultTitle,
@@ -55,6 +57,7 @@ export function Materials() {
   const level = levelId ? LEVEL_BY_ID[levelId] : null;
 
   const [shelf, setShelf] = useState<MaterialMeta[]>([]);
+  const [remote, setRemote] = useState<MaterialMeta[]>([]);
   const [storable, setStorable] = useState(libraryAvailable());
   const [paperId, setPaperId] = useState<string | null>(null);
   const [pending, setPending] = useState<
@@ -81,13 +84,36 @@ export function Materials() {
   }, []);
 
   // The preview owns its object URL for as long as it is on screen.
+  // What the owner has published since this build shipped.
+  useEffect(() => {
+    let live = true;
+    void getLibrary()
+      .list()
+      .then((found) => {
+        if (live) setRemote(found.map(asMaterialMeta));
+      });
+    return () => {
+      live = false;
+    };
+  }, []);
+
   useEffect(() => {
     if (!preview?.revocable) return;
     const { url } = preview;
     return () => URL.revokeObjectURL(url);
   }, [preview]);
 
-  const materials = useMemo(() => [...CATALOGUE, ...shelf], [shelf]);
+  /*
+   * Three sources, in one list: what shipped with the app, what the owner has
+   * published since, and what this candidate added themselves. The published
+   * list is fetched in the background and simply does not appear when the
+   * service is unreachable — an outage must not cost a reader the material
+   * that is already on their device.
+   */
+  const materials = useMemo(
+    () => [...CATALOGUE, ...remote, ...shelf],
+    [remote, shelf],
+  );
   const shelves = useMemo(() => (level ? shelvesFor(level, materials) : []), [level, materials]);
   const strays = useMemo(() => (level ? unfiledFor(level, materials) : []), [level, materials]);
 
@@ -379,6 +405,16 @@ export function Materials() {
               </section>
             )}
           </section>
+
+          <div className="card">
+            <div className="between">
+              <div>
+                <strong style={{ fontSize: '0.95rem' }}>{t('publishTitle')}</strong>
+                <div className="tiny muted">{t('publishLede')}</div>
+              </div>
+              <Link className="btn btn-sm" to="/publish">{t('openMaterial')}</Link>
+            </div>
+          </div>
 
           {storable && (
             <div className="card">
