@@ -5,15 +5,20 @@ import { LEVEL_BY_ID } from '../data/levels';
 import { CATALOGUE } from '../data/materials';
 import { MATERIAL_CONTENTS } from '../data/materialChapters';
 import { Empty } from '../components/Empty';
-import { PdfPreview } from '../components/PdfPreview';
+import { MaterialView } from '../components/MaterialView';
+import { WATERMARK_TEXT, stampImage, stampPdf, stampedName } from '../lib/watermark';
 import {
+  ACCEPTED_TYPES,
   defaultTitle,
   formatBytes,
-  hasPdfHeader,
+  headerMatches,
+  kindOf,
   rejectReason,
+  topicsOf,
   shelfBytes,
   shelvesFor,
   unfiledFor,
+  type MaterialKind,
   type MaterialMeta,
   type RejectReason,
 } from '../lib/materials';
@@ -28,7 +33,7 @@ import {
 import type { UiKey } from '../i18n/strings';
 
 const REJECT_KEY: Record<RejectReason, UiKey> = {
-  'not-pdf': 'materialNotPdf',
+  'unsupported-type': 'materialNotSupported',
   'too-large': 'materialTooLarge',
   empty: 'materialEmpty',
 };
@@ -39,6 +44,7 @@ interface Preview {
   title: string;
   fileName: string;
   url: string;
+  kind: MaterialKind;
   /** Object URLs are ours to revoke; a catalogue path is not. */
   revocable: boolean;
 }
@@ -51,7 +57,9 @@ export function Materials() {
   const [shelf, setShelf] = useState<MaterialMeta[]>([]);
   const [storable, setStorable] = useState(libraryAvailable());
   const [paperId, setPaperId] = useState<string | null>(null);
-  const [pending, setPending] = useState<{ file: File; title: string; sectionId: string } | null>(null);
+  const [pending, setPending] = useState<
+    { file: File; title: string; sectionId: string; topicId: string; kind: MaterialKind } | null
+  >(null);
   const [message, setMessage] = useState<UiKey | null>(null);
   const [busy, setBusy] = useState(false);
   const [preview, setPreview] = useState<Preview | null>(null);
@@ -95,12 +103,18 @@ export function Materials() {
       show(REJECT_KEY[reason]);
       return;
     }
-    const head = new Uint8Array(await file.slice(0, 1024).arrayBuffer());
-    if (!hasPdfHeader(head)) {
-      show('materialNotPdf');
+    const kind = kindOf(file);
+    if (!kind) {
+      show('materialNotSupported');
       return;
     }
-    setPending({ file, title: defaultTitle(file.name), sectionId: '' });
+    // The extension said what it is; the bytes have to agree.
+    const head = new Uint8Array(await file.slice(0, 1024).arrayBuffer());
+    if (!headerMatches(kind, head)) {
+      show('materialNotSupported');
+      return;
+    }
+    setPending({ file, title: defaultTitle(file.name), sectionId: '', topicId: '', kind });
   }
 
   async function fileIt() {
@@ -113,6 +127,8 @@ export function Materials() {
       levelId: level.id,
       paperId: current.paper.id,
       sectionId: pending.sectionId || null,
+      topicId: pending.topicId || null,
+      kind: pending.kind,
       title: pending.title.trim() || pending.file.name,
       fileName: pending.file.name,
       size: pending.file.size,
@@ -130,10 +146,58 @@ export function Materials() {
     }
   }
 
+  /**
+   * Hand over a copy carrying the publisher's mark.
+   *
+   * The stamp is applied here, on the way out, rather than to the stored
+   * file: the reader keeps working against the original, and a file added
+   * from a candidate's own device is not silently rewritten. Stamping a
+   * ninety-page PDF takes a moment, hence the busy state.
+   *
+   * This marks a copy; it does not protect one. Anyone who can open a
+   * published file can fetch the unstamped original from its URL. Files the
+   * app ships are stamped again at publish time by `npm run stamp:materials`,
+   * which is the version of this that actually has no unstamped original.
+   */
+  async function saveStamped(item: Preview) {
+    setBusy(true);
+    show(null);
+    try {
+      const response = await fetch(item.url);
+      const stamped =
+        item.kind === 'image'
+          ? await stampImage(await response.blob())
+          : new Blob([(await stampPdf(await response.arrayBuffer())).slice()], { type: 'application/pdf' });
+
+      const name = stampedName(item.kind === 'image' ? `${item.fileName}` : item.fileName);
+      const href = URL.createObjectURL(stamped);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      // Revoking immediately can cancel the download on some browsers.
+      setTimeout(() => URL.revokeObjectURL(href), 60_000);
+      show('materialStamped');
+    } catch {
+      show('materialStampFailed');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function openMaterial(item: MaterialMeta) {
     show(null);
     if (item.origin === 'catalogue' && item.url) {
-      setPreview({ id: item.id, title: item.title, fileName: item.fileName, url: item.url, revocable: false });
+      setPreview({
+        id: item.id,
+        title: item.title,
+        fileName: item.fileName,
+        url: item.url,
+        kind: item.kind ?? 'pdf',
+        revocable: false,
+      });
       return;
     }
     try {
@@ -147,6 +211,7 @@ export function Materials() {
         title: item.title,
         fileName: item.fileName,
         url: URL.createObjectURL(body),
+        kind: item.kind ?? 'pdf',
         revocable: true,
       });
     } catch {
@@ -186,6 +251,7 @@ export function Materials() {
         </div>
 
         <div className="row" style={{ marginTop: 9 }}>
+          <span className="pill">{t(item.kind === 'image' ? 'materialPhoto' : 'materialPdf')}</span>
           {item.size > 0 && <span className="pill">{n(formatBytes(item.size))}</span>}
           {item.watermark && (
             <span className="pill pill-warn">
@@ -255,20 +321,29 @@ export function Materials() {
               {t('closePreview')}
             </button>
           </div>
-          <PdfPreview
+          <MaterialView
             key={preview.id}
             url={preview.url}
             title={preview.title}
+            kind={preview.kind}
             contents={MATERIAL_CONTENTS[preview.fileName]}
           />
           <div className="row" style={{ marginTop: 10 }}>
             <a className="btn btn-sm btn-primary" href={preview.url} target="_blank" rel="noreferrer">
               {t('openInNewTab')}
             </a>
-            <a className="btn btn-sm" href={preview.url} download={preview.fileName}>
-              {t('saveCopy')}
-            </a>
+            <button
+              type="button"
+              className="btn btn-sm"
+              disabled={busy}
+              onClick={() => void saveStamped(preview)}
+            >
+              {busy ? t('materialStamping') : `${t('saveCopy')} · ${WATERMARK_TEXT}`}
+            </button>
           </div>
+          <p className="tiny muted" style={{ marginTop: 6, marginBottom: 0 }}>
+            {t('materialStampNote')}
+          </p>
         </div>
       )}
 
@@ -282,7 +357,17 @@ export function Materials() {
               s.items.length === 0 ? null : (
                 <section key={s.section.id}>
                   <div className="eyebrow">{b(s.section.name)}</div>
-                  <div className="stack">{s.items.map(card)}</div>
+                  {s.topics.map((entry) => (
+                    <div key={entry.topic.id} className="material-topic">
+                      <div className="tiny muted material-topic-name">{b(entry.topic.text)}</div>
+                      <div className="stack">{entry.items.map(card)}</div>
+                    </div>
+                  ))}
+                  {s.untopiced.length > 0 && (
+                    <div className="stack" style={{ marginTop: s.topics.length > 0 ? 12 : 0 }}>
+                      {s.untopiced.map(card)}
+                    </div>
+                  )}
                 </section>
               ),
             )}
@@ -304,7 +389,7 @@ export function Materials() {
                   ref={fileInput}
                   className="file-input"
                   type="file"
-                  accept="application/pdf,.pdf"
+                  accept={ACCEPTED_TYPES}
                   onChange={(e) => {
                     const file = e.target.files?.[0];
                     if (file) void chooseFile(file);
@@ -329,7 +414,10 @@ export function Materials() {
                       id="material-section"
                       className="input"
                       value={pending.sectionId}
-                      onChange={(e) => setPending({ ...pending, sectionId: e.target.value })}
+                      onChange={(e) =>
+                        // Changing the section invalidates the topic under it.
+                        setPending({ ...pending, sectionId: e.target.value, topicId: '' })
+                      }
                     >
                       <option value="">{t('wholePaper')}</option>
                       {current.paper.sections.map((s) => (
@@ -339,6 +427,27 @@ export function Materials() {
                       ))}
                     </select>
                   </div>
+
+                  {pending.sectionId && (
+                    <div>
+                      <label className="tiny muted" htmlFor="material-topic">{t('materialTopic')}</label>
+                      <select
+                        id="material-topic"
+                        className="input"
+                        value={pending.topicId}
+                        onChange={(e) => setPending({ ...pending, topicId: e.target.value })}
+                      >
+                        <option value="">{t('materialWholeSection')}</option>
+                        {topicsOf(
+                          current.paper.sections.find((s) => s.id === pending.sectionId)!,
+                        ).map((topic) => (
+                          <option key={topic.id} value={topic.id}>
+                            {b(topic.text)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
                   <div className="row">
                     <button type="button" className="btn btn-primary" disabled={busy} onClick={() => void fileIt()}>
                       {t('addToShelf')}

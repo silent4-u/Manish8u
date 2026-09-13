@@ -1,4 +1,4 @@
-import type { ExamLevel, LevelId, Paper, SyllabusSection } from '../types';
+import type { Bilingual, ExamLevel, LevelId, Paper, SyllabusSection } from '../types';
 
 /**
  * A reference file filed against one paper of an exam. Two kinds share this
@@ -8,6 +8,14 @@ import type { ExamLevel, LevelId, Paper, SyllabusSection } from '../types';
  */
 export type MaterialOrigin = 'shelf' | 'catalogue';
 
+/**
+ * What a material actually is. A photographed page of a book and a scanned
+ * PDF serve the same purpose on the shelf but are opened, and stamped, by
+ * completely different code, so the kind travels with the metadata rather
+ * than being guessed from the file name at the point of use.
+ */
+export type MaterialKind = 'pdf' | 'image';
+
 export interface MaterialMeta {
   id: string;
   origin: MaterialOrigin;
@@ -15,6 +23,16 @@ export interface MaterialMeta {
   paperId: string;
   /** Section within the paper, or null when it covers the paper as a whole. */
   sectionId: string | null;
+  /**
+   * Syllabus topic within that section, or null for the section as a whole.
+   * Topic ids are derived from position — see `topicId` — because the topics
+   * themselves are transcribed from the Commission's PDFs and carry no id of
+   * their own, and adding one to 325 of them would edit a file that is pinned
+   * to those PDFs.
+   */
+  topicId?: string | null;
+  /** Whether the stored bytes are a PDF or a picture. */
+  kind?: MaterialKind;
   title: string;
   fileName: string;
   /** Size in bytes; 0 when a catalogue entry does not declare one. */
@@ -39,7 +57,17 @@ export interface MaterialMeta {
  */
 export const MAX_MATERIAL_BYTES = 40 * 1024 * 1024;
 
-export type RejectReason = 'not-pdf' | 'too-large' | 'empty';
+export type RejectReason = 'unsupported-type' | 'too-large' | 'empty';
+
+/** What the file picker offers, and what `rejectReason` lets through. */
+export const ACCEPTED_TYPES = 'application/pdf,.pdf,image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp';
+
+/** Which kind a chosen file is, or null when it is neither. */
+export function kindOf(file: FileFacts): MaterialKind | null {
+  if (file.type === 'application/pdf' || /\.pdf$/i.test(file.name)) return 'pdf';
+  if (/^image\/(png|jpeg|webp)$/i.test(file.type) || /\.(png|jpe?g|webp)$/i.test(file.name)) return 'image';
+  return null;
+}
 
 export interface FileFacts {
   name: string;
@@ -51,12 +79,18 @@ export interface FileFacts {
 export function rejectReason(file: FileFacts): RejectReason | null {
   if (!Number.isFinite(file.size) || file.size <= 0) return 'empty';
   if (file.size > MAX_MATERIAL_BYTES) return 'too-large';
-  const looksPdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name);
-  return looksPdf ? null : 'not-pdf';
+  return kindOf(file) === null ? 'unsupported-type' : null;
 }
 
 /** The five bytes every PDF opens with: `%PDF-`. */
 const PDF_MAGIC = [0x25, 0x50, 0x44, 0x46, 0x2d];
+
+/** Opening bytes of the picture formats the shelf accepts. */
+const IMAGE_MAGIC: number[][] = [
+  [0x89, 0x50, 0x4e, 0x47], // PNG
+  [0xff, 0xd8, 0xff], // JPEG
+  [0x52, 0x49, 0x46, 0x46], // RIFF, which WebP sits inside
+];
 
 /**
  * True when the bytes carry a PDF header. A file renamed to `.pdf` passes the
@@ -70,6 +104,20 @@ export function hasPdfHeader(bytes: Uint8Array): boolean {
     if (PDF_MAGIC.every((byte, j) => bytes[i + j] === byte)) return true;
   }
   return false;
+}
+
+/** True when the bytes open with one of the picture signatures above. */
+export function hasImageHeader(bytes: Uint8Array): boolean {
+  return IMAGE_MAGIC.some((magic) => magic.every((byte, i) => bytes[i] === byte));
+}
+
+/**
+ * True when the bytes match the kind they claim to be. A file renamed to
+ * `.pdf` passes the extension check and fails here, which is the point: the
+ * shelf should not hold something no viewer can open.
+ */
+export function headerMatches(kind: MaterialKind, bytes: Uint8Array): boolean {
+  return kind === 'pdf' ? hasPdfHeader(bytes) : hasImageHeader(bytes);
 }
 
 /** A readable title from a file name, used to pre-fill the title field. */
@@ -109,9 +157,38 @@ export interface MaterialContents {
   chapters: MaterialChapter[];
 }
 
+/**
+ * A stable id for one syllabus topic.
+ *
+ * The topics in `levels.ts` are transcribed verbatim from the Commission's
+ * PDFs and pinned to them by `scripts/test-syllabus.ts`, so they carry no id
+ * of their own and are not going to be given one. Position within the section
+ * is the next best key: `test-syllabus` already fails if a topic is added,
+ * removed or reordered, so a material filed against topic 3 cannot silently
+ * come to mean a different topic 3 without that guard firing first.
+ */
+export function topicId(sectionId: string, index: number): string {
+  return `${sectionId}#${index + 1}`;
+}
+
+/** The topics of a section, each with the id a material files against. */
+export function topicsOf(section: SyllabusSection): { id: string; text: Bilingual }[] {
+  return section.topics.map((text, i) => ({ id: topicId(section.id, i), text }));
+}
+
+/** The topic a material is filed against, or null when it is filed higher up. */
+export function topicOf(section: SyllabusSection, material: MaterialMeta): Bilingual | null {
+  if (!material.topicId) return null;
+  return topicsOf(section).find((topic) => topic.id === material.topicId)?.text ?? null;
+}
+
 export interface SectionShelf {
   section: SyllabusSection;
   items: MaterialMeta[];
+  /** Only topics that actually have a file, so the list is not mostly empty. */
+  topics: { topic: { id: string; text: Bilingual }; items: MaterialMeta[] }[];
+  /** Filed against the section but not against one of its topics. */
+  untopiced: MaterialMeta[];
 }
 
 export interface PaperShelf {
@@ -157,6 +234,13 @@ export function shelvesFor(level: ExamLevel, materials: MaterialMeta[]): PaperSh
       sections: paper.sections.map((section) => ({
         section,
         items: items.filter((m) => m.sectionId === section.id),
+        topics: topicsOf(section)
+          .map((topic) => ({
+            topic,
+            items: items.filter((m) => m.topicId === topic.id),
+          }))
+          .filter((entry) => entry.items.length > 0),
+        untopiced: items.filter((m) => m.sectionId === section.id && !m.topicId),
       })),
       general: items.filter((m) => m.sectionId === null || !known.has(m.sectionId)),
     };

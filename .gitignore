@@ -22,3 +22,6 @@ android/captures/
 android/keystore.properties
 *.jks
 *.keystore
+
+# Pristine copies of published materials, kept so a restamp never double-marks.
+materials-source/

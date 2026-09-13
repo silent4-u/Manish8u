@@ -13,7 +13,7 @@ import { WRITTEN_QUESTIONS } from '../src/data/written';
 import { FIGURE_IDS } from '../src/components/figures';
 import { REFERENCES } from '../src/data/references';
 import type { Bilingual } from '../src/types';
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -263,8 +263,17 @@ for (const entry of CATALOGUE_ENTRIES) {
     fail(`${where}: paper "${paper.id}" has no section "${entry.sectionId}"`);
   }
   // A missing file would ship as a dead download, so it fails the build here.
-  if (!existsSync(join(repoRoot, 'public/materials', entry.file))) {
+  const onDisk = join(repoRoot, 'public/materials', entry.file);
+  if (!existsSync(onDisk)) {
     fail(`${where}: public/materials/${entry.file} does not exist`);
+  } else if (entry.size !== undefined) {
+    // Stamping rewrites a file, so a declared size that no longer matches is
+    // the sign of a published file that changed without its entry being
+    // updated — the app shows that number before the download starts.
+    const real = statSync(onDisk).size;
+    if (real !== entry.size) {
+      fail(`${where}: declares ${entry.size} bytes but the file is ${real}`);
+    }
   }
 }
 

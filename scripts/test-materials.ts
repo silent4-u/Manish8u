@@ -39,9 +39,14 @@ check(
   null,
 );
 check(
-  'anything else is refused',
+  'a photo is accepted too',
+  rejectReason({ name: 'page.jpg', size: 2048, type: 'image/jpeg' }),
+  null,
+);
+check(
+  'anything that is neither is refused',
   rejectReason({ name: 'notes.docx', size: 2048, type: 'application/msword' }),
-  'not-pdf',
+  'unsupported-type',
 );
 check('an empty file is refused', rejectReason({ name: 'a.pdf', size: 0, type: 'application/pdf' }), 'empty');
 check(

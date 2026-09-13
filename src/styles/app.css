@@ -544,6 +544,17 @@ html[data-lang='ne'] .stat-value { font-family: var(--font-ne); }
   margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
 }
 
+/* A material filed against one syllabus line sits under that line, so a
+   candidate revising topic 3 sees its files rather than the section's whole
+   pile. */
+.material-topic { margin-top: 12px; }
+.material-topic-name {
+  padding-left: 10px; margin-bottom: 6px;
+  border-left: 2px solid var(--border-strong); line-height: 1.4;
+}
+/* A photographed page keeps its own white ground, like a PDF sheet does. */
+.material-photo canvas { display: block; width: 100%; height: auto; }
+
 /* Written paper practice. A question list that reads like a question paper,
    and an answer laid out the way a marker reads one. */
 .written-list {

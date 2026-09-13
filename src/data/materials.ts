@@ -47,7 +47,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'ब्रह्माण्डसम्बन्धी — The universe and the solar system',
     file: 'gk-01-universe-and-solar-system.pdf',
-    size: 2269793,
+    size: 2037305,
     published: '2026-09-12',
   },
   {
@@ -58,7 +58,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'ब्रह्माण्डसम्बन्धी — The universe and the solar system',
     file: 'gk-01-universe-and-solar-system.pdf',
-    size: 2269793,
+    size: 2037305,
     published: '2026-09-12',
   },
   {
@@ -69,7 +69,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'ब्रह्माण्डसम्बन्धी — The universe and the solar system',
     file: 'gk-01-universe-and-solar-system.pdf',
-    size: 2269793,
+    size: 2037305,
     published: '2026-09-12',
   },
   {
@@ -80,7 +80,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'नेपालको भूगोल — Geography of Nepal',
     file: 'gk-02-geography-of-nepal.pdf',
-    size: 1967264,
+    size: 1749233,
     published: '2026-09-12',
   },
   {
@@ -91,7 +91,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'नेपालको भूगोल — Geography of Nepal',
     file: 'gk-02-geography-of-nepal.pdf',
-    size: 1967264,
+    size: 1749233,
     published: '2026-09-12',
   },
   {
@@ -102,7 +102,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'नेपालको भूगोल — Geography of Nepal',
     file: 'gk-02-geography-of-nepal.pdf',
-    size: 1967264,
+    size: 1749233,
     published: '2026-09-12',
   },
   {
@@ -113,7 +113,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'विश्वको इतिहास — World history',
     file: 'gk-03-world-history.pdf',
-    size: 1237140,
+    size: 1153837,
     published: '2026-09-12',
   },
   {
@@ -124,7 +124,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'विश्वको इतिहास — World history',
     file: 'gk-03-world-history.pdf',
-    size: 1237140,
+    size: 1153837,
     published: '2026-09-12',
   },
   {
@@ -135,7 +135,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'विश्वको इतिहास — World history',
     file: 'gk-03-world-history.pdf',
-    size: 1237140,
+    size: 1153837,
     published: '2026-09-12',
   },
   {
@@ -146,7 +146,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'नेपालको इतिहास — History of Nepal',
     file: 'gk-04-history-of-nepal.pdf',
-    size: 2009724,
+    size: 1796087,
     published: '2026-09-12',
   },
   {
@@ -157,7 +157,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'नेपालको इतिहास — History of Nepal',
     file: 'gk-04-history-of-nepal.pdf',
-    size: 2009724,
+    size: 1796087,
     published: '2026-09-12',
   },
   {
@@ -168,7 +168,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'नेपालको इतिहास — History of Nepal',
     file: 'gk-04-history-of-nepal.pdf',
-    size: 2009724,
+    size: 1796087,
     published: '2026-09-12',
   },
   {
@@ -179,7 +179,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'नेपालको संवैधानिक विकासक्रम र प्रशासनिक इतिहास — Constitutional development and administrative history',
     file: 'gk-05-constitutional-and-administrative-history.pdf',
-    size: 888560,
+    size: 853018,
     published: '2026-09-12',
   },
   {
@@ -190,7 +190,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'नेपालको संवैधानिक विकासक्रम र प्रशासनिक इतिहास — Constitutional development and administrative history',
     file: 'gk-05-constitutional-and-administrative-history.pdf',
-    size: 888560,
+    size: 853018,
     published: '2026-09-12',
   },
   {
@@ -201,7 +201,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'नेपालको संवैधानिक विकासक्रम र प्रशासनिक इतिहास — Constitutional development and administrative history',
     file: 'gk-05-constitutional-and-administrative-history.pdf',
-    size: 888560,
+    size: 853018,
     published: '2026-09-12',
   },
   {
@@ -212,7 +212,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'धर्म/संस्कृतिसम्बन्धी — Religion and culture',
     file: 'gk-06-religion-and-culture.pdf',
-    size: 1720255,
+    size: 1586511,
     published: '2026-09-12',
   },
   {
@@ -223,7 +223,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'धर्म/संस्कृतिसम्बन्धी — Religion and culture',
     file: 'gk-06-religion-and-culture.pdf',
-    size: 1720255,
+    size: 1586511,
     published: '2026-09-12',
   },
   {
@@ -234,7 +234,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'धर्म/संस्कृतिसम्बन्धी — Religion and culture',
     file: 'gk-06-religion-and-culture.pdf',
-    size: 1720255,
+    size: 1586511,
     published: '2026-09-12',
   },
   {
@@ -245,7 +245,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'नेपालमा रहेका विभिन्न जातजाति र भाषाभाषी — Ethnic groups and languages of Nepal',
     file: 'gk-07-ethnic-groups-and-languages.pdf',
-    size: 1427020,
+    size: 1196955,
     published: '2026-09-12',
   },
   {
@@ -256,7 +256,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'नेपालमा रहेका विभिन्न जातजाति र भाषाभाषी — Ethnic groups and languages of Nepal',
     file: 'gk-07-ethnic-groups-and-languages.pdf',
-    size: 1427020,
+    size: 1196955,
     published: '2026-09-12',
   },
   {
@@ -267,7 +267,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'नेपालमा रहेका विभिन्न जातजाति र भाषाभाषी — Ethnic groups and languages of Nepal',
     file: 'gk-07-ethnic-groups-and-languages.pdf',
-    size: 1427020,
+    size: 1196955,
     published: '2026-09-12',
   },
   {
@@ -278,7 +278,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'आर्थिक विकासका पक्षहरू: कृषि तथा सिँचाइ — Agriculture and irrigation',
     file: 'gk-08-agriculture-and-irrigation.pdf',
-    size: 1458489,
+    size: 1315099,
     published: '2026-09-12',
   },
   {
@@ -289,7 +289,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'आर्थिक विकासका पक्षहरू: कृषि तथा सिँचाइ — Agriculture and irrigation',
     file: 'gk-08-agriculture-and-irrigation.pdf',
-    size: 1458489,
+    size: 1315099,
     published: '2026-09-12',
   },
   {
@@ -300,7 +300,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'आर्थिक विकासका पक्षहरू: कृषि तथा सिँचाइ — Agriculture and irrigation',
     file: 'gk-08-agriculture-and-irrigation.pdf',
-    size: 1458489,
+    size: 1315099,
     published: '2026-09-12',
   },
   {
@@ -311,7 +311,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'विकासका पूर्वाधारहरू — Infrastructure of development: education, health, transport, communication',
     file: 'gk-09-development-infrastructure.pdf',
-    size: 1789795,
+    size: 1605648,
     published: '2026-09-12',
   },
   {
@@ -322,7 +322,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'विकासका पूर्वाधारहरू — Infrastructure of development: education, health, transport, communication',
     file: 'gk-09-development-infrastructure.pdf',
-    size: 1789795,
+    size: 1605648,
     published: '2026-09-12',
   },
   {
@@ -333,7 +333,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'विकासका पूर्वाधारहरू — Infrastructure of development: education, health, transport, communication',
     file: 'gk-09-development-infrastructure.pdf',
-    size: 1789795,
+    size: 1605648,
     published: '2026-09-12',
   },
   {
@@ -344,7 +344,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'विज्ञान, प्रविधि र स्वास्थ्य — Science, technology and health',
     file: 'gk-10-science-technology-and-health.pdf',
-    size: 1251430,
+    size: 1087409,
     published: '2026-09-12',
   },
   {
@@ -355,7 +355,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'विज्ञान, प्रविधि र स्वास्थ्य — Science, technology and health',
     file: 'gk-10-science-technology-and-health.pdf',
-    size: 1251430,
+    size: 1087409,
     published: '2026-09-12',
   },
   {
@@ -366,7 +366,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'विज्ञान, प्रविधि र स्वास्थ्य — Science, technology and health',
     file: 'gk-10-science-technology-and-health.pdf',
-    size: 1251430,
+    size: 1087409,
     published: '2026-09-12',
   },
   {
@@ -377,7 +377,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'पारिस्थितिक पद्धति र वातावरण — Ecosystem and environment',
     file: 'gk-11-ecosystem-and-environment.pdf',
-    size: 1676360,
+    size: 1523108,
     published: '2026-09-12',
   },
   {
@@ -388,7 +388,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'पारिस्थितिक पद्धति र वातावरण — Ecosystem and environment',
     file: 'gk-11-ecosystem-and-environment.pdf',
-    size: 1676360,
+    size: 1523108,
     published: '2026-09-12',
   },
   {
@@ -399,7 +399,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'पारिस्थितिक पद्धति र वातावरण — Ecosystem and environment',
     file: 'gk-11-ecosystem-and-environment.pdf',
-    size: 1676360,
+    size: 1523108,
     published: '2026-09-12',
   },
   {
@@ -410,7 +410,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'नेपालको अन्तर्राष्ट्रिय सम्बन्ध — Nepal’s international relations',
     file: 'gk-12-international-relations.pdf',
-    size: 3394980,
+    size: 2811244,
     published: '2026-09-12',
   },
   {
@@ -421,7 +421,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'नेपालको अन्तर्राष्ट्रिय सम्बन्ध — Nepal’s international relations',
     file: 'gk-12-international-relations.pdf',
-    size: 3394980,
+    size: 2811244,
     published: '2026-09-12',
   },
   {
@@ -432,7 +432,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'नेपालको अन्तर्राष्ट्रिय सम्बन्ध — Nepal’s international relations',
     file: 'gk-12-international-relations.pdf',
-    size: 3394980,
+    size: 2811244,
     published: '2026-09-12',
   },
   {
@@ -443,7 +443,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-b',
     title: 'IQ र अभिरुचि परीक्षण: शाब्दिक, अशाब्दिक र संख्यात्मक तर्क — IQ and aptitude: verbal, non-verbal and numerical reasoning',
     file: 'iq-13-verbal-non-verbal-numerical.pdf',
-    size: 3449727,
+    size: 3332025,
     published: '2026-09-12',
   },
   {
@@ -454,7 +454,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-b',
     title: 'IQ र अभिरुचि परीक्षण: शाब्दिक, अशाब्दिक र संख्यात्मक तर्क — IQ and aptitude: verbal, non-verbal and numerical reasoning',
     file: 'iq-13-verbal-non-verbal-numerical.pdf',
-    size: 3449727,
+    size: 3332025,
     published: '2026-09-12',
   },
   {
@@ -465,7 +465,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-b',
     title: 'IQ र अभिरुचि परीक्षण: शाब्दिक, अशाब्दिक र संख्यात्मक तर्क — IQ and aptitude: verbal, non-verbal and numerical reasoning',
     file: 'iq-13-verbal-non-verbal-numerical.pdf',
-    size: 3449727,
+    size: 3332025,
     published: '2026-09-12',
   },
   {
@@ -476,7 +476,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-b',
     title: 'IQ र अभिरुचि परीक्षण: तथ्यांक व्याख्या — IQ and aptitude: data interpretation',
     file: 'iq-14-data-interpretation.pdf',
-    size: 1795854,
+    size: 1790782,
     published: '2026-09-12',
   },
   {
@@ -487,7 +487,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-b',
     title: 'IQ र अभिरुचि परीक्षण: तथ्यांक व्याख्या — IQ and aptitude: data interpretation',
     file: 'iq-14-data-interpretation.pdf',
-    size: 1795854,
+    size: 1790782,
     published: '2026-09-12',
   },
   {
@@ -498,7 +498,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-c',
     title: 'अधिकृत अंग्रेजी: बोधका अनुच्छेद, नमुना सेट र लोक सेवाका प्रश्न — Officer English: passages, model sets and PSC question sets',
     file: 'english-16-passages-and-model-sets.pdf',
-    size: 1178203,
+    size: 1169730,
     published: '2026-09-12',
   },
   {
@@ -509,7 +509,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'adhikrit-p1-a',
     title: 'राष्ट्रिय विभूति तथा उल्लेखनीय व्यक्तित्व — National luminaries and noted personalities',
     file: 'gk-17-national-luminaries.pdf',
-    size: 661799,
+    size: 649793,
     published: '2026-09-12',
   },
   {
@@ -520,7 +520,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'nasu-p1-a',
     title: 'राष्ट्रिय विभूति तथा उल्लेखनीय व्यक्तित्व — National luminaries and noted personalities',
     file: 'gk-17-national-luminaries.pdf',
-    size: 661799,
+    size: 649793,
     published: '2026-09-12',
   },
   {
@@ -531,7 +531,7 @@ export const CATALOGUE_ENTRIES: CatalogueEntry[] = [
     sectionId: 'kharidar-p1-a',
     title: 'राष्ट्रिय विभूति तथा उल्लेखनीय व्यक्तित्व — National luminaries and noted personalities',
     file: 'gk-17-national-luminaries.pdf',
-    size: 661799,
+    size: 649793,
     published: '2026-09-12',
   },
 ];
