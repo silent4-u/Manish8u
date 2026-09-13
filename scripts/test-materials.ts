@@ -5,7 +5,12 @@
  * paper that is renumbered in a future revision shows up here as a failure
  * instead of quietly stranding whatever a candidate filed under it.
  */
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { PDFDocument } from 'pdf-lib';
 import { LEVEL_BY_ID } from '../src/data/levels';
+import { MATERIAL_CONTENTS } from '../src/data/materialChapters';
 import {
   defaultTitle,
   formatBytes,
@@ -162,6 +167,47 @@ check(
   shelfBytes('adhikrit', [meta({ id: 'p', origin: 'catalogue', size: 5000 })]),
   0,
 );
+
+/*
+ * The chapter indexes are written by hand against the shipped files — the
+ * Nepali booklets' headings had to be read off the rendered page — so the one
+ * thing worth guarding is that every page number still points inside the file
+ * it claims, and in the order a reader would meet the headings. A page that
+ * drifts sends a candidate to the wrong chapter with nothing to tell them.
+ */
+console.log('MATERIAL_CONTENTS');
+const materialsDir = join(dirname(fileURLToPath(import.meta.url)), '../public/materials');
+
+for (const [fileName, contents] of Object.entries(MATERIAL_CONTENTS)) {
+  const path = join(materialsDir, fileName);
+  if (!existsSync(path)) {
+    check(`${fileName} is a published file`, 'missing', 'present');
+    continue;
+  }
+  const doc = await PDFDocument.load(readFileSync(path), { ignoreEncryption: true });
+  check(`${fileName} declares its real page count`, contents.pages, doc.getPageCount());
+
+  const strays = contents.chapters.filter((c) => c.page < 1 || c.page > doc.getPageCount());
+  check(`${fileName} points every chapter inside the file`, strays.map((c) => c.title), []);
+
+  const outOfOrder = contents.chapters.filter((c, i) => i > 0 && c.page < contents.chapters[i - 1].page);
+  check(`${fileName} lists its chapters in page order`, outOfOrder.map((c) => c.title), []);
+
+  const blank = contents.chapters.filter((c) => !c.title.trim());
+  check(`${fileName} names every chapter`, blank.length, 0);
+
+  // The viewer keys each row on level and title, so a repeat would drop a row.
+  const seen = new Set<string>();
+  const repeated = contents.chapters
+    .filter((c) => {
+      const key = `${c.level}-${c.title}`;
+      if (seen.has(key)) return true;
+      seen.add(key);
+      return false;
+    })
+    .map((c) => c.title);
+  check(`${fileName} has no two chapters with the same name and level`, repeated, []);
+}
 
 if (failures > 0) {
   console.error(`\n${failures} check(s) failed.`);
