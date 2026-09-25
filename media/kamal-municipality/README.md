@@ -62,3 +62,52 @@ python3 media/kamal-municipality/render.py
 It takes about six minutes on one CPU. The random seed is fixed, so the output
 is the same on every run. Camera keyframes are in `KEYS` at the top of the
 script.
+
+## Inauguration day — tent removed, 15-second drone shot
+
+| File | What it is |
+| --- | --- |
+| `inauguration.jpg` | The photo from the inauguration, with the event tent in front of the entrance |
+| `remove_tent.py` | Removes the tent and its poles and bamboo, leaving everything else |
+| `inauguration-clean.jpg` | The result |
+| `render_inauguration.py` | Renders the drone shot from the cleaned photo |
+| `inauguration-drone.mp4` | 1920 × 1080, 24 fps, 15 s, H.264 + AAC stereo |
+
+**Removing the tent.** Nothing in the photo shows what is behind the tent, but
+`source.jpg` shows the same portico with no tent. That photo is aligned to
+this one and the hidden part is taken from it:
+
+- The front of the building is aligned with a homography, fitted with SIFT
+  matches on the facade.
+- The wall inside the portico sits further back, so it gets its own small
+  correction, measured on the ground-floor window frames.
+- The patch is colour-matched to this photo at its edges.
+- Each tent pole and piece of bamboo is found by colour inside a marked
+  corridor, then covered with the pixels just beside it.
+- The balloons, chairs, entrance and people are untouched. Bamboo lying on
+  the ground is kept.
+
+**The drone move.** The shot is a real camera moving through a simple depth
+model of the photo:
+
+- The building is one far plane.
+- The paving comes closer row by row, as a flat ground does.
+- The two women stand near the camera, cut out with GrabCut.
+
+The camera flies toward the women, so they grow faster than the building
+behind them, and nothing hidden behind them is ever uncovered.
+
+| Time | Move |
+| --- | --- |
+| 0–4.5 s | Wide on the whole square, then pushing forward |
+| 4.5–8 s | Tilting down to the two women in front of the portico |
+| 8–11 s | Craning up the columns to the name |
+| 11–15 s | Drifting back to the whole building |
+
+Because the source is a still photo, the people, flag and trees don't move.
+
+```sh
+pip install numpy pillow opencv-python-headless imageio-ffmpeg
+python3 media/kamal-municipality/remove_tent.py
+python3 media/kamal-municipality/render_inauguration.py
+```
