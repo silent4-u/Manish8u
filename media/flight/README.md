@@ -14,7 +14,7 @@ one window photo and one phone video of a flight past the Himalaya.
 | --- | --- |
 | 0–3.6 s | The photo, with a slow push toward the wing and the horizon |
 | 2.8–7.6 s | The clip's sharpest stretch: window frame, wing and the range on the horizon |
-| 6.8–15 s | The snow peaks above the cloud sea, with a small title |
+| 6.8–15 s | The snow peaks above the cloud sea |
 
 How the film is made:
 
@@ -31,6 +31,6 @@ The source video is 478 px wide, so the film is upscaled about 2.3× to reach
 1080 px. It is softer than native 1080p footage.
 
 ```sh
-pip install numpy pillow opencv-python-headless imageio-ffmpeg
-python3 media/flight/render_flight.py path/to/fonts   # Cormorant Garamond for the title
+pip install numpy opencv-python-headless imageio-ffmpeg
+python3 media/flight/render_flight.py
 ```

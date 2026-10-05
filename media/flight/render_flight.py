@@ -4,7 +4,7 @@ motion (the clip is 60 fps, so every source frame is used once), with a gentle
 haze-lifting grade, the real cabin hum and a soft synthesised score.
 
     pip install numpy opencv-python-headless imageio-ffmpeg
-    python3 media/flight/render_flight.py [fonts_dir]
+    python3 media/flight/render_flight.py
 """
 
 import subprocess
@@ -15,7 +15,6 @@ from pathlib import Path
 import cv2
 import imageio_ffmpeg
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "kamal-municipality"))
 import render as synth  # noqa: E402  the soundtrack helpers of the first film
@@ -25,7 +24,6 @@ PHOTO = HERE / "window.jpg"
 CLIP = HERE / "flight.mp4"
 OUTPUT = HERE / "above-the-himalaya.mp4"
 AUDIO = HERE / "above-the-himalaya.wav"
-FONTS = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "fonts"
 
 W, H = 1080, 1920
 FPS = 30
@@ -40,7 +38,6 @@ SHOTS = [
     (2.8, 4.8, "video", 0.25),   # window frame, wing, the range on the horizon
     (6.8, 8.2, "video", 9.6),    # the snow peaks above the cloud sea
 ]
-TITLE = ("Above the Himalaya", 9.4, 13.6)  # text, fade in, fade out
 
 
 # ------------------------------------------------------------ stabilise ----
@@ -161,26 +158,6 @@ def video_frames(src_start, length):
     return out
 
 
-def title_layer(text):
-    try:
-        f = ImageFont.truetype(str(FONTS / "CormorantGaramond[wght].ttf"), 58)
-        f.set_variation_by_axes([500])
-    except OSError:
-        f = ImageFont.load_default()
-    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    # Wide letter spacing, drawn letter by letter so it stays centred.
-    text, track = text.upper(), 9
-    widths = [d.textlength(c, font=f) for c in text]
-    x = W / 2 - (sum(widths) + track * (len(text) - 1)) / 2
-    for c, cw in zip(text, widths):
-        d.text((x, H * 0.70), c, font=f, fill=(255, 250, 240, 235), anchor="lm")
-        x += cw + track
-    a = np.asarray(layer, np.float32) / 255.0
-    glow = cv2.GaussianBlur(a[..., 3], (0, 0), 10)[..., None]
-    return a[..., :3][..., ::-1], a[..., 3:4], glow
-
-
 def main():
     rng = np.random.default_rng(5)
     print("preparing shots")
@@ -188,7 +165,6 @@ def main():
     for start, length, kind, src in SHOTS:
         frames = photo_frames(length) if kind == "photo" else video_frames(src, length)
         shots.append((start, length, frames))
-    txt_rgb, txt_a, txt_glow = title_layer(TITLE[0])
 
     print("synthesising soundtrack")
     soundtrack()
@@ -216,10 +192,6 @@ def main():
                 acc += frames[k].astype(np.float32) * wgt
                 wsum += wgt
         img = grade(np.clip(acc / max(wsum, 1e-6), 0, 255).astype(np.uint8), rng)
-        ta = np.clip(min((t - TITLE[1]) / 1.2, (TITLE[2] - t) / 1.2), 0, 1)
-        if ta > 0:
-            img = img * (1 - txt_glow * 0.25 * ta)  # a soft shadow behind the words
-            img = img * (1 - txt_a * ta) + txt_rgb * txt_a * ta
         fade = min(1.0, t / 0.6) * min(1.0, (DURATION - t) / 1.0)
         proc.stdin.write((np.clip(img * fade, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes())
         if i % 60 == 0:
