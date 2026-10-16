@@ -70,3 +70,39 @@ python3 media/poster/make_poster_tea.py path/to/fonts
 ```
 
 U2-Net's weights download to `~/.cache/rembg` on first use.
+
+## Realistic finish
+
+`poster-real.jpg` is the same scene photographed rather than illustrated.
+`make_poster_real.py` makes it:
+
+- **The sitter.** The photograph itself, with no paint pass. It is graded
+  into the bulb's warmth and lit a little more from the upper left. Edge
+  colours come from well inside the outline, so the café's blue window
+  can't rim his ear. A touch of light wrap lets the wall glow over his edge.
+- **The props.** Each is drawn as shapes, then lit. A height field from
+  each shape's distance to its edge gives surface normals, so every surface
+  catches the same upper-left light with diffuse and specular terms:
+  - walnut grain on the radio case
+  - a brass grille frame and dial bezel
+  - recessed speaker cloth with three wooden bars
+  - a dial under glass
+  - chrome knobs that reflect the wall and the wood
+  - ivory keys
+  - cloth-bound books with gold foil
+- **The tea glass.** It refracts the scene behind it. The tea is shaded by
+  how much of it light passes through, so it is deeper in the middle and
+  glows on the far side. It has a lit meniscus with the bulb in it, wall
+  streaks, a rim, a thick base, a warm caustic on the book, and steam.
+- **The room.**
+  - A varnished tabletop with legible grain, the bulb's sheen and a rounded
+    front edge.
+  - Contact shadows under the props and his forearms, and soft reflections
+    of the props in the varnish.
+  - A real-looking bulb with a filament and bloom.
+  - Softer leaf shadows on plaster, his own soft shadow on the wall, and
+    lens bloom, vignette and fine grain.
+
+```sh
+python3 media/poster/make_poster_real.py path/to/fonts
+```
