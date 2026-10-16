@@ -36,3 +36,6 @@ media/sunset/*-x4.png
 media/sunset/*-x4plus.png
 media/flight/window-x4plus.png
 media/flight/.chunks/
+
+# Python bytecode from the media scripts importing one another.
+__pycache__/
