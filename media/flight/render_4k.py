@@ -16,8 +16,10 @@ grade lifts the window haze, deepens the blue, warms the sunlit snow and lets
 the highlights glow. The score is synthesised over the clip's own cabin hum.
 
     pip install numpy opencv-python-headless onnx onnxruntime imageio-ffmpeg
-    python3 media/flight/render_4k.py              # the film
-    python3 media/flight/render_4k.py --preview    # a few graded stills
+    python3 media/flight/render_4k.py                    # the whole film
+    python3 media/flight/render_4k.py --frames 0 117     # or one piece at a time
+    python3 media/flight/render_4k.py --mux              # then join the pieces
+    python3 media/flight/render_4k.py --preview DIR      # a few graded stills
 """
 
 import subprocess
@@ -39,6 +41,8 @@ import upscale as sr  # noqa: E402  Real-ESRGAN on ONNX
 PHOTO = HERE / "window.jpg"
 CLIP = HERE / "flight.mp4"
 OUTPUT = HERE / "above-the-himalaya-4k.mp4"
+CHUNKS = HERE / ".chunks"   # rendered pieces, joined by mux()
+CHUNK = 117                 # frames per piece: each renders in about 12 minutes
 AUDIO = HERE / "above-the-himalaya-4k.wav"
 
 W, H = 2160, 3840
@@ -168,7 +172,9 @@ class Clip:
             return b
         flow = cv2.resize(self.flow_between(k), a.shape[1::-1]) * SR_SCALE
         h, w = a.shape[:2]
-        gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
+        if getattr(self, "_grid", (None,))[0] != (h, w):
+            self._grid = ((h, w), *np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32)))
+        gx, gy = self._grid[1:]
         wa = cv2.remap(a, gx - f * flow[..., 0], gy - f * flow[..., 1], cv2.INTER_CUBIC,
                        borderMode=cv2.BORDER_REFLECT)
         wb = cv2.remap(b, gx + (1 - f) * flow[..., 0], gy + (1 - f) * flow[..., 1], cv2.INTER_CUBIC,
@@ -333,6 +339,9 @@ def photo_upscaled():
 
 
 def main():
+    if "--mux" in sys.argv:
+        mux()
+        return
     preview = "--preview" in sys.argv
     print("loading models")
     light = sr.build(sr.weights())
@@ -353,29 +362,63 @@ def main():
             print("preview", t, flush=True)
         return
 
-    print("synthesising soundtrack")
-    soundtrack()
+    total = int(round(DURATION * FPS))
+    if "--frames" in sys.argv:
+        a, b = (int(x) for x in sys.argv[sys.argv.index("--frames") + 1:][:2])
+        render_chunk(a, min(b, total), total, photo, clip, stabs)
+        return
+    for a in range(0, total, CHUNK):
+        render_chunk(a, min(a + CHUNK, total), total, photo, clip, stabs)
+    mux()
+
+
+def chunk_path(a):
+    return CHUNKS / f"chunk_{a:04d}.mp4"
+
+
+def render_chunk(a, b, total, photo, clip, stabs):
+    """Frames [a, b) as one H.264 piece; pieces join without re-encoding."""
+    CHUNKS.mkdir(exist_ok=True)
+    tmp = chunk_path(a).with_suffix(".part.mp4")
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     proc = subprocess.Popen([
         ffmpeg, "-y", "-loglevel", "error",
         "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-        "-i", str(AUDIO),
         "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-maxrate", "32M", "-bufsize", "64M",
         "-profile:v", "high", "-level", "5.2", "-pix_fmt", "yuv420p",
         "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
-        "-c:a", "aac", "-b:a", "256k", "-shortest", "-movflags", "+faststart", str(OUTPUT),
+        str(tmp),
     ], stdin=subprocess.PIPE)
-    total = int(round(DURATION * FPS))
-    for i in range(total):
+    for i in range(a, b):
         t = i / FPS
         img, glow = compose(t, photo, clip, stabs)
-        g = grade(img, rng, glow)
+        g = grade(img, np.random.default_rng(11 + i), glow)
         fade = min(1.0, t / 0.7) * min(1.0, (DURATION - t) / 1.4)
         proc.stdin.write((g * fade * 255 + 0.5).astype(np.uint8).tobytes())
         if i % 15 == 0:
             print(f"frame {i}/{total}", flush=True)
     proc.stdin.close()
     proc.wait()
+    tmp.rename(chunk_path(a))  # only a finished piece gets the real name
+    print(f"wrote {chunk_path(a).name}", flush=True)
+
+
+def mux():
+    """Join the pieces, add the soundtrack."""
+    total = int(round(DURATION * FPS))
+    pieces = [chunk_path(a) for a in range(0, total, CHUNK)]
+    missing = [p.name for p in pieces if not p.exists()]
+    if missing:
+        sys.exit(f"missing pieces: {missing}")
+    print("synthesising soundtrack")
+    soundtrack()
+    listing = CHUNKS / "list.txt"
+    listing.write_text("".join(f"file '{p.name}'\n" for p in pieces))
+    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+    subprocess.run([
+        ffmpeg, "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(listing),
+        "-i", str(AUDIO), "-c:v", "copy", "-c:a", "aac", "-b:a", "256k", "-shortest",
+        "-movflags", "+faststart", str(OUTPUT)], check=True)
     AUDIO.unlink()
     print(f"wrote {OUTPUT}")
 
