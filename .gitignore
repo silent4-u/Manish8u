@@ -33,3 +33,4 @@ materials-source/
 
 # Real-ESRGAN intermediates; media/sunset/upscale.py regenerates them.
 media/sunset/*-x4.png
+media/sunset/*-x4plus.png

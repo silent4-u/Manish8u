@@ -165,6 +165,7 @@ def grade(img, sun_xy):
     a = np.clip(a, 0, 1)
     # Clean shadows, as from a low-ISO sensor: edge-aware smoothing, deepest
     # tones only.
+    a = a.astype(np.float32)
     clean = cv2.bilateralFilter(a, d=int(9 * K) | 1, sigmaColor=0.06, sigmaSpace=4 * K)
     lum = (a @ np.array([0.114, 0.587, 0.299], np.float32))[..., None]
     dark = 1 - np.clip((lum - 0.08) / 0.17, 0, 1)
