@@ -63,21 +63,25 @@ def warp(img, m):
 
 
 def source(path):
-    """The 4x Real-ESRGAN version when upscale.py has made it, else the JPEG.
+    """The Real-ESRGAN upscale when upscale.py has made it, else the JPEG.
 
-    In the shadows the network paints foliage a little too smoothly, so there
-    some of the plainly enlarged original is mixed back in; in the sky, where
-    the JPEG blocks would show, the upscale is used as it is.
+    The crisp RRDBNet upscale (-x4plus) leads. In the shadows, where it paints
+    foliage too smoothly, the lighter general model and a little of the plainly
+    enlarged original are mixed in; in the sky it is used as it is.
     """
     small = cv2.imread(str(path))
-    big = path.with_name(path.stem + f"-x{SR}.png")
-    if not big.exists():
+    crisp = path.with_name(path.stem + f"-x{SR}plus.png")
+    light = path.with_name(path.stem + f"-x{SR}.png")
+    if not (crisp.exists() or light.exists()):
         return small, np.eye(3)
-    sr = cv2.imread(str(big)).astype(np.float32)
+    sr = cv2.imread(str(crisp if crisp.exists() else light)).astype(np.float32)
     plain = cv2.resize(small, sr.shape[1::-1], interpolation=cv2.INTER_LANCZOS4).astype(np.float32)
     lum = cv2.GaussianBlur(sr @ np.array([0.114, 0.587, 0.299], np.float32), (0, 0), 6) / 255.0
     lum = cv2.erode(lum, np.ones((31, 31), np.uint8))  # reach the silhouettes' edges too
-    a = (0.45 * (1 - np.clip((lum - 0.15) / 0.25, 0, 1)))[..., None]
+    shade = (1 - np.clip((lum - 0.15) / 0.25, 0, 1))[..., None]
+    if crisp.exists() and light.exists():
+        sr = sr * (1 - 0.35 * shade) + cv2.imread(str(light)).astype(np.float32) * 0.35 * shade
+    a = 0.25 * shade
     mixed = np.clip(sr * (1 - a) + plain * a, 0, 255).astype(np.uint8)
     return mixed, np.diag([1 / SR, 1 / SR, 1])
 
@@ -155,12 +159,24 @@ def grade(img, sun_xy):
     d = np.sqrt((XX - sx) ** 2 + (YY - sy) ** 2)[..., None]
     bloom = np.exp(-(d / (70 * K)) ** 2) * 0.30 + np.exp(-(d / (260 * K)) ** 2) * 0.10
     a = 1 - (1 - a) * (1 - bloom * np.array([0.55, 0.80, 1.0]))
-    # Vignette and a fine grain.
-    v = 1 - 0.30 * (((XX - W / 2) / (W / 2)) ** 2 + ((YY - H * 0.45) / (H * 0.6)) ** 2) ** 1.4
-    a *= np.clip(v, 0.55, 1)[..., None]
-    # Film grain, a little soft, so the cleaned-up sources read as a photo.
-    grain = np.random.default_rng(3).normal(0, 0.012, a.shape).astype(np.float32)
-    a += cv2.GaussianBlur(grain, (0, 0), 0.6 * K) * 3.2
+    # A light vignette.
+    v = 1 - 0.24 * (((XX - W / 2) / (W / 2)) ** 2 + ((YY - H * 0.45) / (H * 0.6)) ** 2) ** 1.4
+    a *= np.clip(v, 0.6, 1)[..., None]
+    a = np.clip(a, 0, 1)
+    # Clean shadows, as from a low-ISO sensor: edge-aware smoothing, deepest
+    # tones only.
+    clean = cv2.bilateralFilter(a, d=int(9 * K) | 1, sigmaColor=0.06, sigmaSpace=4 * K)
+    lum = (a @ np.array([0.114, 0.587, 0.299], np.float32))[..., None]
+    dark = 1 - np.clip((lum - 0.08) / 0.17, 0, 1)
+    a = a * (1 - 0.7 * dark) + clean * 0.7 * dark
+    # Capture sharpening on luminance, fine radius, capped so no halo forms.
+    lab = cv2.cvtColor(a, cv2.COLOR_BGR2LAB)
+    L = lab[..., 0]
+    detail = np.clip(L - cv2.GaussianBlur(L, (0, 0), 0.9 * K), -4.0, 4.0)
+    lab[..., 0] = np.clip(L + 0.9 * detail, 0, 100)
+    a = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+    # Only enough fine noise to dither the sky's gradient (no banding).
+    a += np.random.default_rng(3).normal(0, 0.0035, a.shape).astype(np.float32)
     return np.clip(a, 0, 1)
 
 
