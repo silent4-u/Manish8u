@@ -30,3 +30,6 @@ materials-source/
 .env
 .env.local
 .env.*.local
+
+# Real-ESRGAN intermediates; media/sunset/upscale.py regenerates them.
+media/sunset/*-x4.png

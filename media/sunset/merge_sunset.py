@@ -14,7 +14,8 @@ it actually has at this size: the wide one is enlarged about five times, so
 it brings light into the shadows but none of its blurred detail, and the
 long zoom brings the finest cloud texture. Then a restrained grade.
 
-    pip install numpy opencv-python-headless
+    pip install numpy opencv-python-headless onnx onnxruntime
+    python3 media/sunset/upscale.py        # optional: 4x Real-ESRGAN sources
     python3 media/sunset/merge_sunset.py
 """
 
@@ -27,9 +28,11 @@ HERE = Path(__file__).resolve().parent
 TOWER, SUN, WIDE = (HERE / f for f in ("sunset-tower.jpg", "sunset-sun.jpg", "sunset-wide.jpg"))
 OUTPUT = HERE / "sunset-cinematic.jpg"
 
-W, H = 1080, 1350          # 4:5
+W, H = 2160, 2700          # 4:5
+K = W / 1080               # pixel sizes below are tuned at 1080 wide
 CROP_TOP = 150             # in the tower shot's pixels
-LEVELS = 8
+LEVELS = 9
+SR = 4                     # upscale.py's factor; its -x4.png files are used when present
 
 
 def homography(src, dst):
@@ -46,11 +49,37 @@ def homography(src, dst):
 
 
 def warp(img, m):
+    # A warp that shrinks needs the source shrunk first, or it aliases.
+    shrink = np.sqrt(abs(np.linalg.det(m[:2, :2])))
+    if shrink < 0.9:
+        img = cv2.resize(img, None, fx=shrink, fy=shrink, interpolation=cv2.INTER_AREA)
+        m = m @ np.diag([1 / shrink, 1 / shrink, 1])
     out = cv2.warpPerspective(img, m, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REFLECT)
     valid = cv2.warpPerspective(np.ones(img.shape[:2], np.float32), m, (W, H), flags=cv2.INTER_LINEAR)
     # Feather the edge of each shot so no seam can show.
-    valid = cv2.GaussianBlur(cv2.erode(valid, np.ones((25, 25), np.uint8)), (0, 0), 18)
+    e = int(25 * K) | 1
+    valid = cv2.GaussianBlur(cv2.erode(valid, np.ones((e, e), np.uint8)), (0, 0), 18 * K)
     return out.astype(np.float32) / 255.0, valid
+
+
+def source(path):
+    """The 4x Real-ESRGAN version when upscale.py has made it, else the JPEG.
+
+    In the shadows the network paints foliage a little too smoothly, so there
+    some of the plainly enlarged original is mixed back in; in the sky, where
+    the JPEG blocks would show, the upscale is used as it is.
+    """
+    small = cv2.imread(str(path))
+    big = path.with_name(path.stem + f"-x{SR}.png")
+    if not big.exists():
+        return small, np.eye(3)
+    sr = cv2.imread(str(big)).astype(np.float32)
+    plain = cv2.resize(small, sr.shape[1::-1], interpolation=cv2.INTER_LANCZOS4).astype(np.float32)
+    lum = cv2.GaussianBlur(sr @ np.array([0.114, 0.587, 0.299], np.float32), (0, 0), 6) / 255.0
+    lum = cv2.erode(lum, np.ones((31, 31), np.uint8))  # reach the silhouettes' edges too
+    a = (0.45 * (1 - np.clip((lum - 0.15) / 0.25, 0, 1)))[..., None]
+    mixed = np.clip(sr * (1 - a) + plain * a, 0, 255).astype(np.uint8)
+    return mixed, np.diag([1 / SR, 1 / SR, 1])
 
 
 def gaussian_pyr(img, n):
@@ -108,7 +137,7 @@ def grade(img, sun_xy):
     # Depth in the clouds: a wide, gentle local-contrast lift on mid tones.
     lum = (a @ np.array([0.114, 0.587, 0.299], np.float32))[..., None]
     mid = np.exp(-((lum - 0.5) ** 2) / (2 * 0.2 ** 2))
-    a += (a - cv2.GaussianBlur(a, (0, 0), 14)) * 0.35 * mid
+    a += (a - cv2.GaussianBlur(a, (0, 0), 14 * K)) * 0.35 * mid
     # A graduated filter: the upper sky deepens toward dusk.
     g = np.clip(1 - YY / (H * 0.42), 0, 1)[..., None] ** 1.6
     a *= 1 - g * np.array([0.10, 0.20, 0.14])  # BGR: a touch of rose in the dark
@@ -124,43 +153,49 @@ def grade(img, sun_xy):
     # The sun's glow, as a lens sees it: a warm bloom around the disc.
     sx, sy = sun_xy
     d = np.sqrt((XX - sx) ** 2 + (YY - sy) ** 2)[..., None]
-    bloom = np.exp(-(d / 70) ** 2) * 0.30 + np.exp(-(d / 260) ** 2) * 0.10
+    bloom = np.exp(-(d / (70 * K)) ** 2) * 0.30 + np.exp(-(d / (260 * K)) ** 2) * 0.10
     a = 1 - (1 - a) * (1 - bloom * np.array([0.55, 0.80, 1.0]))
     # Vignette and a fine grain.
     v = 1 - 0.30 * (((XX - W / 2) / (W / 2)) ** 2 + ((YY - H * 0.45) / (H * 0.6)) ** 2) ** 1.4
     a *= np.clip(v, 0.55, 1)[..., None]
-    a += np.random.default_rng(3).normal(0, 0.007, a.shape).astype(np.float32)
+    # Film grain, a little soft, so the cleaned-up sources read as a photo.
+    grain = np.random.default_rng(3).normal(0, 0.012, a.shape).astype(np.float32)
+    a += cv2.GaussianBlur(grain, (0, 0), 0.6 * K) * 3.2
     return np.clip(a, 0, 1)
 
 
 def main():
+    # Register on the original shots; warp the upscaled ones when present.
     tower, sun, wide = (cv2.imread(str(p)) for p in (TOWER, SUN, WIDE))
     print("registering")
     h_sun = homography(sun, tower)
     h_wide = homography(wide, tower)
+    (tower_x, u_tower), (sun_x, u_sun), (wide_x, u_wide) = (source(p) for p in (TOWER, SUN, WIDE))
 
     s = W / tower.shape[1]
     T = np.array([[s, 0, 0], [0, s, -CROP_TOP * s], [0, 0, 1]])
-    p_tower, v_tower = warp(tower, T)
-    p_sun, v_sun = warp(sun, T @ h_sun)
-    p_wide, v_wide = warp(wide, T @ h_wide)
+    p_tower, v_tower = warp(tower_x, T @ u_tower)
+    p_sun, v_sun = warp(sun_x, T @ h_sun @ u_sun)
+    p_wide, v_wide = warp(wide_x, T @ h_wide @ u_wide)
 
     # The long zoom is a slightly different exposure: bring it to the tower
     # shot's colour where they overlap, so it adds detail, not a patch.
     p_sun = match_colour(p_sun, p_tower, v_sun)
     # Only trust it where the two agree (clouds drift, near things shift).
-    agree = np.abs(cv2.GaussianBlur(p_sun, (0, 0), 6) - cv2.GaussianBlur(p_tower, (0, 0), 6)).sum(2)
+    agree = np.abs(cv2.GaussianBlur(p_sun, (0, 0), 6 * K) - cv2.GaussianBlur(p_tower, (0, 0), 6 * K)).sum(2)
     v_sun *= np.exp(-agree / 0.12)
 
     w_tower = exposedness(p_tower) * v_tower
     w_sun = exposedness(p_sun) * v_sun * 1.6  # the sharpest source: preferred
     w_wide = exposedness(p_wide) * v_wide * 0.8
 
+    # The wide shot is still ~2.5x enlarged here: it lends light, not detail.
     fused = fuse([p_tower, p_sun, p_wide], [w_tower, w_sun, w_wide], first_level=[0, 0, 3])
 
     sun_xy = cv2.perspectiveTransform(np.float32([[[165.5, 358.7]]]), T)[0, 0]
     out = grade(fused, sun_xy)
-    cv2.imwrite(str(OUTPUT), (out * 255 + 0.5).astype(np.uint8), [cv2.IMWRITE_JPEG_QUALITY, 95])
+    cv2.imwrite(str(OUTPUT), (out * 255 + 0.5).astype(np.uint8),
+                [cv2.IMWRITE_JPEG_QUALITY, 97, cv2.IMWRITE_JPEG_SAMPLING_FACTOR, cv2.IMWRITE_JPEG_SAMPLING_FACTOR_444])
     print(f"wrote {OUTPUT}")
 
 
