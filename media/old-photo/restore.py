@@ -7,6 +7,10 @@ restore the faces.
      and browner than their surroundings, and inpainted. Eyes, brows,
      nostrils and lips are protected using the face detector's landmarks, and
      so is the lettering on the T-shirt.
+  1b. Stains. deep_clean.py: plain garments have what sits below their clean
+     level repainted by LaMa and are then evened out; checked shirts are
+     flat-fielded and their stains repainted; mould on skin and the backdrop
+     is repainted; the sky is evened out.
   2. Colour.  The dyes have faded: shadows have gone violet, skin
      yellow-grey, and the whole print is low in contrast. Each channel is
      re-levelled, the violet is taken out of the shadows, and contrast and
@@ -31,6 +35,7 @@ import onnxruntime as ort
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "sunset"))
 import upscale as sr  # noqa: E402
+from deep_clean import deep_clean  # noqa: E402
 
 SOURCE = HERE / "friends-b.jpg"
 OUTPUT = HERE / "friends-restored-4k.jpg"
@@ -300,6 +305,8 @@ def main():
     print(f"  {len(faces)} faces")
     print("cleaning spots")
     cleaned, m = clean(src, faces)
+    print("deep clean: garments, skin and backdrop (LaMa)")
+    cleaned, _, _ = deep_clean(cleaned, faces, protect_mask(src.shape, faces), log=print)
     cv2.imwrite(str(HERE / "friends-cleaned.jpg"), cleaned, [cv2.IMWRITE_JPEG_QUALITY, 95])
     print("recolouring")
     col = recolour(cleaned)
