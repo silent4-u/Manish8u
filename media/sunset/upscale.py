@@ -37,7 +37,7 @@ SHOTS = ("sunset-tower.jpg", "sunset-sun.jpg", "sunset-wide.jpg")
 DENOISE = 0.6  # 0 keeps the grain, 1 cleans hardest
 NUM_CONV, SCALE = 32, 4
 X4PLUS = ("https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/", "RealESRGAN_x4plus.pth")
-RRDB_BLOCKS, TILE, PAD = 23, 160, 12
+RRDB_BLOCKS, TILE, PAD = 23, 160, 40   # 40 px of context hides every tile seam
 
 
 # ------------------------------------------------- read a .pth, no torch ----

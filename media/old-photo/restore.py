@@ -37,8 +37,8 @@ OUTPUT = HERE / "friends-restored-4k.jpg"
 CACHE = Path.home() / ".cache" / "facefusion"
 MODELS = "https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/"
 TARGET_W = 3840
-FIDELITY = 0.75          # CodeFormer weight: 1 keeps the input, 0 trusts the prior
-FACE_BLEND = 0.85        # how much of the restored face is used
+FIDELITY = 0.6           # CodeFormer weight: 1 keeps the input, 0 trusts the prior
+FACE_BLEND = 0.9         # how much of the restored face is used
 
 # The T-shirt lettering (x0, y0, x1, y1 in friends-b.jpg): letter counters
 # look like spots to the black-hat, so leave it alone.
@@ -165,6 +165,20 @@ def clean(bgr, faces):
             break
         out = cv2.inpaint(out, mi * 255, 4, cv2.INPAINT_TELEA)
         m |= mi
+    # Larger brown smears (mould colonies): darker and browner than the
+    # fabric or skin around them, too big for the spot pass. Inpainted.
+    lab0 = cv2.cvtColor(out, cv2.COLOR_BGR2LAB).astype(np.float32)
+    med = cv2.cvtColor(cv2.medianBlur(out, 41), cv2.COLOR_BGR2LAB).astype(np.float32)
+    dl = med[..., 0] - lab0[..., 0]
+    db = lab0[..., 2] - med[..., 2]
+    da = np.abs(lab0[..., 1] - med[..., 1])
+    smear = ((dl > 9) & (db > 3) & (da < 10) & (med[..., 0] > 120)).astype(np.uint8)
+    smear = cv2.morphologyEx(smear, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5)))
+    n, lab_, st, _ = cv2.connectedComponentsWithStats(smear, 8)
+    big = np.isin(lab_, [i for i in range(1, n) if 60 <= st[i, 4] <= 5000]) & ~protect
+    big = cv2.dilate(big.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7)))
+    out = cv2.inpaint(out, big * 255, 9, cv2.INPAINT_TELEA)
+    m |= big
     # Mould blotches: darker, browner patches on pale cloth and backdrop. Lift
     # each pixel back toward the fabric's own level (a large closing finds
     # it) and take its colour from the clean pixels around it. Skin, the
@@ -211,7 +225,22 @@ def recolour(bgr):
     L = L * 0.6 + lc * 0.4
     x = np.clip(L / 100, 0, 1)
     L = 100 * (x + 0.08 * x * (1 - x) * (2 * x - 1))
-    lab = np.dstack([L, A * 0.96, B * 0.92])
+    A, B = A * 0.96, B * 0.92
+    # Skin: the faded print left it pink (as much red as yellow). Turn hues
+    # between red and orange toward a natural warm tan.
+    hue = np.degrees(np.arctan2(B, A))
+    chroma = np.hypot(A, B)
+    skin = np.clip(1 - np.abs(hue - 45) / 30, 0, 1) * np.clip((chroma - 6) / 6, 0, 1)
+    hue = hue + 13 * skin
+    chroma = chroma * (1 + 0.10 * skin)
+    # Cream cloth went too yellow: calm it where it is pale.
+    cream = np.clip(1 - np.abs(hue - 88) / 18, 0, 1) * np.clip((L - 60) / 15, 0, 1)
+    chroma = chroma * (1 - 0.38 * cream)
+    A, B = chroma * np.cos(np.radians(hue)), chroma * np.sin(np.radians(hue))
+    # Faces had washed out: bring the upper mid-tones down a touch.
+    x = np.clip(L / 100, 0, 1)
+    L = 100 * x ** 1.12
+    lab = np.dstack([L, A, B])
     out = cv2.cvtColor(lab.astype(np.float32), cv2.COLOR_LAB2BGR)
     return (np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)
 
@@ -236,8 +265,12 @@ def restore_faces(big, faces, scale):
         y = cv2.cvtColor(np.clip(ylab, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR).astype(np.float32)
         # A soft oval mask so only the face, not the hair edge, is replaced.
         mask = np.zeros((512, 512), np.float32)
-        cv2.ellipse(mask, (256, 290), (190, 230), 0, 0, 360, 1.0, -1)
-        mask = cv2.GaussianBlur(mask, (0, 0), 22)
+        cv2.ellipse(mask, (256, 272), (176, 200), 0, 0, 360, 1.0, -1)
+        mask = cv2.GaussianBlur(mask, (0, 0), 20)
+        # Fade to nothing well before the crop's own border, so no edge of the
+        # 512 square can ever show as a line.
+        ramp = np.clip(np.minimum(np.arange(512), np.arange(512)[::-1]) / 40, 0, 1).astype(np.float32)
+        mask *= np.minimum.outer(ramp, ramp)
         Mi = cv2.invertAffineTransform(M)
         back = cv2.warpAffine(y, Mi, (W, H), flags=cv2.INTER_CUBIC)
         m = cv2.warpAffine(mask, Mi, (W, H))[..., None] * FACE_BLEND
