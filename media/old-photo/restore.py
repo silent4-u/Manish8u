@@ -44,6 +44,16 @@ FACE_BLEND = 0.9         # how much of the restored face is used
 # look like spots to the black-hat, so leave it alone.
 PROTECT = [(670, 400, 880, 510)]
 
+# Mould spots sitting right on faces, next to an eye or the nose, where the
+# automatic pass deliberately does not reach. Found by eye on the print at
+# 6x zoom; (x, y, radius) in friends-b.jpg.
+HEAL = [
+    (1324, 213, 5), (1352, 198, 4),                  # sixth: beside the nose, under the eye
+    (1130, 326, 7), (1089, 352, 4),                  # fifth: between the eyes, beside the nose
+    (1158, 383, 8), (1166, 405, 10),                 # fifth: jaw and neck
+    (517, 305, 4),                                   # second: cheek
+]
+
 # FFHQ 512 five-point template (left eye, right eye, nose, mouth L, mouth R).
 TEMPLATE = np.array([[192.98138, 239.94708], [318.90277, 240.19366], [256.63416, 314.01935],
                      [201.26117, 371.41043], [313.08905, 371.15118]], np.float32)
@@ -165,6 +175,11 @@ def clean(bgr, faces):
             break
         out = cv2.inpaint(out, mi * 255, 4, cv2.INPAINT_TELEA)
         m |= mi
+    heal = np.zeros(out.shape[:2], np.uint8)
+    for x, y, r in HEAL:
+        cv2.circle(heal, (x, y), r, 1, -1)
+    out = cv2.inpaint(out, heal * 255, 5, cv2.INPAINT_TELEA)
+    m |= heal
     # Larger brown smears (mould colonies): darker and browner than the
     # fabric or skin around them, too big for the spot pass. Inpainted.
     lab0 = cv2.cvtColor(out, cv2.COLOR_BGR2LAB).astype(np.float32)
@@ -231,7 +246,7 @@ def recolour(bgr):
     hue = np.degrees(np.arctan2(B, A))
     chroma = np.hypot(A, B)
     skin = np.clip(1 - np.abs(hue - 45) / 30, 0, 1) * np.clip((chroma - 6) / 6, 0, 1)
-    hue = hue + 13 * skin
+    hue = hue + 17 * skin
     chroma = chroma * (1 + 0.10 * skin)
     # Cream cloth went too yellow: calm it where it is pale.
     cream = np.clip(1 - np.abs(hue - 88) / 18, 0, 1) * np.clip((L - 60) / 15, 0, 1)
