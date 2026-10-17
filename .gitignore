@@ -39,3 +39,4 @@ media/flight/.chunks/
 
 # Python bytecode from the media scripts importing one another.
 __pycache__/
+media/old-photo/friends-cleaned.jpg
