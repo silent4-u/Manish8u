@@ -34,6 +34,7 @@ import onnxruntime as ort
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "sunset"))
+sys.path.insert(0, str(HERE))
 import upscale as sr  # noqa: E402
 from deep_clean import deep_clean  # noqa: E402
 
