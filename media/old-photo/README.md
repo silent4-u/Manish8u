@@ -30,13 +30,30 @@ second shot of the same print, kept for reference.
    own colour. It is blended back with an oval that fades out well inside
    the crop.
 
-What it cannot do: mould that soaked into the cloth areas (the light
-trousers and the checked shirts) is softened, not erased. The print lost
-that information, and painting it back would mean inventing clothes.
+After the spot pass, `deep_clean.py` repaints the broad water and mould
+stains with LaMa (big-lama, ONNX from OpenCV Zoo):
+
+- **Plain garments.** Stains on the cream shirts and trousers and the dark
+  trousers are repainted, then broad blotches are evened out.
+- **Checked shirts.** They are flat-fielded, which keeps the checks, then
+  their brown stains and round spots are repainted.
+- **Skin and backdrop.** Mould on skin and on the painted backdrop is
+  repainted, and the teal sky is evened out.
+- **Outlines.** `garments.py` holds the rough garment outlines, the areas
+  that must survive (belts, arms and hands over the shirts) and a
+  hand-marked chest smear.
+
+`before-after.jpg` shows the print and the result side by side.
+
+**What it cannot do.** This is a restoration of the print, not a new
+photograph. Detail the water destroyed (cloth texture, the bleached patches
+on the checked shirts, fine facial texture) is not in the source. Rebuilding
+it as a crisp modern photo needs a generative photo-restoration model, which
+this pipeline does not use.
 
 ```sh
 pip install numpy opencv-python-headless onnx onnxruntime
-python3 media/old-photo/restore.py
+python3 media/old-photo/restore.py      # about 10 minutes on CPU
 ```
 
 The model weights download on first use: Real-ESRGAN to
