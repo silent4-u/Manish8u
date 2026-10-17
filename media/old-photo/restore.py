@@ -251,8 +251,9 @@ def recolour(bgr):
     # between red and orange toward a natural warm tan.
     hue = np.degrees(np.arctan2(B, A))
     chroma = np.hypot(A, B)
-    skin = np.clip(1 - np.abs(hue - 45) / 30, 0, 1) * np.clip((chroma - 6) / 6, 0, 1)
-    hue = hue + 17 * skin
+    skin = np.clip(1 - np.abs(hue - 40) / 38, 0, 1) * np.clip((chroma - 6) / 6, 0, 1)
+    # Shadowed skin had gone magenta (hues near 0-25): turn it further.
+    hue = hue + (17 + 0.45 * np.clip(40 - hue, 0, 40)) * skin
     chroma = chroma * (1 + 0.10 * skin)
     # Cream cloth went too yellow: calm it where it is pale.
     cream = np.clip(1 - np.abs(hue - 88) / 18, 0, 1) * np.clip((L - 60) / 15, 0, 1)

@@ -316,7 +316,7 @@ def deep_clean(bgr, faces, protect, log=print):
     log("  evening out broad blotches")
     for name, (kind, member, ref) in masks.items():
         out = even_out(out, member & ~protect, sigma=24 if kind == "plain" else 22,
-                       strength=0.8 if kind == "plain" else 0.85)
+                       strength=0.8 if kind == "plain" else 0.5)
     L, A, B = to_lab(out)
     sky = ~cv2.dilate(person.astype(np.uint8), ellipse(15)).astype(bool) & (A < -6) & (L > 90)
     sky = cv2.morphologyEx(sky.astype(np.uint8), cv2.MORPH_OPEN, ellipse(9)) > 0
