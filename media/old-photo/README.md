@@ -50,6 +50,8 @@ stains with LaMa (big-lama, ONNX from OpenCV Zoo):
 `black_and_white.py`: a channel mix near luminance that leans a little on red
 for smooth skin, then soft levels and a mild curve so the pale clothes and
 the faces keep their detail.
+`friends-restored-4k-sepia.jpg` tones that black and white like an old
+print, from deep brown shadows to cream highlights.
 
 **What it cannot do.** This is a restoration of the print, not a new
 photograph. Detail the water destroyed (cloth texture, the bleached patches
