@@ -122,10 +122,13 @@ class Lama:
         done = np.zeros_like(mask)
         for y0 in ys:
             for x0 in xs:
-                sub = mask[y0:y0 + size, x0:x0 + size] & ~done[y0:y0 + size, x0:x0 + size]
+                todo = mask[y0:y0 + size, x0:x0 + size] & ~done[y0:y0 + size, x0:x0 + size]
                 # Only take the part of the mask away from this window's edges
                 # (unless the window sits on the image edge), so each fill has
-                # context on every side; the next window takes the rest.
+                # context on every side; the next window takes the rest. The
+                # model still sees all of `todo` as a hole: if it saw the rest
+                # of an object beside the hole, it would draw the object back.
+                sub = todo
                 inner = np.zeros_like(sub)
                 t = 0 if y0 == 0 else margin
                 b = size if y0 + size >= h else size - margin
@@ -139,9 +142,10 @@ class Lama:
                 ph, pw = patch.shape[:2]
                 pad = cv2.copyMakeBorder(patch, 0, size - ph, 0, size - pw, cv2.BORDER_REFLECT)
                 mpad = np.zeros((size, size), bool)
-                mpad[:ph, :pw] = cv2.dilate(sub.astype(np.uint8), ellipse(5)) > 0
+                mpad[:ph, :pw] = cv2.dilate(todo[:ph, :pw].astype(np.uint8), ellipse(5)) > 0
                 res = self.window(pad, mpad)[:ph, :pw]
-                a = cv2.GaussianBlur(mpad[:ph, :pw].astype(np.float32), (0, 0), 1.2)[..., None]
+                keep = cv2.dilate(sub[:ph, :pw].astype(np.uint8), ellipse(5)) > 0
+                a = cv2.GaussianBlur(keep.astype(np.float32), (0, 0), 1.2)[..., None]
                 out[y0:y0 + ph, x0:x0 + pw] = (patch * (1 - a) + res * a).astype(np.uint8)
                 done[y0:y0 + size, x0:x0 + size] |= sub
         return out
