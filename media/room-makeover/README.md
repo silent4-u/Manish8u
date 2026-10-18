@@ -14,6 +14,37 @@ They are photo edits of these very photos, not renders. The ceiling, curtains,
 light and the framed photo show what the changes below would look like.
 `makeover.py` makes them.
 
+## The full design: Warm Ply & Sage
+
+`room-design-board.jpg` is the design board: all three views finished, the
+palette, the room as it was, and what goes where. `room-*-design.jpg` are the
+views on their own, and `room-*-design-before-after.jpg` pair them with the
+photos. `design.py` makes them.
+
+The style is warm modern-rustic, built around the ceiling.
+
+- **Ceiling.** 6 mm pine ply under the rafters, sloping with the roof, with
+  slim walnut strips over the joints.
+- **Beams.** Cleaned, treated for termites, then given a walnut stain and a
+  matt varnish.
+- **Light, all warm 2700 K.**
+  - An LED strip hidden on top of the wall plates washes light up the ply.
+  - Slim round downlights are set into the ply.
+  - A rattan dome pendant hangs over the framed photo.
+  - Brass up-and-down wall sconces replace the bare bulbs.
+- **Walls.** Warm white, with the wall beside the curtains in a soft sage
+  green.
+- **Soft things.**
+  - Plain linen curtains in sand.
+  - A money plant in a macramé hanger from the beam.
+  - A floating walnut shelf under the jali vent, with a pothos, a few books
+    and a terracotta pot.
+  - The restored photo of the six friends in a walnut frame.
+
+```sh
+python3 media/room-makeover/design.py [fonts_dir]   # about 4 minutes on CPU
+```
+
 ## Three false ceilings compared
 
 `room-main-ceilings.jpg`, `room-door-ceilings.jpg` and

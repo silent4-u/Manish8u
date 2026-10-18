@@ -119,7 +119,9 @@ def from_lab(L, A, B):
 
 # ------------------------------------------------------------ 1. ceiling ----
 
-def ceiling(img, outline, beams, fixtures=(), finish="paint"):
+def ceiling(img, outline, beams, fixtures=(), finish="paint", with_cover=False):
+    """The ceiling in one of the finishes; with `with_cover`, also the mask
+    of what the new surface covers."""
     region = poly_mask(img.shape, outline)
     beam = np.zeros(img.shape[:2], bool)
     for pts in beams:
@@ -139,10 +141,10 @@ def ceiling(img, outline, beams, fixtures=(), finish="paint"):
     t = np.maximum(t, small) * (1 - cv2.GaussianBlur(beam.astype(np.float32), (0, 0), 1.5))
     r = cv2.GaussianBlur(region.astype(np.float32), (0, 0), 2)
     ws, ww = t * r, (1 - t) * r
-    sheet = ws > 0.5
+    sheet = cover = ws > 0.5
     broad = normconv(L, sheet.astype(np.float32), 30)
     light = np.clip(broad / (np.percentile(broad[sheet], 90) + 1e-3), 0, 1.15)
-    if finish in ("chatai", "ply", "gypsum"):
+    if finish in ("chatai", "ply", "ply-trim", "gypsum"):
         # A false ceiling fixed to the underside of the rafters: one inclined
         # surface following the roof, hiding the rafters, battens and sheets.
         # The big beams below it, anything hanging from them (`fixtures`)
@@ -178,7 +180,8 @@ def ceiling(img, outline, beams, fixtures=(), finish="paint"):
     Lw = np.clip(L * 1.05 + 16, 0, 190)
     Aw, Bw = 5 + 0.2 * A + 0.05 * Lw, 8 + 0.2 * B + 0.08 * Lw
     keep = 1 - ws - ww
-    return from_lab(L * keep + Ls * ws + Lw * ww, A * keep + As * ws + Aw * ww, B * keep + Bs * ws + Bw * ww)
+    out = from_lab(L * keep + Ls * ws + Lw * ww, A * keep + As * ws + Aw * ww, B * keep + Bs * ws + Bw * ww)
+    return (out, cover) if with_cover else out
 
 
 def roof_faces(cover, region):
@@ -259,6 +262,24 @@ def ply(u, v):
     return np.clip(L, 0, 255), 8 + 1.2 * tone + 2 * late, 26 + 2 * tone + 3 * late
 
 
+def ply_trim(u, v, width=3.0):
+    """The ply with its joints covered by thin walnut strips: a slim strip
+    down the slope at every long joint and across at every short one, each
+    with a lit edge and a shaded edge."""
+    L, A, B = ply(u, v)
+    d_long = np.abs(((v + 160) % 320) - 160)
+    d_short = np.abs(((u + 320) % 640) - 320)
+    side = np.where(d_long < d_short, ((v + 160) % 320) - 160, ((u + 320) % 640) - 320)
+    d = np.minimum(d_long, d_short)
+    strip = d < width
+    edge = np.clip(1 - np.abs(np.abs(side) - width) / 1.2, 0, 1)
+    Ls = 92 + 18 * (side < 0) - 10 * edge
+    L = np.where(strip, Ls, L - 18 * np.exp(-np.maximum(d - width, 0) / 1.5))   # its shadow on the ply
+    A = np.where(strip, 12.0, A)
+    B = np.where(strip, 20.0, B)
+    return L, A, B
+
+
 def faces_texture(img, cover, region, finish):
     """Mat or ply across each roof face, its strips or grain running down
     the slope along the rafters. Drawn at the photo's own resolution in each
@@ -268,7 +289,7 @@ def faces_texture(img, cover, region, finish):
     L = np.zeros((h, w), np.float32)
     A, B = np.zeros_like(L), np.zeros_like(L)
     have = np.zeros((h, w), bool)
-    make = chatai if finish == "chatai" else ply
+    make = {"chatai": chatai, "ply": ply, "ply-trim": ply_trim}[finish]
     for n, face in enumerate(roof_faces(cover, region)):
         a = np.radians(rafter_direction(img, face))
         grown = (cv2.dilate(face.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0) & ~have
