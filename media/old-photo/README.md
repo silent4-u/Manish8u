@@ -25,10 +25,11 @@ second shot of the same print, kept for reference.
 3. **Detail.** The print is upscaled 4× with RealESRGAN_x4plus (from
    `../sunset/upscale.py`), using tiles with 40 px of context so no seams
    show. It is then resampled to 3840 px wide.
-4. **Faces.** Each face is found with YOLOv8-face, aligned to the FFHQ
-   template and restored with CodeFormer at fidelity 0.6, keeping the face's
-   own colour. It is blended back with an oval that fades out well inside
-   the crop.
+4. **Faces.** They are not redrawn. A generative face model (CodeFormer)
+   was tried first and dropped: even at high fidelity it erased the frames
+   of the fourth boy's glasses and changed all six faces. The faces are the
+   print's own, cleaned of hand-listed spots (`HEAL` in `restore.py`) and
+   upscaled with the rest of the frame.
 
 After the spot pass, `deep_clean.py` repaints the broad water and mould
 stains with LaMa (big-lama, ONNX from OpenCV Zoo):
@@ -43,7 +44,8 @@ stains with LaMa (big-lama, ONNX from OpenCV Zoo):
   that must survive (belts, arms and hands over the shirts) and a
   hand-marked chest smear.
 
-`before-after.jpg` shows the print and the result side by side.
+`before-after.jpg` shows the print and the result side by side, and
+`faces-before-after.jpg` compares each face with the print.
 
 **What it cannot do.** This is a restoration of the print, not a new
 photograph. Detail the water destroyed (cloth texture, the bleached patches
