@@ -1,5 +1,54 @@
 # Old photo of six friends — restored in 4K
 
+## For printing and framing
+
+| File | Size | Prints well at |
+| --- | --- | --- |
+| `friends-print-7x5.jpg` | 4200 × 3000 | 7×5, 10×7, A4, up to 14×10 in |
+| `friends-print-3x2.jpg` | 3600 × 2400 | 6×4, 9×6, up to 12×8 in |
+
+Both are 300 dpi with an embedded sRGB profile, so a photo lab can print
+them as they are. `print-before-after.jpg` compares the result with the
+print.
+
+`restore_print.py` makes them. It is a second, more careful pass than
+`restore.py` below, which repainted whole garments and left smeared cloth and
+pale patches on faces. This one cleans damage only where the damage is:
+
+- **Spots.** Mould spots are found automatically everywhere except on the
+  faces. On the faces they are listed by hand after checking each face at
+  5× (`FACE_HEAL`), so no eye, brow, nostril or the fourth boy's glasses
+  frame is touched. Every fill comes from LaMa, which rebuilds the
+  surrounding texture.
+- **Speckle and cracks.** Each kind has its own test:
+  - Small, sharp marks on the pale clothes.
+  - Brown strands on the sky.
+  - Near-black spots on the checked shirts and dark trousers.
+  - Spots on arms and hands.
+  - A few marks found by eye: a crack, a drip on the belt, the mould along
+    the shirt hem, a scratch on the sky.
+- **Stains.** Broad water marks are lifted back toward each garment's clean
+  level. Gentle shading such as folds is left alone, and the fine grain of
+  the cloth is put back unchanged.
+- **Colour.** The violet is taken out of the blacks, the yellow out of the
+  whites and the pink out of the skin. The teal sky moves back toward blue,
+  and the tone range is restored with a gentle curve.
+- **Print.** The picture is cropped inside the print's edges and enlarged
+  with a 50/50 blend of Real-ESRGAN (realesr-general-x4v3) and a plain
+  Lanczos enlargement. That keeps edges crisp without the glassy eyes a GAN
+  gives on its own. It then gets a fine grain.
+
+The sixth boy's checked shirt is the one place it cannot fully mend. Water
+bleached its checks in a band across the middle. The olive stain is taken
+out, but the pattern there is only as strong as the print still holds it.
+
+```sh
+pip install numpy opencv-python-headless onnx onnxruntime pillow
+python3 media/old-photo/restore_print.py   # about 3 minutes on CPU
+```
+
+## The first 4K restoration
+
 `friends-restored-4k.jpg` (3840 × 2575) restores `friends-b.jpg`, a phone
 photo of a mould-spotted, water-stained, faded print. `friends-a.jpg` is a
 second shot of the same print, kept for reference.
