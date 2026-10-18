@@ -47,6 +47,31 @@ pip install numpy opencv-python-headless onnx onnxruntime pillow
 python3 media/old-photo/restore_print.py   # about 3 minutes on CPU
 ```
 
+## Regenerated faces, made in the cloud
+
+`friends-ai-7x5.jpg` (4200 × 3000) and `friends-ai-3x2.jpg` (3600 × 2400)
+regenerate the picture with the models a cloud session can run, without
+Stable Diffusion. `regenerate_faces.py` makes them:
+
+- **Start.** It begins from the cleaned print, recoloured, with two last
+  marks healed: a brown arc under the sixth boy's eye and a scratch on the
+  second boy's cheek.
+- **Detail.** RealESRGAN_x4plus redraws all the detail of the picture, used
+  in full this time rather than blended with a plain enlargement.
+- **Faces.** CodeFormer regenerates every face at high fidelity (0.8), from
+  the enlarged picture. Each face is colour-matched and blended back through
+  a feathered ellipse.
+
+Working from the cleaned print matters: on it CodeFormer keeps the fourth
+boy's glasses and every face stays recognisable, while on the stained print
+it erased the glasses. The sixth boy's face keeps a softened trace of the
+damage beside his left eye. `ai-before-after.jpg` compares the result with
+the cleaned print.
+
+```sh
+python3 media/old-photo/regenerate_faces.py   # about 7 minutes on CPU
+```
+
 ## Regenerated as a fresh photograph (run on your own computer)
 
 `regenerate.py` redraws the picture with Stable Diffusion 1.5 and ControlNet
