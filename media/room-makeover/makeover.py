@@ -2,12 +2,20 @@
 
 What each photo gets, the same changes a real makeover would make:
 
-  1. Ceiling. The underside of the cement roof sheets is painted warm
-     white (their ridges still show faintly, as on painted sheets) and the
-     rafters, battens and beams get a polished walnut finish. The sheets are
-     found against their own neighbourhood (each pixel against the darkest
-     and brightest within 81 px), so sheets in shadow still count as sheets;
-     isolated dark blobs inside a panel are the ridges' shadows, not wood.
+  1. Ceiling, in four finishes:
+       paint   the underside of the cement roof sheets painted warm white
+               (their ridges still show faintly) and the rafters, battens
+               and beams given a polished walnut finish;
+       chatai, ply, gypsum
+               a false ceiling fixed to the underside of the rafters,
+               inclined with the roof, hiding the rafters, battens and
+               sheets; the big beams, the fan and the wall plates stay in
+               view. Bamboo mat and ply are drawn at the photo's own
+               resolution in each roof face's coordinates, their strips or
+               grain running down the slope.
+     The sheets are found against their own neighbourhood (each pixel
+     against the darkest and brightest within 81 px), so sheets in shadow
+     still count as sheets.
   2. Clutter out. The saree hammock, the hanging bags and clothes, the box
      and basket, the bundle and the loose wires are removed and the wall
      behind them filled in by LaMa (../old-photo/deep_clean.py).
@@ -21,6 +29,10 @@ What each photo gets, the same changes a real makeover would make:
 
     pip install numpy opencv-python-headless onnx onnxruntime
     python3 media/room-makeover/makeover.py
+
+Each view is written as <view>-after.jpg (painted), <view>-chatai-after.jpg,
+-ply-after.jpg and -gypsum-after.jpg, with before/after pairs, and
+<view>-ceilings.jpg compares the three false ceilings.
 """
 
 import sys
@@ -53,6 +65,7 @@ VIEWS = {
         "lines": [((462, 0), (462, 170), 16), ((295, 252), (365, 352), 6), ((452, 390), (520, 268), 6),
                   ((1140, 185), (1160, 210), 8)],
         "curtain": [(0, 150), (60, 170), (130, 205), (205, 240), (258, 262), (255, 591), (0, 591)],
+        "fixtures": [[(592, 100), (672, 100), (672, 172), (592, 172)]],       # the ceiling fan
         "lights": ((80, 70), (1240, 214), 80),
         "frame": (642, 330, 170),
     },
@@ -106,7 +119,7 @@ def from_lab(L, A, B):
 
 # ------------------------------------------------------------ 1. ceiling ----
 
-def ceiling(img, outline, beams):
+def ceiling(img, outline, beams, fixtures=(), finish="paint"):
     region = poly_mask(img.shape, outline)
     beam = np.zeros(img.shape[:2], bool)
     for pts in beams:
@@ -127,17 +140,145 @@ def ceiling(img, outline, beams):
     r = cv2.GaussianBlur(region.astype(np.float32), (0, 0), 2)
     ws, ww = t * r, (1 - t) * r
     sheet = ws > 0.5
-    # Painted warm white: the broad light falloff stays, and a quarter of the
-    # ridges' shading.
     broad = normconv(L, sheet.astype(np.float32), 30)
-    light = broad / (np.percentile(broad[sheet], 90) + 1e-3)
-    ridges = np.clip(L / (normconv(L, sheet.astype(np.float32), 6) + 1e-3), 0.6, 1.3)
-    Ls = np.clip(236 * (0.6 + 0.4 * np.clip(light, 0, 1.15)) * (0.75 + 0.25 * ridges), 0, 250)
+    light = np.clip(broad / (np.percentile(broad[sheet], 90) + 1e-3), 0, 1.15)
+    if finish in ("chatai", "ply", "gypsum"):
+        # A false ceiling fixed to the underside of the rafters: one inclined
+        # surface following the roof, hiding the rafters, battens and sheets.
+        # The big beams below it, anything hanging from them (`fixtures`)
+        # and the wall plates along the tops of the walls stay in view.
+        wood = (t < 0.5) & region
+        shown = (cv2.dilate(beam.astype(np.uint8), np.ones((15, 15), np.uint8)) > 0) & wood
+        for pts in fixtures:
+            shown |= poly_mask(img.shape, pts) & wood
+        wall_plate = cv2.dilate((~region).astype(np.uint8), np.ones((25, 1), np.uint8), anchor=(0, 0)) > 0
+        shown |= wall_plate & wood
+        shown = cv2.morphologyEx(shown.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        wb = cv2.GaussianBlur(shown.astype(np.float32), (0, 0), 1.0)
+        ws, ww = r * (1 - wb), r * wb
+        cover = ws > 0.5
+        # Light: the sheets' broad light, spread over the whole surface, and a
+        # soft shadow along the beams and wall plates.
+        light = cv2.GaussianBlur(light, (0, 0), 25)
+        shade = 1 - 0.25 * np.exp(-cv2.distanceTransform(cover.astype(np.uint8), cv2.DIST_L2, 3) / 6.0)
+        if finish == "gypsum":
+            Ls = np.clip(240 * (0.62 + 0.38 * light), 0, 250) * shade
+            Ls = Ls + cv2.GaussianBlur(np.random.default_rng(2).normal(0, 0.8, L.shape).astype(np.float32), (0, 0), 1)
+            As, Bs = 0.5, 4.0
+        else:
+            Ls, As, Bs = to_lab(faces_texture(img, cover, region, finish))
+            Ls = Ls * (0.55 + 0.45 * light) * shade
+    else:
+        # Painted warm white: the broad light falloff stays, and a quarter of
+        # the ridges' shading.
+        ridges = np.clip(L / (normconv(L, sheet.astype(np.float32), 6) + 1e-3), 0.6, 1.3)
+        Ls = np.clip(236 * (0.6 + 0.4 * light) * (0.75 + 0.25 * ridges), 0, 250)
+        As, Bs = 1.0, 7.0
     # Polished walnut: lift the near-black, warm it, keep the grain.
     Lw = np.clip(L * 1.05 + 16, 0, 190)
     Aw, Bw = 5 + 0.2 * A + 0.05 * Lw, 8 + 0.2 * B + 0.08 * Lw
     keep = 1 - ws - ww
-    return from_lab(L * keep + Ls * ws + Lw * ww, A * keep + 1.0 * ws + Aw * ww, B * keep + 7.0 * ws + Bw * ww)
+    return from_lab(L * keep + Ls * ws + Lw * ww, A * keep + As * ws + Aw * ww, B * keep + Bs * ws + Bw * ww)
+
+
+def roof_faces(cover, region):
+    """The roof faces: the ceiling's parts as the beams divide them."""
+    n, lab, st, _ = cv2.connectedComponentsWithStats(cover.astype(np.uint8), 8)
+    return [lab == i for i in range(1, n) if st[i, 4] >= 200]
+
+
+def rafter_direction(img, face):
+    """The direction the rafters run on one face, in degrees (0 = right,
+    90 = down). The rafters run steeply in these photos and the battens
+    nearly level, so only the edges of steep members are counted: those
+    whose brightness changes across, left to right."""
+    L = cv2.GaussianBlur(to_lab(img)[0], (0, 0), 1.5)
+    gx, gy = cv2.Sobel(L, cv2.CV_32F, 1, 0), cv2.Sobel(L, cv2.CV_32F, 0, 1)
+    sel = face & (np.abs(gx) > np.abs(gy))
+    if sel.sum() < 50:
+        return 90.0
+    member = np.arctan2(gy[sel], gx[sel]) + np.pi / 2            # along the member, across the gradient
+    w = np.hypot(gx[sel], gy[sel])
+    two = np.arctan2((w * np.sin(2 * member)).sum(), (w * np.cos(2 * member)).sum()) / 2
+    deg = np.degrees(two) % 180
+    return float(deg)
+
+
+def _noise(seed, sx, sy, size=1024):
+    """Tileable smooth noise, unit variance, blurred `sx` by `sy` px."""
+    n = np.random.default_rng(seed).normal(0, 1, (size, size)).astype(np.float32)
+    n = cv2.GaussianBlur(np.tile(n, (3, 3)), (0, 0), sigmaX=sx, sigmaY=sy)[size:2 * size, size:2 * size]
+    return n / (n.std() + 1e-6)
+
+
+def _sample(img, x, y, cols=1024):
+    """`img` at the points (x, y), wrapping; x and y are flat arrays."""
+    n = x.size
+    rows = -(-n // cols)
+    mx, my = np.zeros(rows * cols, np.float32), np.zeros(rows * cols, np.float32)
+    mx[:n], my[:n] = x % img.shape[1], y % img.shape[0]
+    out = cv2.remap(img, mx.reshape(rows, cols), my.reshape(rows, cols), cv2.INTER_LINEAR,
+                    borderMode=cv2.BORDER_WRAP)
+    return out.ravel()[:n]
+
+
+def chatai(u, v, strip=9.0):
+    """Woven bamboo mat (chatai) in a 2/2 twill at image scale: flat strips
+    over two, under two, shifted one each row, which gives the diagonal ribs.
+    `u` runs down the slope, `v` across it, in image pixels."""
+    i, j = np.floor(u / strip).astype(np.int64), np.floor(v / strip).astype(np.int64)
+    fu, fv = u / strip - i, v / strip - j
+    along_u = ((i + j) // 2) % 2 == 0                 # which strip is on top here
+    tones = np.random.default_rng(3).normal(0, 1, 4096)
+    t = np.where(along_u, tones[j % 4096], tones[(i + 2048) % 4096])   # each strip its own tone
+    across = np.where(along_u, fv, fu)
+    along = np.where(along_u, fu, fv)
+    profile = 1 - 0.15 * (2 * np.abs(across - 0.5)) ** 3                  # strip edges a touch darker
+    gap = 0.7 + 0.3 * np.clip(np.minimum(across, 1 - across) / 0.08, 0, 1) ** 0.7
+    dive = np.where(((i + j) % 2 == 0) & (along < 0.18) | ((i + j) % 2 == 1) & (along > 0.82), 0.92, 1.0)
+    fib = np.where(along_u, _sample(_noise(5, 10, 0.5), u, v), _sample(_noise(5, 10, 0.5), v, u))
+    L = np.clip((0.86 + 0.025 * t) * profile * gap * dive * (1 + 0.03 * fib) * 212, 0, 255)
+    A = 4 + 0.8 * t + 5 * (1 - gap)
+    B = 19 + 2.0 * t + 4 * (1 - gap)
+    return L, A, B
+
+
+def ply(u, v):
+    """Thin plywood in a light pine veneer at image scale: grain running down
+    the slope (`u`), soft and irregular, with the joints of 8 x 4 ft sheets
+    (about 640 x 320 px here, from the rafters' spacing)."""
+    warp = 5 * _sample(_noise(6, 70, 20), u, v) + 2 * _sample(_noise(7, 200, 60), u, v)
+    period = 9 + 2.5 * _sample(_noise(8, 120, 120), u, v)
+    rings = 0.5 + 0.5 * np.sin(2 * np.pi * (v + warp) / period)
+    late = np.clip((rings - 0.9) / 0.1, 0, 1)
+    pores = _sample(_noise(9, 6, 0.5), u, v)
+    tone = _sample(_noise(10, 150, 150), u, v)
+    L = 206 + 5 * tone - 3 * rings - 6 * late + 2 * pores
+    joint = (np.abs(((v + 160) % 320) - 160) < 1.0) | (np.abs(((u + 320) % 640) - 320) < 1.0)
+    L = np.where(joint, L - 35, L)
+    return np.clip(L, 0, 255), 8 + 1.2 * tone + 2 * late, 26 + 2 * tone + 3 * late
+
+
+def faces_texture(img, cover, region, finish):
+    """Mat or ply across each roof face, its strips or grain running down
+    the slope along the rafters. Drawn at the photo's own resolution in each
+    face's coordinates, so nothing is resampled."""
+    h, w = cover.shape
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    L = np.zeros((h, w), np.float32)
+    A, B = np.zeros_like(L), np.zeros_like(L)
+    have = np.zeros((h, w), bool)
+    make = chatai if finish == "chatai" else ply
+    for n, face in enumerate(roof_faces(cover, region)):
+        a = np.radians(rafter_direction(img, face))
+        grown = (cv2.dilate(face.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0) & ~have
+        x, y = xx[grown], yy[grown]
+        u = x * np.cos(a) + y * np.sin(a) + 1000 * n
+        v = -x * np.sin(a) + y * np.cos(a) + 1000 * n
+        L[grown], A[grown], B[grown] = make(u, v)
+        have |= grown
+    L[~have], A[~have], B[~have] = 200, 6, 22
+    return from_lab(L, A, B)
 
 
 # ------------------------------------------------------------ 2. clutter ----
@@ -243,6 +384,19 @@ def hang_photo(img, x, y, width):
     return np.clip(out, 0, 255).astype(np.uint8)
 
 
+def compare(tiles):
+    """Two by two, each tile labelled."""
+    out = []
+    for im, label in tiles:
+        im = im.copy()
+        cv2.putText(im, label, (20, 44), cv2.FONT_HERSHEY_DUPLEX, 1.2, (0, 0, 0), 5, cv2.LINE_AA)
+        cv2.putText(im, label, (20, 44), cv2.FONT_HERSHEY_DUPLEX, 1.2, (255, 255, 255), 2, cv2.LINE_AA)
+        out.append(im)
+    gap_v = np.full((out[0].shape[0], 12, 3), 255, np.uint8)
+    rows = [np.hstack([out[0], gap_v, out[1]]), np.hstack([out[2], gap_v, out[3]])]
+    return np.vstack([rows[0], np.full((12, rows[0].shape[1], 3), 255, np.uint8), rows[1]])
+
+
 def side_by_side(before, after):
     gap = np.full((before.shape[0], 12, 3), 255, np.uint8)
     out = np.hstack([before, gap, after])
@@ -266,16 +420,24 @@ def main():
         m |= lines > 0
         if m.any():
             img = lama.fill(img, m)
-        img = ceiling(img, v["ceiling"], v["beams"])
-        if v["curtain"]:
-            img = curtain(img, v["curtain"])
-        if v["frame"]:
-            img = hang_photo(img, *v["frame"])
-        img = warm_grade(img)
-        img = fairy_lights(img, *v["lights"])
-        cv2.imwrite(str(HERE / f"{name}-after.jpg"), img, [cv2.IMWRITE_JPEG_QUALITY, 92])
-        cv2.imwrite(str(HERE / f"{name}-before-after.jpg"), side_by_side(src, img), [cv2.IMWRITE_JPEG_QUALITY, 88])
-        print(f"wrote {name}-after.jpg")
+        cleared = img
+        done = {}
+        for finish, suffix in (("paint", ""), ("chatai", "-chatai"), ("ply", "-ply"), ("gypsum", "-gypsum")):
+            img = ceiling(cleared, v["ceiling"], v["beams"], v.get("fixtures", ()), finish)
+            if v["curtain"]:
+                img = curtain(img, v["curtain"])
+            if v["frame"]:
+                img = hang_photo(img, *v["frame"])
+            img = warm_grade(img)
+            img = fairy_lights(img, *v["lights"])
+            cv2.imwrite(str(HERE / f"{name}{suffix}-after.jpg"), img, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            cv2.imwrite(str(HERE / f"{name}{suffix}-before-after.jpg"), side_by_side(src, img),
+                        [cv2.IMWRITE_JPEG_QUALITY, 88])
+            done[finish] = img
+            print(f"wrote {name}{suffix}-after.jpg")
+        sheet = compare([(src, "BEFORE"), (done["chatai"], "BAMBOO CHATAI"), (done["ply"], "THIN PLY"),
+                         (done["gypsum"], "GYPSUM")])
+        cv2.imwrite(str(HERE / f"{name}-ceilings.jpg"), sheet, [cv2.IMWRITE_JPEG_QUALITY, 88])
 
 
 if __name__ == "__main__":
