@@ -46,6 +46,10 @@ stains with LaMa (big-lama, ONNX from OpenCV Zoo):
 
 `before-after.jpg` shows the print and the result side by side, and
 `faces-before-after.jpg` compares each face with the print.
+`friends-restored-4k-bw.jpg` is a black-and-white version made by
+`black_and_white.py`: a channel mix near luminance that leans a little on red
+for smooth skin, then soft levels and a mild curve so the pale clothes and
+the faces keep their detail.
 
 **What it cannot do.** This is a restoration of the print, not a new
 photograph. Detail the water destroyed (cloth texture, the bleached patches
