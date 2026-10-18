@@ -47,6 +47,45 @@ pip install numpy opencv-python-headless onnx onnxruntime pillow
 python3 media/old-photo/restore_print.py   # about 3 minutes on CPU
 ```
 
+## Regenerated as a fresh photograph (run on your own computer)
+
+`regenerate.py` redraws the picture with Stable Diffusion 1.5 and ControlNet
+Tile so it looks like a sharp, new studio photograph of the same moment, then
+puts the real faces back:
+
+- **Regenerate.** img2img from the cleaned, recoloured print at 1400 × 1000,
+  in overlapping 768 px tiles, with a fixed seed. ControlNet Tile holds every
+  shape in place; only texture (skin, cloth, the sky) is redrawn.
+- **Real faces.** Each face with its hair, the second boy's cap and the fourth
+  boy's glasses is taken from the print and blended back through a feathered
+  ellipse, colour-matched to the new picture.
+- **Lettering.** The "UNDERCOVER POLICE" T-shirt is pasted back from the
+  print, so the model never invents letters.
+
+| File | What it is |
+| --- | --- |
+| `friends-regenerated-7x5.jpg` | 4200 × 3000, real faces |
+| `friends-regenerated-3x2.jpg` | 3600 × 2400, real faces |
+| `friends-regenerated-full-7x5.jpg` | 4200 × 3000, faces regenerated too, for comparison |
+| `regenerated-comparison.jpg` | cleaned print, real faces, fully regenerated |
+
+It needs to download about 4 GB of model weights from Hugging Face (cached in
+`~/.cache/huggingface`, never in the repository), which the cloud sessions
+cannot reach, so run it on your own computer with Python 3.10 or newer:
+
+```sh
+pip install numpy opencv-python-headless onnx onnxruntime pillow
+pip install torch diffusers transformers accelerate safetensors
+python3 media/old-photo/regenerate.py                    # 15-40 min on CPU; a minute or two on a GPU or Apple Silicon
+python3 media/old-photo/regenerate.py --strength 0.35    # stay closer to the print
+python3 media/old-photo/regenerate.py --strength 0.55    # sharper, but strays further
+python3 media/old-photo/regenerate.py --model SG161222/Realistic_Vision_V5.1_noVAE
+```
+
+Check the faces at 100% afterwards. The "full" version shows what the model
+does to faces on its own; expect it to drift from the real people, which is
+why the main files keep the print's faces.
+
 ## The first 4K restoration
 
 `friends-restored-4k.jpg` (3840 × 2575) restores `friends-b.jpg`, a phone
