@@ -1,5 +1,5 @@
-"""Restore the old print of six friends: clean, recolour, upscale to 4K, and
-restore the faces.
+"""Restore the old print of six friends: clean, recolour and upscale to 4K,
+keeping every face exactly as the print shows it.
 
   1. Spots.  Mould and dirt sit on the print as small dark-brown blobs, fine
      speckle and thin cracks. They are found with a black-hat transform (what a
@@ -17,9 +17,10 @@ restore the faces.
      saturation are restored with restraint.
   3. Detail.  RealESRGAN_x4plus (from ../sunset/upscale.py) enlarges the
      cleaned print 4x; it is then resampled to 3840 px wide (4K UHD).
-  4. Faces.  Each face is aligned to the FFHQ template and restored with
-     CodeFormer at a high fidelity weight, so it sharpens what is there
-     rather than inventing a new face, then blended back over the 4K frame.
+  4. Faces.  Not redrawn. A generative face model (CodeFormer) was tried and
+     dropped: even at high fidelity it erased the fourth boy's glasses and
+     changed all six faces. The faces are the print's own, cleaned of the
+     spots listed in HEAL and upscaled with the rest of the frame.
 
     pip install numpy opencv-python-headless onnx onnxruntime
     python3 media/old-photo/restore.py
@@ -43,8 +44,6 @@ OUTPUT = HERE / "friends-restored-4k.jpg"
 CACHE = Path.home() / ".cache" / "facefusion"
 MODELS = "https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/"
 TARGET_W = 3840
-FIDELITY = 0.6           # CodeFormer weight: 1 keeps the input, 0 trusts the prior
-FACE_BLEND = 0.9         # how much of the restored face is used
 
 # The T-shirt lettering (x0, y0, x1, y1 in friends-b.jpg): letter counters
 # look like spots to the black-hat, so leave it alone.
@@ -58,11 +57,11 @@ HEAL = [
     (1130, 326, 7), (1089, 352, 4),                  # fifth: between the eyes, beside the nose
     (1158, 383, 8), (1166, 405, 10),                 # fifth: jaw and neck
     (517, 305, 4),                                   # second: cheek
+    (498, 274, 3), (509, 301, 4),                    # second: cheek, by the cap
+    (784, 326, 3),                                   # third: chin
+    (1089, 312, 3),                                  # fifth: under the brow
+    (1337, 228, 4), (1331, 220, 3),                  # sixth: under the nose
 ]
-
-# FFHQ 512 five-point template (left eye, right eye, nose, mouth L, mouth R).
-TEMPLATE = np.array([[192.98138, 239.94708], [318.90277, 240.19366], [256.63416, 314.01935],
-                     [201.26117, 371.41043], [313.08905, 371.15118]], np.float32)
 
 
 def session(name):
@@ -267,39 +266,6 @@ def recolour(bgr):
     return (np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)
 
 
-# ------------------------------------------------------------------ faces ----
-
-def restore_faces(big, faces, scale):
-    s = session("codeformer.onnx")
-    out = big.astype(np.float32)
-    H, W = big.shape[:2]
-    for box, pts, _ in faces:
-        p = (pts * scale).astype(np.float32)
-        M, _ = cv2.estimateAffinePartial2D(p, TEMPLATE, method=cv2.LMEDS)
-        crop = cv2.warpAffine(big, M, (512, 512), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
-        x = (crop[..., ::-1].astype(np.float32) / 255 - 0.5) / 0.5
-        y = s.run(None, {"input": x.transpose(2, 0, 1)[None], "weight": np.array(FIDELITY, np.float64)})[0][0]
-        y = ((np.clip(y.transpose(1, 2, 0), -1, 1) + 1) / 2 * 255)[..., ::-1]
-        # Keep the original colour of the face: restore detail, not complexion.
-        ylab = cv2.cvtColor(y.astype(np.uint8), cv2.COLOR_BGR2LAB).astype(np.float32)
-        clab = cv2.cvtColor(crop, cv2.COLOR_BGR2LAB).astype(np.float32)
-        ylab[..., 1:] = cv2.GaussianBlur(clab[..., 1:], (0, 0), 3)
-        y = cv2.cvtColor(np.clip(ylab, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR).astype(np.float32)
-        # A soft oval mask so only the face, not the hair edge, is replaced.
-        mask = np.zeros((512, 512), np.float32)
-        cv2.ellipse(mask, (256, 272), (176, 200), 0, 0, 360, 1.0, -1)
-        mask = cv2.GaussianBlur(mask, (0, 0), 20)
-        # Fade to nothing well before the crop's own border, so no edge of the
-        # 512 square can ever show as a line.
-        ramp = np.clip(np.minimum(np.arange(512), np.arange(512)[::-1]) / 40, 0, 1).astype(np.float32)
-        mask *= np.minimum.outer(ramp, ramp)
-        Mi = cv2.invertAffineTransform(M)
-        back = cv2.warpAffine(y, Mi, (W, H), flags=cv2.INTER_CUBIC)
-        m = cv2.warpAffine(mask, Mi, (W, H))[..., None] * FACE_BLEND
-        out = out * (1 - m) + back * m
-    return np.clip(out, 0, 255).astype(np.uint8)
-
-
 def main():
     src = cv2.imread(str(SOURCE))
     print("finding faces")
@@ -322,8 +288,7 @@ def main():
     big = sr.upscale_tiled(heavy, col)
     k = TARGET_W / big.shape[1]
     big = cv2.resize(big, (TARGET_W, int(round(big.shape[0] * k))), interpolation=cv2.INTER_AREA)
-    print("restoring faces (CodeFormer)")
-    out = restore_faces(big, faces, scale=TARGET_W / src.shape[1])
+    out = big
     # A fine, even grain so it reads as a photograph, not a render.
     grain = cv2.GaussianBlur(np.random.default_rng(3).normal(0, 3.0, out.shape[:2]).astype(np.float32), (0, 0), 0.7)
     out = np.clip(out.astype(np.float32) + grain[..., None], 0, 255).astype(np.uint8)
