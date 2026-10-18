@@ -58,6 +58,10 @@ pip install numpy opencv-python-headless onnx onnxruntime
 python3 media/old-photo/restore.py      # about 10 minutes on CPU
 ```
 
-The model weights download on first use: Real-ESRGAN to
-`~/.cache/realesrgan`, and YOLOv8-face and CodeFormer (facefusion's ONNX
-builds) to `~/.cache/facefusion`.
+The model weights download on first use:
+
+- Real-ESRGAN to `~/.cache/realesrgan`
+- YOLOv8-face (facefusion's ONNX build) to `~/.cache/facefusion`, used only
+  to find and protect the faces
+- U2-Net human segmentation to `~/.cache/rembg`
+- LaMa to `~/.cache/lama`
