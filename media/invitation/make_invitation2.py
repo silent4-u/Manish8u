@@ -888,10 +888,15 @@ def prism(f, A, t):
     for _, dst, card, c in sorted(faces, key=lambda q: -q[0]):
         warp_put(f, card.rgb, card.a, dst, opacity=a_in, shade=0.45 + 0.55 * c)
     # Which one is showing.
+    dots = np.zeros((40, 240, 3), np.float32)
+    dots_a = np.zeros((40, 240), np.float32)
     for i in range(4):
         on = abs(((rot_deg / 90) % 4) - i) < 0.5
-        cv2.circle(f, (540 - 75 + 50 * i, 1240), 9 if on else 6,
-                   tuple(float(c * a_in) for c in (GOLD_LIGHT if on else bgr("#8A7A9A"))), -1, cv2.LINE_AA)
+        c = (45 + 50 * i, 20)
+        cv2.circle(dots, c, 9 if on else 6, tuple(float(v) for v in (GOLD_LIGHT if on else bgr("#8A7A9A"))), -1,
+                   cv2.LINE_AA)
+        cv2.circle(dots_a, c, 9 if on else 6, 1.0, -1, cv2.LINE_AA)
+    put(f, Layer(dots, dots_a), 540, 1240, opacity=a_in)       # fades out, not to black
     glow_points(f, [540], [cy], [6 * a_in], bgr("#FFD9A0"), core=40, halo=90, gain=0.25)
 
 
