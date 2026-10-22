@@ -416,8 +416,8 @@ def himalaya(w, h):
     img = sky.astype(np.float32)
     # Far range: lit on the slopes facing the sun, snow on the high peaks.
     far = cv2.GaussianBlur(ridge(w, h * 0.62, h * 0.30, 0.47, 11).astype(np.float32)[None, :], (0, 0), 2.5).ravel()
-    slope = cv2.GaussianBlur(np.gradient(far).astype(np.float32)[None, :], (0, 0), 3).ravel()
-    lit = 1 + 0.16 * np.tanh(slope * 0.5)
+    slope = cv2.GaussianBlur(np.gradient(far).astype(np.float32)[None, :], (0, 0), 9).ravel()
+    lit = 1 + 0.12 * np.tanh(slope * 0.35)
     depth = yy - far[None, :]
     body = clip01(depth + 0.5)
     rng = np.random.default_rng(4)
@@ -1062,7 +1062,7 @@ def main():
     music.write_wav(wav, music.render(DURATION, bells=(2.7, 13.4, 34.5, 40.3)))
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     cmd = [ffmpeg, "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
-           "-i", "-", "-i", str(wav), "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p",
+           "-i", "-", "-i", str(wav), "-c:v", "libx264", "-preset", "slow", "-crf", "25", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(OUT)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     n = int(DURATION * FPS)
@@ -1070,7 +1070,7 @@ def main():
     for i in range(n):
         T = i / FPS
         f = frame_at(A, T)
-        grain = rng.normal(0, 0.008, (H // 2, W // 2)).astype(np.float32)
+        grain = rng.normal(0, 0.005, (H // 2, W // 2)).astype(np.float32)
         f = f + cv2.resize(grain, (W, H))[..., None]
         proc.stdin.write((np.clip(f, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes())
         if i % 60 == 0:

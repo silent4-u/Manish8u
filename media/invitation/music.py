@@ -142,7 +142,7 @@ def render(dur, bells=(), seed=7):
     mix = reverb(mix, rng)
     t = np.arange(n) / SR
     mix *= np.clip(t / 1.2, 0, 1) * np.clip((dur - t) / 3.0, 0, 1)
-    mix = mix / np.abs(mix).max() * 0.8
+    mix = mix / np.abs(mix).max() * 0.7                              # headroom for the AAC encoder
     stereo = np.stack([mix, np.roll(mix, int(0.012 * SR))], 1)       # a touch of width
     return stereo
 
