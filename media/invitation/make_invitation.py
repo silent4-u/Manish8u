@@ -416,8 +416,10 @@ def himalaya(w, h):
     img = sky.astype(np.float32)
     # Far range: lit on the slopes facing the sun, snow on the high peaks.
     far = cv2.GaussianBlur(ridge(w, h * 0.62, h * 0.30, 0.47, 11).astype(np.float32)[None, :], (0, 0), 2.5).ravel()
-    slope = cv2.GaussianBlur(np.gradient(far).astype(np.float32)[None, :], (0, 0), 9).ravel()
-    lit = 1 + 0.12 * np.tanh(slope * 0.35)
+    # Lit by the big faces only: the slope taken over a wide span, so small
+    # wiggles in the ridge do not stripe the rock.
+    slope = cv2.GaussianBlur(np.gradient(far).astype(np.float32)[None, :], (0, 0), 28).ravel()
+    lit = 1 + 0.10 * np.clip(slope / 1.2, -1, 1)
     depth = yy - far[None, :]
     body = clip01(depth + 0.5)
     rng = np.random.default_rng(4)
@@ -425,7 +427,10 @@ def himalaya(w, h):
     snow_depth = cv2.GaussianBlur(np.clip((snow_line - far) * 0.6, 0, None).astype(np.float32)[None, :], (0, 0), 4).ravel()
     jag = cv2.GaussianBlur(rng.normal(0, 1, (h, w)).astype(np.float32), (0, 0), sigmaX=1.5, sigmaY=6) * 10
     snow = clip01((snow_depth[None, :] - depth + jag) / 3) * body
-    shade = (lit[None, :] * (1 - 0.18 * clip01(depth / (h * 0.25))))[..., None]
+    # Darker further down the face, measured from a smoothed ridge so each
+    # small peak does not shade its own column.
+    far_smooth = cv2.GaussianBlur(far[None, :], (0, 0), 40).ravel()
+    shade = (lit[None, :] * (1 - 0.18 * clip01((yy - far_smooth[None, :]) / (h * 0.25))))[..., None]
     rock = bgr("#A8A1C6") * shade
     snow_col = bgr("#FFF2EA") * (0.86 + 0.16 * (lit[None, :, None] - 1) / 0.16 * 0.5 + 0.1)
     mtn = rock * (1 - snow[..., None]) + snow_col * snow[..., None]

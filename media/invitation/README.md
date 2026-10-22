@@ -1,11 +1,12 @@
 # Wedding invitation video: Manish & Sushmita
 
-`manish-sushmita-invitation.mp4` is a 44-second vertical (1080 × 1920)
+`manish-sushmita-invitation.mp4` (7 MB) is a 44-second vertical (1080 × 1920)
 digital wedding invitation, ready for WhatsApp, Instagram or Facebook
 stories. Everything in it is drawn by `make_invitation.py`: there are no
 photos, stock images or templates. The music, a tanpura drone with a
 santoor-like melody in Raag Bhupali, a soft string pad and temple bells, is
-composed by `music.py`.
+composed by `music.py`. `invitation-poster.jpg` is a still from it, for a thumbnail
+or a first message.
 
 | Time | Scene |
 | --- | --- |
