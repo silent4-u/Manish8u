@@ -1,5 +1,34 @@
 # Wedding invitation video: Manish & Sushmita
 
+## Second edition: one continuous film
+
+`manish-sushmita-invitation-2.mp4` (49 s, 1080 × 1920) is made by
+`make_invitation2.py`. It is filmed as one continuous camera move, with
+moving light and particles rather than titles fading over cards:
+
+| Time | Scene |
+| --- | --- |
+| 0–7 s | Dark velvet. A falling spark lights a brass diya. Its light draws a gold mandala ring by ring around **M&S**, the rings turning against each other, and the camera dives into the mandala's heart. |
+| 7–14 s | An envelope flies up in 3D. The wax seal bursts into rose petals and gold sparks, the flap opens, and the card flies out at the camera, turning over to show the blessing. |
+| 14–23 s | The camera pushes through the card's arch window into a paper-cut Nepal: the Himalaya at sunrise, a stupa with prayer flags, a pagoda, birds and turning sun rays, each layer at its own depth. A sparkler writes **Manish & Sushmita** across the sky, shedding glitter. |
+| 23–30 s | Dusk turns to night, sky lanterns rise from the valley, and the invitation appears among the stars in English and Nepali. |
+| 30–37 s | A turning prism shows each ceremony in turn: Haldi, Mehendi, Shubh Vivah, Pritibhoj. |
+| 37–44 s | The couple on a hilltop under the moon. Fireflies drift in and gather into a heart above them: **Save the Date**. |
+| 44–49 s | The camera tilts up into the stars, which join into **M ♥ S**: Manish weds Sushmita. |
+
+The score (`music.render2`) adds a soft tabla keherwa under the middle of
+the film, a whoosh for each camera move, sparkler crackle, and rising bell
+chimes when the mandala draws, when night falls and when the heart forms.
+
+```sh
+python3 media/invitation/make_invitation2.py <fonts_dir>     # about 20 minutes on CPU
+```
+
+The names, events and dates come from `DETAILS` in `make_invitation.py`,
+which both editions share.
+
+## First edition
+
 `manish-sushmita-invitation.mp4` (7 MB) is a 44-second vertical (1080 × 1920)
 digital wedding invitation, ready for WhatsApp, Instagram or Facebook
 stories. Everything in it is drawn by `make_invitation.py`: there are no

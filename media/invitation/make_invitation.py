@@ -200,7 +200,8 @@ def put(frame, layer, cx, cy, scale=1.0, opacity=1.0, angle=0.0, sheen=None, alp
         rgb = rgb + band[..., None] * np.array([0.55, 0.6, 0.55], np.float32)
     h, w = a.shape
     x0, y0 = int(round(cx - w / 2)), int(round(cy - h / 2))
-    fx0, fy0, fx1, fy1 = max(x0, 0), max(y0, 0), min(x0 + w, W), min(y0 + h, H)
+    FH, FW = frame.shape[:2]
+    fx0, fy0, fx1, fy1 = max(x0, 0), max(y0, 0), min(x0 + w, FW), min(y0 + h, FH)
     if fx1 <= fx0 or fy1 <= fy0:
         return
     sub_a = a[fy0 - y0:fy1 - y0, fx0 - x0:fx1 - x0, None] * opacity
