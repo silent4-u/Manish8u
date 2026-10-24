@@ -1,5 +1,32 @@
 # Boundary wall and gate: colour options
 
+## House blue, with the relief motif in colour
+
+`motif-colour-options.jpg` shows three schemes that paint the wall the
+house's own sky blue and pick out every arc band and step of the relief in
+colour, against an ivory background. The pillars are ivory, and the canopy is
+the roof's red with an ivory scalloped valance. Each scheme is also saved
+full size as `motif-<scheme>.jpg`.
+
+| Scheme | Arc bands, inner to outer | Steps, top to bottom | Corner block | Groove lines |
+| --- | --- | --- | --- | --- |
+| **Peacock** | gold, emerald, peacock teal | sky, mid and deep blue | gold | gold |
+| **Sunset on Sky** | saffron, coral, rose | light saffron, orange, red | plum | white |
+| **Royal** | gold, emerald, maroon (like the gate) | light, mid and deep gold | maroon | gold |
+
+`motif_colours.py` traces the motif in each panel's straight-on view:
+- **Arcs.** Each arc is a circle fitted through a few points on its groove,
+  then snapped to the groove itself.
+- **Steps.** The staircase's treads and risers are straight lines.
+- **Colours.** These curves split the panel into its bands and steps, and
+  each piece is coloured by its role.
+
+```sh
+python3 media/wall-colours/motif_colours.py [fonts_dir]
+```
+
+## Whole-wall schemes
+
 `wall-before.jpg` is the bare cement wall with its relief of arcs and steps.
 `wall-colour-options.jpg` shows it beside five schemes chosen to go with the
 house's sky-blue walls, green trims, red roof tiles and maroon gate. Each
