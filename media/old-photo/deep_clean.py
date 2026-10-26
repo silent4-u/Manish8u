@@ -141,8 +141,10 @@ class Lama:
                 patch = out[y0:y0 + size, x0:x0 + size]
                 ph, pw = patch.shape[:2]
                 pad = cv2.copyMakeBorder(patch, 0, size - ph, 0, size - pw, cv2.BORDER_REFLECT)
-                mpad = np.zeros((size, size), bool)
-                mpad[:ph, :pw] = cv2.dilate(todo[:ph, :pw].astype(np.uint8), ellipse(5)) > 0
+                # The padding mirrors the hole too, or the model sees what
+                # the hole should hide just past the image's edge.
+                hole = cv2.dilate(todo[:ph, :pw].astype(np.uint8), ellipse(5))
+                mpad = cv2.copyMakeBorder(hole, 0, size - ph, 0, size - pw, cv2.BORDER_REFLECT) > 0
                 res = self.window(pad, mpad)[:ph, :pw]
                 keep = cv2.dilate(sub[:ph, :pw].astype(np.uint8), ellipse(5)) > 0
                 a = cv2.GaussianBlur(keep.astype(np.float32), (0, 0), 1.2)[..., None]
