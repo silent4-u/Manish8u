@@ -1,9 +1,15 @@
-# The Himalaya over the foothills: cleared and graded
+# The Himalaya over the foothills: cleared, graded, in 4K
 
-`himalaya-cinematic.jpg` (2160 × 3840) is `himalaya-before.jpg`, a phone
-photo of the snow massif over hazy foothills, with the haze cleared from the
-middle hills and a natural cinematic finish. `himalaya-before-after.jpg` puts
-the two side by side.
+`himalaya-before.jpg` is a phone photo of the snow massif over hazy foothills.
+`enhance.py` clears the haze from the hills, sharpens them and gives the view
+a cinematic grade, in two 4K frames:
+
+| File | Size | What it is |
+| --- | --- | --- |
+| `himalaya-4k.jpg` | 2160 × 3840 | The whole photo, 4K UHD portrait |
+| `himalaya-4k-cinemascope.jpg` | 3840 × 2160 | The peak and its ranges, 2.39:1 inside a 16:9 4K frame |
+
+`himalaya-before-after.jpg` compares the portrait with the photo.
 
 `enhance.py` makes it:
 
@@ -26,15 +32,29 @@ the two side by side.
    and extra local contrast at the scale of their ridges and forest patches.
    They still stay lighter than the hills in front, and nothing else in the
    picture changes.
-4. **Grade.**
-   - **Snow:** local contrast in its rock and ridges, warm highlights, cool
-     shadows, and the brightest snow rolled off rather than clipped.
-   - **Sky:** a polariser-like deepening towards the top.
-   - **Hills:** the near ridge a little greener than the far hills.
-   - **Leaves:** calmed and slightly darkened to frame the view.
-   - **Finish:** a gentle filmic curve, a soft vignette and fine grain.
+4. **Focus.** The foreground leaves are softly out of focus, as if the lens
+   were focused on the mountain: gently in the portrait, more in the
+   widescreen frame, where they are big and close. The blur is a lens disc
+   applied to the leaves alone. The mask also takes in the leaves' drip tips
+   and the bright rims the phone's sharpening drew round them, so no sharp
+   outline is left.
+5. **Grade, for the look of a film still.**
+   - **Snow:** golden morning light, a soft halation round its brightest
+     edges, cool shadows, and the brightest snow rolled off rather than
+     clipped.
+   - **Sky:** a polariser-like deepening towards the top, with a faint warm
+     glow along the horizon.
+   - **Hills:** blue-green shadows, the near ridge a little greener than the
+     far hills.
+   - **Leaves:** darkened to frame the view.
+   - **Finish:** a filmic curve with a slightly lifted black, a vignette and
+     fine grain.
+
+The widescreen frame is rendered from the photo at its own scale (about
+3.6x), not cut from the portrait. At that scale the hills hold their shapes
+and texture but not fine detail: that is as much as the photo holds.
 
 ```sh
 pip install numpy opencv-python-headless onnx onnxruntime
-python3 media/himalaya-view/enhance.py      # under a minute on CPU
+python3 media/himalaya-view/enhance.py      # about 1.5 minutes on CPU
 ```
