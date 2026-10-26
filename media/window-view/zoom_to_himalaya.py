@@ -8,9 +8,12 @@ frame:
 
   window-to-himalaya.mp4   1080 x 1920, about 28 s, with the clip's own sound
 
-  1. Tracking. The camera's zoom, drift and shake are measured frame to
-     frame (corner tracking, with the dark bars left out, and a similarity
-     fitted with RANSAC), and chained to the clip's last frame.
+  1. Tracking. The camera's zoom, drift and shake are measured on the view
+     outside only (the bars, curtain and mosquito net are near, and slide
+     across it as the phone moves): corners tracked frame to frame, each
+     frame lined up again with a recent reference frame so small errors do
+     not pile up, and any frame that stands out from the smooth path put
+     back on it.
   2. The mountain in the clip. The massif is placed in the last frame's
      sky, its foot behind the faint hills, and moved with the camera into
      every earlier frame. It is drawn only where the clip shows sky, so the
@@ -82,26 +85,110 @@ def read_clip():
     return np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
 
 
+def outdoors(frame):
+    """Where the clip shows the view outside: coloured, lit trees and roofs.
+    Not the bars and the curtain (dark), nor the mosquito net (grey, its
+    moire moving with the net): they are near, and as the phone moves they
+    slide across the view."""
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    out = (hsv[..., 1] > 45) & (hsv[..., 2] > 70)
+    dark = cv2.dilate((frame.max(2) < 95).astype(np.uint8), np.ones((11, 11), np.uint8)) > 0
+    keep = cv2.morphologyEx((out & ~dark).astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    return keep * 255
+
+
+def follow(g0, g1, mask):
+    """Corners in g0 (within mask) and where they went in g1, kept only if
+    tracking them back lands where they started."""
+    p0 = cv2.goodFeaturesToTrack(g0, 800, 0.005, 5, mask=mask)
+    if p0 is None or len(p0) < 8:
+        return None, None
+    p1, st, _ = cv2.calcOpticalFlowPyrLK(g0, g1, p0, None, winSize=(25, 25), maxLevel=4)
+    pb, st2, _ = cv2.calcOpticalFlowPyrLK(g1, g0, p1, None, winSize=(25, 25), maxLevel=4)
+    ok = (st[:, 0] == 1) & (st2[:, 0] == 1) & (np.linalg.norm(pb - p0, axis=2)[:, 0] < 0.5)
+    return p0[ok], p1[ok]
+
+
+def similarity(p0, p1, thr):
+    m, inl = cv2.estimateAffinePartial2D(p0, p1, method=cv2.RANSAC, ransacReprojThreshold=thr,
+                                         maxIters=4000, confidence=0.999)
+    return (None, 0) if m is None else (np.vstack([m, [0, 0, 1]]), int(inl.sum()))
+
+
+def despike(x, floor, k=7):
+    """x with single bad estimates replaced: each point is checked against a
+    straight line fitted, robustly, to its neighbours (the camera's path is
+    smooth; a misjudged frame stands out from it)."""
+    n = len(x)
+    out = x.copy()
+    for i in range(n):
+        idx = np.arange(max(0, i - k), min(n, i + k + 1))
+        keep = idx != i
+        for _ in range(3):
+            a = np.vstack([idx[keep] - i, np.ones(keep.sum())]).T
+            coef = np.linalg.lstsq(a, x[idx[keep]], rcond=None)[0]
+            r = x[idx] - (coef[0] * (idx - i) + coef[1])
+            mad = np.median(np.abs(r[keep])) * 1.4826
+            keep &= np.abs(r) <= max(3 * mad, np.median(floor[idx]))
+            keep[idx == i] = False
+        if abs(x[i] - coef[1]) > max(3 * mad, floor[i]):
+            out[i] = coef[1]
+    return out
+
+
 def track(frames):
-    """For every frame, the similarity taking it onto the last frame."""
+    """For every frame, the similarity taking it onto the last frame, as the
+    view outside moves (the mountain is part of that view).
+
+    Frame-to-frame steps alone pile up their small errors over hundreds of
+    frames, and the mountain would slide across the trees. So, working back
+    from the last frame, each frame is also lined up directly with a recent
+    reference frame (a new one whenever the zoom has changed by a quarter),
+    and finally any frame that stands out from the smooth path is put back
+    on it."""
+    n = len(frames)
+    h, w = frames.shape[1:3]
     gray = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
+    masks = [outdoors(f) for f in frames]
     steps = []
-    for i in range(len(frames) - 1):
-        # The bars are near and the view is far; track the view.
-        dark = (frames[i].max(2) < 60).astype(np.uint8)
-        mask = (cv2.dilate(dark, np.ones((9, 9), np.uint8)) == 0).astype(np.uint8) * 255
-        p0 = cv2.goodFeaturesToTrack(gray[i], 600, 0.01, 6, mask=mask)
-        if p0 is None or len(p0) < 30:
-            p0 = cv2.goodFeaturesToTrack(gray[i], 600, 0.01, 6)
-        p1, st, _ = cv2.calcOpticalFlowPyrLK(gray[i], gray[i + 1], p0, None, winSize=(21, 21), maxLevel=3)
-        pb, st2, _ = cv2.calcOpticalFlowPyrLK(gray[i + 1], gray[i], p1, None, winSize=(21, 21), maxLevel=3)
-        ok = (st[:, 0] == 1) & (st2[:, 0] == 1) & (np.linalg.norm(pb - p0, axis=2)[:, 0] < 0.7)
-        m, _ = cv2.estimateAffinePartial2D(p0[ok], p1[ok], method=cv2.RANSAC, ransacReprojThreshold=1.2)
-        steps.append(np.vstack([m, [0, 0, 1]]))
-    T = [np.eye(3)]
-    for m in reversed(steps):
-        T.append(T[-1] @ m)
-    return np.array(T[::-1])
+    for i in range(n - 1):
+        a, b = follow(gray[i], gray[i + 1], masks[i])
+        m = similarity(a, b, 1.0)[0] if a is not None and len(a) >= 8 else None
+        if m is None:
+            a, b = follow(gray[i], gray[i + 1], None)
+            m = similarity(a, b, 1.0)[0]
+        steps.append(m)
+    T = [None] * n
+    T[-1] = np.eye(3)
+    ref = n - 1
+    whole = np.ones((h, w), np.uint8)
+    for i in range(n - 2, -1, -1):
+        g = np.linalg.inv(T[ref]) @ T[i + 1] @ steps[i]          # frame i onto the reference, first guess
+        warped = cv2.warpAffine(gray[i], g[:2].astype(np.float32), (w, h))
+        inside = cv2.erode(cv2.warpAffine(whole, g[:2].astype(np.float32), (w, h)), np.ones((15, 15), np.uint8))
+        a, b = follow(gray[ref], warped, cv2.bitwise_and(masks[ref], masks[ref], mask=inside))
+        if a is not None and len(a) >= 20:
+            r, good = similarity(a, b, 0.8)
+            if r is not None and good >= 15:
+                g = np.linalg.inv(r) @ g
+        T[i] = T[ref] @ g
+        if abs(np.log(np.sqrt(abs(np.linalg.det(g[:2, :2]))))) > 0.22 or i % 45 == 0:
+            ref = i
+    # Back onto the smooth path: scale, turn, and where the frame's centre lands.
+    c0 = np.array([w / 2, h / 2, 1.0])
+    s = np.array([np.sqrt(abs(np.linalg.det(t[:2, :2]))) for t in T])
+    path = [np.log(s), np.array([np.arctan2(t[1, 0], t[0, 0]) for t in T]),
+            np.array([(t @ c0)[0] for t in T]), np.array([(t @ c0)[1] for t in T])]
+    floors = [np.full(n, 0.004), np.full(n, 0.002), s, s]           # a frame pixel, in the last frame's
+    ls, turn, cx, cy = (despike(p, f) for p, f in zip(path, floors))
+    out = []
+    for i in range(n):
+        k = np.exp(ls[i])
+        a, b = k * np.cos(turn[i]), k * np.sin(turn[i])
+        out.append(np.array([[a, -b, cx[i] - a * c0[0] + b * c0[1]], [b, a, cy[i] - b * c0[0] - a * c0[1]],
+                             [0, 0, 1]]))
+    out[-1] = np.eye(3)
+    return np.array(out)
 
 
 # --------------------------------------------------------------- mountain ----
@@ -330,7 +417,10 @@ def path(t, start, shake):
     u = np.where(u < 0.7, u, 0.7 + 0.3 * np.tanh((u - 0.7) / 0.3))
     centre = np.array(start) + np.sign(free - np.array(start)) * u * room
     jx, jy = shake
-    centre = centre + np.array([jx(t), jy(t)]) * np.sqrt(z) / z * np.minimum(1.0, room / 3 + 0.2)
+    # The hand's shake, steadied by the phone as it zooms, and by the hand
+    # as it settles on the mountain.
+    steady = 1 - 0.5 * smootherstep(t / 10.0)
+    centre = centre + np.array([jx(t), jy(t)]) * steady / z * np.minimum(1.0, room / 3 + 0.2)
     g = 1 + 4 * smootherstep((t - 0.8) / 7.7)
     return z, centre, g
 
