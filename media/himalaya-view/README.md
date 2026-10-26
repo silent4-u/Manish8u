@@ -21,6 +21,11 @@ the two side by side.
    lightly on the leaves (which the phone had already sharpened) and not at
    all on the sky. The hills' forests and ridgelines are then sharpened at
    two scales, with the strongest edges limited so no halos form.
+   The two ranges just under the snow (`NEAR_PEAK`) are the farthest and
+   haziest hills. They get more help: less haze kept, a higher stretch limit,
+   and extra local contrast at the scale of their ridges and forest patches.
+   They still stay lighter than the hills in front, and nothing else in the
+   picture changes.
 4. **Grade.**
    - **Snow:** local contrast in its rock and ridges, warm highlights, cool
      shadows, and the brightest snow rolled off rather than clipped.

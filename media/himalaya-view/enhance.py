@@ -41,6 +41,9 @@ SOURCE = HERE / "himalaya-before.jpg"
 OUTPUT = HERE / "himalaya-cinematic.jpg"
 COMPARE = HERE / "himalaya-before-after.jpg"
 KEEP_HAZE = 0.5          # haze kept = t ** KEEP_HAZE; 1 keeps all of it, 0 removes it
+NEAR_PEAK = (850, 1010, 1085)   # rows (in the photo) of the two ranges under the snow: full, then fading out
+NEAR_PEAK_KEEP = 0.32    # how much less haze those two ranges keep
+NEAR_PEAK_GAIN = 4.4     # and their stretch limit
 MAX_GAIN = 3.2           # never stretch a hazy pixel more than this
 
 
@@ -106,12 +109,17 @@ def regions(img):
     fol_s = cv2.GaussianBlur(fol.astype(np.float32), (0, 0), 2.0)
     snow_s = cv2.GaussianBlur(snow.astype(np.float32), (0, 0), 3.0) * (1 - sky_s)
     dist = np.clip(1 - sky_s - snow_s - fol_s, 0, 1)
-    return sky_s, fol_s, snow_s, dist, fol
+    # The two ranges just under the snow, the farthest and haziest hills:
+    # cleared and sharpened more than the rest.
+    top, full, end = NEAR_PEAK
+    band = smooth(rows, top - 30, top) * (1 - smooth(rows, full, end))
+    band = np.broadcast_to(band, L.shape).astype(np.float32)
+    return sky_s, fol_s, snow_s, dist, fol, band
 
 
 # ------------------------------------------------------------------ haze ----
 
-def dehaze(img, sky, snow, dist, fol):
+def dehaze(img, sky, snow, dist, fol, band):
     """Partial, depth-aware haze removal on the distance mask."""
     f = img.astype(np.float32) / 255
     h, w = f.shape[:2]
@@ -127,7 +135,7 @@ def dehaze(img, sky, snow, dist, fol):
     t = np.clip(1 - 0.97 * dark, 0.05, 1)
     gray = cv2.cvtColor(f, cv2.COLOR_BGR2GRAY)
     t = np.clip(guided(gray, t.astype(np.float32), r=12, eps=1e-3), 0.05, 1)
-    gain = np.minimum(t ** (KEEP_HAZE - 1), MAX_GAIN)
+    gain = np.minimum(t ** (KEEP_HAZE - NEAR_PEAK_KEEP * band - 1), MAX_GAIN + (NEAR_PEAK_GAIN - MAX_GAIN) * band)
     gain = 1 + (gain - 1) * dist
     L, Ac, Bc = to_lab(f)
     LA, AA, BA = (v.ravel()[0] for v in to_lab(A[None, None].astype(np.float32)))
@@ -154,14 +162,16 @@ def enlarge(f, weight):
     return gan * wt + plain * (1 - wt)
 
 
-def sharpen(f, amount_fine, amount_mid):
-    """Unsharp on lightness at two scales, amounts given per pixel."""
+def sharpen(f, amount_fine, amount_mid, amount_broad=0.0):
+    """Unsharp on lightness at three scales, amounts given per pixel."""
     L, A, B = to_lab(f)
     fine = L - cv2.GaussianBlur(L, (0, 0), 1.4)
     mid = L - cv2.GaussianBlur(L, (0, 0), 6.0)
+    broad = L - cv2.GaussianBlur(L, (0, 0), 22.0)
     fine = np.clip(fine, -6, 6)                        # no halos on the strongest edges
     mid = np.clip(mid, -8, 8)
-    L = L + fine * amount_fine + mid * amount_mid
+    broad = np.clip(broad, -10, 10)
+    L = L + fine * amount_fine + mid * amount_mid + broad * amount_broad
     return np.clip(from_lab(np.clip(L, 0, 100), A, B), 0, 1)
 
 
@@ -222,15 +232,17 @@ def side_by_side(before, after, height=1600):
 
 def main(debug=None):
     img = cv2.imread(str(SOURCE))
-    sky, fol, snow, dist, fol_hard = regions(img)
-    clear, t, A = dehaze(img, sky, snow, dist, fol_hard)
+    sky, fol, snow, dist, fol_hard, band = regions(img)
+    clear, t, A = dehaze(img, sky, snow, dist, fol_hard, band)
     print(f"airlight {np.round(A * 255).astype(int)}  haze t in hills {np.median(t[dist > 0.8]):.2f}")
     if debug:
         cv2.imwrite(str(Path(debug) / "dehazed.jpg"), (clear * 255).astype(np.uint8))
     big = enlarge(clear, 0.85 * dist + 0.6 * snow + 0.2 * fol)
     up = lambda m: cv2.resize(m, (big.shape[1], big.shape[0]), interpolation=cv2.INTER_LINEAR)
-    sky2, fol2, snow2, dist2 = map(up, (sky, fol, snow, dist))
-    big = sharpen(big, amount_fine=0.7 * dist2 + 0.45 * snow2, amount_mid=0.25 * dist2 + 0.15 * snow2)
+    sky2, fol2, snow2, dist2, band2 = map(up, (sky, fol, snow, dist, band))
+    big = sharpen(big, amount_fine=(0.7 + 0.45 * band2) * dist2 + 0.45 * snow2,
+                  amount_mid=(0.25 + 0.9 * band2) * dist2 + 0.15 * snow2,
+                  amount_broad=0.6 * band2 * dist2)
     out = grade(big, sky2, fol2, snow2, dist2)
     out8 = (out * 255 + 0.5).astype(np.uint8)
     cv2.imwrite(str(OUTPUT), out8, [cv2.IMWRITE_JPEG_QUALITY, 94])
