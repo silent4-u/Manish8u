@@ -21,10 +21,18 @@ How it is made:
    camera into every earlier frame. It is drawn only where the clip shows
    sky, so the bars, the leaves and the curtain stay in front of it.
 
-   A mountain that far away is seen through a lot of air. So it is drawn
-   relative to the clip's own sky colour, with its shading weakened and its
-   foot fading into the haze. It looks as pale as the faint hills do: a
-   ghost of the massif, there if you look for it.
+   The clip's sky is washed out nearly white, and a white mountain cannot
+   stand out against it. So the sky, and the faint hills under it, are
+   made the clearer, deeper blue of a day the mountain can be seen on.
+
+   The mountain is drawn relative to that sky. The haze on the photo's
+   ranges is partly cleared first, and the ridges and faces of the snow
+   are given more local contrast. So:
+   - sunlit snow stands brighter than the sky, with the brightest rolled
+     off rather than clipped;
+   - its faces are in blue shadow;
+   - the forested ranges under it read as darker haze;
+   - its foot fades into the haze, behind the faint hills.
 3. **The zoom carries on.** The last frame is split into two layers: the
    grill (with the sill) and the view behind it. LaMa paints in what the
    bars hid; the window frame on the right is mirrored first, since LaMa
@@ -45,5 +53,5 @@ How it is made:
 
 ```sh
 pip install numpy opencv-python-headless onnx onnxruntime imageio-ffmpeg
-python3 media/window-view/zoom_to_himalaya.py      # about 10 minutes on CPU
+python3 media/window-view/zoom_to_himalaya.py      # about 20 minutes on CPU
 ```

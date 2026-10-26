@@ -14,10 +14,12 @@ frame:
   2. The mountain in the clip. The massif is placed in the last frame's
      sky, its foot behind the faint hills, and moved with the camera into
      every earlier frame. It is drawn only where the clip shows sky, so the
-     bars, the leaves and the curtain stay in front of it. A mountain that
-     far away is seen through a lot of air: it is drawn relative to the
-     clip's own sky colour, its shading weakened, its foot fading into the
-     haze, so it looks as pale as the faint hills do.
+     bars, the leaves and the curtain stay in front of it. The clip's sky
+     is washed out nearly white, so it is made the clearer, deeper blue of
+     a day the mountain can be seen on, with the faint hills under it. The
+     mountain is drawn relative to that sky: sunlit snow brighter than the
+     sky, its faces and ridges in blue shadow, the forested ranges under
+     it as darker haze, and its foot fading into the haze.
   3. The zoom carries on. The last frame is split into the grill (and the
      sill) and the view behind it, where LaMa paints in what the bars hid.
      The camera zooms on towards the peak, and moves up to the grill: the
@@ -30,7 +32,7 @@ frame:
   4. Sound: the clip's own ambience, carried on by crossfading pieces of it.
 
     pip install numpy opencv-python-headless onnx onnxruntime imageio-ffmpeg
-    python3 media/window-view/zoom_to_himalaya.py      # about 10 minutes on CPU
+    python3 media/window-view/zoom_to_himalaya.py      # about 20 minutes on CPU
 """
 
 import re
@@ -64,6 +66,7 @@ PLACE = (345, 128, 0.45)     # where it sits in the clip's last frame, and photo
 CROP = (520, 1110)           # the photo's rows holding the massif
 SNOW_WHITE = 88.0            # lightness of the photo's sunlit snow
 DAYLIGHT = (0.0, -8.0)       # a*, b* the snow's colour is taken against: sunlit snow a touch warmer than the sky
+SNOW_LIFT = 8.75             # how much brighter than the sky sunlit snow is
 END = ((345, 185), 3.7)      # the last view: its centre in the last frame, and its zoom
 GRILL = (300, 120)           # the point of the grill the phone is brought up to
 
@@ -106,15 +109,16 @@ def track(frames):
 def mountain(scale):
     """The massif, as colour relative to the sky behind it, at `scale` times
     the photo's size (rows CROP): lightness against sunlit snow, colour
-    against daylight, and its cover. The far ends and the foot fade into
-    the haze."""
+    against daylight, and its cover, which thins at the far ends and the
+    foot, where it fades into the haze."""
     path = CACHE / f"mountain-{scale}.npy"
     if path.exists():
         return np.load(path)
     img = cv2.imread(str(e.SOURCE))
-    sky, fol, snow, dist, _, _ = e.regions(img)
+    sky, fol, snow, dist, fol_hard, band = e.regions(img)
+    clear, _, _ = e.dehaze(img, sky, snow, dist, fol_hard, band)      # the ranges' haze partly cleared
     y0, y1 = CROP
-    f = img[y0:y1].astype(np.float32) / 255
+    f = clear[y0:y1].astype(np.float32)
     h, w = f.shape[:2]
     size = (w * scale, h * scale)
     if scale > 1:
@@ -143,16 +147,22 @@ def mountain(scale):
     edge = np.where(near[0][1] > 0.05, near[0][0] / np.maximum(near[0][1], 1e-6),
                     near[1][0] / np.maximum(near[1][1], 1e-6))
     lab = np.where(inner[..., None] > 0, lab, edge)
+    # Crisper ridges and faces on the snow, as a long lens on a clear day
+    # shows them.
+    on_snow = up(snow[y0:y1])
+    lab[..., 0] += 0.5 * (lab[..., 0] - cv2.GaussianBlur(lab[..., 0], (0, 0), 6 * scale)) * on_snow
     d = lab[..., 0] - SNOW_WHITE
     dL = np.where(d > -20, d, -20 + 0.25 * (d + 20))     # the darkest rock and forest, barely seen
+    # Sunlit snow stands brighter than the sky (by SNOW_LIFT at kL = 1);
+    # the forested ranges under it are seen as darker haze, not dark ridges.
+    dL = on_snow * (dL + SNOW_LIFT) + (1 - on_snow) * 0.3 * dL
     yy = np.arange(h * scale, dtype=np.float32)[:, None] / scale + y0
     xx = np.arange(w * scale, dtype=np.float32)[None, :] / scale
-    fade = (1 - 0.7 * e.smooth(yy, 700, 935)) * (1 - e.smooth(yy, 930, 990)) * \
+    # Seen through more air, the foot and the far ends fade into the sky.
+    fade = (1 - 0.5 * e.smooth(yy, 700, 935)) * (1 - e.smooth(yy, 930, 990)) * \
         e.smooth(xx, 170, 300) * (1 - e.smooth(xx, 960, 1075))
-    cover = np.clip((0.4 - sky) / 0.4, 0, 1) * (1 - fol) * \
-        (1 - e.smooth(yy, 1030, 1090)) * e.smooth(yy, 560, 600) * np.ones_like(xx)
-    out = np.dstack([dL * fade, (lab[..., 1] - DAYLIGHT[0]) * fade, (lab[..., 2] - DAYLIGHT[1]) * fade,
-                     cover]).astype(np.float32)
+    cover = np.clip((0.4 - sky) / 0.4, 0, 1) * (1 - fol) * e.smooth(yy, 560, 600) * fade
+    out = np.dstack([dL, lab[..., 1] - DAYLIGHT[0], lab[..., 2] - DAYLIGHT[1], cover]).astype(np.float32)
     CACHE.mkdir(parents=True, exist_ok=True)
     np.save(path, out)
     return out
@@ -193,8 +203,8 @@ def warp_layer(pyr, m, size, sharp=True):
 
 
 def horizon(last):
-    """1 above the faint hills on the last frame's horizon, 0 below: the
-    massif's foot goes behind them."""
+    """The faint hills on the last frame's horizon: for each column, the
+    row they start at. The massif's foot goes behind them."""
     lab = cv2.cvtColor(last.astype(np.float32) / 255, cv2.COLOR_BGR2LAB)
     L = cv2.GaussianBlur(lab[..., 0], (0, 0), 1.5)
     top = 256                                             # just under the grill's middle bar
@@ -209,9 +219,28 @@ def horizon(last):
     xs = np.arange(w)
     line = np.interp(xs, xs[sky], line[sky])
     line = np.median(np.lib.stride_tricks.sliding_window_view(np.pad(line, 4, mode="edge"), 9), axis=1)
-    line = cv2.GaussianBlur(line.astype(np.float32).reshape(1, -1), (0, 0), 3).ravel()
-    rows = np.arange(last.shape[0], dtype=np.float32)[:, None]
-    return np.clip((line[None, :] - rows) / 2 + 0.5, 0, 1).astype(np.float32)
+    return cv2.GaussianBlur(line.astype(np.float32).reshape(1, -1), (0, 0), 3).ravel()
+
+
+def above(line, m, shape, lower=0.0, soft=2.0):
+    """1 above the horizon's hills (moved `lower` px down, with an edge
+    `soft` px wide), 0 below, in a frame whose pixels go onto the last frame
+    by the affine m; beyond the last frame's sides the hills carry on
+    level."""
+    h, w = shape
+    ys, xs = np.mgrid[0:h, 0:w].astype(np.float32)
+    lx = m[0, 0] * xs + m[0, 1] * ys + m[0, 2]
+    ly = m[1, 0] * xs + m[1, 1] * ys + m[1, 2]
+    s = np.sqrt(abs(np.linalg.det(m[:2, :2])))
+    return np.clip((np.interp(lx, np.arange(len(line)), line) + lower - ly) / (soft * s) + 0.5, 0, 1).astype(np.float32)
+
+
+def clearer(lab, sky, up):
+    """The clip's sky, washed out nearly white, made the clearer, deeper
+    blue of a day the mountain can be seen on: the sky and the faint hills
+    on the horizon (`up`), not the white walls below them."""
+    w = sky * up * e.smooth(lab[..., 0], 72, 82)
+    return lab + np.float32(CLEARER) * w[..., None]
 
 
 def sky_of(lab):
@@ -226,15 +255,19 @@ def sky_of(lab):
     return model, near
 
 
-def draw(model, rel, kL, off, kc):
-    """The mountain's colour, given the sky behind it and the haze."""
-    lab = np.dstack([model[..., 0] + off + kL * rel[..., 0], model[..., 1] + kc * rel[..., 1],
-                     model[..., 2] + kc * rel[..., 2]])
+def draw(model, rel, kL, kc):
+    """The mountain's colour, given the sky behind it and the haze; the
+    brightest snow rolls off rather than clipping."""
+    L = model[..., 0] + kL * rel[..., 0]
+    L = np.where(L > 93, 93 + 4 * np.tanh((L - 93) / 4), L)
+    lab = np.dstack([L, model[..., 1] + kc * rel[..., 1], model[..., 2] + kc * rel[..., 2]])
     return cv2.cvtColor(lab.astype(np.float32), cv2.COLOR_LAB2BGR)
 
 
-HAZE = dict(kL=0.55, off=3.0, kc=0.3)        # how the mountain shows through the clip's haze
-CLEAR = dict(kL=1.05, off=3.5, kc=0.5)       # and once the exposure has settled on it
+HAZE = dict(kL=0.8, kc=0.4)                  # how the mountain shows through the clip's haze
+CLEAR = dict(kL=1.1, kc=0.55)                # and once the exposure has settled on it
+CLEARER = (-7.0, -0.5, -9.0)                 # the sky made a clearer, deeper blue (Lab)
+HORIZON = (40.0, 40.0)                       # and the faint hills with it: how far below their tops, how softly
 
 
 # ---------------------------------------------------------------- part 1 ----
@@ -243,21 +276,21 @@ def unsharp(img, amount=0.35, sigma=1.6):
     return img + amount * (img - cv2.GaussianBlur(img, (0, 0), sigma))
 
 
-def in_clip(frames, T, above):
+def in_clip(frames, T, line):
     """The clip with the mountain on its horizon, at the film's size."""
     pyr = pyramid(mountain(1))
     place = placement(1)
     h, w = frames.shape[1:3]
     rng = np.random.default_rng(3)
     for i, frame in enumerate(frames):
-        v = frame.astype(np.float32) / 255
-        lab = cv2.cvtColor(v, cv2.COLOR_BGR2LAB)
+        lab = cv2.cvtColor(frame.astype(np.float32) / 255, cv2.COLOR_BGR2LAB)
         model, near = sky_of(lab)
+        up = above(line, T[i], (h, w))
+        v = cv2.cvtColor(clearer(lab, near, above(line, T[i], (h, w), *HORIZON)), cv2.COLOR_LAB2BGR)
         back = np.linalg.inv(T[i])
         rel = cv2.GaussianBlur(warp_layer(pyr, back @ place, (w, h)), (0, 0), 0.6)
-        hills = cv2.warpAffine(above, back[:2].astype(np.float32), (w, h), flags=cv2.INTER_LINEAR, borderValue=1)
-        a = (rel[..., 3] * hills * near)[..., None]
-        out = v * (1 - a) + draw(model, rel, **HAZE) * a
+        a = (rel[..., 3] * up * near)[..., None]
+        out = v * (1 - a) + draw(model + np.float32(CLEARER), rel, **HAZE) * a
         out += rng.normal(0, 1.2 / 255, out.shape).astype(np.float32) * a     # the clip's noise on it too
         big = cv2.resize(out, SIZE, interpolation=cv2.INTER_LANCZOS4)
         yield np.clip(unsharp(big), 0, 1)
@@ -314,7 +347,7 @@ def make_shake(rng, rms, seconds):
     return lambda t: float(np.interp(t * FPS, np.arange(n), x))
 
 
-def after_clip(frames, above, seconds):
+def after_clip(frames, line, seconds):
     """The zoom carried on from the last frame to the peak."""
     last = frames[-1]
     h, w = last.shape[:2]
@@ -332,13 +365,21 @@ def after_clip(frames, above, seconds):
     # The view enlarged 4x with Real-ESRGAN, for the trees the zoom passes;
     # the plain enlargement is kept for the first moments, to match the clip.
     sess = ort.InferenceSession(sr.build(sr.weights()).SerializeToString(), providers=["CPUExecutionProvider"])
-    fine = sr.upscale_tiled(sess, view).astype(np.float32) / 255
+    fine = unsharp(sr.upscale_tiled(sess, view).astype(np.float32) / 255, 0.4, 2.0)
     view = view.astype(np.float32) / 255
     lab = cv2.cvtColor(view, cv2.COLOR_BGR2LAB)
     model, sky = sky_of(lab)
-    smooth_sky = cv2.cvtColor(model.astype(np.float32), cv2.COLOR_LAB2BGR)
+    up = above(line, np.eye(3), (h, w))
+    # The same clearer sky as in the clip, on the view and its enlargement.
+    hz = above(line, np.eye(3), (h, w), *HORIZON)
+    view = cv2.cvtColor(clearer(lab, sky, hz), cv2.COLOR_LAB2BGR)
+    lab_f = cv2.cvtColor(np.clip(fine, 0, 1), cv2.COLOR_BGR2LAB)
+    w_f = cv2.resize(sky * hz * e.smooth(lab[..., 0], 72, 82), fine.shape[1::-1], interpolation=cv2.INTER_LINEAR)
+    fine = cv2.cvtColor(lab_f + np.float32(CLEARER) * w_f[..., None], cv2.COLOR_LAB2BGR)
+    smooth_sky = cv2.cvtColor(clearer(model, np.ones_like(sky), hz), cv2.COLOR_LAB2BGR)
+    model = model + np.float32(CLEARER)
     bars = np.dstack([last.astype(np.float32) / 255 * near[..., None], near]).astype(np.float32)
-    sky_cover = (sky * above).astype(np.float32)
+    sky_cover = (sky * up).astype(np.float32)
     pyr = pyramid(mountain(3))
     place = placement(3)
     rng = np.random.default_rng(5)
@@ -382,11 +423,12 @@ def after_clip(frames, above, seconds):
         b = cv2.GaussianBlur(b, (0, 0), blur)
         out = out * (1 - b[..., 3:]) + b[..., :3]
         # Exposure and colour as the camera adapts.
-        lin = np.clip(out, 0, 1) ** 2.2 * (1 - 0.25 * k)
+        lin = np.clip(out, 0, 1) ** 2.2 * (1 - 0.15 * k)
         out = lin ** (1 / 2.2)
         lab_o = cv2.cvtColor(out.astype(np.float32), cv2.COLOR_BGR2LAB)
-        lab_o[..., 1:] *= 1 + 0.35 * k
+        lab_o[..., 1:] *= 1 + 0.25 * k
         out = cv2.cvtColor(lab_o, cv2.COLOR_LAB2BGR)
+        out = unsharp(out, 0.3 * k, 1.2)                  # the phone's own sharpening at full zoom
         out += rng.normal(0, 1.0 / 255, out.shape).astype(np.float32)
         out *= 1 - smootherstep((t - (seconds - 0.6)) / 0.6)
         yield np.clip(out, 0, 1)
@@ -401,26 +443,26 @@ def sound(seconds):
     raw = subprocess.run([ff, "-loglevel", "error", "-i", str(SOURCE), "-vn", "-ac", "2", "-ar", "44100",
                           "-f", "s16le", "-"], capture_output=True, check=True).stdout
     x = np.frombuffer(raw, np.int16).reshape(-1, 2).astype(np.float32) / 32768
-    sr = 44100
-    total = len(x) + int(seconds * sr)
+    rate = 44100
+    total = len(x) + int(seconds * rate)
     out = np.zeros((total, 2), np.float32)
     out[:len(x)] = x
     rng = np.random.default_rng(9)
-    piece, fade = int(4.0 * sr), int(1.0 * sr)
+    piece, fade = int(4.0 * rate), int(1.0 * rate)
     ramp = np.sin(np.linspace(0, np.pi / 2, fade)) ** 2
     pos = len(x) - fade
     tail = np.ones(len(x))
     tail[-fade:] = ramp[::-1]
     out[:len(x)] *= tail[:, None]
     while pos < total:
-        a = rng.integers(int(1.0 * sr), len(x) - piece)
+        a = rng.integers(int(1.0 * rate), len(x) - piece)
         seg = x[a:a + piece].copy()
         seg[:fade] *= ramp[:, None]
         seg[-fade:] *= ramp[::-1, None]
         b = min(pos + piece, total)
         out[pos:b] += seg[:b - pos]
         pos += piece - fade
-    t = np.arange(total) / sr
+    t = np.arange(total) / rate
     out *= (1 - smootherstep((t - (t[-1] - 1.2)) / 1.2))[:, None]
     return out
 
@@ -445,7 +487,7 @@ def main():
         T = track(frames)
         CACHE.mkdir(parents=True, exist_ok=True)
         np.save(path_T, T)
-    above = horizon(frames[-1])
+    line = horizon(frames[-1])
     wav = CACHE / "sound.wav"
     write_wav(wav, sound(MORE))
     ff = imageio_ffmpeg.get_ffmpeg_exe()
@@ -456,7 +498,7 @@ def main():
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest", str(OUTPUT)],
         stdin=subprocess.PIPE)
     n = 0
-    for part in (in_clip(frames, T, above), after_clip(frames, above, MORE)):
+    for part in (in_clip(frames, T, line), after_clip(frames, line, MORE)):
         for f in part:
             proc.stdin.write((f * 255 + 0.5).astype(np.uint8).tobytes())
             n += 1
