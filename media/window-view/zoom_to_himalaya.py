@@ -22,7 +22,9 @@ frame:
      a day the mountain can be seen on, with the faint hills under it. The
      mountain is drawn relative to that sky: sunlit snow brighter than the
      sky, its faces and ridges in blue shadow, the forested ranges under
-     it as darker haze, and its foot fading into the haze.
+     it as darker haze, and its foot fading into the haze. It is drawn at
+     the film's full size from the photo enlarged 4x with
+     RealESRGAN_x4plus, so it is as sharp as the frame allows.
   3. The zoom carries on. The last frame is split into the grill (and the
      sill) and the view behind it, where LaMa paints in what the bars hid.
      The camera zooms on towards the peak, and moves up to the grill: the
@@ -41,6 +43,7 @@ frame:
 import re
 import subprocess
 import sys
+import urllib.request
 import wave
 from pathlib import Path
 
@@ -209,8 +212,11 @@ def mountain(scale):
     h, w = f.shape[:2]
     size = (w * scale, h * scale)
     if scale > 1:
-        f = e.enlarge(f, 0.6 * snow[y0:y1] + 0.85 * dist[y0:y1], size)
-        f = e.sharpen(f, cv2.resize(0.45 * snow[y0:y1], size), cv2.resize(0.15 * snow[y0:y1], size), k=scale / 2)
+        # RealESRGAN_x4plus, for the crispest ridges and rock; then the
+        # snow's faces given more shape. Its finest detail is sharpened only
+        # a little: pushed harder, the photo's JPEG noise turns into a mottle.
+        f = cv2.resize(x4plus(f), size, interpolation=cv2.INTER_AREA)
+        f = e.sharpen(f, cv2.resize(0.2 * snow[y0:y1], size), cv2.resize(0.45 * snow[y0:y1], size), k=scale / 2)
 
     def up(m):
         return cv2.resize(m.astype(np.float32), size, interpolation=cv2.INTER_LINEAR)
@@ -237,7 +243,7 @@ def mountain(scale):
     # Crisper ridges and faces on the snow, as a long lens on a clear day
     # shows them.
     on_snow = up(snow[y0:y1])
-    lab[..., 0] += 0.5 * (lab[..., 0] - cv2.GaussianBlur(lab[..., 0], (0, 0), 6 * scale)) * on_snow
+    lab[..., 0] += 0.6 * (lab[..., 0] - cv2.GaussianBlur(lab[..., 0], (0, 0), 6 * scale)) * on_snow
     d = lab[..., 0] - SNOW_WHITE
     dL = np.where(d > -20, d, -20 + 0.25 * (d + 20))     # the darkest rock and forest, barely seen
     # Sunlit snow stands brighter than the sky (by SNOW_LIFT at kL = 1);
@@ -246,13 +252,24 @@ def mountain(scale):
     yy = np.arange(h * scale, dtype=np.float32)[:, None] / scale + y0
     xx = np.arange(w * scale, dtype=np.float32)[None, :] / scale
     # Seen through more air, the foot and the far ends fade into the sky.
-    fade = (1 - 0.5 * e.smooth(yy, 700, 935)) * (1 - e.smooth(yy, 930, 990)) * \
+    fade = (1 - 0.4 * e.smooth(yy, 700, 935)) * (1 - e.smooth(yy, 930, 990)) * \
         e.smooth(xx, 170, 300) * (1 - e.smooth(xx, 960, 1075))
     cover = np.clip((0.4 - sky) / 0.4, 0, 1) * (1 - fol) * e.smooth(yy, 560, 600) * fade
     out = np.dstack([dL, lab[..., 1] - DAYLIGHT[0], lab[..., 2] - DAYLIGHT[1], cover]).astype(np.float32)
     CACHE.mkdir(parents=True, exist_ok=True)
     np.save(path, out)
     return out
+
+
+def x4plus(f):
+    """f (0..1 BGR) enlarged 4x with RealESRGAN_x4plus, in tiles, on the CPU."""
+    path = sr.CACHE / sr.X4PLUS[1]
+    if not path.exists():
+        sr.CACHE.mkdir(parents=True, exist_ok=True)
+        urllib.request.urlretrieve(sr.X4PLUS[0] + sr.X4PLUS[1], path)
+    sess = ort.InferenceSession(sr.build_rrdb(sr.load_pth(path)).SerializeToString(),
+                                providers=["CPUExecutionProvider"])
+    return sr.upscale_tiled(sess, (np.clip(f, 0, 1) * 255 + 0.5).astype(np.uint8)).astype(np.float32) / 255
 
 
 def placement(scale):
@@ -351,8 +368,9 @@ def draw(model, rel, kL, kc):
     return cv2.cvtColor(lab.astype(np.float32), cv2.COLOR_LAB2BGR)
 
 
-HAZE = dict(kL=0.8, kc=0.4)                  # how the mountain shows through the clip's haze
-CLEAR = dict(kL=1.1, kc=0.55)                # and once the exposure has settled on it
+HAZE = dict(kL=0.95, kc=0.45)                # how the mountain shows through the clip's haze
+CLEAR = dict(kL=1.15, kc=0.6)                # and once the exposure has settled on it
+DETAIL = 4                                   # the mountain is drawn from the photo enlarged this much
 CLEARER = (-7.0, -0.5, -9.0)                 # the sky made a clearer, deeper blue (Lab)
 HORIZON = (40.0, 40.0)                       # and the faint hills with it: how far below their tops, how softly
 
@@ -364,23 +382,30 @@ def unsharp(img, amount=0.35, sigma=1.6):
 
 
 def in_clip(frames, T, line):
-    """The clip with the mountain on its horizon, at the film's size."""
-    pyr = pyramid(mountain(1))
-    place = placement(1)
+    """The clip with the mountain on its horizon, at the film's size. The
+    clip is enlarged first and the mountain drawn on it at the film's size,
+    from the enlarged photo, so it is as sharp as the frame allows."""
+    pyr = pyramid(mountain(DETAIL))
+    place = placement(DETAIL)
     h, w = frames.shape[1:3]
+    W, H = SIZE
+    to_film = np.array([[W / w, 0, 0.5 * W / w - 0.5], [0, H / h, 0.5 * H / h - 0.5], [0, 0, 1]])
     rng = np.random.default_rng(3)
+
+    def big(x):
+        return cv2.resize(x, SIZE, interpolation=cv2.INTER_LINEAR)
+
     for i, frame in enumerate(frames):
         lab = cv2.cvtColor(frame.astype(np.float32) / 255, cv2.COLOR_BGR2LAB)
         model, near = sky_of(lab)
         up = above(line, T[i], (h, w))
         v = cv2.cvtColor(clearer(lab, near, above(line, T[i], (h, w), *HORIZON)), cv2.COLOR_LAB2BGR)
-        back = np.linalg.inv(T[i])
-        rel = cv2.GaussianBlur(warp_layer(pyr, back @ place, (w, h)), (0, 0), 0.6)
-        a = (rel[..., 3] * up * near)[..., None]
-        out = v * (1 - a) + draw(model + np.float32(CLEARER), rel, **HAZE) * a
+        out = unsharp(cv2.resize(v, SIZE, interpolation=cv2.INTER_LANCZOS4))
+        rel = cv2.GaussianBlur(warp_layer(pyr, to_film @ np.linalg.inv(T[i]) @ place, SIZE), (0, 0), 0.5)
+        a = (rel[..., 3] * big(up * near))[..., None]
+        out = out * (1 - a) + draw(big(model) + np.float32(CLEARER), rel, **HAZE) * a
         out += rng.normal(0, 1.2 / 255, out.shape).astype(np.float32) * a     # the clip's noise on it too
-        big = cv2.resize(out, SIZE, interpolation=cv2.INTER_LANCZOS4)
-        yield np.clip(unsharp(big), 0, 1)
+        yield np.clip(out, 0, 1)
 
 
 # ---------------------------------------------------------------- part 2 ----
@@ -470,8 +495,8 @@ def after_clip(frames, line, seconds):
     model = model + np.float32(CLEARER)
     bars = np.dstack([last.astype(np.float32) / 255 * near[..., None], near]).astype(np.float32)
     sky_cover = (sky * up).astype(np.float32)
-    pyr = pyramid(mountain(3))
-    place = placement(3)
+    pyr = pyramid(mountain(DETAIL))
+    place = placement(DETAIL)
     rng = np.random.default_rng(5)
     shake = (make_shake(rng, 0.63, seconds), make_shake(rng, 1.4, seconds))
     start = (w / 2, h / 2)
@@ -496,9 +521,7 @@ def after_clip(frames, line, seconds):
         out = out * (1 - wsky) + m_sky[..., :3] * wsky
         m_out = cv2.warpAffine(np.dstack([model, sky_cover]).astype(np.float32), far[:2].astype(np.float32), SIZE,
                                flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-        rel = warp_layer(pyr, far @ place, SIZE)
-        sigma = 1.7 * (1 - smootherstep(t / 5)) + 0.35
-        rel = cv2.GaussianBlur(rel, (0, 0), sigma)
+        rel = cv2.GaussianBlur(warp_layer(pyr, far @ place, SIZE), (0, 0), 0.5)
         k = smootherstep((t - 3) / 6)                     # the exposure settling on the bright view
         look = {n: HAZE[n] + (CLEAR[n] - HAZE[n]) * k for n in HAZE}
         a = (rel[..., 3] * m_out[..., 3])[..., None]
@@ -518,7 +541,7 @@ def after_clip(frames, line, seconds):
         lab_o = cv2.cvtColor(out.astype(np.float32), cv2.COLOR_BGR2LAB)
         lab_o[..., 1:] *= 1 + 0.25 * k
         out = cv2.cvtColor(lab_o, cv2.COLOR_LAB2BGR)
-        out = unsharp(out, 0.3 * k, 1.2)                  # the phone's own sharpening at full zoom
+        out = unsharp(out, 0.15 * k, 1.2)                 # the phone's own sharpening at full zoom
         out += rng.normal(0, 1.0 / 255, out.shape).astype(np.float32)
         out *= 1 - smootherstep((t - (seconds - 0.6)) / 0.6)
         yield np.clip(out, 0, 1)

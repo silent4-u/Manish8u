@@ -26,8 +26,10 @@ How it is made:
    made the clearer, deeper blue of a day the mountain can be seen on.
 
    The mountain is drawn relative to that sky. The haze on the photo's
-   ranges is partly cleared first, and the ridges and faces of the snow
-   are given more local contrast. So:
+   ranges is partly cleared first. The photo is enlarged 4x with
+   RealESRGAN_x4plus, for the crispest ridges and rock, and the faces of
+   the snow are given more shape. The mountain is drawn at the film's full
+   size, on the enlarged clip, so it is as sharp as the frame allows. So:
    - sunlit snow stands brighter than the sky, with the brightest rolled
      off rather than clipped;
    - its faces are in blue shadow;
