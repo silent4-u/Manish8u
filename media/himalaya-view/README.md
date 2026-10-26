@@ -8,6 +8,8 @@ a cinematic grade, in two 4K frames:
 | --- | --- | --- |
 | `himalaya-4k.jpg` | 2160 × 3840 | The whole photo, 4K UHD portrait |
 | `himalaya-4k-cinemascope.jpg` | 3840 × 2160 | The peak and its ranges, 2.39:1 inside a 16:9 4K frame |
+| `himalaya-cinematic-4k.mp4` | 2160 × 3840, 24 s | A film made from the photo, 4K portrait, with a score |
+| `himalaya-cinematic.mp4` | 1080 × 1920, 24 s | The same film, small enough to share |
 
 `himalaya-before-after.jpg` compares the portrait with the photo.
 
@@ -57,4 +59,42 @@ and texture but not fine detail: that is as much as the photo holds.
 ```sh
 pip install numpy opencv-python-headless onnx onnxruntime
 python3 media/himalaya-view/enhance.py      # about 1.5 minutes on CPU
+```
+
+## The film
+
+`make_video.py` turns the one photo into 24 seconds of moving camera:
+
+1. **Base.** `enhance.py` renders the photo at 3x, so the camera can move in
+   and still have detail to spare. The vignette and grain are left out:
+   in a moving shot they belong to the frame, not the picture.
+2. **Two layers.** The foreground (the leaves, and the roofs among them) is
+   lifted onto a layer of its own, out of focus as with a lens focused on
+   the mountain. The sky and haze seen between the leaves, and the pale
+   rims the phone's sharpening drew round them, stay behind. Under the
+   leaves, LaMa (from `../old-photo/deep_clean.py`) paints in the hills and
+   sky they hid, so there is something to see when the leaves move.
+3. **Camera.** It rises from the forest and pulls back to the whole view,
+   with a low gong in the score as the view opens. Then it pushes slowly in
+   towards the peak. Each part moves by its distance: the sky not at all,
+   the snow barely, the hills more the nearer they are, and the leaves most.
+   The leaves also sway in a light wind.
+4. **Life in the view.**
+   - Cloud shadows drift over the hills.
+   - Thin cloud over the snow clears, and the massif comes into full golden
+     light.
+   - Mist drifts in the valleys between the ranges.
+   - A small flock of birds crosses the sky, passing behind the tree.
+5. **Frame.** A vignette and film grain stay fixed to the screen, and the
+   film fades in from black and out to black.
+6. **Score.** Built with `../invitation/music.py`:
+   - a held string pad that swells as the view opens;
+   - a low tanpura;
+   - a sparse santoor line in raga Bhupali;
+   - wind and a few distant birds.
+
+```sh
+pip install numpy opencv-python-headless onnx onnxruntime imageio-ffmpeg
+python3 media/himalaya-view/make_video.py                  # about 15 minutes on CPU
+python3 media/himalaya-view/make_video.py stills 2 11 21   # a few frames, to check first
 ```

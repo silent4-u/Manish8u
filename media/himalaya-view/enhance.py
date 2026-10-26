@@ -198,9 +198,11 @@ def sharpen(f, amount_fine, amount_mid, amount_broad=0.0, k=1.0):
 
 # ----------------------------------------------------------------- grade ----
 
-def grade(f, m, k=1.0):
+def grade(f, m, k=1.0, finish=True):
     """The cinematic grade. `m` holds the masks at the output's size,
-    including `rows`, each pixel's height in the whole photo (0 top, 1 bottom)."""
+    including `rows`, each pixel's height in the whole photo (0 top, 1 bottom).
+    Without `finish`, the vignette and grain are left out (a moving camera
+    adds its own, fixed to the frame)."""
     sky, fol, snow, dist, rows = m["sky"], m["fol"], m["snow"], m["dist"], m["rows"]
     h, w = f.shape[:2]
     L, A, B = to_lab(f)
@@ -244,6 +246,8 @@ def grade(f, m, k=1.0):
     x = np.clip(out, 0, 1)
     x = x + 0.11 * x * (1 - x) * (2 * x - 1)
     x = 0.012 + 0.988 * x
+    if not finish:
+        return np.clip(x, 0, 1)
     # Vignette.
     yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
     r = np.hypot((xx / w - 0.5) / 0.75, (yy / h - 0.48) / 0.85)
@@ -275,7 +279,7 @@ def defocus(f, mask, radius):
     return f * (1 - cover) + leaf * cover
 
 
-def render(clear, masks, crop, size, blur=0.0):
+def render(clear, masks, crop, size, blur=0.0, finish=True):
     """Enlarge, sharpen and grade `crop` (x0, y0, x1, y1 in the photo) of the
     dehazed photo to `size` (w, h); `blur` is the leaves' defocus radius, in
     pixels at twice the photo's size."""
@@ -288,7 +292,7 @@ def render(clear, masks, crop, size, blur=0.0):
                   amount_mid=(0.25 + 0.9 * m["band"]) * m["dist"] + 0.15 * m["snow"],
                   amount_broad=0.6 * m["band"] * m["dist"], k=k)
     big = defocus(big, m["fol"], blur * k)
-    return grade(big, m, k)
+    return grade(big, m, k, finish)
 
 
 def letterbox(img, ratio):
