@@ -173,12 +173,42 @@ def render(photo_pyr, m, size):
                           borderMode=cv2.BORDER_CONSTANT)
 
 
+def flatten(g):
+    """Local contrast evened out, so that the clip and a photo, exposed
+    differently, look alike to the tracker."""
+    g = g.astype(np.float32)
+    m = cv2.GaussianBlur(g, (0, 0), 8)
+    s = np.sqrt(cv2.GaussianBlur((g - m) ** 2, (0, 0), 8)) + 2
+    return np.clip(128 + 40 * (g - m) / s, 0, 255).astype(np.uint8)
+
+
+def steady(values, weights, half=15, sigma=15.0):
+    """A per-frame estimate, steadied: the weighted median of the frames
+    around each (so a fit that latches for a moment onto the houses rather
+    than the hills, which lie a little differently in the photos, is
+    outvoted), then smoothed. Frames without one take their neighbours'."""
+    n = len(values)
+    idx = np.arange(n)
+    med = np.full(n, np.nan)
+    for i in range(n):
+        sel = (weights > 0) & (np.abs(idx - i) <= half)
+        if sel.any():
+            o = np.argsort(values[sel])
+            c = np.cumsum(weights[sel][o])
+            med[i] = values[sel][o][np.searchsorted(c, c[-1] / 2)]
+    ok = ~np.isnan(med)
+    med = np.interp(idx, idx[ok], med[ok])
+    r = int(3 * sigma)
+    k = np.exp(-0.5 * (np.arange(-r, r + 1) / sigma) ** 2)
+    return np.convolve(np.pad(med, r, mode="edge"), k / k.sum(), mode="valid")
+
+
 def place_clip(frames, photos, P):
     """Each clip frame's pixels in the reference photo's. Frame to frame the
     camera is tracked; then every frame is lined up directly against the
-    photo it overlaps best (rendered at the frame's size), and these small
-    corrections are smoothed over time, so the result neither drifts nor
-    jitters."""
+    houses photo (rendered at the frame's size; the wide one, matched to it,
+    where the frame is too wide for it), and these small corrections are
+    steadied over time, so the result neither drifts nor jerks."""
     n = len(frames)
     h, w = frames.shape[1:3]
     gray = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
@@ -196,35 +226,34 @@ def place_clip(frames, photos, P):
     print(f"clip's last frame -> {PHOTOS[REF]}: {good} matches agree")
     pyrs = [pyramid(p) for p in photos]
     ones = [pyramid(np.full(p.shape[:2], 255, np.uint8)) for p in photos]
-    W = []
-    fix = []
-    for i in range(n):
-        guess = last @ T[i]
-        # The houses photo where it covers enough of the frame, else the wide one.
-        to_frame = np.linalg.inv(guess) @ P[REF]
-        seen = render(ones[REF], to_frame, (w, h))
-        k = REF
-        if (seen > 128).mean() < 0.35:
-            k = 0
-            to_frame = np.linalg.inv(guess) @ P[0]
-            seen = render(ones[0], to_frame, (w, h))
-        view = cv2.cvtColor(render(pyrs[k], to_frame, (w, h)), cv2.COLOR_BGR2GRAY)
-        mask = cv2.erode((seen > 128).astype(np.uint8), np.ones((9, 9), np.uint8)) * 255
-        a, b = follow(gray[i], view, mask)
-        corr = np.eye(3)
-        if a is not None and len(a) >= 25:
-            r, good = similarity(a, b, 1.5)
-            if r is not None and good >= 20:
-                corr = r
-        fix.append(corr)
-        W.append(guess)
-    # The corrections, as small zooms, turns and shifts, smoothed over a
-    # third of a second.
     c0 = np.array([w / 2, h / 2, 1.0])
-    pars = np.array([[np.log(scale_of(f)), np.arctan2(f[1, 0], f[0, 0]), *(f @ c0)[:2] - c0[:2]] for f in fix])
-    k = np.exp(-0.5 * (np.arange(-15, 16) / 5.0) ** 2)
-    k /= k.sum()
-    pars = np.column_stack([np.convolve(np.pad(p, 15, mode="edge"), k, mode="valid") for p in pars.T])
+    W = [last @ T[i] for i in range(n)]
+    # Each frame's correction, as a small zoom, turn and shift, against the
+    # wide photo and against the houses photo; and how many points agree.
+    pars = np.full((n, 2, 4), np.nan)
+    votes = np.zeros((n, 2))
+    for i in range(n):
+        g = flatten(gray[i])
+        for s, k in enumerate((0, REF)):
+            to_frame = np.linalg.inv(W[i]) @ P[k]
+            mask = cv2.erode((render(ones[k], to_frame, (w, h)) > 128).astype(np.uint8), np.ones((9, 9), np.uint8))
+            if mask.mean() < 0.08:
+                continue
+            view = flatten(cv2.cvtColor(render(pyrs[k], to_frame, (w, h)), cv2.COLOR_BGR2GRAY))
+            a, b = follow(g, view, mask * 255)
+            if a is None or len(a) < 25:
+                continue
+            f, good = similarity(a, b, 1.5)
+            if f is not None and good >= 20:
+                pars[i, s] = [np.log(scale_of(f)), np.arctan2(f[1, 0], f[0, 0]), *(f @ c0)[:2] - c0[:2]]
+                votes[i, s] = good
+    # The houses photo's corrections; before it comes into view, the wide
+    # photo's, shifted to agree with it where they first overlap.
+    seen = np.nonzero(votes[:, 1])[0]
+    both = seen[votes[seen, 0] > 0][:30]
+    pars[:seen[0], 1] = pars[:seen[0], 0] + np.median(pars[both, 1] - pars[both, 0], axis=0)
+    votes[:seen[0], 1] = votes[:seen[0], 0]
+    pars = np.column_stack([steady(np.nan_to_num(pars[:, 1, c]), votes[:, 1]) for c in range(4)])
     out = []
     for g, (ls, th, dx, dy) in zip(W, pars):
         s = np.exp(ls)

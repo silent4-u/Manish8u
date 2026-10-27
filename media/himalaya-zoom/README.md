@@ -23,8 +23,12 @@ How it is made:
 1. **Where everything is.** The photos are matched to one another (SIFT
    features, a similarity fitted with RANSAC). The clip is tracked from
    frame to frame, and every frame is then lined up directly against the
-   photo it overlaps most, so nothing drifts. All of it is placed in one
-   frame of reference: the houses photo's pixels.
+   houses photo (or, where the clip is wider than it, the wide photo),
+   with the contrast of both evened out, since the photos are exposed
+   differently. These small corrections are steadied over a second, so
+   nothing drifts, and nothing jerks where a correction would latch for a
+   moment onto the houses rather than the hills. All of it is placed in
+   one frame of reference: the houses photo's pixels.
 2. **A smooth zoom.** The clip zooms unevenly, and stops for four seconds
    halfway. The film's camera instead follows one eased curve, from the
    clip's widest view to the massif filling the frame. Its centre is taken
