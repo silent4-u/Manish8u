@@ -21,6 +21,20 @@ size as `fancy-<design>.jpg`.
 | **Garden** | ivory, leaf green, roof red, gold | ivory with green, red and gold | grey slate | leaf green | Picks up the green ledges and the red roof |
 | **Royal** | ivory, maroon, deep blue, gold | maroon with gold and ivory | cream travertine | maroon | Ties the wall to the maroon gate; the most festive |
 
+### Sky & Gold Deluxe
+
+`fancy-sky-gold-deluxe-options.jpg` puts the wall as it is, Sky & Gold and
+Sky & Gold Deluxe side by side, with the deluxe gate up close. The deluxe
+version (`fancy-sky-gold-deluxe.jpg`) adds:
+
+| Part | Finish |
+| --- | --- |
+| Gate | Deep blue, with its raised border, its words, its emblem and its spear tips in gold |
+| Relief | Blue glass mosaic with gold flecks in the outer arcs and corner pieces; a gold stencil of interlocking circles on the ivory pieces |
+| Tiles | Every circle and star edged in gold |
+| Frame | A gold line under the coping and another over the plinth |
+| Pillars | A small brass wall lantern on each gate pillar |
+
 **Building it:**
 - **Tiles.** Encaustic or printed ceramic tiles, about the recess's height,
   laid in a single row in each strip, with a gold (or brass) tile border.
@@ -28,6 +42,13 @@ size as `fancy-<design>.jpg`.
   travertine), fixed with a stone adhesive on the pillars' plaster.
 - **Gold.** Exterior metallic gold enamel for the relief's grooves and the
   canopy's scallops, with a fine brush, after the colours.
+- **Mosaic.** Glass mosaic sheets (about 2 cm squares), cut to the relief's
+  arcs and fixed with a white tile adhesive.
+- **Stencil.** A reusable stencil and metallic gold paint, dabbed on over the
+  ivory once it is dry.
+- **Gate.** Metal primer, then deep blue enamel; the border, words, emblem
+  and spear tips in gold enamel with a fine brush.
+- **Lanterns.** Outdoor wall lanterns, wired before the stone goes on.
 - **Ivory and red.** Exterior emulsion, as for the other designs.
 
 `fancy_wall.py` makes the photos:
