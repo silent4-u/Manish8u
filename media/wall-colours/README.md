@@ -1,5 +1,49 @@
 # Boundary wall and gate: colour options
 
+## Fancy finishes, in the house's colours
+
+`fancy-wall-options.jpg` goes beyond paint. It gives the wall the finishes of
+a fancy boundary wall, all matched to the house: sky-blue walls, green
+ledges, red roof and skirting, maroon gate. Each design is also saved full
+size as `fancy-<design>.jpg`.
+
+| Part | Finish |
+| --- | --- |
+| Frame | The house's sky blue, with an ivory coping along the top and a plinth in the house's red skirting colour along the bottom |
+| Strips above and below the relief | Patterned encaustic tiles (star and circle), edged with a gold border line |
+| Relief | The arcs and steps in the design's colours, every groove picked out in metallic gold |
+| Pillars | Clad in stacked natural stone, with an ivory cap and gold line under the canopy and a red base like the plinth |
+| Canopy | The design's roof colour, with ivory lines on its diamond tiles and an ivory valance with gold scallops |
+
+| Design | Relief | Tiles | Stone | Canopy | Why |
+| --- | --- | --- | --- | --- | --- |
+| **Sky & Gold** | ivory, mid and deep blue, gold | ivory with deep blue, house blue and gold | warm sandstone | roof red | The house's own blue, made rich with gold; the calmest |
+| **Garden** | ivory, leaf green, roof red, gold | ivory with green, red and gold | grey slate | leaf green | Picks up the green ledges and the red roof |
+| **Royal** | ivory, maroon, deep blue, gold | maroon with gold and ivory | cream travertine | maroon | Ties the wall to the maroon gate; the most festive |
+
+**Building it:**
+- **Tiles.** Encaustic or printed ceramic tiles, about the recess's height,
+  laid in a single row in each strip, with a gold (or brass) tile border.
+- **Stone.** Stacked split-stone ledge panels (sandstone, slate or
+  travertine), fixed with a stone adhesive on the pillars' plaster.
+- **Gold.** Exterior metallic gold enamel for the relief's grooves and the
+  canopy's scallops, with a fine brush, after the colours.
+- **Ivory and red.** Exterior emulsion, as for the other designs.
+
+`fancy_wall.py` makes the photos:
+- **Shapes.** It reuses the panels, the pillars and the canopy from
+  `wall_colours.py`, and the relief's traced bands and steps from
+  `motif_colours.py`.
+- **Tiles and stone.** These are drawn flat, in each strip's and each
+  pillar's own straight-on rectangle, then warped into the photo.
+- **Realism.** Every finish is laid in linear light as its colour × the
+  photo's own shading, so the sun, the relief and the tree's dappled shadows
+  stay as they are. Plants, flowers and the gate stay in front, untouched.
+
+```sh
+python3 media/wall-colours/fancy_wall.py [fonts_dir]
+```
+
 ## House blue, with the relief motif in colour
 
 `motif-colour-options.jpg` shows three schemes that paint the wall the
