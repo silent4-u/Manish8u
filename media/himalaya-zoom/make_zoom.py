@@ -21,9 +21,11 @@ clip and five photos taken from the same spot a minute later:
   2. A smooth zoom. The clip zooms unevenly, and stops for four seconds
      halfway. The film's camera instead follows one eased curve, from the
      clip's widest view to the massif filling the frame, its centre taken
-     from where the clip itself pointed, so no frame turns or jumps. Each
-     film frame takes the clip frame that frames it best (so the stop is
-     passed straight through) and is digitally steadied onto the curve.
+     from where the clip itself pointed while it zoomed (where it stood
+     still, the hand re-aimed; that is spread over the zoom around it), so
+     nothing swings or jumps. Each film frame takes the latest clip frame
+     that holds its whole view, tilt and all, steadied onto the curve; the
+     stop is crossed with a short crossfade.
   3. Clear. The clip's frames are enlarged with Real-ESRGAN. The sky, the
      hills and the snow do not move in a minute, so their detail is taken
      from the sharpest photo that covers them, laid on the clip's own broad
@@ -39,7 +41,7 @@ clip and five photos taken from the same spot a minute later:
      carried on with crossfaded pieces of itself.
 
     pip install numpy opencv-python-headless onnx onnxruntime imageio-ffmpeg
-    python3 media/himalaya-zoom/make_zoom.py      # about 40 minutes on CPU
+    python3 media/himalaya-zoom/make_zoom.py      # about an hour on CPU
 """
 
 import re
@@ -69,6 +71,7 @@ SIZE = (1080, 1920)
 FPS = 30
 DUR = 24.0
 MARGIN = 0.93                    # the film's view, as a share of the clip frame it is taken from
+CROSS = 8                        # film frames to crossfade over, jumping a stretch where the clip stood still
 ZOOM = (0.6, 21.0)               # when the zoom starts and ends (s)
 FINAL_FILL = 0.94                # how much of the frame's width the massif fills at the end
 
@@ -378,6 +381,16 @@ def massif_view(photos, P):
     return centre, width
 
 
+def overhang(m, centre, width, frame_size):
+    """How far (clip px) a level view, centre and width in reference px,
+    reaches past the edges of the clip frame placed by m."""
+    w, h = frame_size
+    hw, hh = width / 2, width * SIZE[1] / SIZE[0] / 2
+    corners = np.array([[centre[0] + sx * hw, centre[1] + sy * hh, 1] for sx in (-1, 1) for sy in (-1, 1)])
+    fc = (np.linalg.inv(m) @ corners.T).T
+    return max(-fc[:, 0].min(), fc[:, 0].max() - w, -fc[:, 1].min(), fc[:, 1].max() - h)
+
+
 def camera_path(W, frame_size, final):
     """The film's view at every frame: centre and width in reference
     pixels, on one eased zoom; and the clip frame each one is taken from
@@ -388,16 +401,16 @@ def camera_path(W, frame_size, final):
     centres = np.array([(m @ c0)[:2] for m in W])
     reach = np.minimum.accumulate(widths)                 # the closest the clip has zoomed by each frame
     start, end = widths[0] * MARGIN, final[1]
-    # The clip's centre as a function of its zoom, smoothed in log width.
+    # The clip's centre as a function of its zoom, from the frames where
+    # the zoom moves on, each weighted by how far it moves it (where the
+    # zoom stood still, the hand re-aimed; that is spread over the zoom
+    # around it, not swung through in a moment), smoothed in log width.
     lw = np.log(reach)
-    order = np.argsort(-lw)
+    moves = np.maximum(np.concatenate([[0.0], lw[:-1] - lw[1:]]), 0) + 1e-5
     grid = np.linspace(lw.max(), lw.min(), 200)
-    cx = np.interp(-grid, -lw[order], centres[order, 0])
-    cy = np.interp(-grid, -lw[order], centres[order, 1])
-    g = np.exp(-0.5 * (np.arange(-12, 13) / 4.0) ** 2)
-    g /= g.sum()
-    cx = np.convolve(np.pad(cx, 12, mode="edge"), g, mode="valid")
-    cy = np.convolve(np.pad(cy, 12, mode="edge"), g, mode="valid")
+    near = np.exp(-0.5 * ((lw[None, :] - grid[:, None]) / 0.12) ** 2) * moves[None, :]
+    cx = (near * centres[None, :, 0]).sum(1) / near.sum(1)
+    cy = (near * centres[None, :, 1]).sum(1) / near.sum(1)
     clip_end = np.log(reach[-1] * MARGIN)
 
     def centre_at(lv):
@@ -407,8 +420,13 @@ def camera_path(W, frame_size, final):
         a = np.array([np.interp(-clip_end, -grid, cx), np.interp(-clip_end, -grid, cy)])
         return a + (final[0] - a) * u
 
+    # Each film frame takes the latest clip frame wide enough to hold its
+    # view, never going back: up to four clip frames on per film frame, and
+    # past a stretch where the clip stood still, straight across it with a
+    # short crossfade (both ends show the same view; only the leaves have
+    # moved).
     views = []
-    k = 0
+    k, jump = 0, None
     for j in range(int(DUR * FPS)):
         t = j / FPS
         tau = (t - ZOOM[0]) / (ZOOM[1] - ZOOM[0])
@@ -416,13 +434,28 @@ def camera_path(W, frame_size, final):
         lv = np.log(start) + (np.log(end) - np.log(start)) * u
         lv -= 0.025 * max(0.0, t - ZOOM[1])               # still drifting in, very slowly, at the end
         if lv >= clip_end:
-            # The latest clip frame wide enough to hold this view, never
-            # going back, and never more than five clip frames per film frame.
             need = np.exp(lv) / MARGIN
             ok = np.nonzero(reach >= need)[0]
             target = ok[-1] if len(ok) else 0
-            k = int(np.clip(target, k, k + 5))
-            src = k
+            # ... and that holds the whole view: the phone tilted a little as
+            # it zoomed, and a level view cut from a tilted frame pokes out
+            # at its corners.
+            c = centre_at(lv)
+            fits = [i for i in range(target, k - 1, -1) if overhang(W[i], c, np.exp(lv), frame_size) <= 0]
+            target = fits[0] if fits else min(range(k, target + 1),
+                                              key=lambda i: overhang(W[i], c, np.exp(lv), frame_size))
+            if jump is not None:
+                a, b, n = jump
+                src = (a, b, (n + 1) / CROSS)
+                jump = (a, b, n + 1) if n + 1 < CROSS else None
+                if jump is None:
+                    k, src = b, b
+            elif target - k > 12:
+                jump = (k, target, 0)
+                src = (k, target, 0.0)
+            else:
+                k = int(np.clip(target, k, k + 4))
+                src = k
         else:
             src = None
         views.append((centre_at(lv), float(np.exp(lv)), src))
@@ -459,7 +492,6 @@ class Film:
         self.fade = [pyramid(edge_fade(p.shape[:2])) for p in photos]
         final = massif_view(photos, P)
         self.views = camera_path(W, (self.w, self.h), final)
-        self.clip_last = max(v[2] for v in self.views if v[2] is not None)
         self.sess = ort.InferenceSession(sr.build(sr.weights()).SerializeToString(),
                                          providers=["CPUExecutionProvider"])
         self.enlarged = {}
@@ -498,12 +530,23 @@ class Film:
     def clip_frame(self, i):
         """Clip frame i enlarged 4x with Real-ESRGAN and graded to the photos."""
         if i not in self.enlarged:
-            self.enlarged = {k: v for k, v in self.enlarged.items() if k > i - 3}
+            self.enlarged = {k: v for k, v in self.enlarged.items() if k > i - 200}
+            while len(self.enlarged) > 3:
+                self.enlarged.pop(min(self.enlarged))
             big = sr.upscale_tiled(self.sess, self.frames[i])
             lab = cv2.cvtColor(big, cv2.COLOR_BGR2LAB).astype(np.float32) + self.colour[i]
             big = cv2.cvtColor(np.clip(lab, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR)
             self.enlarged[i] = big.astype(np.float32) / 255
         return self.enlarged[i]
+
+    def clip_view(self, film, i):
+        """Clip frame i, enlarged and graded, in the film's view."""
+        big = self.clip_frame(i)
+        m = film @ self.W[i] @ np.array([[0.25, 0, -0.375], [0, 0.25, -0.375], [0, 0, 1]])
+        if scale_of(m) < 0.85:                             # shrinking: soften first, so it does not shimmer
+            big = cv2.GaussianBlur(big, (0, 0), 0.45 / scale_of(m))
+        return cv2.warpAffine(big, m[:2].astype(np.float32), SIZE, flags=cv2.INTER_CUBIC,
+                              borderMode=cv2.BORDER_REFLECT)
 
     def photos_over(self, m_of, mask_kind):
         """The photos laid over one another, sharpest first: colour and
@@ -543,12 +586,11 @@ class Film:
             over = smooth(lw, ends + 0.25, ends)            # the last quarter-octave of the clip
         out = None
         if hand is not None:
-            big = self.clip_frame(hand)
-            m = film @ self.W[hand] @ np.array([[0.25, 0, -0.375], [0, 0.25, -0.375], [0, 0, 1]])
-            if scale_of(m) < 0.85:                         # shrinking: soften first, so it does not shimmer
-                big = cv2.GaussianBlur(big, (0, 0), 0.45 / scale_of(m))
-            out = cv2.warpAffine(big, m[:2].astype(np.float32), SIZE, flags=cv2.INTER_CUBIC,
-                                 borderMode=cv2.BORDER_REFLECT)
+            if isinstance(hand, tuple):
+                a, b, mix = hand
+                out = self.clip_view(film, a) * (1 - mix) + self.clip_view(film, b) * mix
+            else:
+                out = self.clip_view(film, hand)
             # The far layer from the photos: their detail, on the clip's own
             # broad colour there, so no photo's edge can show against it.
             far, cov = self.photos_over(m_of, "far")
