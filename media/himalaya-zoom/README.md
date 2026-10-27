@@ -31,8 +31,9 @@ How it is made:
    from where the clip itself pointed while it zoomed. Where it stood
    still, the hand re-aimed; that is spread over the zoom around it, so
    nothing swings. Each film frame takes the latest clip frame that holds
-   its whole view, tilt and all, steadied onto the curve. The stop is
-   crossed with a short crossfade.
+   its whole view, tilt and all, steadied onto the curve. The clip is never
+   cut or blended: it plays on continuously, up to 2.5x through the stop,
+   speeding up and slowing down gently, so no two moments ever show at once.
 3. **Clear.** The clip's frames are enlarged with Real-ESRGAN. The sky, the
    hills and the snow do not move in a minute, so their detail is taken
    from the sharpest photo that covers them. That detail is laid on the

@@ -25,8 +25,8 @@ clip and five photos taken from the same spot a minute later:
      still, the hand re-aimed; that is spread over the zoom around it), so
      nothing swings or jumps. Each film frame takes the latest clip frame
      that holds its whole view, tilt and all, steadied onto the curve; the
-     clip plays on continuously beneath that, a little faster where it
-     stood still, so every frame is one real moment of it, never two
+     clip plays on continuously beneath that, up to 2.5x where it stood
+     still, so every frame is one real moment of it, never two
      blended.
   3. Clear. The clip's frames are enlarged with Real-ESRGAN. The sky, the
      hills and the snow do not move in a minute, so their detail is taken
@@ -73,7 +73,7 @@ SIZE = (1080, 1920)
 FPS = 30
 DUR = 24.0
 MARGIN = 0.93                    # the film's view, as a share of the clip frame it is taken from
-MAX_SPEED = 5.0                  # the fastest the clip is played (where it stood still), times its own speed
+MAX_SPEED = 2.5                  # the fastest the clip is played (where it stood still), times its own speed
 ZOOM = (0.6, 21.0)               # when the zoom starts and ends (s)
 FINAL_FILL = 0.94                # how much of the frame's width the massif fills at the end
 
@@ -454,7 +454,7 @@ def camera_path(W, frame_size, final):
     time[0], speed = limit[0], 0.0
     for j in range(1, n):
         want = np.clip((limit[j] - time[j - 1]) / 8.0, 0.0, MAX_SPEED)
-        speed += np.clip(want - speed, -0.35, 0.35)
+        speed += np.clip(want - speed, -0.15, 0.15)
         time[j] = min(limit[j], time[j - 1] + speed)
         speed = time[j] - time[j - 1]
     # (Where the hand re-aimed, a frame on the way may fall a few pixels short
