@@ -69,13 +69,20 @@ LOTUS = "#E8508A"
 SHIRT = ("M 395 150 C 340 165 290 178 232 190 L 88 352 L 192 452 L 262 380 "
          "C 258 560 266 760 272 900 C 400 920 600 920 728 900 C 734 760 742 560 738 380 "
          "L 808 452 L 912 352 L 768 190 C 710 178 660 165 605 150 ")
+SHIRT_BACK = SHIRT.replace("C 400 920 600 920 728 900", "C 400 948 600 948 728 900")   # a longer back hem
 FRONT_NECK = "C 575 172 535 186 500 188 C 465 186 425 172 395 150 Z"
 BACK_NECK = "C 565 132 435 132 395 150 Z"
+# The body without its sleeves (to the armhole seams), for its rounded shading.
+BODY = ("M 395 150 C 340 165 290 178 232 190 C 248 260 258 330 262 380 C 258 560 266 760 272 900 "
+        "C 400 920 600 920 728 900 C 734 760 742 560 738 380 C 742 330 752 260 768 190 C 710 178 660 165 605 150 Z")
+SLEEVES = ["M 232 190 L 88 352 L 192 452 L 262 380 C 258 330 248 260 232 190 Z",
+           "M 768 190 L 912 352 L 808 452 L 738 380 C 742 330 752 260 768 190 Z"]
 VIEW = (1000, 1000)
-CREST_AT, CREST_W = (632, 428), 104       # the crest's centre and width on the front (the left chest)
-STAR_AT, STAR_R = (632, 318), 48          # the star's centre and outer radius, above it
+CREST_AT, CREST_W = (632, 432), 112       # the logo's centre and width on the front (the left chest)
+STAR_AT, STAR_R = (632, 340), 38          # the star's centre and outer radius, above it
 ARCH = 140                                # the back name's arch, in degrees of the circle
 NAME_TOP, NAME_W = 206, 410               # where the arched name's top sits on the back, and its width
+PLACE = "झापा"                             # under the name, inside its arch
 
 
 def font_css():
@@ -104,12 +111,40 @@ def defs():
     <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
     <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 0.75" in="n"/>
   </filter>
-  <pattern id="mesh" width="5" height="5" patternUnits="userSpaceOnUse">
-    <circle cx="1.2" cy="1.2" r="0.7" fill="#000" fill-opacity="0.045"/>
-    <circle cx="3.7" cy="3.7" r="0.7" fill="#000" fill-opacity="0.035"/>
+  <pattern id="pique" width="3.4" height="3.4" patternUnits="userSpaceOnUse">
+    <rect x="0.45" y="0.45" width="2.5" height="2.5" rx="1" fill="none" stroke="#000" stroke-opacity="0.075" stroke-width="0.55"/>
+    <circle cx="1.7" cy="1.7" r="0.45" fill="#000" fill-opacity="0.04"/>
   </pattern>
+  <filter id="cloth" filterUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000" color-interpolation-filters="sRGB">
+    <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="h0"/>
+    <feGaussianBlur in="h0" stdDeviation="9" result="h"/>
+    <feDiffuseLighting in="h" surfaceScale="5" diffuseConstant="1" lighting-color="#ffffff" result="d">
+      <feDistantLight azimuth="225" elevation="50"/>
+    </feDiffuseLighting>
+    <feComponentTransfer in="d">
+      <feFuncR type="linear" slope="1.28" intercept="0.03"/><feFuncG type="linear" slope="1.28" intercept="0.03"/>
+      <feFuncB type="linear" slope="1.28" intercept="0.03"/>
+    </feComponentTransfer>
+  </filter>
+  <linearGradient id="round" gradientUnits="userSpaceOnUse" x1="236" y1="0" x2="764" y2="0">
+    <stop offset="0" stop-color="#D6D7D8"/><stop offset="0.09" stop-color="#EBEBEC"/><stop offset="0.3" stop-color="#FFFFFF"/>
+    <stop offset="0.62" stop-color="#FFFFFF"/><stop offset="0.9" stop-color="#E8E8E9"/><stop offset="1" stop-color="#D2D3D4"/>
+  </linearGradient>
+  <linearGradient id="sleeveL" gradientUnits="userSpaceOnUse" x1="160" y1="271" x2="227" y2="416">
+    <stop offset="0" stop-color="#EEEEEF"/><stop offset="0.35" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6D7D8"/>
+  </linearGradient>
+  <linearGradient id="sleeveR" gradientUnits="userSpaceOnUse" x1="840" y1="271" x2="773" y2="416">
+    <stop offset="0" stop-color="#EEEEEF"/><stop offset="0.35" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6D7D8"/>
+  </linearGradient>
+  <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECEAE5"/>
+  </linearGradient>
+  <radialGradient id="glow">
+    <stop offset="0" stop-color="#FFD84A" stop-opacity="0.55"/><stop offset="0.55" stop-color="#FFE27A" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#FFE9A0" stop-opacity="0"/>
+  </radialGradient>
   <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F1F0EC"/>
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F4F4F3"/>
   </linearGradient>
   <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#E9E8E4"/><stop offset="1" stop-color="#C9C7C2"/>
@@ -128,7 +163,8 @@ def defs():
     <stop offset="0" stop-color="#F0B400"/><stop offset="1" stop-color="#B57A00"/>
   </linearGradient>
   <clipPath id="shirtF"><path d="{SHIRT}{FRONT_NECK}"/></clipPath>
-  <clipPath id="shirtB"><path d="{SHIRT}{BACK_NECK}"/></clipPath>
+  <clipPath id="shirtB"><path d="{SHIRT_BACK}{BACK_NECK}"/></clipPath>
+  <clipPath id="bodyClip"><path d="{BODY}"/></clipPath>
 </defs>"""
 
 
@@ -141,9 +177,9 @@ def star_points(cx, cy, R, r):
     return pts
 
 
-def star(cx, cy, R, shadow=True):
+def star(cx, cy, R, shadow=True, glow=True):
     """The winning star: five arms, each split along its ridge into a light
-    and a dark facet, gold, in a navy outline."""
+    and a dark facet, gold, in a navy outline; a soft gold glow behind it."""
     pts = star_points(cx, cy, R, R * 0.45)
     poly = " ".join(f"{x:.2f},{y:.2f}" for x, y in pts)
     facets = ""
@@ -152,7 +188,8 @@ def star(cx, cy, R, shadow=True):
         facets += (f'<polygon points="{cx},{cy} {tip[0]:.2f},{tip[1]:.2f} {left[0]:.2f},{left[1]:.2f}" fill="url(#goldL)"/>'
                    f'<polygon points="{cx},{cy} {tip[0]:.2f},{tip[1]:.2f} {right[0]:.2f},{right[1]:.2f}" fill="url(#goldD)"/>')
     lift = ' filter="url(#lift)"' if shadow else ""
-    out = (f'<g{lift}><polygon points="{poly}" fill="{NAVY}" stroke="{NAVY}" '
+    halo = f'<circle cx="{cx}" cy="{cy}" r="{R * 1.75:.1f}" fill="url(#glow)"/>' if glow else ""
+    out = (f'{halo}<g{lift}><polygon points="{poly}" fill="{NAVY}" stroke="{NAVY}" '
            f'stroke-width="{R * 0.16:.2f}" stroke-linejoin="round"/>'
            f'{facets}<polygon points="{poly}" fill="none" stroke="#FFF6CC" stroke-width="{R * 0.03:.2f}" '
            f'stroke-linejoin="round" opacity="0.8"/></g>')
@@ -292,93 +329,175 @@ def cuffs():
 
 
 def stitching(view):
-    seams = [
-        "M 232 190 C 248 260 258 330 262 380", "M 768 190 C 752 260 742 330 738 380",
-        "M 276 884 C 400 903 600 903 724 884",
-    ]
-    return "".join(f'<path d="{d}" fill="none" stroke="#B9B6B0" stroke-width="1.3" stroke-dasharray="4 3.5"/>'
-                   for d in seams)
-
-
-def folds(clip):
-    """Soft folds and shading over everything, prints included (multiplied)."""
-    dark = [
-        ("M 262 392 C 300 470 320 560 314 650 C 292 560 276 470 262 392 Z", 0.30),
-        ("M 738 392 C 700 470 680 560 686 650 C 708 560 724 470 738 392 Z", 0.30),
-        ("M 330 700 C 430 676 540 690 650 730 C 540 718 430 712 330 726 Z", 0.12),
-        ("M 262 380 L 192 452 L 214 462 L 274 412 Z", 0.28),
-        ("M 738 380 L 808 452 L 786 462 L 726 412 Z", 0.28),
-        ("M 272 900 C 400 920 600 920 728 900 L 728 862 C 600 880 400 880 272 862 Z", 0.14),
-    ]
-    light = [
-        ("M 360 560 C 440 520 560 520 640 560 C 560 545 440 545 360 560 Z", 0.5),
-        ("M 330 262 C 400 236 460 234 500 240 C 450 252 400 262 330 296 Z", 0.35),
-    ]
-    out = f'<g clip-path="url(#{clip})"><g filter="url(#soft)" style="mix-blend-mode:multiply">'
-    out += "".join(f'<path d="{d}" fill="#6b6457" fill-opacity="{o}"/>' for d, o in dark)
-    out += ('<rect x="222" y="170" width="64" height="760" fill="#6b6457" fill-opacity="0.09"/>'
-            '<rect x="714" y="170" width="64" height="760" fill="#6b6457" fill-opacity="0.09"/></g>')
-    out += '<g filter="url(#soft)" style="mix-blend-mode:screen">'
-    out += "".join(f'<path d="{d}" fill="#FFFFFF" fill-opacity="{o}"/>' for d, o in light)
-    out += '</g>'
-    out += ('<rect x="0" y="0" width="1000" height="1000" fill="url(#mesh)"/>'
-            '<rect x="0" y="0" width="1000" height="1000" filter="url(#knit)" opacity="0.05" style="mix-blend-mode:multiply"/>'
-            '</g>')
+    """Topstitching at the armholes and the hem, and the side vents at the hem
+    with their bar tacks."""
+    hem = "M 276 884 C 400 903 600 903 724 884" if view == "front" else "M 276 884 C 400 930 600 930 724 884"
+    seams = ["M 232 190 C 248 260 258 330 262 380", "M 768 190 C 752 260 742 330 738 380", hem]
+    out = "".join(f'<path d="{d}" fill="none" stroke="#B9B6B0" stroke-width="1.3" stroke-dasharray="4 3.5"/>'
+                  for d in seams)
+    for x0, x1, dx in ((271, 273, 1), (729, 727, -1)):
+        out += (f'<path d="M {x0} 900 L {x1} 868" stroke="#BDB9B2" stroke-width="1.4"/>'
+                f'<path d="M {x1 - 1 * dx} 867 L {x1 + 9 * dx} 867" stroke="#B0ACA5" stroke-width="2.4" stroke-linecap="round"/>')
     return out
 
 
+# Folds, as heights for the cloth's lighting: valleys (dark) and ridges
+# (light), from (x0 y0) along a curve, with a width and a depth.
+FOLDS = {
+    "front": [
+        ("M 268 404 C 320 444 382 486 432 548", 14, -0.33), ("M 732 404 C 680 444 618 486 568 548", 14, -0.33),
+        ("M 282 432 C 334 472 384 514 424 576", 16, 0.27), ("M 718 432 C 666 472 616 514 576 576", 16, 0.27),
+        ("M 300 640 C 400 612 520 642 700 662", 18, -0.21), ("M 300 604 C 420 578 540 604 700 628", 18, 0.18),
+        ("M 290 764 C 380 742 480 772 600 752 S 690 762 712 772", 16, -0.18), ("M 300 724 C 400 704 500 734 700 738", 16, 0.15),
+        ("M 340 906 C 345 882 352 862 356 842", 10, -0.24), ("M 450 910 C 452 886 456 866 458 846", 10, -0.21),
+        ("M 560 910 C 558 886 556 866 552 846", 10, -0.21), ("M 662 906 C 658 882 652 862 648 842", 10, -0.24),
+        ("M 395 910 C 398 888 402 870 404 852", 10, 0.18), ("M 505 912 C 506 890 507 872 506 854", 10, 0.18),
+        ("M 610 910 C 608 888 604 870 602 852", 10, 0.18),
+        ("M 250 362 C 222 384 204 412 188 442", 12, -0.27), ("M 750 362 C 778 384 796 412 812 442", 12, -0.27),
+        ("M 232 206 C 192 252 150 300 112 346", 18, 0.21), ("M 768 206 C 808 252 850 300 888 346", 18, 0.21),
+        ("M 452 212 C 442 242 432 272 422 302", 8, -0.13), ("M 548 212 C 558 242 568 272 578 302", 8, -0.13),
+    ],
+    "back": [
+        ("M 268 404 C 330 450 390 500 440 568", 14, -0.30), ("M 732 404 C 670 450 610 500 560 568", 14, -0.30),
+        ("M 284 434 C 340 478 392 524 432 592", 16, 0.24), ("M 716 434 C 660 478 608 524 568 592", 16, 0.24),
+        ("M 330 300 C 400 330 600 330 670 300", 22, 0.17),
+        ("M 300 660 C 420 632 560 662 700 676", 18, -0.19), ("M 300 622 C 420 596 560 622 700 640", 18, 0.17),
+        ("M 300 790 C 400 770 520 800 700 784", 16, -0.17),
+        ("M 350 930 C 352 904 356 882 360 862", 10, -0.24), ("M 470 936 C 471 910 472 890 473 870", 10, -0.21),
+        ("M 590 934 C 588 908 584 888 580 868", 10, -0.21), ("M 680 926 C 674 900 668 880 662 860", 10, -0.24),
+        ("M 250 362 C 222 384 204 412 188 442", 12, -0.27), ("M 750 362 C 778 384 796 412 812 442", 12, -0.27),
+        ("M 232 206 C 192 252 150 300 112 346", 18, 0.21), ("M 768 206 C 808 252 850 300 888 346", 18, 0.21),
+    ],
+}
+
+
+def cloth(view):
+    """Everything that makes the flat lay read as cloth, laid over the shirt
+    and its prints: the folds lit from the upper left (a height map through a
+    diffuse light), the body rounded from its middle to its sides, the sleeves
+    shaded to their undersides, the edges darkening as the cloth turns away,
+    and the piqué knit."""
+    clip = "shirtF" if view == "front" else "shirtB"
+    outline = (SHIRT + FRONT_NECK) if view == "front" else (SHIRT_BACK + BACK_NECK)
+    heights = "".join(f'<path d="{d}" fill="none" stroke="{"#FFFFFF" if k > 0 else "#000000"}" stroke-opacity="{abs(k)}" '
+                      f'stroke-width="{w}" stroke-linecap="round"/>' for d, w, k in FOLDS[view])
+    # (A blend mode only reaches past its own group: each multiplied layer is
+    # a clipped group of its own, never nested inside another clipped group.)
+    return f"""
+<g clip-path="url(#{clip})" style="mix-blend-mode:multiply">
+  <g filter="url(#cloth)"><rect width="1000" height="1000" fill="#808080"/>{heights}</g>
+</g>
+<g clip-path="url(#bodyClip)" style="mix-blend-mode:multiply"><rect x="200" y="100" width="600" height="860" fill="url(#round)"/></g>
+<path d="{SLEEVES[0]}" fill="url(#sleeveL)" style="mix-blend-mode:multiply"/>
+<path d="{SLEEVES[1]}" fill="url(#sleeveR)" style="mix-blend-mode:multiply"/>
+<g clip-path="url(#{clip})" style="mix-blend-mode:multiply">
+  <path d="{outline}" fill="none" stroke="#000" stroke-opacity="0.16" stroke-width="26" filter="url(#softer)"/>
+</g>
+<g clip-path="url(#{clip})" style="mix-blend-mode:multiply">
+  <rect width="1000" height="1000" filter="url(#knit)" opacity="0.05"/>
+</g>
+<g clip-path="url(#{clip})"><rect width="1000" height="1000" fill="url(#pique)"/></g>"""
+
+
+def bezier(p0, p1, p2, p3, t):
+    return tuple((1 - t) ** 3 * a + 3 * (1 - t) ** 2 * t * b + 3 * (1 - t) * t ** 2 * c + t ** 3 * d
+                 for a, b, c, d in zip(p0, p1, p2, p3))
+
+
+def ribs(top, outer, n=34):
+    """A knitted collar's ribs: lines from its roll line (top, a cubic) across
+    to its outer edge (outer, a list of cubics, end to end)."""
+    def along(curves, t):
+        k = min(int(t * len(curves)), len(curves) - 1)
+        return bezier(*curves[k], t * len(curves) - k)
+    lines = ""
+    for i in range(1, n):
+        t = i / n
+        (x0, y0), (x1, y1) = bezier(*top, t), along(outer, t)
+        lines += f'<line x1="{x0:.1f}" y1="{y0:.1f}" x2="{x1:.1f}" y2="{y1:.1f}"/>'
+    return f'<g stroke="#000" stroke-opacity="0.07" stroke-width="1.1">{lines}</g>'
+
+
 def front():
-    left_leaf = "M 500 188 C 466 185 426 172 395 150 C 386 186 400 236 432 268 C 456 242 480 214 500 188 Z"
-    right_leaf = "M 500 188 C 534 185 574 172 605 150 C 614 186 600 236 568 268 C 544 242 520 214 500 188 Z"
-    opening = "M 403 156 C 438 130 562 130 597 156 C 572 174 534 186 500 188 C 466 186 428 174 403 156 Z"
-    stand = "M 395 150 C 432 116 568 116 605 150 L 597 156 C 562 130 438 130 403 156 Z"
+    """The front: a polo collar of knitted rib, lying over the shoulders, its
+    back rising round the neck; inside the neck, the navy neck tape and a
+    label; the placket with its buttonholes and gold buttons; the logo with
+    the winning star above it."""
+    left_leaf = "M 500 188 C 466 185 426 172 395 150 C 384 186 398 236 428 266 Q 432 271 437 266 C 460 241 482 213 500 188 Z"
+    right_leaf = "M 500 188 C 534 185 574 172 605 150 C 616 186 602 236 572 266 Q 568 271 563 266 C 540 241 518 213 500 188 Z"
+    inside = "M 403 158 C 438 132 562 132 597 158 C 572 174 534 186 500 188 C 466 186 428 174 403 158 Z"
+    stand = "M 395 150 C 432 110 568 110 605 150 L 596 160 C 562 128 438 128 404 160 Z"
+    rib_l = ribs(((395, 150), (426, 172), (466, 185), (500, 188)),
+                 [((395, 150), (384, 186), (398, 236), (432, 268)), ((432, 268), (460, 241), (482, 213), (500, 188))])
+    rib_r = ribs(((605, 150), (574, 172), (534, 185), (500, 188)),
+                 [((605, 150), (616, 186), (602, 236), (568, 268)), ((568, 268), (540, 241), (518, 213), (500, 188))])
+    holes = "".join(f'<path d="M 500 {y - 12} L 500 {y + 12}" stroke="#C9C5BE" stroke-width="3.4" stroke-linecap="round"/>'
+                    f'<path d="M 500 {y - 11} L 500 {y + 11}" stroke="#8F8B84" stroke-width="0.9"/>' for y in (238, 292))
     return f"""
 <g filter="url(#drop)">
   <path d="{SHIRT}{FRONT_NECK}" fill="url(#body)" stroke="#D6D3CD" stroke-width="1.4"/>
 </g>
 {cuffs()}
 {stitching("front")}
-<path d="{opening}" fill="url(#inside)"/>
+<clipPath id="insideF"><path d="{inside}"/></clipPath>
+<path d="{inside}" fill="url(#inside)"/>
+<g clip-path="url(#insideF)">
+  <path d="M 404 160 C 438 128 562 128 596 160" fill="none" stroke="{NAVY}" stroke-width="9"/>
+  <rect x="487" y="138" width="26" height="17" rx="2" fill="#FFFFFF" stroke="#C9C5BE" stroke-width="0.8"/>
+  <text x="500" y="151" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="9" fill="{NAVY}">M</text>
+  <path d="{inside}" fill="none" stroke="#000" stroke-opacity="0.25" stroke-width="16" filter="url(#softer)"/>
+</g>
 <path d="{stand}" fill="#FAFAF8" stroke="#D3D0CA" stroke-width="1.2"/>
+{ribs(((404, 160), (438, 128), (562, 128), (596, 160)), [((395, 150), (432, 110), (568, 110), (605, 150))], 40)}
 <g>
   <path d="M 485 196 H 515 V 334 Q 515 346 500 348 Q 485 346 485 334 Z" fill="#FBFBF9" stroke="{NAVY}" stroke-width="2.4"/>
   <path d="M 488.5 198 V 334 Q 488.5 343 500 344.5 Q 511.5 343 511.5 334 V 198" fill="none" stroke="{CRIMSON}" stroke-width="1.2"/>
   <path d="M 491.5 200 V 333 Q 491.5 340 500 341 Q 508.5 340 508.5 333 V 200" fill="none" stroke="#BDBBB5" stroke-width="0.9" stroke-dasharray="2.5 2.5"/>
+  <path d="M 484 198 V 336" stroke="#000" stroke-opacity="0.12" stroke-width="3" filter="url(#softer)"/>
+  {holes}
   {''.join(button(500, y, 8.8) for y in (238, 292))}
 </g>
 <clipPath id="leafL"><path d="{left_leaf}"/></clipPath><clipPath id="leafR"><path d="{right_leaf}"/></clipPath>
-<g filter="url(#lift)"><path d="{left_leaf}" fill="#FCFCFA"/><path d="{right_leaf}" fill="#FCFCFA"/></g>
-{tipping("M 395 150 C 386 186 400 236 432 268 C 456 242 480 214 500 188", "leafL", 0.8)}
-{tipping("M 605 150 C 614 186 600 236 568 268 C 544 242 520 214 500 188", "leafR", 0.8)}
-<path d="{left_leaf}" fill="none" stroke="#D3D0CA" stroke-width="1.2"/>
-<path d="{right_leaf}" fill="none" stroke="#D3D0CA" stroke-width="1.2"/>
+<g filter="url(#lift)"><path d="{left_leaf}" fill="url(#leaf)"/><path d="{right_leaf}" fill="url(#leaf)"/></g>
+<g clip-path="url(#leafL)">{rib_l}</g><g clip-path="url(#leafR)">{rib_r}</g>
+{tipping("M 395 150 C 384 186 398 236 428 266 Q 432 271 437 266 C 460 241 482 213 500 188", "leafL", 0.8)}
+{tipping("M 605 150 C 616 186 602 236 572 266 Q 568 271 563 266 C 540 241 518 213 500 188", "leafR", 0.8)}
+<path d="M 500 188 C 466 185 426 172 395 150" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+<path d="M 500 188 C 534 185 574 172 605 150" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+<path d="{left_leaf}" fill="none" stroke="#D0CDC6" stroke-width="1.1"/>
+<path d="{right_leaf}" fill="none" stroke="#D0CDC6" stroke-width="1.1"/>
 {crest(*CREST_AT, CREST_W)}
 {star(*STAR_AT, STAR_R)}
-{folds("shirtF")}"""
+{cloth("front")}"""
 
 
 def back():
-    band = "M 395 150 C 432 124 568 124 605 150 L 601 170 C 566 150 434 150 399 170 Z"
+    """The back: the collar's fall, knitted rib with its tipping, the name in
+    its arch with the place inside it, and a hem a little longer than the
+    front's."""
+    band = "M 395 150 C 432 124 568 124 605 150 L 601 172 C 566 150 434 150 399 172 Z"
     return f"""
 <g filter="url(#drop)">
-  <path d="{SHIRT}{BACK_NECK}" fill="url(#body)" stroke="#D6D3CD" stroke-width="1.4"/>
+  <path d="{SHIRT_BACK}{BACK_NECK}" fill="url(#body)" stroke="#D6D3CD" stroke-width="1.4"/>
 </g>
 {cuffs()}
 {stitching("back")}
 <clipPath id="band"><path d="{band}"/></clipPath>
-<g filter="url(#lift)"><path d="{band}" fill="#FCFCFA"/></g>
-{tipping("M 399 170 C 434 150 566 150 601 170", "band", 0.7)}
+<g filter="url(#lift)"><path d="{band}" fill="url(#leaf)"/></g>
+<g clip-path="url(#band)">{ribs(((395, 150), (432, 124), (568, 124), (605, 150)), [((399, 172), (434, 150), (566, 150), (601, 172))], 44)}</g>
+{tipping("M 399 172 C 434 150 566 150 601 172", "band", 0.7)}
 <path d="{band}" fill="none" stroke="#D3D0CA" stroke-width="1.2"/>
 {name_arch()}
-{folds("shirtB")}"""
+{cloth("back")}"""
 
 
-def name_strip():
-    """The name, straight, with room above for the chandrabindu: navy with a
+def strip(text, size, w, h, base):
+    """Lettering, straight, with room above for any chandrabindu: navy with a
     thin crimson shadow."""
-    return svg(f'<g font-family="Khand" font-weight="700" font-size="120" text-anchor="middle">'
-               f'<text x="455" y="175" fill="{CRIMSON}">{NAME}</text><text x="450" y="170" fill="{NAVY}">{NAME}</text></g>',
-               900, 230)
+    d = size / 24
+    return svg(f'<g font-family="Khand" font-weight="700" font-size="{size}" text-anchor="middle">'
+               f'<text x="{w / 2 + d}" y="{base + d}" fill="{CRIMSON}">{text}</text>'
+               f'<text x="{w / 2}" y="{base}" fill="{NAVY}">{text}</text></g>', w, h)
 
 
 def arch(img, span_deg):
@@ -401,7 +520,41 @@ def arch(img, span_deg):
     return cv2.remap(img, u, v, cv2.INTER_CUBIC, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0))
 
 
-NAME_ART = None                           # the arched name (RGBA), made in main()
+def nest(arched, word):
+    """The place set inside the arch, centred under its crown, with a clear
+    gap below the letters there and a margin from the arch's legs; as large
+    as that allows, up to nine tenths of the size it is drawn."""
+    def trim(img):
+        ys, xs = np.nonzero(img[..., 3] > 4)
+        return img[max(ys.min() - 8, 0):ys.max() + 8, max(xs.min() - 8, 0):xs.max() + 8]
+    word = trim(word)
+    H, W = arched.shape[:2]
+    # The letters' height at the crown: per column there, from top to foot,
+    # the median (so a chandrabindu standing above does not count).
+    band = arched[:, W // 2 - W // 8:W // 2 + W // 8, 3] > 4
+    tops = np.array([np.nonzero(c)[0].min() for c in band.T if c.any()])
+    feet = np.array([np.nonzero(c)[0].max() for c in band.T if c.any()])
+    letters = float(np.median(feet - tops))
+    crown = int(np.percentile(feet, 75))
+    gap, margin = int(0.32 * letters), int(0.14 * letters)
+    keep_off = cv2.dilate((arched[..., 3] > 4).astype(np.uint8), np.ones((2 * margin + 1, 2 * margin + 1), np.uint8))
+    for scale in np.linspace(0.9, 0.4, 26):
+        w = cv2.resize(word, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA)
+        y0, x0 = crown + gap, (W - w.shape[1]) // 2
+        out = np.zeros((max(H, y0 + w.shape[0]), W, 4), np.uint8)
+        out[:H] = arched
+        near = np.zeros(out.shape[:2], np.uint8)
+        near[:H] = keep_off
+        under = out[y0:y0 + w.shape[0], x0:x0 + w.shape[1]]
+        if not ((near[y0:y0 + w.shape[0], x0:x0 + w.shape[1]] > 0) & (w[..., 3] > 4)).any():
+            break
+    a = w[..., 3:4].astype(np.float32) / 255
+    under[...] = (w * a + under * (1 - a)).astype(np.uint8)
+    under[..., 3] = np.maximum(under[..., 3], w[..., 3])
+    return out
+
+
+NAME_ART = None                           # the arched name with the place inside it (RGBA), made in main()
 
 
 def name_arch():
@@ -486,8 +639,8 @@ def board():
 <g transform="translate(990 170) scale(1.05)">{back()}</g>
 <text x="1515" y="1225" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="26" letter-spacing="4" fill="#5E5852">BACK · पछाडि</text>
 <rect x="2010" y="210" width="300" height="420" rx="24" fill="#FFFFFF" stroke="#DDD8CF"/>
-<g>{star(2160, 330, 70)}{crest(2160, 520, 150)}</g>
-<text x="2160" y="670" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="20" letter-spacing="3" fill="#5E5852">CREST + STAR</text>
+<g>{star(2160, 350, 56)}{crest(2160, 520, 150)}</g>
+<text x="2160" y="670" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="20" letter-spacing="3" fill="#5E5852">{"LOGO" if LOGO else "CREST"} + STAR</text>
 {swatch(2030, 740, WHITE, "White", "base")}
 {swatch(2030, 830, NAVY, "Navy", NAVY)}
 {swatch(2030, 920, CRIMSON, "Crimson", CRIMSON)}
@@ -499,16 +652,17 @@ def board():
 
 def main():
     global NAME_ART
-    straight = CACHE / "name-straight.png"
-    render([(html(name_strip(), 900, 230), straight, 900, 230, 5)])
-    NAME_ART = arch(cv2.imread(str(straight), cv2.IMREAD_UNCHANGED), ARCH)
+    straight, place = CACHE / "name-straight.png", CACHE / "place-straight.png"
+    render([(html(strip(NAME, 120, 900, 230, 170), 900, 230), straight, 900, 230, 5),
+            (html(strip(PLACE, 96, 420, 190, 140), 420, 190), place, 420, 190, 5)])
+    NAME_ART = nest(arch(cv2.imread(str(straight), cv2.IMREAD_UNCHANGED), ARCH), cv2.imread(str(place), cv2.IMREAD_UNCHANGED))
     cv2.imwrite(str(HERE / "print-back-name.png"), NAME_ART)
     print("wrote print-back-name.png")
     jobs = [
         (board(), HERE / "jersey-board.png", 2400, 1300, 1),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{front()}'), 1000, 1000), HERE / "jersey-front.png", 1000, 1000, 2),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{back()}'), 1000, 1000), HERE / "jersey-back.png", 1000, 1000, 2),
-        (html(svg(star(150, 120, 92, shadow=False) + crest(150, 330, 200, shadow=False), 300, 470), 300, 470),
+        (html(svg(star(150, 135, 76, shadow=False) + crest(150, 330, 200, shadow=False), 300, 470), 300, 470),
          HERE / "print-crest-star.png", 300, 470, 4),
     ]
     render(jobs)
