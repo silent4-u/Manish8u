@@ -14,13 +14,20 @@ which shapes the Devanagari properly:
   shirt    white, a polo collar over a two-button placket, set-in short
            sleeves with ribbed cuffs; the collar and cuffs tipped with a navy
            and a crimson stripe, the colours of Nepal's flag
-  crest    a shield: a crimson band with the name कमल, and below it a lotus
-           (कमल) before the snow peaks, over water, in a navy and gold rim
+  crest    the gaun palika's own logo, if it is saved beside this script as
+           logo.png (or .jpg, .webp, .svg; a plain white background around it
+           is made transparent); otherwise a shield drawn here: a crimson band
+           with the name कमल, and below it a lotus (कमल) before the snow
+           peaks, over water, in a navy and gold rim
   star     one winning star above the crest, large and gold, each arm faceted
            light and dark so it catches the eye like a medal, outlined in navy
            with two small sparkles
-  back     कमल गाउँपालिका across the shoulders in Khand Bold, navy with a
-           thin crimson shadow
+  back     कमल गाउँपालिका in a semicircular arch across the shoulders, in
+           Khand Bold, navy with a thin crimson shadow. Devanagari set along a
+           curve breaks its headline (each letter turns on its own), so the
+           straight lettering is bent into the arch instead: its headline stays
+           one unbroken curve, and the letters fan out as printed arch lettering
+           does
 
 The flat lay is made to look like cloth: soft folds and shading over
 everything (prints included), a fine knit texture, stitching at the seams.
@@ -29,10 +36,14 @@ everything (prints included), a fine knit texture, stitching at the seams.
     python3 media/jersey/make_jersey.py
 """
 
+import base64
 import math
 import subprocess
 import urllib.request
 from pathlib import Path
+
+import cv2
+import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CACHE = Path.home() / ".cache" / "jersey"
@@ -60,6 +71,8 @@ BACK_NECK = "C 565 132 435 132 395 150 Z"
 VIEW = (1000, 1000)
 CREST_AT, CREST_W = (632, 428), 104       # the crest's centre and width on the front (the left chest)
 STAR_AT, STAR_R = (632, 318), 48          # the star's centre and outer radius, above it
+ARCH = 140                                # the back name's arch, in degrees of the circle
+NAME_TOP, NAME_W = 206, 410               # where the arched name's top sits on the back, and its width
 
 
 def font_css():
@@ -156,13 +169,57 @@ def lotus(cx, base, s):
     return out
 
 
+def official_logo():
+    """The gaun palika's logo, if one is saved here, as a data URI and its
+    width over height: a plain light background round it (reaching the
+    edges) made transparent, and trimmed to the logo."""
+    found = [HERE / f"logo{ext}" for ext in (".png", ".jpg", ".jpeg", ".webp", ".svg") if (HERE / f"logo{ext}").exists()]
+    if not found:
+        return None
+    path = found[0]
+    if path.suffix == ".svg":
+        import re
+        text = path.read_text(encoding="utf-8")
+        m = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', text)
+        aspect = float(m.group(1)) / float(m.group(2)) if m else 1.0
+        return "data:image/svg+xml;base64," + base64.b64encode(text.encode()).decode(), aspect
+    img = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
+    if img.ndim == 2:
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGRA)
+    elif img.shape[2] == 3:
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
+    if img[..., 3].min() == 255:
+        # No transparency: the light background that reaches the edges goes.
+        light = (img[..., :3].min(axis=2) > 232).astype(np.uint8)
+        n, lab = cv2.connectedComponents(light, connectivity=4)
+        edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
+        bg = np.isin(lab, list(edge)) & (light > 0)
+        alpha = cv2.GaussianBlur((~bg).astype(np.float32), (0, 0), 0.8)
+        img[..., 3] = (alpha * 255).astype(np.uint8)
+    ys, xs = np.nonzero(img[..., 3] > 8)
+    img = img[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+    ok, png = cv2.imencode(".png", img)
+    return "data:image/png;base64," + base64.b64encode(png.tobytes()).decode(), img.shape[1] / img.shape[0]
+
+
+LOGO = official_logo()
+
+
 def crest(cx, cy, w, shadow=True):
-    """The crest, w wide, centred at (cx, cy): a navy shield with a gold rim;
-    a crimson band with कमल; a lotus before snow peaks, over water."""
+    """The crest, w wide, centred at (cx, cy): the gaun palika's own logo if
+    there is one (no taller than the shield would be), else a navy shield with
+    a gold rim; a crimson band with कमल; a lotus before snow peaks, over
+    water."""
+    lift = ' filter="url(#lift)"' if shadow else ""
+    if LOGO:
+        uri, aspect = LOGO
+        lw = min(w * 1.06, w * 1.18 * aspect)
+        lh = lw / aspect
+        return (f'<image href="{uri}" x="{cx - lw / 2:.1f}" y="{cy - lh / 2:.1f}" width="{lw:.1f}" '
+                f'height="{lh:.1f}"{lift}/>')
     k = w / 100
     shield = "M 4 0 H 96 Q 100 0 100 4 V 52 C 100 82 78 104 50 118 C 22 104 0 82 0 52 V 4 Q 0 0 4 0 Z"
     t = f"translate({cx - 50 * k} {cy - 59 * k}) scale({k})"
-    lift = ' filter="url(#lift)"' if shadow else ""
     inner = "translate(50 59) scale({0}) translate(-50 -59)"
     return f"""
 <g transform="{t}"{lift}>
@@ -297,11 +354,47 @@ def back():
 <g filter="url(#lift)"><path d="{band}" fill="#FCFCFA"/></g>
 {tipping("M 399 170 C 434 150 566 150 601 170", "band", 0.7)}
 <path d="{band}" fill="none" stroke="#D3D0CA" stroke-width="1.2"/>
-<g font-family="Khand" font-weight="700" font-size="74" text-anchor="middle">
-  <text x="502.8" y="338" fill="{CRIMSON}">{NAME}</text>
-  <text x="500" y="335" fill="{NAVY}">{NAME}</text>
-</g>
+{name_arch()}
 {folds("shirtB")}"""
+
+
+def name_strip():
+    """The name, straight, with room above for the chandrabindu: navy with a
+    thin crimson shadow."""
+    return svg(f'<g font-family="Khand" font-weight="700" font-size="120" text-anchor="middle">'
+               f'<text x="455" y="175" fill="{CRIMSON}">{NAME}</text><text x="450" y="170" fill="{NAVY}">{NAME}</text></g>',
+               900, 230)
+
+
+def arch(img, span_deg):
+    """Bend a straight strip of lettering (RGBA) into an arch of span_deg: its
+    middle line keeps its length along a circle, the tops of the letters spread
+    a little and their feet draw in, and the headline stays one curve."""
+    ys, xs = np.nonzero(img[..., 3] > 4)
+    pad = 16
+    img = img[max(0, ys.min() - pad):ys.max() + pad, max(0, xs.min() - pad):xs.max() + pad]
+    H, W = img.shape[:2]
+    th = math.radians(span_deg)
+    Rm = W / th
+    Ro, Ri = Rm + H / 2, Rm - H / 2
+    Wo = int(math.ceil(2 * Ro * math.sin(min(th, math.pi) / 2))) + 2
+    Ho = int(math.ceil(Ro - Ri * math.cos(th / 2))) + 2
+    Y, X = np.mgrid[0:Ho, 0:Wo].astype(np.float32)
+    dx, dy = X - Wo / 2, Ro - Y
+    u = (W / 2 + np.arctan2(dx, dy) * Rm).astype(np.float32)
+    v = (Ro - np.hypot(dx, dy)).astype(np.float32)
+    return cv2.remap(img, u, v, cv2.INTER_CUBIC, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0))
+
+
+NAME_ART = None                           # the arched name (RGBA), made in main()
+
+
+def name_arch():
+    """The arched name on the back, as an image, centred, NAME_W wide."""
+    h = NAME_W * NAME_ART.shape[0] / NAME_ART.shape[1]
+    ok, png = cv2.imencode(".png", NAME_ART)
+    uri = "data:image/png;base64," + base64.b64encode(png.tobytes()).decode()
+    return f'<image href="{uri}" x="{500 - NAME_W / 2}" y="{NAME_TOP}" width="{NAME_W}" height="{h:.1f}"/>'
 
 
 def svg(body, w=VIEW[0], h=VIEW[1], extra=""):
@@ -370,21 +463,24 @@ def board():
 {swatch(2030, 830, NAVY, "Navy", NAVY)}
 {swatch(2030, 920, CRIMSON, "Crimson", CRIMSON)}
 {swatch(2030, 1010, GOLD, "Gold", GOLD)}
-{swatch(2030, 1100, LOTUS, "Lotus pink", LOTUS)}
+{"" if LOGO else swatch(2030, 1100, LOTUS, "Lotus pink", LOTUS)}
 """
     return html(svg(body, W, H), W, H)
 
 
 def main():
+    global NAME_ART
+    straight = CACHE / "name-straight.png"
+    render([(html(name_strip(), 900, 230), straight, 900, 230, 5)])
+    NAME_ART = arch(cv2.imread(str(straight), cv2.IMREAD_UNCHANGED), ARCH)
+    cv2.imwrite(str(HERE / "print-back-name.png"), NAME_ART)
+    print("wrote print-back-name.png")
     jobs = [
         (board(), HERE / "jersey-board.png", 2400, 1300, 1),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{front()}'), 1000, 1000), HERE / "jersey-front.png", 1000, 1000, 2),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{back()}'), 1000, 1000), HERE / "jersey-back.png", 1000, 1000, 2),
         (html(svg(star(150, 120, 92, sparkle=False, shadow=False) + crest(150, 330, 200, shadow=False), 300, 470), 300, 470),
          HERE / "print-crest-star.png", 300, 470, 4),
-        (html(svg(f'<g font-family="Khand" font-weight="700" font-size="120" text-anchor="middle">'
-                  f'<text x="455" y="128" fill="{CRIMSON}">{NAME}</text><text x="450" y="123" fill="{NAVY}">{NAME}</text></g>',
-                  900, 170), 900, 170), HERE / "print-back-name.png", 900, 170, 4),
     ]
     render(jobs)
 
