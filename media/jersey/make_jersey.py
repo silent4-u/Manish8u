@@ -22,6 +22,8 @@ which shapes the Devanagari properly:
   star     one winning star above the crest, large and gold, each arm faceted
            light and dark so it catches the eye like a medal, outlined in navy
            with two small sparkles
+  buttons  domed gold metal on the placket, each in a navy rim with a navy
+           enamel star and a glint of light; the placket piped navy and crimson
   back     कमल गाउँपालिका in a semicircular arch across the shoulders, in
            Khand Bold, navy with a thin crimson shadow. Devanagari set along a
            curve breaks its headline (each letter turns on its own), so the
@@ -117,6 +119,10 @@ def defs():
   <linearGradient id="goldL" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#FFF1B0"/><stop offset="0.55" stop-color="#FFD23F"/><stop offset="1" stop-color="#F2B705"/>
   </linearGradient>
+  <radialGradient id="btnGold" cx="0.42" cy="0.38" r="0.7" fx="0.32" fy="0.26">
+    <stop offset="0" stop-color="#FFF6CF"/><stop offset="0.35" stop-color="#FAD55A"/>
+    <stop offset="0.75" stop-color="#E0A512"/><stop offset="1" stop-color="#A86F00"/>
+  </radialGradient>
   <linearGradient id="goldD" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#F0B400"/><stop offset="1" stop-color="#B57A00"/>
   </linearGradient>
@@ -155,6 +161,20 @@ def star(cx, cy, R, sparkle=True, shadow=True):
             out += (f'<path d="M {x} {y - a} Q {x} {y} {x + a} {y} Q {x} {y} {x} {y + a} Q {x} {y} {x - a} {y} '
                     f'Q {x} {y} {x} {y - a} Z" fill="{GOLD}" stroke="{NAVY}" stroke-width="{R * 0.025:.2f}"/>')
     return out
+
+
+def button(cx, cy, r):
+    """A domed gold metal button, r in radius: a navy rim, a gold dome lit
+    from the upper left with an engraved ring, a navy enamel star at its
+    centre, and a glint."""
+    pts = " ".join(f"{x:.2f},{y:.2f}" for x, y in star_points(cx, cy, r * 0.42, r * 0.19))
+    return (f'<g filter="url(#lift)">'
+            f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{NAVY}"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="{r * 0.84:.2f}" fill="url(#btnGold)"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="{r * 0.62:.2f}" fill="none" stroke="#B57A00" stroke-width="{r * 0.07:.2f}" opacity="0.7"/>'
+            f'<polygon points="{pts}" fill="{NAVY}" stroke="#FFE9A0" stroke-width="{r * 0.03:.2f}" stroke-linejoin="round"/>'
+            f'<ellipse cx="{cx - r * 0.33:.2f}" cy="{cy - r * 0.4:.2f}" rx="{r * 0.26:.2f}" ry="{r * 0.13:.2f}" '
+            f'transform="rotate(-35 {cx - r * 0.33:.2f} {cy - r * 0.4:.2f})" fill="#FFFFFF" opacity="0.75"/></g>')
 
 
 def lotus(cx, base, s):
@@ -327,9 +347,10 @@ def front():
 <path d="{opening}" fill="url(#inside)"/>
 <path d="{stand}" fill="#FAFAF8" stroke="#D3D0CA" stroke-width="1.2"/>
 <g>
-  <path d="M 485 196 H 515 V 334 Q 515 346 500 348 Q 485 346 485 334 Z" fill="#FBFBF9" stroke="#CFCCC6" stroke-width="1.2"/>
-  <path d="M 489 200 V 334 Q 489 342 500 343 Q 511 342 511 334 V 200" fill="none" stroke="#BDBBB5" stroke-width="1" stroke-dasharray="3 3"/>
-  {''.join(f'<circle cx="500" cy="{y}" r="6.5" fill="#FFFFFF" stroke="#BEBBB4" stroke-width="1.2"/><circle cx="498" cy="{y}" r="1" fill="#9a978f"/><circle cx="502" cy="{y}" r="1" fill="#9a978f"/>' for y in (240, 294))}
+  <path d="M 485 196 H 515 V 334 Q 515 346 500 348 Q 485 346 485 334 Z" fill="#FBFBF9" stroke="{NAVY}" stroke-width="2.4"/>
+  <path d="M 488.5 198 V 334 Q 488.5 343 500 344.5 Q 511.5 343 511.5 334 V 198" fill="none" stroke="{CRIMSON}" stroke-width="1.2"/>
+  <path d="M 491.5 200 V 333 Q 491.5 340 500 341 Q 508.5 340 508.5 333 V 200" fill="none" stroke="#BDBBB5" stroke-width="0.9" stroke-dasharray="2.5 2.5"/>
+  {''.join(button(500, y, 8.8) for y in (238, 292))}
 </g>
 <clipPath id="leafL"><path d="{left_leaf}"/></clipPath><clipPath id="leafR"><path d="{right_leaf}"/></clipPath>
 <g filter="url(#lift)"><path d="{left_leaf}" fill="#FCFCFA"/><path d="{right_leaf}" fill="#FCFCFA"/></g>
@@ -453,6 +474,20 @@ def board():
 <text x="120" y="118" font-family="Khand" font-weight="700" font-size="76" fill="{NAVY}">{NAME}</text>
 <text x="124" y="166" font-family="Montserrat" font-weight="500" font-size="26" letter-spacing="3" fill="#86807A">JERSEY · WHITE HALF COLLAR</text>
 <g transform="translate(60 170) scale(1.05)">{front()}</g>
+<line x1="585" y1="420" x2="262" y2="742" stroke="#9C958C" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="585" cy="420" r="15" fill="none" stroke="#9C958C" stroke-width="1.5"/>
+<clipPath id="callout"><circle cx="0" cy="0" r="87"/></clipPath>
+<circle cx="200" cy="800" r="88" fill="#FBFBF9" stroke="#CFCAC1" stroke-width="2"/>
+<g transform="translate(200 800)" clip-path="url(#callout)">
+  <rect x="-34" y="-88" width="68" height="176" fill="#FFFFFF"/>
+  <line x1="-34" y1="-88" x2="-34" y2="88" stroke="{NAVY}" stroke-width="5"/>
+  <line x1="34" y1="-88" x2="34" y2="88" stroke="{NAVY}" stroke-width="5"/>
+  <line x1="-26" y1="-88" x2="-26" y2="88" stroke="{CRIMSON}" stroke-width="2.5"/>
+  <line x1="26" y1="-88" x2="26" y2="88" stroke="{CRIMSON}" stroke-width="2.5"/>
+  {button(0, 0, 40)}
+</g>
+<circle cx="200" cy="800" r="88" fill="none" stroke="#CFCAC1" stroke-width="2"/>
+<text x="200" y="918" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="20" letter-spacing="3" fill="#5E5852">BUTTON</text>
 <text x="585" y="1225" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="26" letter-spacing="4" fill="#5E5852">FRONT · अगाडि</text>
 <g transform="translate(990 170) scale(1.05)">{back()}</g>
 <text x="1515" y="1225" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="26" letter-spacing="4" fill="#5E5852">BACK · पछाडि</text>
