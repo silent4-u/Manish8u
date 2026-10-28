@@ -1,7 +1,7 @@
 """A smooth, clear zoom from the rooftops to Kanchenjunga, made from one phone
 clip and five photos taken from the same spot a minute later:
 
-  himalaya-zoom.mp4   1080 x 1920, about 24 s, with the clip's own sound
+  himalaya-zoom.mp4   1080 x 1920, 23 s, with the clip's own sound
 
   zoom-clip.mp4        the clip: a slow zoom from the rooftops to the
                        houses, the hills and the massif above them (it came
@@ -23,18 +23,23 @@ clip and five photos taken from the same spot a minute later:
      clip's widest view to the massif filling the frame, its centre taken
      from where the clip itself pointed while it zoomed (where it stood
      still, the hand re-aimed; that is spread over the zoom around it), so
-     nothing swings or jumps. Each film frame takes the latest clip frame
-     that holds its whole view, tilt and all, steadied onto the curve; the
-     clip plays on continuously beneath that, up to 2.5x where it stood
-     still, so every frame is one real moment of it, never two
-     blended.
+     nothing swings or jumps. The zoom quickens by up to a third through
+     the middle, so it does not linger where the clip stood still. Each
+     film frame takes the latest clip frame that holds its whole view, tilt
+     and all, steadied onto the curve; the clip plays on continuously
+     beneath that, up to 3x where it stood still, so every frame is one
+     real moment of it, never two blended. The phone's exposure stepped
+     down in the pause; that step is spread into a slow drift.
   3. Clear. The clip's frames are enlarged with Real-ESRGAN. The sky, the
      hills and the snow do not move in a minute, so their detail is taken
      from the sharpest photo that covers them, laid on the clip's own broad
      colour there (so no photo's edge can show); only the trees and houses,
      which do move, are the clip's own.
   4. On past the clip. Where the clip ends, its trees and houses give way to
-     the photos', and the zoom carries on through the photos, each giving
+     the photos': its light eases towards theirs first, then one morphs
+     into the other along the motion between them (the trees swayed a
+     little in the minute between), so nothing shows twice. The zoom
+     carries on through the photos, each giving
      way to the next, closer one where it covers the frame, until the
      massif fills it. Each photo's colours are matched to the houses
      photo's with a smooth fitted surface, so no sky shows as a box.
@@ -46,6 +51,7 @@ clip and five photos taken from the same spot a minute later:
     python3 media/himalaya-zoom/make_zoom.py      # about an hour on CPU
 """
 
+import math
 import re
 import subprocess
 import sys
@@ -71,10 +77,11 @@ OUTPUT = HERE / "himalaya-zoom.mp4"
 CACHE = Path.home() / ".cache" / "himalaya-zoom"
 SIZE = (1080, 1920)
 FPS = 30
-DUR = 24.0
+DUR = 23.0
 MARGIN = 0.93                    # the film's view, as a share of the clip frame it is taken from
-MAX_SPEED = 2.5                  # the fastest the clip is played (where it stood still), times its own speed
-ZOOM = (0.6, 21.0)               # when the zoom starts and ends (s)
+MAX_SPEED = 3.0                  # the fastest the clip is played (where it stood still), times its own speed
+ZOOM = (0.6, 21.0)               # when the zoom starts and ends (s), in zoom time (see zoom_time)
+QUICKEN = (9.6, 1.3, 0.35)       # where the zoom runs faster (s), over how long (s), and by how much
 FINAL_FILL = 0.94                # how much of the frame's width the massif fills at the end
 
 
@@ -253,7 +260,12 @@ def place_clip(frames, photos, P):
     both = seen[votes[seen, 0] > 0][:30]
     pars[:seen[0], 1] = pars[:seen[0], 0] + np.median(pars[both, 1] - pars[both, 0], axis=0)
     votes[:seen[0], 1] = votes[:seen[0], 0]
-    pars = np.column_stack([steady(np.nan_to_num(pars[:, 1, c]), votes[:, 1]) for c in range(4)])
+    # The zoom and turn steadied over a second and a half: they drift only
+    # slowly, and a fit that changes its mind between the houses and the hills
+    # would otherwise show as the picture rolling or the zoom hesitating. The
+    # shifts over half a second.
+    pars = np.column_stack([steady(np.nan_to_num(pars[:, 1, c]), votes[:, 1], *((30, 45.0) if c < 2 else (15, 15.0)))
+                            for c in range(4)])
     out = []
     for g, (ls, th, dx, dy) in zip(W, pars):
         s = np.exp(ls)
@@ -422,6 +434,15 @@ def overhang(m, centre, width, frame_size):
     return max(-fc[:, 0].min(), fc[:, 0].max() - w, -fc[:, 1].min(), fc[:, 1].max() - h)
 
 
+def zoom_time(t):
+    """Film time to zoom time: the zoom runs up to a third faster through the
+    middle, where the clip stood still, so it does not linger there; before
+    and after, at its own pace."""
+    c, w, a = QUICKEN
+    k = w * math.sqrt(2)
+    return t + a * w * math.sqrt(math.pi / 2) * (math.erf((t - c) / k) - math.erf(-c / k))
+
+
 def camera_path(W, frame_size, final):
     """The film's view at every frame: centre and width in reference
     pixels, on one eased zoom; and the clip frame each one is taken from
@@ -457,7 +478,7 @@ def camera_path(W, frame_size, final):
     looks, latest = [], []
     k = 0
     for j in range(int(DUR * FPS)):
-        t = j / FPS
+        t = zoom_time(j / FPS)
         tau = (t - ZOOM[0]) / (ZOOM[1] - ZOOM[0])
         u = 0.72 * smootherstep(tau) + 0.28 * np.clip(tau, 0, 1)
         lv = np.log(start) + (np.log(end) - np.log(start)) * u
@@ -525,6 +546,7 @@ class Film:
                                          providers=["CPUExecutionProvider"])
         self.enlarged = {}
         self.inside = None
+        self.steady = self.exposure()
         self.colour = self.clip_colours(photos)
         yy, xx = np.mgrid[0:SIZE[1], 0:SIZE[0]].astype(np.float32)
         r = np.hypot((xx / SIZE[0] - 0.5) / 0.8, (yy / SIZE[1] - 0.47) / 0.9)
@@ -533,6 +555,26 @@ class Film:
         rng = np.random.default_rng(4)
         self.grain = [cv2.GaussianBlur(rng.normal(0, 1, SIZE[::-1]).astype(np.float32), (0, 0), 0.6) * 0.008
                       for _ in range(4)]
+
+    def exposure(self):
+        """The phone's exposure, frame by frame: how much lighter each frame
+        is than the one before, on the ground both see (so the view changing
+        does not count), chained. It stepped down in half a second where the
+        clip stood still; returned, per frame, is the change in lightness
+        (Lab L) that turns such quick changes into a drift over several
+        seconds, as a real camera's settles."""
+        n = len(self.frames)
+        L = [cv2.cvtColor(f, cv2.COLOR_BGR2LAB)[..., 0].astype(np.float32) for f in self.frames]
+        level = np.zeros(n)
+        for i in range(n - 1):
+            m = np.linalg.inv(self.W[i]) @ self.W[i + 1]   # frame i+1 to frame i
+            b = cv2.warpAffine(L[i + 1], m[:2].astype(np.float32), (self.w, self.h), flags=cv2.INTER_LINEAR,
+                               borderValue=-1)
+            ok = (b >= 8) & (L[i] >= 8) & (b <= 247) & (L[i] <= 247)
+            level[i + 1] = level[i] + (np.median(b[ok] - L[i][ok]) if ok.sum() > 500 else 0.0)
+        r = 360
+        k = np.exp(-0.5 * (np.arange(-r, r + 1) / 120.0) ** 2)
+        return np.convolve(np.pad(level, r, mode="edge"), k / k.sum(), mode="valid") - level
 
     def clip_colours(self, photos):
         """For every clip frame, its colours' statistics and the photos'
@@ -547,18 +589,23 @@ class Film:
             seen = render(self._ref_ones, to_frame, (self.w, self.h))
             mask = cv2.erode(seen, np.ones((9, 9), np.uint8)).astype(np.float32) / 255
             a, b = lab_stats(f, mask), lab_stats(ref, mask)
+            if a is not None and b is not None:
+                a[0][0] += self.steady[i]                  # the frame as its exposure is steadied
             stats.append(None if a is None or b is None else np.concatenate([b[0] - a[0], [mask.mean()]]))
         # Frames too wide to overlap much take the shift of the nearest ones that do.
         good = [i for i, s in enumerate(stats) if s is not None and s[3] > 0.08]
         shift = np.array([stats[i][:3] for i in good])
         idx = np.arange(len(stats))
         cols = np.column_stack([np.interp(idx, good, shift[:, c]) for c in range(3)])
-        g = np.exp(-0.5 * (np.arange(-30, 31) / 10.0) ** 2)
+        g = np.exp(-0.5 * (np.arange(-60, 61) / 20.0) ** 2)
         g /= g.sum()
-        return np.column_stack([np.convolve(np.pad(c, 30, mode="edge"), g, mode="valid") for c in cols.T])
+        shift = np.column_stack([np.convolve(np.pad(c, 60, mode="edge"), g, mode="valid") for c in cols.T])
+        shift[:, 0] += self.steady
+        return shift
 
     def clip_frame(self, i):
-        """Clip frame i enlarged 4x with Real-ESRGAN and graded to the photos."""
+        """Clip frame i enlarged 4x with Real-ESRGAN, its exposure steadied
+        and graded to the photos."""
         if i not in self.enlarged:
             self.enlarged = {k: v for k, v in self.enlarged.items() if k > i - 200}
             while len(self.enlarged) > 3:
@@ -614,11 +661,12 @@ class Film:
         # How far the clip has given way to the photos' trees and houses.
         hand = self.views[j][2]
         if hand is None:
-            over = 1.0
+            over = light = 1.0
         else:
             lw = np.log(width)
             ends = [np.log(v[1]) for v in self.views if v[2] is not None][-1]
-            over = smooth(lw, ends + 0.08, ends)            # quickly, at the very end of the clip
+            over = smooth(lw, ends + 0.12, ends)            # in half a second, at the very end of the clip
+            light = smooth(lw, ends + 0.5, ends + 0.1)     # and, over the second and a half before, its light
         out = None
         if hand is not None:
             out, inside = self.clip_view(film, hand)
@@ -641,11 +689,37 @@ class Film:
                 broad_clip = lowpass(out * sky[..., None], 20) / wc
                 col = far / np.maximum(cov, 1e-4)[..., None] - broad_photo + broad_clip
                 out = out * (1 - sky[..., None]) + col * sky[..., None]
+            if light > 0:
+                # The photos' trees are lit a little differently from the
+                # clip's: its broad colour eases towards theirs before it
+                # gives way to them, so the light does not jump.
+                all_, cov = self.photos_over(m_of, "all")
+                ph = all_ + out * (1 - cov[..., None])
+                out = out + light * (lowpass(ph, 40) - lowpass(out, 40))
         if over > 0:
-            all_, cov = self.photos_over(m_of, "all")
+            if hand is None or light <= 0:
+                all_, cov = self.photos_over(m_of, "all")
             ph = all_ + (out if out is not None else all_ / np.maximum(cov, 1e-3)[..., None]) * (1 - cov[..., None])
-            out = ph if out is None else out * (1 - over) + ph * over
+            out = ph if out is None or over >= 1 else self.morph(out, ph, over)
         return self.finish(out, t, j)
+
+    def morph(self, a, b, t):
+        """From the clip's picture a to the photos' b, t of the way. Not a
+        crossfade: the trees swayed a little in the minute between them and
+        would show twice. Each is drawn along the motion between them (dense
+        optical flow, on their local contrast, so their exposures do not
+        matter) towards where the other has it, as one fades into the other."""
+        half = (SIZE[0] // 2, SIZE[1] // 2)
+        gray = lambda x: flatten(cv2.cvtColor((np.clip(cv2.resize(x, half, interpolation=cv2.INTER_AREA), 0, 1) * 255)
+                                              .astype(np.uint8), cv2.COLOR_BGR2GRAY))
+        flow = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_MEDIUM).calc(gray(a), gray(b), None)
+        flow = cv2.resize(np.clip(cv2.GaussianBlur(flow, (0, 0), 3), -20, 20), SIZE, interpolation=cv2.INTER_LINEAR) * 2
+        yy, xx = np.mgrid[0:SIZE[1], 0:SIZE[0]].astype(np.float32)
+        fx, fy = flow[..., 0], flow[..., 1]
+        t = float(t)
+        wa = cv2.remap(a, xx - t * fx, yy - t * fy, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        wb = cv2.remap(b, xx + (1 - t) * fx, yy + (1 - t) * fy, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        return wa * (1 - t) + wb * t
 
     def finish(self, x, t, j):
         x = np.clip(x, 0, 1)

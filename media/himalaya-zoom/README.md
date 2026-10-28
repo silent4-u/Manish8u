@@ -7,7 +7,7 @@ makes one smooth, clear zoom out of them:
 
 | File | Size | What it is |
 | --- | --- | --- |
-| `himalaya-zoom.mp4` | 1080 × 1920, 24 s | The zoom, from the rooftops until the massif fills the frame, with the clip's own sound |
+| `himalaya-zoom.mp4` | 1080 × 1920, 23 s | The zoom, from the rooftops until the massif fills the frame, with the clip's own sound |
 
 | Input | What it shows |
 | --- | --- |
@@ -35,16 +35,21 @@ How it is made:
    from where the clip itself pointed while it zoomed. Where it stood
    still, the hand re-aimed; that is spread over the zoom around it, so
    nothing swings. Each film frame takes the latest clip frame that holds
-   its whole view, tilt and all, steadied onto the curve. The clip is never
-   cut or blended: it plays on continuously, up to 2.5x through the stop,
-   speeding up and slowing down gently, so no two moments ever show at once.
+   its whole view, tilt and all, steadied onto the curve. The zoom runs up
+   to a third faster through the middle, so it does not linger at the stop.
+   The clip is never cut or blended: it plays on continuously, up to 3x
+   through the stop, speeding up and slowing down gently, so no two moments
+   ever show at once. The phone's exposure stepped down during the stop;
+   that step is spread into a slow drift, as a camera's settles.
 3. **Clear.** The clip's frames are enlarged with Real-ESRGAN. The sky, the
    hills and the snow do not move in a minute, so their detail is taken
    from the sharpest photo that covers them. That detail is laid on the
    clip's own broad colour, so no photo's edge can show. Only the trees
    and houses, which do move, are the clip's own.
 4. **On past the clip.** Where the clip ends, its trees and houses give way
-   to the photos'. The zoom carries on through the photos, each giving way
+   to the photos'. The clip's light first eases towards the photos', then
+   one morphs into the other along the motion between them (the trees
+   swayed a little in the minute between), so nothing shows twice. The zoom carries on through the photos, each giving way
    to the next, closer one where it covers the frame, until the massif
    fills it. Each photo's colours are matched to the houses photo's with a
    smooth fitted surface, so no photo's sky shows as a box against the
