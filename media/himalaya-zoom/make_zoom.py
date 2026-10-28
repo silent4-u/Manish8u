@@ -665,8 +665,8 @@ class Film:
         else:
             lw = np.log(width)
             ends = [np.log(v[1]) for v in self.views if v[2] is not None][-1]
-            over = smooth(lw, ends + 0.12, ends)            # in half a second, at the very end of the clip
-            light = smooth(lw, ends + 0.5, ends + 0.1)     # and, over the second and a half before, its light
+            over = smooth(lw, ends + 0.4, ends)             # over the clip's last second and a half
+            light = smooth(lw, ends + 0.8, ends + 0.3)     # and, over the second and a half before, its light
         out = None
         if hand is not None:
             out, inside = self.clip_view(film, hand)
@@ -713,7 +713,7 @@ class Film:
         gray = lambda x: flatten(cv2.cvtColor((np.clip(cv2.resize(x, half, interpolation=cv2.INTER_AREA), 0, 1) * 255)
                                               .astype(np.uint8), cv2.COLOR_BGR2GRAY))
         flow = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_MEDIUM).calc(gray(a), gray(b), None)
-        flow = cv2.resize(np.clip(cv2.GaussianBlur(flow, (0, 0), 3), -20, 20), SIZE, interpolation=cv2.INTER_LINEAR) * 2
+        flow = cv2.resize(np.clip(cv2.GaussianBlur(flow, (0, 0), 6), -20, 20), SIZE, interpolation=cv2.INTER_LINEAR) * 2
         yy, xx = np.mgrid[0:SIZE[1], 0:SIZE[0]].astype(np.float32)
         fx, fy = flow[..., 0], flow[..., 1]
         t = float(t)
