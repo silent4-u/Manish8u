@@ -49,9 +49,9 @@ How it is made:
 4. **On past the clip.** Where the clip ends, its trees and houses give way
    to the photos'. The clip's light first eases towards the photos', then
    one morphs into the other along the motion between them (the trees
-   swayed a little in the minute between), so nothing shows twice. The zoom carries on through the photos, each giving way
-   to the next, closer one where it covers the frame, until the massif
-   fills it. Each photo's colours are matched to the houses photo's with a
+   swayed a little in the minute between), so nothing shows twice. The
+   zoom carries on through the photos, each giving way to the next, closer
+   one where it covers the frame, until the massif fills it. Each photo's colours are matched to the houses photo's with a
    smooth fitted surface, so no photo's sky shows as a box against the
    next.
 5. **A gentle finish.**
