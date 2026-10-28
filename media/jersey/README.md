@@ -16,8 +16,8 @@ on the front, and कमल गाउँपालिका in a semicircular arc
 | Part | What it is |
 | --- | --- |
 | Shirt | White, with a polo collar over a two-button placket. It has short set-in sleeves with ribbed cuffs. The collar and cuffs are tipped with a navy and a crimson stripe, the colours of Nepal's flag. |
-| Buttons | Two domed gold metal buttons on the placket, each with a navy rim, a navy enamel star and a glint of light. The placket is piped navy and crimson. The board shows a button up close. |
-| Star | One winning star above the crest. It is large and gold, and each arm is faceted light and dark, so it catches the eye like a medal. It has a navy outline and two small sparkles beside it. |
+| Buttons | Two domed gold metal buttons on the placket, each with a navy rim, two engraved rings and a glint of light. The placket is piped navy and crimson. The board shows a button up close. |
+| Star | One winning star above the crest, the only star on the shirt. It is large and gold, and each arm is faceted light and dark, so it catches the eye like a medal. It has a navy outline. |
 | Crest | A shield with a navy and gold rim. A crimson band at the top carries कमल. Below it, a lotus (कमल) stands before snow peaks, over water. |
 | Back | कमल गाउँपालिका in a semicircular arch (140°) across the shoulders, in Khand Bold, navy with a thin crimson shadow. |
 
@@ -50,8 +50,7 @@ out as printed arch lettering does.
 - **Back name.** The arch is about 30 cm wide and 12.5 cm high, centred. Its
   top sits about 8 cm below the collar. `print-back-name.png` is at about
   280 dpi at this size.
-- **Buttons.** Gold metal shank buttons (about 15 mm) with an enamel star,
-  or plain gold metal buttons.
+- **Buttons.** Gold metal shank buttons, about 15 mm.
 - **Method.** The faceted gold star and the crest's colours print best by
   sublimation or DTF. For screen printing, the star can be flat gold with a
   navy outline.

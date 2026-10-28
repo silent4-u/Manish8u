@@ -19,11 +19,12 @@ which shapes the Devanagari properly:
            is made transparent); otherwise a shield drawn here: a crimson band
            with the name कमल, and below it a lotus (कमल) before the snow
            peaks, over water, in a navy and gold rim
-  star     one winning star above the crest, large and gold, each arm faceted
-           light and dark so it catches the eye like a medal, outlined in navy
-           with two small sparkles
-  buttons  domed gold metal on the placket, each in a navy rim with a navy
-           enamel star and a glint of light; the placket piped navy and crimson
+  star     one winning star above the crest, the only star on the shirt:
+           large and gold, each arm faceted light and dark so it catches the
+           eye like a medal, outlined in navy
+  buttons  domed gold metal on the placket, each in a navy rim with two
+           engraved rings and a glint of light; the placket piped navy and
+           crimson
   back     कमल गाउँपालिका in a semicircular arch across the shoulders, in
            Khand Bold, navy with a thin crimson shadow. Devanagari set along a
            curve breaks its headline (each letter turns on its own), so the
@@ -140,9 +141,9 @@ def star_points(cx, cy, R, r):
     return pts
 
 
-def star(cx, cy, R, sparkle=True, shadow=True):
+def star(cx, cy, R, shadow=True):
     """The winning star: five arms, each split along its ridge into a light
-    and a dark facet, gold, in a navy outline; and two small sparkles."""
+    and a dark facet, gold, in a navy outline."""
     pts = star_points(cx, cy, R, R * 0.45)
     poly = " ".join(f"{x:.2f},{y:.2f}" for x, y in pts)
     facets = ""
@@ -155,24 +156,17 @@ def star(cx, cy, R, sparkle=True, shadow=True):
            f'stroke-width="{R * 0.16:.2f}" stroke-linejoin="round"/>'
            f'{facets}<polygon points="{poly}" fill="none" stroke="#FFF6CC" stroke-width="{R * 0.03:.2f}" '
            f'stroke-linejoin="round" opacity="0.8"/></g>')
-    if sparkle:
-        for (dx, dy, s) in ((1.15, -0.75, 0.22), (-1.2, -0.35, 0.15)):
-            x, y, a = cx + dx * R, cy + dy * R, s * R
-            out += (f'<path d="M {x} {y - a} Q {x} {y} {x + a} {y} Q {x} {y} {x} {y + a} Q {x} {y} {x - a} {y} '
-                    f'Q {x} {y} {x} {y - a} Z" fill="{GOLD}" stroke="{NAVY}" stroke-width="{R * 0.025:.2f}"/>')
     return out
 
 
 def button(cx, cy, r):
     """A domed gold metal button, r in radius: a navy rim, a gold dome lit
-    from the upper left with an engraved ring, a navy enamel star at its
-    centre, and a glint."""
-    pts = " ".join(f"{x:.2f},{y:.2f}" for x, y in star_points(cx, cy, r * 0.42, r * 0.19))
+    from the upper left with two engraved rings, and a glint."""
     return (f'<g filter="url(#lift)">'
             f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{NAVY}"/>'
             f'<circle cx="{cx}" cy="{cy}" r="{r * 0.84:.2f}" fill="url(#btnGold)"/>'
             f'<circle cx="{cx}" cy="{cy}" r="{r * 0.62:.2f}" fill="none" stroke="#B57A00" stroke-width="{r * 0.07:.2f}" opacity="0.7"/>'
-            f'<polygon points="{pts}" fill="{NAVY}" stroke="#FFE9A0" stroke-width="{r * 0.03:.2f}" stroke-linejoin="round"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="{r * 0.34:.2f}" fill="none" stroke="#B57A00" stroke-width="{r * 0.06:.2f}" opacity="0.6"/>'
             f'<ellipse cx="{cx - r * 0.33:.2f}" cy="{cy - r * 0.4:.2f}" rx="{r * 0.26:.2f}" ry="{r * 0.13:.2f}" '
             f'transform="rotate(-35 {cx - r * 0.33:.2f} {cy - r * 0.4:.2f})" fill="#FFFFFF" opacity="0.75"/></g>')
 
@@ -492,7 +486,7 @@ def board():
 <g transform="translate(990 170) scale(1.05)">{back()}</g>
 <text x="1515" y="1225" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="26" letter-spacing="4" fill="#5E5852">BACK · पछाडि</text>
 <rect x="2010" y="210" width="300" height="420" rx="24" fill="#FFFFFF" stroke="#DDD8CF"/>
-<g>{star(2160, 330, 70, sparkle=True)}{crest(2160, 520, 150)}</g>
+<g>{star(2160, 330, 70)}{crest(2160, 520, 150)}</g>
 <text x="2160" y="670" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="20" letter-spacing="3" fill="#5E5852">CREST + STAR</text>
 {swatch(2030, 740, WHITE, "White", "base")}
 {swatch(2030, 830, NAVY, "Navy", NAVY)}
@@ -514,7 +508,7 @@ def main():
         (board(), HERE / "jersey-board.png", 2400, 1300, 1),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{front()}'), 1000, 1000), HERE / "jersey-front.png", 1000, 1000, 2),
         (html(svg(f'<rect width="1000" height="1000" fill="#EEEBE5"/>{back()}'), 1000, 1000), HERE / "jersey-back.png", 1000, 1000, 2),
-        (html(svg(star(150, 120, 92, sparkle=False, shadow=False) + crest(150, 330, 200, shadow=False), 300, 470), 300, 470),
+        (html(svg(star(150, 120, 92, shadow=False) + crest(150, 330, 200, shadow=False), 300, 470), 300, 470),
          HERE / "print-crest-star.png", 300, 470, 4),
     ]
     render(jobs)
