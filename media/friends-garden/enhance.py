@@ -23,12 +23,16 @@ blocky from JPEG, and dull, the two in shade under a white sky.
      crisp, without the glassy eyes and waxy skin a GAN gives on its own. It
      is then taken down to 3840 pixels tall, sharpened lightly on lightness
      alone, and given a fine grain.
-
-  6. Faces. Each face is about 60 pixels wide in the
-     photo, too little for the enlargement to sharpen. CodeFormer redraws
-     them at high fidelity (FACE_FIDELITY), from the enlarged picture; each
-     is colour-matched and blended back through a feathered ellipse
+  6. Faces. Each face is about 60 pixels wide in the photo, too little for
+     the enlargement to sharpen. CodeFormer redraws them at high fidelity
+     (FACE_FIDELITY), from the enlarged picture; each is colour-matched and
+     blended back through a feathered ellipse
      (../old-photo/regenerate_faces.py).
+  7. Faces, brighter and smoother. Inside a feathered oval round each face,
+     the light is lifted again, most in the shadows, and the skin's fine
+     texture is softened by an edge-keeping guided filter, so eyes, brows,
+     lips and the hairline stay sharp; a little of the texture is put back,
+     so skin stays skin.
 
   friends-4k.jpg          3022 x 3840, the whole photo, the faces sharpened by CodeFormer
   friends-4k-natural.jpg  the same, the faces as the enlargement leaves them
@@ -60,7 +64,10 @@ FACE_FIDELITY = 0.85          # CodeFormer: 1 keeps closest to the face as it is
 HEIGHT = 3840                 # 4K, on the long side
 KEEP_MIST = 0.55              # mist kept: t ** KEEP_MIST (1 keeps it all, 0 clears it)
 LIFT = 1.7                    # how far the light is lifted: 1 - (1 - L) ** LIFT
-FACE_LIGHT = 0.10             # and the skin a touch more, out of the shade
+FACE_LIGHT = 0.16             # and the skin a touch more, out of the shade
+FACE_LIFT = 1.35              # the faces lifted again: 1 - (1 - L) ** FACE_LIFT, inside an oval
+SMOOTH = 0.9                  # how far the faces' skin texture is softened (0 none, 1 all)
+KEEP_TEXTURE = 0.2            # of the softened texture, this much put back, so skin stays skin
 CLARITY = 1.3                 # the fine detail, laid back this much stronger
 CURVE = 0.25                  # the S-curve's share
 VIBRANCE = 0.55               # faint colours made this much richer at most
@@ -168,13 +175,52 @@ def restore_faces(big, small):
     return rf.regenerate_faces(big, faces, scale, np.zeros(2, np.float32)), faces
 
 
-def finish(f):
-    """A light unsharp on lightness alone, and a fine grain."""
+def glow_faces(f, faces, scale):
+    """Each face brighter and its skin smoother, inside a feathered oval: the
+    light lifted most in the shadows; the skin's fine texture softened by an
+    edge-keeping guided filter (eyes, brows, lips and the hairline are strong
+    edges, and stay sharp), a little of it put back. `f` is float BGR, the
+    faces as detect_faces gives them in a picture `scale` times smaller.
+    Returns the picture and the faces' ovals (0..1), where the finish is
+    to sharpen less and add less grain."""
+    out = f.copy()
+    ovals = np.zeros(f.shape[:2], np.float32)
+    h, w = f.shape[:2]
+    for _, pts, _ in faces:
+        p = pts * scale
+        eyes = np.linalg.norm(p[1] - p[0])
+        c = (p[0] + p[1] + p[3] + p[4]) / 4
+        angle = np.degrees(np.arctan2(p[1][1] - p[0][1], p[1][0] - p[0][0]))
+        r = int(1.9 * eyes)
+        x0, y0, x1, y1 = max(0, int(c[0]) - r), max(0, int(c[1]) - r), min(w, int(c[0]) + r), min(h, int(c[1]) + r)
+        roi = out[y0:y1, x0:x1]
+        oval = np.zeros(roi.shape[:2], np.float32)
+        cv2.ellipse(oval, (int(c[0]) - x0, int(c[1]) - y0), (int(1.05 * eyes), int(1.45 * eyes)), angle, 0, 360, 1, -1)
+        oval = cv2.GaussianBlur(oval, (0, 0), 0.22 * eyes)
+        lab = cv2.cvtColor(roi.astype(np.float32), cv2.COLOR_BGR2LAB)
+        grey = cv2.cvtColor(roi.astype(np.float32), cv2.COLOR_BGR2GRAY)
+        k = max(2, int(0.2 * eyes))
+        soft = np.dstack([guided(grey, roi[..., i].astype(np.float32), k, 0.004) for i in range(3)])
+        soft = soft + KEEP_TEXTURE * (roi - soft)
+        mix = (SMOOTH * oval * skin(lab))[..., None]
+        roi = roi * (1 - mix) + soft * mix
+        lab = cv2.cvtColor(np.clip(roi, 0, 1).astype(np.float32), cv2.COLOR_BGR2LAB)
+        L = lab[..., 0] / 100
+        lab[..., 0] = 100 * (L + oval * ((1 - (1 - L) ** FACE_LIFT) - L))
+        out[y0:y1, x0:x1] = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+        ovals[y0:y1, x0:x1] = np.maximum(ovals[y0:y1, x0:x1], oval)
+    return np.clip(out, 0, 1), ovals
+
+
+def finish(f, calm=None):
+    """A light unsharp on lightness alone, and a fine grain; both eased where
+    `calm` (0..1) is, so smoothed skin stays smooth."""
     lab = cv2.cvtColor(np.clip(f, 0, 1).astype(np.float32), cv2.COLOR_BGR2LAB)
     L = lab[..., 0]
-    L = L + 0.35 * (L - cv2.GaussianBlur(L, (0, 0), 1.6))
+    ease = 1 - 0.75 * (calm if calm is not None else 0)
+    L = L + 0.35 * ease * (L - cv2.GaussianBlur(L, (0, 0), 1.6))
     rng = np.random.default_rng(3)
-    L = L + cv2.GaussianBlur(rng.standard_normal(L.shape).astype(np.float32), (0, 0), 0.7) * 0.9
+    L = L + cv2.GaussianBlur(rng.standard_normal(L.shape).astype(np.float32), (0, 0), 0.7) * 0.9 * ease
     lab[..., 0] = np.clip(L, 0, 100)
     return np.clip(cv2.cvtColor(lab, cv2.COLOR_LAB2BGR), 0, 1)
 
@@ -199,8 +245,10 @@ def main():
     lit8 = (lit * 255 + 0.5).astype(np.uint8)
     faced, faces = restore_faces(big8, lit8)
     results = {}
+    scale = np.array([size[0] / w, size[1] / h], np.float32)
     for path, picture in ((OUTPUT, faced.astype(np.float32) / 255), (OUTPUT_NATURAL, big)):
-        out8 = (finish(picture) * 255 + 0.5).astype(np.uint8)
+        picture, ovals = glow_faces(picture.astype(np.float32), faces, scale)
+        out8 = (finish(picture, ovals) * 255 + 0.5).astype(np.uint8)
         cv2.imwrite(str(path), out8, [cv2.IMWRITE_JPEG_QUALITY, 95])
         results[path] = out8
         print(f"wrote {path.name} ({size[0]} x {size[1]})")

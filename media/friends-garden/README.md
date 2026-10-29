@@ -50,6 +50,15 @@ How it is made:
      lips come out sharp.
    - `friends-4k-natural.jpg` keeps the faces without this, if you prefer
      them untouched.
+7. **Faces, brighter and smoother.** This is done in both versions, inside a
+   feathered oval round each face.
+   - The light is lifted again, most in the shadows: each face is about 23
+     levels of 255 brighter than before this step.
+   - The skin's fine texture is softened by an edge-keeping guided filter,
+     so the eyes, brows, lips and hairline stay sharp. A fifth of the texture
+     is put back, so the skin still looks like skin.
+   - The final sharpening and grain are eased on the faces, so they stay
+     smooth.
 
 ```sh
 pip install numpy opencv-python-headless onnx onnxruntime
