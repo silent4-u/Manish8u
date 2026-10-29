@@ -81,7 +81,7 @@ VIEW = (1000, 1000)
 CREST_AT, CREST_W = (632, 432), 112       # the logo's centre and width on the front (the left chest)
 STAR_AT, STAR_R = (632, 340), 38          # the star's centre and outer radius, above it
 ARCH = 140                                # the back name's arch, in degrees of the circle
-NAME_TOP, NAME_W = 206, 410               # where the arched name's top sits on the back, and its width
+NAME_TOP, NAME_W = 268, 410               # the arched name's top (the upper middle of the back), and its width
 PLACE = "झापा"                             # under the name, inside its arch
 
 

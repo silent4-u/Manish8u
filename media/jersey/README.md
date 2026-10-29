@@ -51,7 +51,8 @@ out as printed arch lettering does.
   shoulder seam. `logo.png` is at about 280 dpi at this size.
 - **Star.** Centred about 1.5 cm above the logo, about 5 cm across.
 - **Back.** The arch is about 30 cm wide and 12.5 cm high, centred, with
-  झापा inside it. Its top sits about 8 cm below the collar.
+  झापा inside it, in the upper middle of the back: its top sits about
+  11 cm below the collar.
   `print-back-name.png` is at about 280 dpi at this size.
 - **Buttons.** Gold metal shank buttons, about 15 mm.
 - **Method.** The faceted gold star, its glow and the logo's colours print
