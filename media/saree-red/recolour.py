@@ -23,20 +23,30 @@ everything else (the skin, hair, bangles, wall and table) stays as it is:
      - The blouse becomes a soft red.
      - The cream motifs elsewhere stay as they are.
 
-  saree-red.jpg      the portrait, saree and blouse in red
+  4. The sparkle. The Gemini sparkle at the lower right lies on the
+     table. It is found by its brightness against the table (MARK is
+     where to look), and filled in by LaMa (../old-photo/deep_clean.py)
+     from the table round it.
+
+  saree-red.jpg      the portrait, saree and blouse in red, no sparkle
   before-after.jpg   the photo and the new one side by side
 
-    pip install numpy opencv-python-headless
+    pip install numpy opencv-python-headless onnxruntime
     python3 media/saree-red/recolour.py
 """
 
+import sys
 from pathlib import Path
 
 import cv2
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent / "old-photo"))
+from deep_clean import Lama  # noqa: E402
+
 SOURCE = HERE / "photo.webp"
+MARK = (1250, 675, 1325, 750)      # where the sparkle is (x0, y0, x1, y1)
 
 # Outlines, drawn by eye on the 1344 x 768 photo.
 SAREE = [(330, 140), (470, 90), (620, 35), (700, 12), (800, 12), (870, 42), (950, 112), (1010, 172),
@@ -130,13 +140,27 @@ def recolour(bgr):
     return np.clip(out * 255 + 0.5, 0, 255).astype(np.uint8)
 
 
+def unmark(bgr):
+    """The sparkle filled in from the table round it."""
+    x0, y0, x1, y1 = MARK
+    L = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)[..., 0].astype(np.float32)
+    box = L[y0:y1, x0:x1]
+    # The table round the sparkle: the box's border, below the table's edge.
+    table = np.median(box[-8:])
+    mark = np.zeros(L.shape, np.uint8)
+    mark[y0:y1, x0:x1] = box > table + 18
+    mark = cv2.dilate(mark, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))) > 0
+    print(f"sparkle: {mark.sum()} px")
+    return Lama().fill(bgr, mark)
+
+
 def side_by_side(before, after, gap=16):
     return np.hstack([before, np.full((before.shape[0], gap, 3), 255, np.uint8), after])
 
 
 def main():
     img = cv2.imread(str(SOURCE))
-    out = recolour(img)
+    out = recolour(unmark(img))
     cv2.imwrite(str(HERE / "saree-red.jpg"), out, [cv2.IMWRITE_JPEG_QUALITY, 96])
     cv2.imwrite(str(HERE / "before-after.jpg"), side_by_side(img, out), [cv2.IMWRITE_JPEG_QUALITY, 92])
     print(f"wrote saree-red.jpg ({out.shape[1]} x {out.shape[0]}) and before-after.jpg")

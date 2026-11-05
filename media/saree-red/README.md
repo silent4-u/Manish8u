@@ -2,12 +2,13 @@
 
 `photo.webp` is a portrait (1344 × 768) in a blue and olive saree with cream
 paisley motifs, and a pale mint blouse. `recolour.py` makes the saree and the
-blouse red. Everything else stays exactly as it was: the face, skin, hair,
-bindi, bangles, the wall and the table.
+blouse red, and removes the Gemini sparkle from the lower right. Everything
+else stays exactly as it was: the face, skin, hair, bindi, bangles, the wall
+and the table.
 
 | File | Size | What it is |
 | --- | --- | --- |
-| `saree-red.jpg` | 1344 × 768 | The portrait, with the saree and blouse in red |
+| `saree-red.jpg` | 1344 × 768 | The portrait, with the saree and blouse in red, and no sparkle |
 | `before-after.jpg` | | The photo and the new one side by side |
 
 | Part | Before | After |
@@ -36,12 +37,20 @@ How it is made:
    the olive's own hue, only lighter, so no colour rule can tell them
    apart. Both keep their lightness and chroma, and are only turned from
    greenish to the warm cream of the other motifs.
+5. **The sparkle.** The Gemini sparkle at the lower right lies on the
+   table. It is found by its brightness against the table (`MARK` is where
+   to look), and filled in by LaMa (`../old-photo/deep_clean.py`) from the
+   table round it, so the table's grain and its back edge run on through.
+   Gemini also puts an invisible SynthID watermark in its images; that is
+   in the pixels themselves, and stays.
 
 The shades are set at the top of `recolour.py` (`RED`, `DEEP_RED`,
 `SOFT_RED`): each is a hue, a chroma, and a lightness scale. Raise the
 chroma for a stronger red, or lower it for a softer one.
 
 ```sh
-pip install numpy opencv-python-headless
+pip install numpy opencv-python-headless onnxruntime
 python3 media/saree-red/recolour.py
 ```
+
+The LaMa model downloads on first use, and is cached in `~/.cache/lama`.
