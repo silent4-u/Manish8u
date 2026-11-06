@@ -30,3 +30,13 @@ materials-source/
 .env
 .env.local
 .env.*.local
+
+# Real-ESRGAN intermediates; media/sunset/upscale.py regenerates them.
+media/sunset/*-x4.png
+media/sunset/*-x4plus.png
+media/flight/window-x4plus.png
+media/flight/.chunks/
+
+# Python bytecode from the media scripts importing one another.
+__pycache__/
+media/old-photo/friends-cleaned.jpg

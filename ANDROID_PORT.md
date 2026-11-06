@@ -86,8 +86,13 @@ Not verified: anything touching Compose, AndroidX, resources or the manifest.
 
 1. Point Gradle at an SDK (`ANDROID_HOME`, or `android/local.properties` with
    `sdk.dir=...`). `settings.gradle.kts` only includes `:app` when one is
-   present, so `:core:test` keeps working without it.
-2. `./gradlew :app:assembleDebug` and work through the errors. Likely spots:
+   present, so `:core:test` keeps working without it; `-PcoreOnly` skips
+   `:app` even with an SDK, which is how CI runs on GitHub's runners.
+2. `./gradlew :app:assembleDebug` and work through the errors. The first is
+   known: `android/build.gradle.kts` must also declare `android-application`,
+   `kotlin-android` and `kotlin-compose` with `apply false`, or Gradle stops
+   with "plugin is already on the classpath with an unknown version", since
+   the root already loads the Kotlin plugin for `:core`. Other likely spots:
    experimental Compose APIs whose opt-in moved, Material 3 signatures that
    changed between versions, and the dependency versions in
    `gradle/libs.versions.toml`, which were current in early 2026 and should be
