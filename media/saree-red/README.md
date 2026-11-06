@@ -2,13 +2,15 @@
 
 `photo.webp` is a portrait (1344 × 768) in a blue and olive saree with cream
 paisley motifs, and a pale mint blouse. `recolour.py` makes the saree and the
-blouse red, and removes the Gemini sparkle from the lower right. Everything
+blouse red, removes the Gemini sparkle from the lower right, and makes it
+4K. Everything
 else stays exactly as it was: the face, skin, hair, bindi, bangles, the wall
 and the table.
 
 | File | Size | What it is |
 | --- | --- | --- |
-| `saree-red.jpg` | 1344 × 768 | The portrait, with the saree and blouse in red, and no sparkle |
+| `saree-red-4k.jpg` | 3840 × 2194 | The portrait in 4K, the saree and blouse in red, no sparkle |
+| `saree-red.jpg` | 1344 × 768 | The same at the photo's own size |
 | `before-after.jpg` | | The photo and the new one side by side |
 
 | Part | Before | After |
@@ -43,14 +45,21 @@ How it is made:
    table round it, so the table's grain and its back edge run on through.
    Gemini also puts an invisible SynthID watermark in its images; that is
    in the pixels themselves, and stays.
+6. **4K.** Real-ESRGAN (`../sunset/upscale.py`) enlarges it 4x, blended half
+   and half with a plain Lanczos enlargement. That keeps it crisp without
+   the waxy skin a GAN gives on its own. It is then taken to 3840 px wide,
+   sharpened lightly on lightness alone, and given a fine grain. The photo
+   is not quite 16:9 (it is 7:4), so 3840 × 2194 keeps all of it; a 16:9
+   frame (3840 × 2160) would cut 17 px from the top and bottom.
 
 The shades are set at the top of `recolour.py` (`RED`, `DEEP_RED`,
 `SOFT_RED`): each is a hue, a chroma, and a lightness scale. Raise the
 chroma for a stronger red, or lower it for a softer one.
 
 ```sh
-pip install numpy opencv-python-headless onnxruntime
-python3 media/saree-red/recolour.py
+pip install numpy opencv-python-headless onnx onnxruntime
+python3 media/saree-red/recolour.py      # about 40 seconds on CPU
 ```
 
-The LaMa model downloads on first use, and is cached in `~/.cache/lama`.
+The LaMa and Real-ESRGAN models download on first use, and are cached in
+`~/.cache`, not in the repository.

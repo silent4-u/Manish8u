@@ -28,10 +28,17 @@ everything else (the skin, hair, bangles, wall and table) stays as it is:
      where to look), and filled in by LaMa (../old-photo/deep_clean.py)
      from the table round it.
 
+  5. 4K. Real-ESRGAN (../sunset/upscale.py) enlarges it 4x, blended half
+     and half with a plain Lanczos enlargement, so it is crisp without the
+     waxy skin a GAN gives on its own. It is then taken to 3840 px wide
+     (the photo is not quite 16:9, so 3840 x 2194 keeps all of it),
+     sharpened lightly on lightness alone, and given a fine grain.
+
   saree-red.jpg      the portrait, saree and blouse in red, no sparkle
+  saree-red-4k.jpg   the same in 4K, 3840 x 2194
   before-after.jpg   the photo and the new one side by side
 
-    pip install numpy opencv-python-headless onnxruntime
+    pip install numpy opencv-python-headless onnx onnxruntime
     python3 media/saree-red/recolour.py
 """
 
@@ -43,10 +50,15 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "old-photo"))
+sys.path.insert(0, str(HERE.parent / "sunset"))
+import onnxruntime as ort  # noqa: E402
+import upscale as sr  # noqa: E402
 from deep_clean import Lama  # noqa: E402
 
 SOURCE = HERE / "photo.webp"
 MARK = (1250, 675, 1325, 750)      # where the sparkle is (x0, y0, x1, y1)
+WIDTH_4K = 3840
+GAN_SHARE = 0.5                    # Real-ESRGAN's share of the enlargement
 
 # Outlines, drawn by eye on the 1344 x 768 photo.
 SAREE = [(330, 140), (470, 90), (620, 35), (700, 12), (800, 12), (870, 42), (950, 112), (1010, 172),
@@ -154,6 +166,24 @@ def unmark(bgr):
     return Lama().fill(bgr, mark)
 
 
+def enlarge(bgr):
+    """Real-ESRGAN 4x blended with Lanczos, down to 4K; a light unsharp on
+    lightness alone, and a fine grain."""
+    sess = ort.InferenceSession(sr.build(sr.weights()).SerializeToString(), providers=["CPUExecutionProvider"])
+    gan = sr.upscale_tiled(sess, bgr).astype(np.float32) / 255
+    plain = cv2.resize(bgr, (gan.shape[1], gan.shape[0]), interpolation=cv2.INTER_LANCZOS4).astype(np.float32) / 255
+    size = (WIDTH_4K, round(WIDTH_4K * bgr.shape[0] / bgr.shape[1]))
+    big = cv2.resize(GAN_SHARE * gan + (1 - GAN_SHARE) * plain, size, interpolation=cv2.INTER_AREA)
+    lab = cv2.cvtColor(np.clip(big, 0, 1).astype(np.float32), cv2.COLOR_BGR2LAB)
+    L = lab[..., 0]
+    L = L + 0.3 * (L - cv2.GaussianBlur(L, (0, 0), 1.6))
+    rng = np.random.default_rng(3)
+    L = L + cv2.GaussianBlur(rng.standard_normal(L.shape).astype(np.float32), (0, 0), 0.7) * 0.8
+    lab[..., 0] = np.clip(L, 0, 100)
+    out = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+    return np.clip(out * 255 + 0.5, 0, 255).astype(np.uint8)
+
+
 def side_by_side(before, after, gap=16):
     return np.hstack([before, np.full((before.shape[0], gap, 3), 255, np.uint8), after])
 
@@ -164,6 +194,9 @@ def main():
     cv2.imwrite(str(HERE / "saree-red.jpg"), out, [cv2.IMWRITE_JPEG_QUALITY, 96])
     cv2.imwrite(str(HERE / "before-after.jpg"), side_by_side(img, out), [cv2.IMWRITE_JPEG_QUALITY, 92])
     print(f"wrote saree-red.jpg ({out.shape[1]} x {out.shape[0]}) and before-after.jpg")
+    big = enlarge(out)
+    cv2.imwrite(str(HERE / "saree-red-4k.jpg"), big, [cv2.IMWRITE_JPEG_QUALITY, 95])
+    print(f"wrote saree-red-4k.jpg ({big.shape[1]} x {big.shape[0]})")
 
 
 if __name__ == "__main__":
