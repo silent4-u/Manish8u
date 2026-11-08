@@ -13,10 +13,12 @@ rangoli itself is not redrawn: every grain of powder is the photo's own.
   3. Colour. The photo was a little cool: the white powder was bluish and
      the concrete greenish. A small warm shift makes the white powder clean
      and the floor a neutral grey.
-  4. Rangoli. A little more colour depth, more in the softer colours than
-     the strong ones, so nothing turns neon. A little local contrast, so the
-     combed ridges and the grain of the powder stand out. The whites are
-     lifted a touch.
+  4. Rangoli. Richer colour: every colour a fifth deeper, the softer ones
+     more, and each pixel only as far as it stays a colour a screen can
+     show, so the strong yellows and blues keep their grain instead of
+     turning into flat blobs. The white powder is left white. A little
+     local contrast, so the combed ridges and the grain of the powder stand
+     out. The whites are lifted a touch.
   5. Light. A soft vignette darkens the floor towards the corners, so the
      eye goes to the rangoli. A light sharpening on lightness alone.
 
@@ -41,7 +43,8 @@ SOURCE = HERE / "photo.webp"
 CROP = (48, 677, 1848, 2927)       # x0, y0, x1, y1: 4:5, centred on the rangoli, above the sandals
 WARM = (1.5, 3.5)                  # added to Lab a and b
 EVEN = 0.5                         # how much of the floor's blotchiness is evened out
-VIBRANCE = 0.2
+SATURATION = 0.2                   # every colour of the rangoli this much deeper
+VIBRANCE = 0.4                     # and the softer colours up to this much more
 CLARITY = 0.35
 VIGNETTE = 0.2
 
@@ -86,6 +89,32 @@ def clean_floor(bgr, art, lama):
     return lama.fill(bgr, flecks) if flecks.any() else bgr
 
 
+# Linear sRGB from CIE XYZ (D65), to tell which Lab colours a screen can show.
+XYZ_TO_RGB = np.array([[3.2404542, -1.5371385, -0.4985314],
+                       [-0.9692660, 1.8760108, 0.0415560],
+                       [0.0556434, -0.2040259, 1.0572252]], np.float32)
+
+
+def in_gamut(L, A, B, eps=0.002):
+    fy = (L + 16) / 116
+    finv = lambda t: np.where(t > 6 / 29, t ** 3, 3 * (6 / 29) ** 2 * (t - 4 / 29))
+    xyz = np.stack([0.950456 * finv(fy + A / 500), finv(fy), 1.088754 * finv(fy - B / 200)], -1)
+    rgb = xyz @ XYZ_TO_RGB.T
+    return np.all((rgb >= -eps) & (rgb <= 1 + eps), -1)
+
+
+def richer(L, A, B, k):
+    """Chroma scaled by k, each pixel only as far as it stays inside sRGB
+    (found by halving), so saturated powder keeps its grain."""
+    lo, hi = np.ones_like(k), k.copy()
+    for _ in range(7):
+        mid = (lo + hi) / 2
+        good = in_gamut(L, A * mid, B * mid)
+        lo, hi = np.where(good, mid, lo), np.where(good, hi, mid)
+    s = np.where(in_gamut(L, A * k, B * k), k, lo)
+    return A * s, B * s
+
+
 def enhance(bgr, art):
     L, A, B = to_lab(bgr)
     h, w = L.shape
@@ -97,13 +126,14 @@ def enhance(bgr, art):
     f = (~art).astype(np.float32)
     ill = cv2.GaussianBlur(L * f, (0, 0), 60) / np.maximum(cv2.GaussianBlur(f, (0, 0), 60), 1e-3)
     L = L - EVEN * floor * (ill - np.median(L[~art]))
-    # Rangoli: colour depth, more in softer colours; local contrast; whites lifted.
-    C = np.hypot(A, B)
-    k = 1 + VIBRANCE * soft_art * (1 - np.clip(C / 70, 0, 1))
-    A, B = A * k, B * k
+    # Rangoli: local contrast; whites lifted; richer colour, the white powder kept white.
     base = cv2.bilateralFilter(L.astype(np.float32), 0, 8, 5)
     L = L + CLARITY * soft_art * (L - base)
     L = L + soft_art * 0.25 * np.clip(L - 75, 0, None) * (1 - np.clip((L - 75) / 30, 0, 1))
+    C = np.hypot(A, B)
+    coloured = np.clip((C - 4) / 10, 0, 1)
+    k = 1 + soft_art * coloured * (SATURATION + VIBRANCE * (1 - np.clip(C / 80, 0, 1)))
+    A, B = richer(L, A, B, k)
     # Light: a soft vignette on the floor, round the rangoli's centre.
     ys, xs = np.nonzero(art)
     cy, cx = ys.mean(), xs.mean()

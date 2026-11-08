@@ -28,8 +28,13 @@ How it is made:
    the concrete greenish. A small warm shift makes the white powder clean
    and the floor a natural grey.
 4. **Rangoli.**
-   - A little more colour depth. The softer colours get more of it than the
-     strong ones, so nothing turns neon.
+   - Richer colour. Every colour is made a fifth deeper, and the softer ones
+     up to twice that.
+   - Each pixel is taken only as far as it stays a colour a screen can show
+     (checked in linear sRGB, by halving), so the strong yellows and blues
+     keep their grain instead of turning into flat blobs.
+   - The white powder is left white, so it picks up no tint from the colours
+     beside it.
    - A little local contrast, so the combed ridges and the grain of the
      powder stand out.
    - The whites are lifted a touch.
@@ -38,7 +43,7 @@ How it is made:
    alone.
 
 The strengths are set at the top of `enhance.py`: `WARM`, `EVEN`,
-`VIBRANCE`, `CLARITY` and `VIGNETTE`. `CROP` sets the frame.
+`SATURATION`, `VIBRANCE`, `CLARITY` and `VIGNETTE`. `CROP` sets the frame.
 
 ```sh
 pip install numpy opencv-python-headless onnxruntime
