@@ -22,6 +22,12 @@ in act1/ as shot-1.mp4 ... shot-6.mp4 and cut without the API or a key:
 
     python3 media/fantasy-short/veo_act1.py cut
 
+While some shots are still to come, the ones made so far can be joined at
+their full length into a draft, at 1080p with subtitles burned in (and an
+.srt beside it), as act1-draft.mp4:
+
+    python3 media/fantasy-short/veo_act1.py draft
+
 The key: requests to generativelanguage.googleapis.com need a Gemini API
 key with billing on. In a Claude Code cloud session it is added as a
 network secret (header x-goog-api-key) and sent by the proxy. Elsewhere,
@@ -93,6 +99,19 @@ SHOTS = [
      "says from off screen: \"No. With the man who let it die.\" Audio: grinding doors, wind, the chain on stone."),
 ]
 SCOPE = 2.39                       # picture aspect between the bars
+
+# The lines as spoken in the clips made in Flow, for subtitles: shot, start
+# and end in seconds into that clip, and the text. Timed by voice activity
+# and word timings (webrtcvad, pocketsphinx). Shot 3's line is one Veo
+# added; a second phrase after it is too unclear to subtitle.
+LINES = [
+    (1, 1.20, 5.70, "Every winter, the Sky Lamp\\Nkeeps the dark from our door."),
+    (2, 0.00, 2.60, "Tonight… it went out."),
+    (3, 0.30, 2.10, "Away from the window. Quickly!"),
+    (5, 4.60, 6.20, "Alone?"),
+]
+SUB_STYLE = ("Style: Default,Inter Medium,46,&H00FFFFFF,&H00FFFFFF,&H00101010,&H80000000,"
+             "0,0,0,0,100,100,0.5,0,1,2.2,1.2,2,80,80,72,1")
 
 
 def request(method, url, body=None, raw=False):
@@ -194,8 +213,55 @@ def cut(clips):
     print(f"wrote {out.name} ({total} s)")
 
 
+def stamp(t, srt=False):
+    h, m, s = int(t // 3600), int(t % 3600 // 60), t % 60
+    return f"{h:02d}:{m:02d}:{s:06.3f}".replace(".", ",") if srt else f"{h}:{m:02d}:{s:05.2f}"
+
+
+def draft():
+    """The shots made so far, in order and at full length: 1080p, subtitles
+    burned in (and an .srt beside), each clip's sound evened out."""
+    shots = [n for n in range(1, len(SHOTS) + 1) if (OUT / f"shot-{n}.mp4").exists()]
+    durs = [float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                                  str(OUT / f"shot-{n}.mp4")], capture_output=True, text=True, check=True).stdout)
+            for n in shots]
+    start = {n: sum(durs[:i]) for i, n in enumerate(shots)}
+    total = sum(durs)
+    cues = [(start[n] + a, start[n] + b, text) for n, a, b, text in LINES if n in start]
+    srt = "\n".join(f"{i}\n{stamp(a, True)} --> {stamp(b, True)}\n{text.replace(chr(92) + 'N', chr(10))}\n"
+                     for i, (a, b, text) in enumerate(cues, 1))
+    (HERE / "act1-draft.srt").write_text(srt, encoding="utf-8")
+    ass = HERE / "act1-draft.ass"
+    ass.write_text("[Script Info]\nScriptType: v4.00+\nPlayResX: 1920\nPlayResY: 1080\n\n"
+                   "[V4+ Styles]\nFormat: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,"
+                   "BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,"
+                   "Shadow,Alignment,MarginL,MarginR,MarginV,Encoding\n" + SUB_STYLE + "\n\n"
+                   "[Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n" +
+                   "".join(f"Dialogue: 0,{stamp(a)},{stamp(b)},Default,,0,0,0,,{{\\fad(150,150)}}{text}\n"
+                           for a, b, text in cues), encoding="utf-8")
+    inputs, chain = [], []
+    for i, n in enumerate(shots):
+        inputs += ["-i", str(OUT / f"shot-{n}.mp4")]
+        chain.append(f"[{i}:v]scale=1920:1080:flags=lanczos,unsharp=5:5:0.5,fps=24,format=yuv420p,setsar=1[v{i}]")
+        chain.append(f"[{i}:a]aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-18:TP=-2:LRA=11,"
+                     f"aresample=48000,afade=t=in:d=0.03,afade=t=out:st={durs[i] - 0.05:.2f}:d=0.05[a{i}]")
+    pairs = "".join(f"[v{i}][a{i}]" for i in range(len(shots)))
+    chain.append(f"{pairs}concat=n={len(shots)}:v=1:a=1[vc][ac]")
+    chain.append(f"[vc]subtitles={ass.name},fade=t=in:d=0.8,fade=t=out:st={total - 0.8:.2f}:d=0.8[vout]")
+    chain.append(f"[ac]afade=t=in:d=0.8,afade=t=out:st={total - 0.8:.2f}:d=0.8[aout]")
+    out = HERE / "act1-draft.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(chain),
+                    "-map", "[vout]", "-map", "[aout]", "-c:v", "libx264", "-crf", "20", "-preset", "slow",
+                    "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(out)], check=True, cwd=HERE)
+    ass.unlink()
+    print(f"wrote {out.name} ({total:.1f} s, shots {', '.join(map(str, shots))}) and act1-draft.srt")
+
+
 def main():
     OUT.mkdir(exist_ok=True)
+    if sys.argv[1:] == ["draft"]:
+        draft()
+        return
     if sys.argv[1:] == ["cut"]:
         clips = [OUT / f"shot-{n}.mp4" for n in range(1, len(SHOTS) + 1)]
         missing = [c.name for c in clips if not c.exists()]
