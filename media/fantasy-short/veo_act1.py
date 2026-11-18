@@ -17,6 +17,11 @@ Google's Veo 3.1 through the Gemini API, the model behind Google Flow.
 A shot already made (act1/shot-N.mp4) is not made again, so a run that
 stops can be started again; delete a clip to make a new take of it.
 
+Free: clips made in Google Flow (flow-act1.md has the prompts) can be put
+in act1/ as shot-1.mp4 ... shot-6.mp4 and cut without the API or a key:
+
+    python3 media/fantasy-short/veo_act1.py cut
+
 The key: requests to generativelanguage.googleapis.com need a Gemini API
 key with billing on. In a Claude Code cloud session it is added as a
 network secret (header x-goog-api-key) and sent by the proxy. Elsewhere,
@@ -191,6 +196,13 @@ def cut(clips):
 
 def main():
     OUT.mkdir(exist_ok=True)
+    if sys.argv[1:] == ["cut"]:
+        clips = [OUT / f"shot-{n}.mp4" for n in range(1, len(SHOTS) + 1)]
+        missing = [c.name for c in clips if not c.exists()]
+        if missing:
+            sys.exit(f"missing in {OUT}: {', '.join(missing)}")
+        cut(clips)
+        return
     veo, image = pick_models()
     print(f"models: {veo}, {image}")
     refs = {k: portrait(image, k) for k in CHARACTERS}
