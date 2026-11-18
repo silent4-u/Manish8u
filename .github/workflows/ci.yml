@@ -24,7 +24,8 @@ jobs:
 
   android-core:
     # The core module is pure Kotlin, so it builds without the Android SDK.
-    # The :app module needs an SDK and is skipped automatically when absent.
+    # The runner ships an SDK, so -PcoreOnly keeps Gradle from configuring
+    # :app, which this job does not build.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,4 +35,4 @@ jobs:
           java-version: '17'
       - name: Core unit tests
         working-directory: android
-        run: ./gradlew --no-daemon :core:test
+        run: ./gradlew --no-daemon -PcoreOnly :core:test
