@@ -181,7 +181,7 @@ The lines for these are at the end of this page.
 - **Font:** a white serif Devanagari typeface (for example, Noto Serif Devanagari).
 - **The three "ग़लती" cards:** 1 second each, fading in and out over the picture with a soft glow.
 - **The title:** on black.
-- **Frame:** the whole teaser in 2.39:1 widescreen, with black bars, like the film.
+- **Frame:** full 16:9 (1920 × 1080). `teaser.py --scope` adds 2.39:1 bars, if you want the film's look.
 
 ## Prompt lines
 
@@ -198,6 +198,11 @@ Then the LOOK given in brackets:
 | NIGHT | Night, flickering orange firelight against deep blue darkness, smoke haze, handheld camera, high contrast. |
 
 The character images (`ISH`, `OMI`, `GOVIND`, `VIDYA`, `ALI`, `MAMA`, `DHIRAJ`) are described in `script.md`, under **Characters**.
+
+## Making the clips and the cut
+
+- [`teaser-flow.md`](teaser-flow.md) is a ready-to-paste task for the Claude in Chrome extension. It makes the 17 clips in Flow, at 16:9, inside the free credits.
+- [`teaser.py`](teaser.py) cuts the clips into the teaser. Until every clip is in, it renders `teaser-preview.mp4`, with the cards, the title and the sound in place.
 
 ## Send me the clips
 
