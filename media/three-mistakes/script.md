@@ -1,8 +1,18 @@
-# तीन ग़लतियाँ
+# हिसाब
+
+**तीन दोस्त। तीन ग़लतियाँ। एक हिसाब।**
 
 **A Hindi short film for Google Flow · 34 min 56 s**
 
 Adapted from Chetan Bhagat's novel *The 3 Mistakes of My Life* (2008).
+
+**Why "हिसाब".** The word means accounts, a sum, and a reckoning, and the film runs on all three:
+- Govind keeps the shop's accounts and trusts only sums.
+- His email says he is settling his account with life ("हिसाब बराबर").
+- On the riot night Mama comes to settle a score ("हिसाब कर आया हूँ"), and Omi says the friends' quarrel can wait ("हिसाब बाद में").
+- In the end, the only account that can be settled is settled by forgiveness.
+
+A teaser for the film is in [`teaser.md`](teaser.md).
 
 > "ज़िंदगी को हल नहीं किया जा सकता। बस… थोड़ा बेहतर किया जा सकता है।"
 
@@ -482,7 +492,7 @@ Location stills to make:
 > Aerial over old Ahmedabad at sunrise in the year 2000: dense rooftops, white temple domes, hundreds of colourful kites, pigeons wheeling, a river glinting in the distance.
 
 **T.3** · 4s · black · edit only
-📝 Title: **तीन ग़लतियाँ**, on the crack of a bat.
+📝 Title: **हिसाब**, on the crack of a bat.
 
 🎵 The दोस्ती theme in full: harmonium, guitar, dholak.
 
@@ -2105,7 +2115,7 @@ Location stills to make:
 ### End cards
 **34:36–34:56 · edit only**
 
-1. Black. The crack of a bat echoes and fades. **तीन ग़लतियाँ**
+1. Black. The crack of a bat echoes and fades. **हिसाब**, and under it: तीन दोस्त। तीन ग़लतियाँ। एक हिसाब।
 2. "हर उस घर के नाम, जिसने नफ़रत में किसी अपने को खोया।"
 3. "अगर आप या आपका कोई अपना मुश्किल में है, तो अकेले मत रहिए। बात कीजिए।"
 
