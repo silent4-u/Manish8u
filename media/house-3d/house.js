@@ -162,6 +162,7 @@ const walls = new THREE.Group(); scene.add(walls);          // full-height walls
 const cutWalls = new THREE.Group(); scene.add(cutWalls);    // walls cut at 4 ft, for the plan view
 const ceiling = new THREE.Group(); scene.add(ceiling);
 const labels = new THREE.Group(); scene.add(labels);
+const tall = new THREE.Group(); scene.add(tall);             // above half height: hidden in the half-wall views
 const fans = [];
 
 function addTo(group, mesh, cast = true, recv = true) { mesh.castShadow = cast; mesh.receiveShadow = recv; group.add(mesh); return mesh; }
@@ -254,7 +255,7 @@ function buildWalls(group, top) {
   }
 }
 buildWalls(walls, TOP);
-buildWalls(cutWalls, FL + 4);
+buildWalls(cutWalls, FL + 4.75);    // half of the 9'-6" walls
 // beams over the verandah
 bx(0, 13.5, TOP - 1.0, TOP, 0, 1, M.column, walls);
 bx(0, 1, TOP - 1.0, TOP, 0, 8.25, M.column, walls);
@@ -294,7 +295,7 @@ function leaf(x, z, w, ang, h = DOOR - 0.2, mat = M.wood) {
     bx(0.3, w - 0.3, ya, yb, 0.07, 0.1, M.frame, g, false); bx(0.3, w - 0.3, ya, yb, -0.1, -0.07, M.frame, g, false);
   }
   g.position.set(x, 0, z); g.rotation.y = -ang;
-  scene.add(g); return g;
+  tall.add(g); return g;
 }
 leaf(16.1, 8.2, 2.6, Math.PI / 2 + 0.15);        // main door, hinged on its right, open into the living room
 leaf(13.0, 8.9, 2.85, Math.PI - 0.1);            // bedroom 1, open against its front wall
@@ -408,7 +409,7 @@ function tree(x, z, s = 1) {
     m.castShadow = true; scene.add(m);
   }
 }
-for (const [x, z, s] of [[-16, 27, 1.2], [-18, 45, 1.3], [41, 25, 1.1], [40, 46, 1.3], [6, 56, 1.2], [24, 58, 1.0], [-34, -26, 1.0], [58, -20, 1.1]]) tree(x, z, s);
+for (const [x, z, s] of [[-27, 12, 1.2], [-30, 44, 1.3], [51, 10, 1.1], [54, 42, 1.3], [-24, 70, 1.2], [46, 72, 1.0], [12, 80, 1.2], [-34, -26, 1.0], [58, -20, 1.1]]) tree(x, z, s);
 
 // ---- furniture -----------------------------------------------------------------------------
 function bed(x0, x1, z0, z1, headAt, blanket) {     // headAt: 'z1' or 'z0'
@@ -454,9 +455,9 @@ function curtains(xa, xb, za, zb, mat, inset) {      // two panels either side o
     const m = new THREE.Mesh(geo, mat);
     const c = end === 0 ? (alongX ? xa - 0.5 : za - 0.5) : (alongX ? xb + 0.5 : zb + 0.5);
     if (alongX) m.position.set(c, FL + 4.2, za + inset); else m.position.set(xa + inset, FL + 4.2, c);
-    m.castShadow = true; scene.add(m);
-    if (alongX) bx(xa - 1.4, xb + 1.4, FL + 7.55, FL + 7.65, za + inset - 0.05, za + inset + 0.05, M.steel);
-    else bx(xa + inset - 0.05, xa + inset + 0.05, FL + 7.55, FL + 7.65, za - 1.4, zb + 1.4, M.steel);
+    m.castShadow = true; tall.add(m);
+    if (alongX) bx(xa - 1.4, xb + 1.4, FL + 7.55, FL + 7.65, za + inset - 0.05, za + inset + 0.05, M.steel, tall);
+    else bx(xa + inset - 0.05, xa + inset + 0.05, FL + 7.55, FL + 7.65, za - 1.4, zb + 1.4, M.steel, tall);
   }
 }
 function fan(x, z) {
@@ -506,25 +507,25 @@ bx(13.42, 13.6, FL + 3.0, FL + 5.6, 12.4, 16.8, M.black); bx(13.6, 13.62, FL + 3
 plant(14.3, 17.6, 0.7);
 // passage: wash basin and mirror
 cyl(14.1, FL, FL + 2.6, 20.25, 0.3, M.white, 16); rb(13.4, 14.9, FL + 2.6, FL + 2.95, 19.5, 21.0, M.white, 0.12);
-bx(13.4, 13.45, FL + 3.8, FL + 6.0, 19.6, 20.9, M.mirror);
+bx(13.4, 13.45, FL + 3.8, FL + 6.0, 19.6, 20.9, M.mirror, tall);
 // toilet: wall tiles to 7', WC, shower
-bx(17.25, 24.25, FL, FL + 7, 18.63, 18.68, M.bathWall); bx(17.25, 24.25, FL, FL + 7, 22.57, 22.62, M.bathWall);
-bx(24.2, 24.25, FL, FL + 7, 18.63, 22.62, M.bathWall);
-bx(17.25, 17.3, FL, FL + 7, 18.63, 19.0, M.bathWall); bx(17.25, 17.3, FL, FL + 7, 21.5, 22.62, M.bathWall);
+bx(17.25, 24.25, FL, FL + 7, 18.63, 18.68, M.bathWall, tall); bx(17.25, 24.25, FL, FL + 7, 22.57, 22.62, M.bathWall, tall);
+bx(24.2, 24.25, FL, FL + 7, 18.63, 22.62, M.bathWall, tall);
+bx(17.25, 17.3, FL, FL + 7, 18.63, 19.0, M.bathWall, tall); bx(17.25, 17.3, FL, FL + 7, 21.5, 22.62, M.bathWall, tall);
 bx(23.3, 24.2, FL, FL + 2.6, 19.9, 21.3, M.white);
 const bowl = cyl(22.7, FL, FL + 1.3, 20.6, 0.55, M.white, 24); bowl.scale.set(1.3, 1, 0.85);
-cyl(20.0, FL + 6.0, FL + 6.2, 22.3, 0.35, M.steel, 16); cyl(20.0, FL + 6.2, FL + 7.0, 22.5, 0.04, M.steel, 8);
+cyl(20.0, FL + 6.0, FL + 6.2, 22.3, 0.35, M.steel, 16, tall); cyl(20.0, FL + 6.2, FL + 7.0, 22.5, 0.04, M.steel, 8, tall);
 // kitchen: L counter, sink, hob, chimney, wall cabinets, fridge, table
 bx(16.9, 24.25, FL, FL + 2.8, 32.5, 34.5, M.cabinet); bx(16.85, 24.25, FL + 2.8, FL + 2.95, 32.4, 34.5, M.granite);
 bx(22.25, 24.25, FL, FL + 2.8, 25.4, 32.5, M.cabinet); bx(22.15, 24.25, FL + 2.8, FL + 2.95, 25.4, 32.5, M.granite);
 for (let x = 17.5; x < 24; x += 1.6) bx(x, x + 0.04, FL + 0.2, FL + 2.6, 32.48, 32.5, M.frame);
 for (let z = 26.0; z < 32.5; z += 1.6) bx(22.23, 22.25, FL + 0.2, FL + 2.6, z, z + 0.04, M.frame);
-bx(16.9, 24.25, FL + 2.95, FL + 5.0, 34.42, 34.47, M.backsplash); bx(24.17, 24.22, FL + 2.95, FL + 5.0, 25.4, 34.47, M.backsplash);
+bx(16.9, 24.25, FL + 2.95, FL + 5.0, 34.42, 34.47, M.backsplash, tall); bx(24.17, 24.22, FL + 2.95, FL + 5.0, 25.4, 34.47, M.backsplash, tall);
 bx(19.0, 21.5, FL + 2.75, FL + 2.96, 32.8, 34.2, M.steel); bx(19.2, 21.3, FL + 2.5, FL + 2.97, 33.0, 34.0, std(0x9aa0a5, 0.25, 0.9));
 bx(22.4, 24.0, FL + 2.95, FL + 3.0, 27.2, 29.6, M.black);
 for (const z of [27.8, 29.0]) cyl(23.2, FL + 3.0, FL + 3.06, z, 0.3, M.steel, 20);
-bx(22.6, 24.25, FL + 6.0, FL + 6.8, 27.0, 29.8, M.steel); bx(23.3, 24.25, FL + 6.8, TOP, 27.9, 28.9, M.steel);
-bx(23.0, 24.25, FL + 5.2, FL + 7.6, 30.0, 34.45, M.cabinetAccent); bx(23.0, 24.25, FL + 5.2, FL + 7.6, 25.4, 26.9, M.cabinetAccent);
+bx(22.6, 24.25, FL + 6.0, FL + 6.8, 27.0, 29.8, M.steel, tall); bx(23.3, 24.25, FL + 6.8, TOP, 27.9, 28.9, M.steel, tall);
+bx(23.0, 24.25, FL + 5.2, FL + 7.6, 30.0, 34.45, M.cabinetAccent, tall); bx(23.0, 24.25, FL + 5.2, FL + 7.6, 25.4, 26.9, M.cabinetAccent, tall);
 rb(22.1, 24.2, FL, FL + 5.9, 23.05, 25.3, M.white, 0.12);
 rb(15.0, 18.0, FL + 2.45, FL + 2.6, 28.0, 31.0, M.woodLight, 0.05);
 for (const [x, z] of [[15.2, 28.2], [17.8, 28.2], [15.2, 30.8], [17.8, 30.8]]) cyl(x, FL, FL + 2.45, z, 0.07, M.wood, 8);
@@ -571,6 +572,10 @@ scene.add(sun, sun.target);
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.2, 600);
 const C = new THREE.Vector3(12.5, FL, 17.6);
 function place(px, py, pz, tx, ty, tz) { camera.position.set(px, py, -pz); camera.lookAt(tx, ty, -tz); }
+function half(deg, h = 40) {          // a corner view of the half-wall model
+  const a = THREE.MathUtils.degToRad(deg);
+  place(C.x + 40 * Math.cos(a), h, C.z + 46 * Math.sin(a), C.x, 1.5, C.z);
+}
 const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 function hermite(keys, t) {          // keys: [time, ...values]; Catmull-Rom with uneven times
@@ -616,16 +621,21 @@ const WALK = [
   [60, 8.2, E, 12.6, 0.5, 6.0, 14.5],
 ];
 const SHOTS = {
-  aerial: { dur: 11, setup() { walls.visible = true; cutWalls.visible = false; ceiling.visible = false; labels.visible = false; renderer.toneMappingExposure = 0.95; },
+  aerial: { dur: 11, setup() { tall.visible = true; walls.visible = true; cutWalls.visible = false; ceiling.visible = false; labels.visible = false; renderer.toneMappingExposure = 0.95; },
     cam(t) { const u = ease(t / 11); const a = THREE.MathUtils.degToRad(208 + 122 * u); const r = 40 - 5 * u, h = 33 - 6 * u;
       place(C.x + r * Math.cos(a), h, C.z + r * Math.sin(a), C.x, 2, C.z + 1.5); } },
-  plan: { dur: 7, setup() { walls.visible = false; cutWalls.visible = true; ceiling.visible = false; labels.visible = true; renderer.toneMappingExposure = 1.0; },
+  plan: { dur: 7, setup() { tall.visible = false; walls.visible = false; cutWalls.visible = true; ceiling.visible = false; labels.visible = true; renderer.toneMappingExposure = 1.0; },
     cam(t) { const u = ease(t / 7); place(12.5, 47 - 8 * u, 1 + 3 * u, 12.5, 0, 18.0); } },
-  walk: { dur: 60, setup() { walls.visible = true; cutWalls.visible = false; ceiling.visible = true; labels.visible = false; renderer.toneMappingExposure = 1.1; },
+  walk: { dur: 60, setup() { tall.visible = true; walls.visible = true; cutWalls.visible = false; ceiling.visible = true; labels.visible = false; renderer.toneMappingExposure = 1.1; },
     cam(t) { const [x, y, z, tx, ty, tz] = hermite(WALK, t); place(x, y, z, tx, ty, tz);
       for (const f of fans) f.rotation.y = t * 9; } },
   stillA: { dur: 1, setup() { SHOTS.aerial.setup(); }, cam() { const a = THREE.MathUtils.degToRad(232); place(C.x + 37 * Math.cos(a), 31, C.z + 37 * Math.sin(a), C.x, 2, C.z + 1.5); } },
   stillB: { dur: 1, setup() { SHOTS.aerial.setup(); }, cam() { const a = THREE.MathUtils.degToRad(305); place(C.x + 37 * Math.cos(a), 31, C.z + 37 * Math.sin(a), C.x, 2, C.z + 1.5); } },
+  halfFL: { dur: 1, fov: 40, setup() { SHOTS.plan.setup(); labels.visible = false; }, cam() { half(222); } },
+  halfFR: { dur: 1, fov: 40, setup() { SHOTS.plan.setup(); labels.visible = false; }, cam() { half(318); } },
+  halfRL: { dur: 1, fov: 40, setup() { SHOTS.plan.setup(); labels.visible = false; }, cam() { half(138); } },
+  halfRR: { dur: 1, fov: 40, setup() { SHOTS.plan.setup(); labels.visible = false; }, cam() { half(42); } },
+  halfLabels: { dur: 1, fov: 40, setup() { SHOTS.plan.setup(); }, cam() { half(236, 44); } },
   stillPlan: { dur: 1, setup() { SHOTS.plan.setup(); }, cam() { place(12.5, 41, 3.5, 12.5, 0, 18.0); } },
   stillLiving: { dur: 1, setup() { SHOTS.walk.setup(); }, cam() { place(15.2, E, 17.6, 20.5, 5.0, 10.0); } },
   stillKitchen: { dur: 1, setup() { SHOTS.walk.setup(); }, cam() { place(14.4, E, 24.0, 21.5, 5.0, 32.5); } },
