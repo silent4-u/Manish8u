@@ -485,8 +485,7 @@ def narration(cfg, kind, stories, now):
             title, summ = ai.get("title_ne") or s["title"], ai.get("summary_ne") or ""
         else:
             title, summ = ai.get("title_en") or s["title"], ai.get("summary_en") or ""
-        title = title.replace("[SAMPLE] ", "")
-        lines.append(f"{title}. {summ}".strip())
+        lines.append([title.rstrip(".") + ".", summ] if summ else [title.rstrip(".") + "."])
     outro = "थप समाचारका लागि हाम्रो वेबसाइट हेर्नुहोस्।" if ne else f"For more news, visit {site['name']} online."
     return intro, lines, outro
 
@@ -513,7 +512,7 @@ def make(cfg, kind, stories, out_dir, log=print, sources=None):
         durs += [max(3.5, len(voices[-1]) / SR + 0.8)]
         total = sum(durs)
         # the sound track
-        mix = music_bed(total + 1) * (0.9 if cfg["video"]["music"] else 0)
+        mix = music_bed(total + 1) * (0.55 if cfg["video"]["music"] else 0)
         speech = np.zeros_like(mix)
         start = 0.0
         for i, (v, dur) in enumerate(zip(voices, durs)):
@@ -527,7 +526,7 @@ def make(cfg, kind, stories, out_dir, log=print, sources=None):
         h = hit()
         mix[:len(h)] += h
         duck = np.convolve((np.abs(speech) > 0.01).astype(float), np.ones(SR // 5) / (SR // 5), "same")
-        track = mix * (1 - 0.65 * np.clip(duck * 3, 0, 1)) + speech * 1.0
+        track = mix * (1 - 0.8 * np.clip(duck * 3, 0, 1)) + speech * 1.0     # music dips under the voice
         track = track[:int(total * SR)]
         track = track / max(1e-6, np.abs(track).max()) * 0.89
         wav = tmp / "audio.wav"

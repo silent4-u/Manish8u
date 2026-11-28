@@ -16,7 +16,7 @@ A news website that runs itself. Every 15 minutes it:
    - an intro sting;
    - a live clock and the Bikram Sambat date;
    - a BREAKING banner, the headline and summary, and a scrolling ticker;
-   - narration over a music bed.
+   - a natural narrating voice over a music bed.
 5. **Posts** a bulletin four times a day (06:00, 12:00, 17:00, 21:00 Nepal time;
    add more in `config.yaml`) and every confirmed emergency at once.
 6. **Rebuilds the website.** The site is in English and नेपाली with a
@@ -137,6 +137,29 @@ The Page token doesn't expire. While the app is in development mode it can post
 to Pages you manage; Meta's app review is needed only to post for other people.
 Instagram caps how many posts an account can publish through the API each day.
 
+### The narrating voice
+
+Videos are narrated by a natural-sounding voice, never a robotic one:
+
+- **Piper** (free, the default) downloads its voices from Hugging Face on the
+  first run and keeps them cached. English uses `en_US-ryan-high` and Nepali uses
+  `ne_NP-google-medium`. You can change them under `video.voice.piper` in
+  `config.yaml`; the [voice samples](https://rhasspy.github.io/piper-samples/)
+  page lets you listen first.
+- **Azure neural voices** sound the most like a TV newsreader and include
+  real Nepali voices: `ne-NP-SagarNeural` (male) and `ne-NP-HemkalaNeural`
+  (female). Azure has a free monthly allowance that easily covers four
+  bulletins a day.
+  1. In the [Azure portal](https://portal.azure.com/), create a **Speech**
+     resource. The free F0 tier is enough.
+  2. Save its key and region (e.g. `centralindia`) as the secrets
+     `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION`.
+
+  When those secrets are set, Azure is used automatically.
+
+If no natural voice is available, the video has music and on-screen text only.
+Set `video.voice.allow_robotic: true` to use the robotic espeak-ng voice instead.
+
 ### Optional
 
 - **Telegram**: create a bot with @BotFather and add it to your channel as an
@@ -162,6 +185,7 @@ Instagram caps how many posts an account can publish through the API each day.
 | `emergency.min_sources` | How many different sources must report an event before it is posted. |
 | `emergency.usgs_nepal_magnitude` | Quakes near Nepal at least this strong are alerted. |
 | `video.language` | `en` or `ne`: narration and on-screen text. Nepali needs Claude for translated headlines. |
+| `video.voice` | Which voice narrates (Azure or Piper), its speed, and whether a robotic fallback is allowed. |
 | `video.formats` | `vertical` (Reels, Shorts, TikTok) and/or `horizontal` (1920×1080). |
 | `categories` | Sections and their English/Nepali keywords. |
 
@@ -205,7 +229,7 @@ newshub/collect.py   fetch and parse the feeds (RSS/Atom, USGS, GDACS)
 newshub/classify.py  sections, Nepal/World, emergency detection, ranking
 newshub/ai.py        Claude: categories, emergency judgement, summaries (optional)
 newshub/video.py     the news-channel videos (Pillow frames + ffmpeg)
-newshub/tts.py       narration: Piper voices, else espeak-ng
+newshub/tts.py       narration: Azure or Piper neural voices
 newshub/publish.py   YouTube, TikTok, Facebook, Instagram, Telegram, X
 newshub/site.py      the website (templates in newshub/templates/)
 newshub/auth.py      one-time logins that print the tokens

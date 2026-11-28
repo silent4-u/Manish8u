@@ -7,4 +7,4 @@ pillow>=10.0
 numpy>=1.26
 nepali-datetime>=1.0
 anthropic>=2.0
-piper-tts>=1.2
+piper-tts>=1.3

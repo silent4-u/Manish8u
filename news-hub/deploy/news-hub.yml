@@ -72,12 +72,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/newshub/voices
-          key: piper-voices-v1
+          key: piper-voices-${{ hashFiles(format('{0}/config.yaml', env.NEWS_DIR)) }}
+          restore-keys: piper-voices-
 
       - name: Collect, alert, bulletin, build the site
         working-directory: ${{ env.NEWS_DIR }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}

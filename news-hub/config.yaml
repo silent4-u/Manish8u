@@ -90,9 +90,16 @@ video:
   formats: [vertical]     # vertical (1080x1920: Reels, Shorts, TikTok) and/or horizontal (1920x1080)
   language: en            # en or ne: narration and on-screen summary language
   fps: 25
-  voices:                 # Piper voices, downloaded once and cached
-    en: en_US-lessac-medium
-    ne: ne_NP-google-medium
+  voice:
+    engine: auto          # auto: Azure if its key is set, else Piper. Or: azure, piper
+    speed: 1.0            # 0.9 is slower and calmer, 1.1 faster
+    allow_robotic: false  # with no natural voice: false = no narration, true = espeak-ng (robotic)
+    piper:                # free voices, tried in order; downloaded once and cached
+      en: [en_US-ryan-high, en_US-lessac-high, en_US-lessac-medium]
+      ne: [ne_NP-google-medium, ne_NP-google-x_low]
+    azure:                # needs AZURE_SPEECH_KEY and AZURE_SPEECH_REGION (README.md)
+      en: en-US-AndrewNeural
+      ne: ne-NP-SagarNeural     # or ne-NP-HemkalaNeural (female)
   music: true
   handles: "@khabarhub"   # shown on the closing card
 
