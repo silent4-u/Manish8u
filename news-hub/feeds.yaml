@@ -1,0 +1,29 @@
+# News sources. Each needs: name, url, region (nepal or world), lang (en or ne).
+# Optional: category (a default when no keyword matches), kind (rss, usgs, gdacs).
+# A feed that fails is skipped and logged; check the log after the first runs and
+# remove or fix any address that keeps failing.
+#
+# Only headlines, a short snippet and a link back are shown, as news aggregators do.
+# Read each publisher's terms for their feeds, and ask them before any commercial use.
+
+feeds:
+  # Nepal, English
+  - {name: The Kathmandu Post, url: "https://kathmandupost.com/rss", region: nepal, lang: en}
+  - {name: Onlinekhabar English, url: "https://english.onlinekhabar.com/feed", region: nepal, lang: en}
+  - {name: The Himalayan Times, url: "https://thehimalayantimes.com/feed", region: nepal, lang: en}
+  - {name: Nepali Times, url: "https://nepalitimes.com/feed", region: nepal, lang: en}
+  # Nepal, Nepali
+  - {name: अनलाइनखबर, url: "https://www.onlinekhabar.com/feed", region: nepal, lang: ne}
+  - {name: रातोपाटी, url: "https://ratopati.com/feed", region: nepal, lang: ne}
+  - {name: बीबीसी नेपाली, url: "https://feeds.bbci.co.uk/nepali/rss.xml", region: nepal, lang: ne}
+  # World
+  - {name: BBC News, url: "https://feeds.bbci.co.uk/news/world/rss.xml", region: world, lang: en}
+  - {name: Al Jazeera, url: "https://www.aljazeera.com/xml/rss/all.xml", region: world, lang: en}
+  - {name: The Guardian, url: "https://www.theguardian.com/world/rss", region: world, lang: en}
+  - {name: NPR, url: "https://feeds.npr.org/1004/rss.xml", region: world, lang: en}
+  - {name: UN News, url: "https://news.un.org/feed/subscribe/en/news/all/rss.xml", region: world, lang: en}
+  - {name: BBC Sport, url: "https://feeds.bbci.co.uk/sport/rss.xml", region: world, lang: en, category: sports}
+  - {name: BBC Technology, url: "https://feeds.bbci.co.uk/news/technology/rss.xml", region: world, lang: en, category: technology}
+  # Official alerts, used for emergencies
+  - {name: USGS Earthquakes, url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson", region: world, lang: en, kind: usgs, category: disaster}
+  - {name: GDACS, url: "https://www.gdacs.org/xml/rss.xml", region: world, lang: en, kind: gdacs, category: disaster}

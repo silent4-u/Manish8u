@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }} · {{ site.name }}</title>
+<meta name="description" content="{{ site.tagline }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" type="application/feed+json" href="feed.json" title="{{ site.name }}">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="index.html"><span class="mark">{{ site.name_ne }}</span><span class="name">{{ site.name }}</span></a>
+    <div class="dates">
+      <span>{{ date_ad }}</span><span class="bs">{{ date_bs }}</span>
+      <span class="upd">Updated {{ updated }} NPT</span>
+    </div>
+    <button class="lang" id="lang" aria-label="Switch language">नेपाली</button>
+  </div>
+  <nav class="wrap nav">
+    <a href="index.html" {% if active == 'home' %}class="on"{% endif %}>Home</a>
+    <a href="nepal.html" {% if active == 'nepal' %}class="on"{% endif %}>Nepal</a>
+    <a href="world.html" {% if active == 'world' %}class="on"{% endif %}>World</a>
+    {% for c in categories %}<a href="{{ c.slug }}.html" {% if active == c.slug %}class="on"{% endif %}>{{ c.name }}</a>{% endfor %}
+    <a href="videos.html" {% if active == 'videos' %}class="on"{% endif %}>Videos</a>
+  </nav>
+</header>
+{% if breaking %}
+<div class="breaking">
+  <div class="wrap breaking-row">
+    <span class="tag">BREAKING · ताजा</span>
+    <div class="ticker"><div class="ticker-move">
+      {% for s in breaking %}<a href="{{ s.link }}" target="_blank" rel="noopener">{{ s.title }} <em>· {{ s.source }}</em></a>{% endfor %}
+    </div></div>
+  </div>
+</div>
+{% endif %}
+<main class="wrap">
+{% block main %}{% endblock %}
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>{{ site.name }} gathers headlines from the sources named on each story and links to them. Summaries are
+    short; read the full story at the source. Emergency alerts come from several sources or official feeds
+    (USGS, GDACS); always follow the advice of local authorities.</p>
+  </div>
+</footer>
+<script>
+const rel = iso => { const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : m < 1440 ? Math.round(m / 60) + ' h ago' : Math.round(m / 1440) + ' d ago'; };
+document.querySelectorAll('time[datetime]').forEach(t => t.textContent = rel(t.dateTime));
+const btn = document.getElementById('lang');
+let ne = false; try { ne = localStorage.getItem('lang') === 'ne'; } catch (e) {}
+const apply = () => { document.body.classList.toggle('ne', ne); btn.textContent = ne ? 'English' : 'नेपाली'; };
+btn.onclick = () => { ne = !ne; try { localStorage.setItem('lang', ne ? 'ne' : 'en'); } catch (e) {} apply(); };
+apply();
+</script>
+</body>
+</html>
