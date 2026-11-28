@@ -1,9 +1,9 @@
 # Khabar Hub: collect the news every 15 minutes, post alerts and bulletins,
 # and publish the website on GitHub Pages.
 #
-# To use it, copy this file to .github/workflows/news-hub.yml in the repository
-# that holds the news hub (README.md, "Put it online"). Scheduled runs only
-# happen on the repository's default branch.
+# To turn it on, copy this file to .github/workflows/news-hub.yml and merge it
+# into the default branch (README.md, "Put it online"). Scheduled runs only
+# happen on the default branch.
 
 name: News Hub
 
@@ -31,7 +31,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  NEWS_DIR: .                   # the folder holding newshub/; "news-hub" if it sits inside another repo
+  NEWS_DIR: news-hub            # the folder holding newshub/ ("." if it is the repository's root)
 
 jobs:
   run:

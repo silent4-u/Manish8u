@@ -5,7 +5,7 @@ site:
   name: "Khabar Hub"
   name_ne: "खबर हब"
   tagline: "Nepal and world news, gathered every 15 minutes"
-  base_url: "https://silent4-u.github.io/khabar-hub/" # the GitHub Pages address of the repo it runs in
+  base_url: "https://silent4-u.github.io/Manish8u/"  # the GitHub Pages address of the repo it runs in
   timezone: "Asia/Kathmandu"
   keep_days: 3                  # how long stories stay on the site
   per_section: 24               # stories per section on the home page

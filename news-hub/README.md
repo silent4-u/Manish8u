@@ -48,22 +48,23 @@ Other options:
 
 ## Put it online (free, on GitHub)
 
-1. **Create a new public repository**, e.g. `khabar-hub`, and copy everything
-   in this folder to its root. A repository has one GitHub Pages site and runs
-   scheduled workflows only on its default branch, which is why the news hub
-   needs a repository of its own.
-2. **Turn on Pages.** In the new repository go to Settings > Pages >
+The news hub runs from this repository (`silent4-u/Manish8u`), in the
+`news-hub/` folder. Its website becomes this repository's GitHub Pages site,
+`https://silent4-u.github.io/Manish8u/`.
+
+1. **Turn on Pages.** Go to the repository's Settings > Pages >
    Build and deployment and set Source to **GitHub Actions**.
-3. **Add the workflow.** Copy `deploy/news-hub.yml` to `.github/workflows/news-hub.yml`
-   and push.
-4. **Edit `config.yaml`.**
-   - `site.base_url`: your Pages address, `https://<user>.github.io/<repo>/`.
+2. **Add the workflow.** Copy `news-hub/deploy/news-hub.yml` to
+   `.github/workflows/news-hub.yml`. Then merge it into the default branch,
+   because GitHub runs scheduled workflows only from there.
+3. **Edit `config.yaml`.**
+   - `site.base_url`: the Pages address. It is already set for this repository.
    - `site.name` and `name_ne`: the channel's name.
    - `video.handles`: your social handle.
-5. **Add the secrets** for the platforms you want (below) under
+4. **Add the secrets** for the platforms you want (below) under
    Settings > Secrets and variables > Actions. A platform without its
    secrets is skipped.
-6. **Test it.** Go to Actions > News Hub > Run workflow, tick "Make a bulletin
+5. **Test it.** Go to Actions > News Hub > Run workflow, tick "Make a bulletin
    now" and untick "Really post". The log shows each post it would make, and the
    site appears at your Pages address.
 
