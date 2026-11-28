@@ -16,7 +16,7 @@ from . import ai, publish, samples, site, store
 from .classify import find_emergencies, rank, same_event, sort_story
 from .collect import collect, merge
 
-HASHTAGS = ["#Nepal", "#NepalNews", "#News", "#WorldNews", "#Khabar"]
+HASHTAGS = ["#Nepal", "#NepalNews", "#News", "#WorldNews", "#NewsBell"]
 
 
 def headline(s, cfg):

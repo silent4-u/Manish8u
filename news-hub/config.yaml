@@ -2,8 +2,8 @@
 # read from environment variables (GitHub Actions secrets), listed in README.md.
 
 site:
-  name: "Khabar Hub"
-  name_ne: "खबर हब"
+  name: "News Bell"
+  name_ne: "न्युज बेल"
   tagline: "Nepal and world news, gathered every 15 minutes"
   base_url: "https://silent4-u.github.io/Manish8u/"  # the GitHub Pages address of the repo it runs in
   timezone: "Asia/Kathmandu"
@@ -101,7 +101,7 @@ video:
       en: en-US-AndrewNeural
       ne: ne-NP-SagarNeural     # or ne-NP-HemkalaNeural (female)
   music: true
-  handles: "@khabarhub"   # shown on the closing card
+  handles: "@newsbellnepal"   # shown on the closing card and the bottom bar
 
 ai:
   enabled: auto           # auto: on when ANTHROPIC_API_KEY is set

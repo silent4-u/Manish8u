@@ -56,7 +56,7 @@ def azure(parts, voice, lang, rate, out):
     r = requests.post(f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1", timeout=120,
                       data=ssml.encode("utf-8"), headers={
                           "Ocp-Apim-Subscription-Key": key, "Content-Type": "application/ssml+xml",
-                          "X-Microsoft-OutputFormat": "riff-24khz-16bit-mono-pcm", "User-Agent": "KhabarHub"})
+                          "X-Microsoft-OutputFormat": "riff-24khz-16bit-mono-pcm", "User-Agent": "NewsBell"})
     if r.status_code != 200:
         raise RuntimeError(f"Azure HTTP {r.status_code} {r.text[:200]}")
     out.write_bytes(r.content)

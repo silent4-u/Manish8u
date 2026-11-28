@@ -12,7 +12,7 @@ import requests
 
 from .store import now_utc
 
-UA = "KhabarHubBot/1.0 (news aggregator; links back to every source)"
+UA = "NewsBellBot/1.0 (news aggregator; links back to every source)"
 SNIPPET = 220            # characters of a publisher's summary shown: a teaser, not the article
 NEPAL_BOX = (25.8, 31.0, 79.8, 88.6)   # lat min, lat max, lon min, lon max, with a margin
 

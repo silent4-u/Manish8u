@@ -1,4 +1,4 @@
-# Khabar Hub: collect the news every 15 minutes, post alerts and bulletins,
+# News Bell: collect the news every 15 minutes, post alerts and bulletins,
 # and publish the website on GitHub Pages.
 #
 # To turn it on, copy this file to .github/workflows/news-hub.yml and merge it

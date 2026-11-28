@@ -1,4 +1,4 @@
-# खबर हब · Khabar Hub
+# न्युज बेल · News Bell
 
 A news website that runs itself. Every 15 minutes it:
 
